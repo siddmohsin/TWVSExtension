@@ -55,7 +55,7 @@ DownloadQtFile() {
   fi
   if [ $COMP == "Includes" ]
   then
-     ExtractFolder=$InstallFolder/includes
+     ExtractFolder=$InstallFolder/include
   fi
   if [ $COMP == "Libs" ]
   then
