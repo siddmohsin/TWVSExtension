@@ -99,7 +99,7 @@ then
 fi
 
 
-echo "INFO:Downloading and installing LLVM version 11....  "
+echo "INFO:Downloading and installing LLVM version 12....  "
 wget https://apt.llvm.org/llvm.sh  --directory-prefix=$HOME 
 
 if [ $? != 0 ]
@@ -109,7 +109,9 @@ then
 fi
 
 chmod +x $HOME/llvm.sh   
-sudo $HOME/llvm.sh 11   ## use version 11
+
+
+sudo $HOME/llvm.sh 12   ## use version 12
 
 if [ $? != 0 ]
 then
@@ -120,29 +122,36 @@ rm $HOME/llvm.sh
 
 # Clang and co
 echo "INFO:Installing Clang and co...  "
-sudo apt install -y clang-11 clang-tools-11 clang-11-doc libclang-common-11-dev libclang-11-dev libclang1-11 clang-format-11 python3-clang-11 clangd-11 clang-tidy-11 
+sudo apt install -y clang-12 clang-tools-12 clang-12-doc libclang-common-12-dev libclang-12-dev libclang1-12 clang-format-12 python3-clang-12 clangd-12 clang-tidy-12 
 
 if [ $? != 0 ]
 then
-	echo "ERROR: clang 11 install failed."
+	echo "ERROR: clang 12 install failed."
+	exit -1
+fi
+
+sudo apt install python3-lldb-12 -y
+if [ $? != 0 ]
+then
+	echo "ERROR: python3-lldb-12 Installation failed."
 	exit -1
 fi
 
  
 # libfuzzer
-echo "INFO:Installing ibfuzzer-11-dev ...  "
-sudo apt install -y libfuzzer-11-dev  
+echo "INFO:Installing ibfuzzer-12-dev ...  "
+sudo apt install -y libfuzzer-12-dev  
 
 if [ $? != 0 ]
 then
-	echo "ERROR: ibfuzzer-11-dev failed."
+	echo "ERROR: ibfuzzer-12-dev failed."
 	exit -1
 fi
 
  
 # lldb
 echo "INFO:Installing lldb ...  "
-sudo apt install -y lldb-11  
+sudo apt install -y lldb-12  
 
 if [ $? != 0 ]
 then
@@ -153,7 +162,14 @@ fi
  
 # lld (linker)
 echo "INFO:Installing lld (linker) ...  "
-sudo apt install -y lld-11  
+sudo apt install -y libc++1-12 libc++abi1-12
+if [ $? != 0 ]
+then
+	echo "ERROR: libc++ failed."
+	exit -1
+fi
+
+sudo apt install -y lld-12  
 
 if [ $? != 0 ]
 then
@@ -164,7 +180,7 @@ fi
  
 # libc++
 echo "INFO:Installing libc++ ...  "
-sudo apt install -y libc++-11-dev libc++abi-11-dev  
+sudo apt install -y libc++-12-dev libc++abi-12-dev  
 
 if [ $? != 0 ]
 then
@@ -175,7 +191,7 @@ fi
  
 # OpenMP
 echo "INFO:Installing OpenMP ...  "
-sudo apt install -y libomp-11-dev 
+sudo apt install -y libomp-12-dev 
 
 if [ $? != 0 ]
 then
@@ -187,7 +203,7 @@ fi
 #Add links for clang, clang++
 echo "INFO:Add links for clang, clang++  "
 cd /usr/bin  
-sudo ln -f clang-11 clang 
+sudo ln -f clang-12 clang 
 
 if [ $? != 0 ]
 then
@@ -195,8 +211,28 @@ then
 	exit -1
 fi
 
-sudo ln -f clang++-11 clang++
+sudo ln -f clang++-12 clang++
 
+if [ $? != 0 ]
+then
+	echo "ERROR: link command failed."
+	exit -1
+fi
+
+sudo ln -f llvm-ar-12 llvm-ar
+if [ $? != 0 ]
+then
+	echo "ERROR: link command failed."
+	exit -1
+fi
+
+sudo ln -f llvm-ranlib-12 llvm-ranlib
+if [ $? != 0 ]
+then
+	echo "ERROR: link command failed."
+	exit -1
+fi
+sudo ln -f lld-link-12 lld-link
 if [ $? != 0 ]
 then
 	echo "ERROR: link command failed."
@@ -205,7 +241,7 @@ fi
 
 cd -
 
-# Packages to support cross compilation(to be done after Clang11 installation)
+# Packages to support cross compilation(to be done after Clang12 installation)
 echo "INFO:Installing Packages to support cross compilation..  "
 sudo apt install -y gcc-aarch64-linux-gnu   
 
@@ -260,42 +296,7 @@ fi
 
 mkdir -p ~/.ssh
 
-IFS='/' read -ra ADDR <<< `pwd` 
-TWWorkspace=""
-TWWorkspaceDrive=""
-count=0
-for i in "${ADDR[@]}"; do
-  echo $count
-  if [[ $i == "TallyWorldPMT" ]]
-  then
-	break
-  fi
-
-  if [ $count == 3 ]
-  then
-	TWWorkspaceDrive=$TWWorkspace
-  fi
-  if [[ $i != "" ]]
-  then
-  	TWWorkspace=${TWWorkspace}/$i
-  fi
-  ((count=count+1))
-done
-
-if [ ! -d $TWWorkspace ]
-then
-    echo "ERROR: Not a valid Workspace : $TWWorkspace "
-	exit -1
-fi
-
-echo "TWWorkspaceHomeDrive=$TWWorkspaceDrive" > ~/.ssh/environment
-if [ $? != 0 ]
-then
-	echo "ERROR:can not create ~/.ssh/environment."
-	exit -1
-fi
-
-echo "TWWorkspaceHome=$TWWorkspace" >> ~/.ssh/environment
+echo "TWWorkspaceHome=~/.vs" >> ~/.ssh/environment
 if [ $? != 0 ]
 then
 	echo "ERROR:can not write to ~/.ssh/environment."
@@ -314,21 +315,83 @@ then
 	exit -1
 fi
 
-echo "INFO:Installing Wine ...  "
+#echo "INFO:Installing Wine ...  "
 
-sudo apt install wine
+#sudo apt install wine
+#if [ $? != 0 ]
+#then
+#	echo "ERROR:Wine install failed."
+#	exit -1
+#fi
+
+#sudo dpkg --add-architecture i386 && sudo apt-get update && sudo apt-get install wine32
+#if [ $? != 0 ]
+#then
+#	echo "ERROR:Wine multiarch setting up failed."
+#	exit -1
+#fi
+
+echo "INFO:Installing Qt support packages ...  "
+
+sudo apt install zlib1g
 if [ $? != 0 ]
 then
-	echo "ERROR:Wine install failed."
+	echo "ERROR:zlib1g install failed."
 	exit -1
 fi
 
-sudo dpkg --add-architecture i386 && sudo apt-get update && sudo apt-get install wine32
+sudo apt install zlib1g-dev
 if [ $? != 0 ]
 then
-	echo "ERROR:Wine multiarch setting up failed."
+	echo "ERROR:zlib1g-dev install failed."
 	exit -1
 fi
 
+sudo cp /etc/apt/sources.list /etc/apt/sources.list~
+sudo sed -Ei 's/^# deb-src /deb-src /' /etc/apt/sources.list
+sudo apt-get update
+
+sudo apt-get build-dep qt5-default libxcb-xinerama0-dev  -y
+if [ $? != 0 ]
+then
+	echo "ERROR:failed to get packages : build-dep, qt5-default, libxcb-xinerama0-dev."
+	exit -1
+fi
+
+sudo apt-get install build-essential perl python -y
+if [ $? != 0 ]
+then
+	echo "ERROR:perl/python install failed."
+	exit -1
+fi
+
+sudo apt-get install '^libxcb.*-dev' libx11-xcb-dev libglu1-mesa-dev libxrender-dev libxi-dev libxkbcommon-dev libxkbcommon-x11-dev -y
+if [ $? != 0 ]
+then
+	echo "ERROR:libx11-xcb-dev libglu1-mesa-dev libxrender-dev libxi-dev libxkbcommon-dev libxkbcommon-x11-dev install failed."
+	exit -1
+fi
+
+sudo apt-get install gperf libicu-dev libxslt-dev ruby libxcursor-dev libxcomposite-dev libxdamage-dev libxrandr-dev libxtst-dev libxss-dev libdbus-1-dev libevent-dev libfontconfig1-dev libcap-dev libpulse-dev libudev-dev libpci-dev libnss3-dev libasound2-dev libegl1-mesa-dev nodejs -y
+if [ $? != 0 ]
+then
+	echo "ERROR:gperf libicu-dev libxslt-dev ruby ibxcursor-dev libxcomposite-dev libxdamage-dev libxrandr-dev libxtst-dev libxss-dev libdbus-1-dev libevent-dev libfontconfig1-dev libcap-dev libpulse-dev libudev-dev libpci-dev libnss3-dev libasound2-dev libegl1-mesa-dev nodejs install failed."
+	exit -1
+fi
+
+
+echo "INFO:Installing flex/bison..."
+sudo apt-get install flex
+if [ $? != 0 ]
+then
+	echo "ERROR:flex install failed."
+	exit -1
+
+sudo apt-get install bison
+if [ $? != 0 ]
+then
+	echo "ERROR:bison install failed."
+	exit -1
+fi
 
 echo "INFO:Installing of Packages Completed Successfully.. "
