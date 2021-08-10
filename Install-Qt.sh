@@ -40,6 +40,12 @@ then
   HOST_ARCH=x64
 fi
 
+if [ "i386"  == `arch` ]
+then
+  HOST_ARCH=x64
+fi
+
+
 DownloadQtFile() {
   OS=$1
   COMP=$2
