@@ -30,21 +30,26 @@ QT_VERSION=6.1.0
 
 #Set Host Arch - x64 or ARM 64 
 ARCH=`arch`
-if [ "arm64"  == `arch` ]
+if [ "arm64"  == "$ARCH" ]
 then
   HOST_ARCH=ARM64
 fi
 
-if [ "x86_64"  == `arch` ]
+if [ "x86_64"  == "$ARCH" ]
 then
   HOST_ARCH=x64
 fi
 
-if [ "i386"  == `arch` ]
+if [ "i386"  == "$ARCH" ]
 then
   HOST_ARCH=x64
 fi
 
+if [ "$HOST_ARCH" == "" ]
+then
+   echo "ERROR: Could not map host cpu architecture, unknown architecture : `arch`"
+   exit 1
+fi
 
 DownloadQtFile() {
   OS=$1
