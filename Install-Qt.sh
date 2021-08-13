@@ -154,7 +154,8 @@ then
 fi
 
 #Download Base zip file
-DownloadQtFile $OS "Base" $HOST_ARCH
+DownloadQtFile $OS "Base" x64
+DownloadQtFile $OS "Base" ARM64
 
 #Download Qt libs/Includes for  both architecture
 
