@@ -88,7 +88,7 @@ DownloadQtFile() {
     QtUrl=https://github.com/TallySolutions/qt6.libs/releases/download/v${QT_VERSION}.0/Qt-${COMP}-${OS}-${ARCH}.7z 
   fi
 
-  curl -L $QtUrl --output $QtZip
+  curl --fail -L $QtUrl --output $QtZip
 
   if [ $? != 0 ]
   then
