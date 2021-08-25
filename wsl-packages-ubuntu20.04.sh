@@ -358,6 +358,14 @@ then
 	exit -1
 fi
 
+sudo apt-get install build-essential libgl1-mesa-dev
+if [ $? != 0 ]
+then
+	echo "ERROR:libgl1-mesa-dev install failed."
+	exit -1
+fi
+
+
 sudo apt-get install build-essential perl python -y
 if [ $? != 0 ]
 then
