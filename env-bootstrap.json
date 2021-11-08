@@ -1,0 +1,65 @@
+{
+    "RequiredSoftwares" :
+    [
+        {
+            "Name"        : "CMake",
+            "Version"     : "3.21",
+            "VersionInfo" : 
+            {
+                "Command"    : "${TWHome}/Tools/CMake/bin/cmake --version",
+                "OutputType" : "PlainText",
+                "Line"       : 1,
+                "Column"     : 3
+            },
+            
+            "Installation" : 
+            {
+                "Windows" : 
+                {
+                    "Installer" : 
+                    { 
+                        "URL": 
+                        {
+                            "x64":  "https://github.com/Kitware/CMake/releases/download/v3.21.4/cmake-3.21.4-windows-x86_64.zip",
+                            "ARM64":"https://github.com/Kitware/CMake/releases/download/v3.21.4/cmake-3.21.4-windows-x86_64.zip"
+                        },
+                        "FileType"       : "Zip",
+                        "ExtractDir"      : "%TWHome%/Tools",
+                        "PostInstall"     : "rename ${TWHome}/Tools/${FILENAME_WE} CMake",
+                        "UninstallMethod" : "RemoveDir"
+                    }
+                },
+                "Linux" : 
+                {
+                    "Installer" : 
+                    { 
+                        "URL": 
+                        {
+                            "x64":   "https://github.com/Kitware/CMake/releases/download/v3.21.4/cmake-3.21.4-linux-x86_64.tar.gz",
+                            "ARM64": "https://github.com/Kitware/CMake/releases/download/v3.21.4/cmake-3.21.4-linux-aarch64.tar.gz"
+                        },
+                        "FileType"        : "CompressedTarball",
+                        "ExtractDir"      : "/usr/share",
+                        "PostInstall"     : "mv /usr/share/${FILENAME_WE} CMake",
+                        "UninstallMethod" : "RemoveDir"
+                    }
+                },
+                "MacOS" : 
+                {
+                    "Installer" : 
+                    { 
+                        "URL": 
+                        {
+                            "x64":   "https://github.com/Kitware/CMake/releases/download/v3.21.4/cmake-3.21.4-macos-universal.tar.gz",
+                            "ARM64": "https://github.com/Kitware/CMake/releases/download/v3.21.4/cmake-3.21.4-macos-universal.tar.gz"
+                        },
+                        "FileType"        : "CompressedTarball",
+                        "ExtractDir"      : "/Users/Shared",
+                        "PostInstall"     : "mv /Users/Shared/${FILENAME_WE} CMake",
+                        "UninstallMethod" : "RemoveDir"
+                    }
+                }
+            }
+        }
+    ]
+}
