@@ -1,4 +1,22 @@
 {
+    "Directories"       :
+    {
+        "Workspace"      : "Workspace",
+        "Tools"          : "Tools",
+        "BuildSupportDir": "TWBuildSupport"
+    },
+    "ADOService"        :
+    {
+        "URL"           : "https://dev.azure.com",
+        "Organization"  : "TallyWorld"
+    },
+    "TallyWorldBranchPolicies" :
+    {
+        "DevelopmentTrunkName" : "DevTrunk",
+        "PreReleaseTrunkName"  : "PreReleaseTrunk",
+        "ReleaseTrunkName"     : "ReleaseTrunk",
+        "WorkBranchPrefix"     : "Work"
+    },
     "RequiredSoftwares" :
     [
         {
@@ -6,31 +24,31 @@
             "Version"     : "3.21",
             "VersionInfo" : 
             {
-                "Command"    : "${TWHome}/Tools/CMake/bin/cmake --version",
+                "Command"    : "${InstallDir}/CMake/bin/cmake --version",
                 "OutputType" : "PlainText",
                 "Line"       : 1,
                 "Column"     : 3
             },
             
-            "Installation" : 
-            {
-                "Windows" : 
+            "Installations" : 
+            [
                 {
+                    "Host"      : "Windows",
                     "Installer" : 
                     { 
                         "URL": 
                         {
-                            "x64":  "https://github.com/Kitware/CMake/releases/download/v3.21.4/cmake-3.21.4-windows-x86_64.zip",
-                            "ARM64":"https://github.com/Kitware/CMake/releases/download/v3.21.4/cmake-3.21.4-windows-x86_64.zip"
+                            "x64"  :  "https://github.com/Kitware/CMake/releases/download/v3.21.4/cmake-3.21.4-windows-x86_64.zip",
+                            "ARM64":  "https://github.com/Kitware/CMake/releases/download/v3.21.4/cmake-3.21.4-windows-x86_64.zip"
                         },
-                        "FileType"       : "Zip",
-                        "ExtractDir"      : "%TWHome%/Tools",
-                        "PostInstall"     : "rename ${TWHome}/Tools/${FILENAME_WE} CMake",
+                        "FileType"        : "Zip",
+                        "InstallDir"      : "%TWHome%/Tools",
+                        "PostInstall"     : "rename ${InstallDir}/${FILENAME_WE} ${NAME}",
                         "UninstallMethod" : "RemoveDir"
                     }
                 },
-                "Linux" : 
                 {
+                    "Host"      : "Linux",
                     "Installer" : 
                     { 
                         "URL": 
@@ -39,13 +57,13 @@
                             "ARM64": "https://github.com/Kitware/CMake/releases/download/v3.21.4/cmake-3.21.4-linux-aarch64.tar.gz"
                         },
                         "FileType"        : "CompressedTarball",
-                        "ExtractDir"      : "/usr/share",
+                        "InstallDir"      : "/usr/share",
                         "PostInstall"     : "mv /usr/share/${FILENAME_WE} CMake",
                         "UninstallMethod" : "RemoveDir"
                     }
                 },
-                "MacOS" : 
                 {
+                    "Host"      : "MacOS",
                     "Installer" : 
                     { 
                         "URL": 
@@ -54,12 +72,63 @@
                             "ARM64": "https://github.com/Kitware/CMake/releases/download/v3.21.4/cmake-3.21.4-macos-universal.tar.gz"
                         },
                         "FileType"        : "CompressedTarball",
-                        "ExtractDir"      : "/Users/Shared",
+                        "InstallDir"      : "/Users/Shared",
                         "PostInstall"     : "mv /Users/Shared/${FILENAME_WE} CMake",
                         "UninstallMethod" : "RemoveDir"
                     }
                 }
-            }
+            ]
+        }
+    ],
+    "ADORepositories" :
+    [
+        {
+            "Name"           : "Vishwamitra",
+            "URL"            : "https://tw-vishwamitra.tallysolutions.com",
+            "Organizations"  :
+            [
+                {
+                    "Name"       : "TallyWorldPMT",
+                    "Projects"   : ["TallyWorld"]
+                },
+                {
+                    "Name"       : "Tally",
+                    "Projects"   : ["SharedProjects"]
+                },
+                {
+                    "Name"       : "Personal",
+                    "Projects"   : ["${DomainName}"]
+                }
+            ]
+        }
+    ],
+    "ThirdPartyRepositories" :
+    [
+        {
+            "Name"           : "GitHub",
+            "URL"            : "https://github.com",
+            "Owners"  :
+            [
+                {
+                    "Name"           : "TallySolutions",
+                    "Repositories"   : 
+                    [
+                        {
+                            "Name"    : "NanOS",
+                            "CloneDir": "TallyWorldPMT/3rdParty/NanOS"
+                        },
+                        {
+                            "Name"    : "OPS",
+                            "CloneDir": "TallyWorldPMT/3rdParty/OPS"
+                        },
+                        {
+                            "Name"    : "TWVSExtension",
+                            "CloneDir": "TallyWorldPMT/TallyWorld/TWVSExtension"
+                        }
+                    ]
+                }
+            ]
         }
     ]
+
 }
