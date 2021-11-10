@@ -42,8 +42,8 @@
                             "ARM64":  "https://github.com/Kitware/CMake/releases/download/v3.21.4/cmake-3.21.4-windows-x86_64.zip"
                         },
                         "FileType"        : "Zip",
-                        "InstallDir"      : "${TWHome}/Tools",
-                        "PostInstall"     : "rename ${InstallDir}/${FILENAME_WE} ${NAME}",
+                        "InstallDir"      : "${TWHome}\\Tools",
+                        "PostInstall"     : "rename ${InstallDir}\\${FILENAME_WE} ${NAME}",
                         "UninstallMethod" : "RemoveDir"
                     }
                 },
