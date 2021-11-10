@@ -43,7 +43,7 @@
                         },
                         "FileType"        : "Zip",
                         "InstallDir"      : "${TWHome}\\Tools",
-                        "PostInstall"     : "rename ${InstallDir}\\${FILENAME_WE} ${InstallDir}\\${NAME}",
+                        "PostInstalls"    : ["rename ${InstallDir}\\${FILENAME_WE} ${InstallDir}\\${NAME}"],
                         "UninstallMethod" : "RemoveDir"
                     }
                 },
@@ -58,7 +58,7 @@
                         },
                         "FileType"        : "CompressedTarball",
                         "InstallDir"      : "/usr/share",
-                        "PostInstall"     : "mv -f ${InstallDir}/${FILENAME_WE} ${InstallDir}/${NAME}",
+                        "PostInstalls"    : ["mv -f ${InstallDir}/${FILENAME_WE} ${InstallDir}/${NAME}"],
                         "UninstallMethod" : "RemoveDir"
                     }
                 },
@@ -73,7 +73,7 @@
                         },
                         "FileType"        : "CompressedTarball",
                         "InstallDir"      : "/Users/Shared",
-                        "PostInstall"     : "mv -f ${InstallDir}/${FILENAME_WE}/CMake.app/Contents ${InstallDir}/${NAME} && sudo rm -rf ${InstallDir}/${FILENAME_WE}",
+                        "PostInstalls"    : ["mv -f ${InstallDir}/${FILENAME_WE}/CMake.app/Contents ${InstallDir}/${NAME}", "rm -rf ${InstallDir}/${FILENAME_WE}"],
                         "UninstallMethod" : "RemoveDir"
                     }
                 }
