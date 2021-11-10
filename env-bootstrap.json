@@ -43,7 +43,7 @@
                         },
                         "FileType"        : "Zip",
                         "InstallDir"      : "${TWHome}\\Tools",
-                        "PostInstall"     : "rename ${InstallDir}\\${FILENAME_WE} ${NAME}",
+                        "PostInstall"     : "rename ${InstallDir}\\${FILENAME_WE} ${InstallDir}\\${NAME}",
                         "UninstallMethod" : "RemoveDir"
                     }
                 },
@@ -58,7 +58,7 @@
                         },
                         "FileType"        : "CompressedTarball",
                         "InstallDir"      : "/usr/share",
-                        "PostInstall"     : "mv /usr/share/${FILENAME_WE} ${NAME}",
+                        "PostInstall"     : "mv ${InstallDir}/${FILENAME_WE} ${InstallDir}/${NAME}",
                         "UninstallMethod" : "RemoveDir"
                     }
                 },
@@ -73,7 +73,7 @@
                         },
                         "FileType"        : "CompressedTarball",
                         "InstallDir"      : "/Users/Shared",
-                        "PostInstall"     : "mv /Users/Shared/${FILENAME_WE} ${NAME}",
+                        "PostInstall"     : "mv ${InstallDir}/${FILENAME_WE} ${InstallDir}/${NAME}",
                         "UninstallMethod" : "RemoveDir"
                     }
                 }
