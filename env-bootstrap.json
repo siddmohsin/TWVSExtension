@@ -73,7 +73,7 @@
                         },
                         "FileType"        : "CompressedTarball",
                         "InstallDir"      : "/Users/Shared",
-                        "PostInstall"     : "mv -f ${InstallDir}/${FILENAME_WE}/CMake.app/Contents ${InstallDir}/${NAME}",
+                        "PostInstall"     : "mv -f ${InstallDir}/${FILENAME_WE}/CMake.app/Contents ${InstallDir}/${NAME} && sudo rm -rf ${InstallDir}/${FILENAME_WE}",
                         "UninstallMethod" : "RemoveDir"
                     }
                 }
