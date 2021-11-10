@@ -58,7 +58,7 @@
                         },
                         "FileType"        : "CompressedTarball",
                         "InstallDir"      : "/usr/share",
-                        "PostInstall"     : "mv ${InstallDir}/${FILENAME_WE} ${InstallDir}/${NAME}",
+                        "PostInstall"     : "mv -f ${InstallDir}/${FILENAME_WE} ${InstallDir}/${NAME}",
                         "UninstallMethod" : "RemoveDir"
                     }
                 },
@@ -73,7 +73,7 @@
                         },
                         "FileType"        : "CompressedTarball",
                         "InstallDir"      : "/Users/Shared",
-                        "PostInstall"     : "mv ${InstallDir}/${FILENAME_WE} ${InstallDir}/${NAME}",
+                        "PostInstall"     : "mv -f ${InstallDir}/${FILENAME_WE}/CMake.app/Contents ${InstallDir}/${NAME}",
                         "UninstallMethod" : "RemoveDir"
                     }
                 }
