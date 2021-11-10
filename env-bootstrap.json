@@ -42,7 +42,7 @@
                             "ARM64":  "https://github.com/Kitware/CMake/releases/download/v3.21.4/cmake-3.21.4-windows-x86_64.zip"
                         },
                         "FileType"        : "Zip",
-                        "InstallDir"      : "%TWHome%/Tools",
+                        "InstallDir"      : "${TWHome}/Tools",
                         "PostInstall"     : "rename ${InstallDir}/${FILENAME_WE} ${NAME}",
                         "UninstallMethod" : "RemoveDir"
                     }
@@ -58,7 +58,7 @@
                         },
                         "FileType"        : "CompressedTarball",
                         "InstallDir"      : "/usr/share",
-                        "PostInstall"     : "mv /usr/share/${FILENAME_WE} CMake",
+                        "PostInstall"     : "mv /usr/share/${FILENAME_WE} ${NAME}",
                         "UninstallMethod" : "RemoveDir"
                     }
                 },
@@ -73,7 +73,7 @@
                         },
                         "FileType"        : "CompressedTarball",
                         "InstallDir"      : "/Users/Shared",
-                        "PostInstall"     : "mv /Users/Shared/${FILENAME_WE} CMake",
+                        "PostInstall"     : "mv /Users/Shared/${FILENAME_WE} ${NAME}",
                         "UninstallMethod" : "RemoveDir"
                     }
                 }
