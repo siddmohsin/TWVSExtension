@@ -1,0 +1,404 @@
+// Sri Ganeshji : Sri Balaji : Sri Pitreshwarji : Sri Durgaji : Sri Venkateshwara
+
+// Some Application framework, build system related AppID enums are now here.
+
+TWEnum eTWBuildStage : TUInt8 {
+
+    DEVELOPMENT,
+    UNKNOWN = DEVELOPMENT,
+
+    INTERNAL,
+    ALPHA,
+    BETA,
+    RELEASE
+};
+
+/* 
+AppID Compiler generates constexpr function (IsLayerActive) and preprocessor macros (TW_LAYER_XYZ) using this 
+And which is used by various layers along with this enum 
+This enum CAN be changed (reordering, addition / removal of layers) and no need a new TWAppIDCompiler release
+*/
+TWEnum eTWAppLayer : TUInt16 {
+
+    TWDevSupport,
+
+    TWUniversal,
+
+    TWCore,
+    TWCoreObject,
+
+    TWCoreDiskIO,
+    TWCoreDB,
+    TWCoreDC,
+    TWCoreSchemaMgr,
+
+    TWCoreProcessMgr,
+    TWCoreCommMgr,
+
+    TWCoreExperiential,
+
+    TallyWorldMain,
+};
+
+TWMainEnum eTWAppSignal: TUInt16 {
+
+};
+
+/* 
+AppID Compiler generates constexpr function (IsTierActive) and preprocessor macros (TW_TIER_XYZ) using this 
+And which is used by various layers along with this enum 
+This enum CAN be changed (reordering, addition / removal of layers) and But needs a TWAppIDCompiler new release 
+(as the AppIDCompiler Reserved Tier functions are tied to this at compile time)
+*/
+TWEnum eTWAppTierType : TUInt8 {
+
+    TWAdmin,
+    TWServer,
+    TWClient,
+    TWPresentation,
+};
+
+/*
+eTWMainStatus is used to set Panic status and every layer will be 
+extending it.
+*/
+
+TWMainEnum eTWMainStatus: TUInt16 {
+
+};
+
+// extended status group
+TWMainEnum eTWExtStatus: TUInt16 {
+
+};
+
+/*TODO: Temporary as we have removed this from 2.3 TWAppIDCompiler. This will be removed and proper method to be used */
+
+TWAppOptions TWAppDeploymentType {
+
+    IS_PREMISE_APP,
+};
+
+TWToolOption TWFloatingLayerName TallyWorldMain;
+
+TWToolOption TWSchemaHPPTopText %{
+// Sri Ganeshji : Sri Balaji : Sri Pitreshwarji : Sri Durgaji : Sri Venkateshwara
+
+// This is a GENERATED file.
+
+// clang-format off
+
+#pragma once
+}%
+
+TWToolOption TWHPPTopText %{
+// Sri Ganeshji : Sri Balaji : Sri Pitreshwarji : Sri Durgaji : Sri Venkateshwara
+
+// This is a GENERATED file.
+
+// clang-format off
+
+#pragma once
+
+// the only compiler headers we allow in the 'hpp files' chain
+
+#include    <stdint.h>
+#include    <limits>             // used to capture the 'max' of a given base-type
+#include    <type_traits>        // used in various templates to determine nature of template parameter
+#include    <inttypes.h>
+
+//TODO: do we require only one of stdint.h and inttypes.h - or both?
+
+//TODO: This is put here, as below, we use Designated initialsers 
+//aple clang does not recogize this.
+#if (!TW_KERNEL_APPLE)
+#pragma clang diagnostic ignored "-Wc++20-designator"
+#endif
+
+using TUInt8  =    uint8_t;
+using TUInt16 =    uint16_t;
+using TUInt32 =    uint32_t;
+using TUInt64 =    uint64_t;
+
+using TInt8   =    int8_t;
+using TInt16  =    int16_t;
+using TInt32  =    int32_t;
+using TInt64  =    int64_t;
+
+using  VPtr   =     void *;
+using  CVPtr  =     void const *;
+
+class TWSyncFlagRaw  {
+
+public:
+    constexpr TWSyncFlagRaw () noexcept : vSyncValue (0) {}
+    constexpr TWSyncFlagRaw (TUInt64 pVal) noexcept : vSyncValue (pVal) { }
+
+    friend class TWDevAtomics;
+    friend class TWDevStackMustLock;
+
+private:
+     alignas(8) volatile    TUInt64         vSyncValue;
+};
+
+// All stringization artefacts generated are wrapped inside this. so we can remove the whole stuff later
+// Also to move this macro definition into Build system - Say in TWRelease we can remove this OR When
+// compiled in non-DevTrunk we can remove this code
+#define TWAPPID_STRINGIZE 1 
+
+enum eTWAPIResponse: TUInt8 {
+ 
+    WAIT,     // I am expecting more results so wait till you time out
+    DONE,     // I am not expecting anything more
+};
+
+/* What our Build Version will look like */
+
+class TWBuildVersion {
+
+    public:
+
+    union {
+
+        struct {
+
+            TUInt64 uMajorVersion       : 15;   // theoretical 32K 'versions' per 'stage' and 'sub-version'
+            TUInt64 uMinorVersion       : 15;
+            TUInt64 uMaintenanceVersion : 15;
+            TUInt64 uBuildStage         : 4;    // max of '16 stages' supported (currently have 5)
+            TUInt64 uBuildStageVersion  : 15;
+        };
+
+        TUInt64       uFullBuildVersion;
+    };
+};
+
+class TWDevSupportMetricGroupData {
+
+
+    public:
+static constexpr TUInt16 TW_DEVSUPPORT_MAX_METRICS_PER_GROUP{256};
+
+        TUInt64 uMetricEnumID;
+        bool    uIsResourceMetric[TW_DEVSUPPORT_MAX_METRICS_PER_GROUP];
+};
+
+}%
+
+TWToolOption TWHPPBottomText %{
+
+#if (TWAPPID_STRINGIZE) 
+    #define TWAPPID_GET_SCHEMA_STR(SchemaID)                    TWAppIDStringizer::GetIDString((TUInt32)eTWUS::eTWSchema, (TUInt32) SchemaID)
+    #define TWAPPID_GET_API_STR(APIID)                          TWAppIDStringizer::GetIDString((TUInt32)eTWUS::eTWAPI, (TUInt32) APIID)
+
+    #define GET_ENUM_NAME_STR(EnumID)                           TWAppIDStringizer::GetEnumString((TUInt32) EnumID)
+    #define GET_ENUM_CONST_NAME_STR(EnumID, ConstID)            TWAppIDStringizer::GetIDString((TUInt32) EnumID, (TUInt32) ConstID)
+    #define GET_ENUM_CONST_NAME_STR_IMPLICIT(EnumName, ConstID) TWAppIDStringizer::GetIDString((TUInt32)(eTWUS::EnumName), (TUInt32) ConstID)
+
+    #define GET_ENUM_ID(EnumString)                             TWAppIDStringizer::GetEnumID((CVPtr) EnumString)
+    #define GET_CONST_ID(EnumID,IDString)                       TWAppIDStringizer::GetConstID((TUInt32) EnumID,(CVPtr)IDString)
+
+#endif
+
+// forward definition needed
+class TWSEvent;
+
+//signature needed
+using  TWAPIFunc            = std::add_pointer_t<bool(TWSEvent &) noexcept>;
+using  TWAPICallbackFunc    = std::add_pointer_t<eTWAPIResponse(TWSEvent &) noexcept>;
+
+using TWAppSignalHandlerFunc   = void (*) (eTWAppSignal pAppSignal, TUInt64 pParms);
+
+class TWAppUnit {
+ 
+public:
+ 
+    alignas(8)          TWSyncFlagRaw   uFunctionReadyFlag;
+    alignas(8)          TWSyncFlagRaw   uSyncFlag;
+           
+        TWAppSignalHandlerFunc          uAppSignalFunc;
+        TUInt16                         uDependentFunctionID;
+    
+        bool                            uIsInitialized;
+        bool                            uIsFinalized;
+    
+        TUInt8                          uPadding[sizeof(TUInt64) - sizeof(TUInt16) - sizeof(bool) - sizeof(bool)];
+    
+    static TWAppUnit                    sTWAppUnits[];
+    static TUInt64                      sTWNumAppUnits;
+
+    static  TUInt64                     sTWProductLayers[];
+    static  TUInt64                     sTWNumProductLayers;
+
+    static  TUInt64                     sTWProductTiers[];
+    static  TUInt64                     sTWNumProductTiers;
+
+    static TUInt64                      sTWProductFunctions[];
+    static TUInt64                      sTWNumProductFunctions;
+
+    static TUInt64                      sTWAppSignalLayers[];
+    static TUInt64                      sTWNumAppSignalLayers;
+
+    static TUInt64                      sTWAppSignalTiers[];
+    static TUInt64                      sTWNumAppSignalTiers;
+
+    static TUInt64                      sTWAppSignalFunctions[];
+    static TUInt64                      sTWNumAppSignalFunctions;
+};
+
+/* All APIs with only Pulled in filled with a Function ptr*/
+class TWAPIInfo {
+
+public:
+
+    TWAPIFunc uAPIFunc;
+       
+    TUInt16   uFunctionNdx;
+    bool      uIsBootstrapAPIHandler;
+    TUInt8    uBasePadding[sizeof(TUInt64) - sizeof(TUInt16) - sizeof(bool)];
+
+    static TWAPIInfo   sTWAPIInfo [];
+    static TUInt64     sTWNumAPIInfo;
+
+};
+
+// New derived schema structure (Generated by TWAppIDCompiler) Phase 1, generated with TWAppSchema/TWSchemaObject definitions
+// Phase 2, this will come from schema designer source schema data 
+
+class TWCTDerivedObjectFieldSchema {
+
+public:
+
+    eTWSchemaID uContentID;
+    TUInt32     uDerivedID;
+};
+
+class TWCTDerivedObjectSchema {
+
+    public:
+
+    eTWSchemaID                     uContentID;     // Universal ObjTypeID
+
+    TUInt32                         uStartID;       // Start FieldID
+    TUInt32                         uEndID;         // End FieldID
+   
+    TUInt32                         uPadding;       // to make multiple of 8
+
+    TWCTDerivedObjectFieldSchema    uObjectFields[32];
+    TUInt64                         uNumObjectFields;
+};
+
+class TWCTDerivedAppSchemaSectionObjects {      // applicable for reserved section objects
+
+public:
+
+    eTWSchemaID uContentID;         // ObjTypeID
+    TUInt32     uDerivedID;         // reserved derived id of objtype in a given section
+};
+
+class TWCTDerivedAppSchemaSections {
+
+public:
+
+    eTWSchemaID                         uContentID;     // Section Tye ID
+    TUInt32                             uDerivedID;     // Derived section id
+
+    TUInt32                             uStartID;
+    TUInt32                             uEndID;
+
+    TWCTDerivedAppSchemaSectionObjects  uSectionObjects[32];
+    TUInt64                             uNumSectionObjects;
+};
+
+class TWCTDerivedAppSchema {
+
+public:
+
+       eTWSchemaID                  uContentID;             // Module ID of AppSchema
+       
+       TUInt32                      uStartID;               // Start ObjTypeID
+       TUInt32                      uEndID;                 // End ObjTypeID
+       
+       TUInt32                      uSectionStartID;        // Start SectionTypeID
+       TUInt32                      uSectionEndID;          // End SectionTyeID
+       
+       TUInt32                      uPadding;               // to make it multiple of 8
+       
+       TWCTDerivedObjectSchema      uObjects[32];           // Objects and fields
+       TUInt64                      uNumObjects;
+       
+       TWCTDerivedAppSchemaSections uSections[32];          // sections and objects
+       TUInt64                      uNumSections;
+
+static TWCTDerivedAppSchema         sDerivedAppSchemas[];   // This is generated array of all App schemas
+static TUInt64                      sNumDerivedAppSchemas;
+};
+
+}%
+
+TWToolOption TWCPPTopText %{
+// Sri Ganeshji : Sri Balaji : Sri Pitreshwarji : Sri Durgaji : Sri Venkateshwara
+// This is a GENERATED file.
+// clang-format off
+
+}%
+
+TWToolOption TWCPPBottomText %{
+
+#if (TWAPPID_STRINGIZE) 
+
+#include <string.h> // Required for Stringizer String --> ID map (where linear compare is done.)
+
+
+CVPtr
+TWAppIDStringizer::GetEnumString (TUInt32 pEnumID) noexcept
+{
+    if (pEnumID > (TUInt32)eTWUS::MAX)
+         return nullptr;
+
+    return ((const void * const *)sTWUSIDStr[(TUInt32)eTWUS::eTWUS])[pEnumID];
+}
+
+CVPtr
+TWAppIDStringizer::GetIDString (TUInt32 pEnumID, TUInt32 pID) noexcept
+{
+    if (pEnumID > (TUInt32)eTWUS::MAX || pID > sEnumArrayMaxSize[pEnumID])
+         return nullptr;
+
+    return ((const void * const *)sTWUSIDStr[pEnumID])[pID];
+}
+
+//TODO : This is throwaway code for a temporary consumption
+// All these will move to a dictionary model
+TUInt32
+TWAppIDStringizer::GetEnumID (CVPtr pEnumString) noexcept
+{
+        TUInt32 enum_id_index;
+
+    for ( enum_id_index = 0; enum_id_index < (TUInt32)sEnumArrayMaxSize[(TUInt32) eTWUS::eTWUS]; enum_id_index++) {
+        if(strcmp((const char *)pEnumString,(const char *)seTWUSIDStr[enum_id_index]) == 0) 
+            return enum_id_index;
+    }
+
+    return 0;
+}
+
+TUInt32 
+TWAppIDStringizer::GetConstID (TUInt32 pEnumID, CVPtr pIDString) noexcept
+{
+         TUInt32 enum_id_index;
+
+    if (pEnumID > (TUInt32)eTWUS::MAX)
+         return 0;
+
+    for (enum_id_index = 0 ; enum_id_index < (TUInt32)sEnumArrayMaxSize[pEnumID]; enum_id_index++) {
+
+        if(strcmp((const char *)pIDString,(const char *)((const void * const *)sTWUSIDStr[pEnumID])[enum_id_index]) == 0) 
+            return enum_id_index;
+    }
+
+    return 0;
+}
+#endif 
+
+}%
