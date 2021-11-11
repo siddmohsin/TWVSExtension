@@ -1,22 +1,4 @@
 {
-    "Directories"       :
-    {
-        "Workspace"      : "Workspace",
-        "Tools"          : "Tools",
-        "BuildSupportDir": "TWBuildSupport"
-    },
-    "ADOService"        :
-    {
-        "URL"           : "https://dev.azure.com",
-        "Organization"  : "TallyWorld"
-    },
-    "TallyWorldBranchPolicies" :
-    {
-        "DevelopmentTrunkName" : "DevTrunk",
-        "PreReleaseTrunkName"  : "PreReleaseTrunk",
-        "ReleaseTrunkName"     : "ReleaseTrunk",
-        "WorkBranchPrefix"     : "Work"
-    },
     "RequiredSoftwares" :
     [
         {
@@ -80,55 +62,6 @@
             ]
         }
     ],
-    "ADORepositories" :
-    [
-        {
-            "Name"           : "Vishwamitra",
-            "URL"            : "https://tw-vishwamitra.tallysolutions.com",
-            "Organizations"  :
-            [
-                {
-                    "Name"       : "TallyWorldPMT",
-                    "Projects"   : ["TallyWorld"]
-                },
-                {
-                    "Name"       : "Tally",
-                    "Projects"   : ["SharedProjects"]
-                },
-                {
-                    "Name"       : "Personal",
-                    "Projects"   : ["${DomainName}"]
-                }
-            ]
-        }
-    ],
-    "ThirdPartyRepositories" :
-    [
-        {
-            "Name"           : "GitHub",
-            "URL"            : "https://github.com",
-            "Owners"  :
-            [
-                {
-                    "Name"           : "TallySolutions",
-                    "Repositories"   : 
-                    [
-                        {
-                            "Name"    : "NanOS",
-                            "CloneDir": "TallyWorldPMT/3rdParty/NanOS"
-                        },
-                        {
-                            "Name"    : "OPS",
-                            "CloneDir": "TallyWorldPMT/3rdParty/OPS"
-                        },
-                        {
-                            "Name"    : "TWVSExtension",
-                            "CloneDir": "TallyWorldPMT/TallyWorld/TWVSExtension"
-                        }
-                    ]
-                }
-            ]
-        }
-    ]
 
+    "ValidationCMakeFile"  :  "${BootstrapURL}/CMake/ValidateEnvironment.cmake"
 }

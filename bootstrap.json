@@ -1,0 +1,32 @@
+{
+    "BootstrapsConfigs"      :
+    [
+        { 
+            "Name"   : "Editor",
+            "Config" : "${BootstrapURL}/bootstrap-editor.json"
+        },
+        { 
+            "Name"   : "Tools",
+            "Config" : "${BootstrapURL}/bootstrap-tools.json"
+        },
+        { 
+            "Name"   : "Repo",
+            "Config" : "${BootstrapURL}/bootstrap-repo.json"
+        },
+        { 
+            "Name"   : "Build",
+            "Config" : "${BootstrapURL}/bootstrap-build.json"
+        }
+    ],
+    "Directories"        :
+    [
+        { 
+            "Name"   : "Workspace",
+            "Path"   : "Workspace"
+        },
+        { 
+            "Name"   : "Tools",
+            "Path"   : "Tools"
+        }
+    ]
+}

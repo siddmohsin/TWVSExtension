@@ -1,0 +1,9 @@
+{
+    "TWAppIdCompiler"       :
+    {
+        "LanguageService"   : 
+        {
+            "PlistFileURL"  : "${BootstrapURL}/TWAppIDCompiler/Language.plist"
+        }
+    }
+}
