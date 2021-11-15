@@ -22,6 +22,11 @@
                         "Comments"      : "Blank project filter means, ALL projects under the Organization."
                     },
                     {
+                        "Name"          : "TallyDevOps",
+                        "ProjectFilter" : ["TallyWorldPMT"],
+                        "Mandatory"     : false
+                    },
+                    {
                         "Name"          : "TWPersonal",
                         "ProjectFilter" : ["${DomainName}"],
                         "Mandatory"     : false
@@ -34,11 +39,6 @@
                 "URL"            : "https://tw-vishwamitra.tallysolutions.com",
                 "Organizations"  :
                 [
-                    {
-                        "Name"          : "TallyWorldPMT",
-                        "ProjectFilter" : ["TallyWorld"],
-                        "Mandatory"     : false
-                    },
                     {
                         "Name"          : "Tally",
                         "ProjectFilter" : ["SharedProjects"],
@@ -61,15 +61,15 @@
                     [
                         {
                             "Name"    : "NanOS",
-                            "CloneDir": "TallyWorldPMT/3rdParty/NanOS"
+                            "CloneDir": "ThirdParty/NanOS"
                         },
                         {
                             "Name"    : "OPS",
-                            "CloneDir": "TallyWorldPMT/3rdParty/OPS"
+                            "CloneDir": "ThirdParty/OPS"
                         },
                         {
                             "Name"    : "TWVSExtension",
-                            "CloneDir": "TallyWorldPMT/TallyWorld/TWVSExtension"
+                            "CloneDir": "TallyDevOps/TallyWorldPMT/TWVSExtension"
                         }
                     ]
                 }
