@@ -30,18 +30,10 @@
                         "Name"          : "TWPersonal",
                         "ProjectFilter" : ["${DomainName}"],
                         "Mandatory"     : false
-                    }
-
-                ]
-            },
-            {
-                "Name"           : "Vishwamitra",
-                "URL"            : "https://tw-vishwamitra.tallysolutions.com",
-                "Organizations"  :
-                [
+                    },
                     {
-                        "Name"          : "Tally",
-                        "ProjectFilter" : ["SharedProjects"],
+                        "Name"          : "TWArchives",
+                        "ProjectFilter" : [],
                         "Mandatory"     : false
                     }
                 ]
