@@ -1,11 +1,11 @@
 {
     "BuildConfigFile"       : "${TWWorkspaceHome}\\TWBuildTargets.json",
-    "BuildGenScript"        : "${TWWorkspaceHome}\\TallyWorls\\BuildSupportPlatform\\TWBuildSupport.Source\\Scripts\\RunBuildGen.bat",
-    "SchemaGenScript"       : "${TWWorkspaceHome}\\TallyWorls\\BuildSupportPlatform\\TWBuildSupport.Source\\Scripts\\RunSchemaGen.bat",
-    "LocalBuildScript"      : "${TWWorkspaceHome}\\TallyWorls\\BuildSupportPlatform\\TWBuildSupport.Source\\Scripts\\LocalBuild.bat",
-    "TransferScript"        : "${TWWorkspaceHome}\\TallyWorls\\BuildSupportPlatform\\TWBuildSupport.Source\\Scripts\\Transfer.bat",
+    "BuildGenScript"        : "${TWWorkspaceHome}\\TallyWorld\\BuildSupportPlatform\\TWBuildSupport.Source\\Scripts\\RunBuildGen.bat",
+    "SchemaGenScript"       : "${TWWorkspaceHome}\\TallyWorld\\BuildSupportPlatform\\TWBuildSupport.Source\\Scripts\\RunSchemaGen.bat",
+    "LocalBuildScript"      : "${TWWorkspaceHome}\\TallyWorld\\BuildSupportPlatform\\TWBuildSupport.Source\\Scripts\\LocalBuild.bat",
+    "TransferScript"        : "${TWWorkspaceHome}\\TallyWorld\\BuildSupportPlatform\\TWBuildSupport.Source\\Scripts\\Transfer.bat",
     "RemoteBuildScript"     : "$HOME/${TWWorkspaceDir}/TallyWorld/BuildSupportPlatform/TWBuildSupport.Source/Scripts/RemoteBuild.sh",
-    "RSyncConfFile"         : "${TWWorkspaceHome}\\TallyWorls\\BuildSupportPlatform\\TWBuildSupport.Source\\Scripts\\rsync.conf",
+    "RSyncConfFile"         : "${TWWorkspaceHome}\\TallyWorld\\BuildSupportPlatform\\TWBuildSupport.Source\\Scripts\\rsync.conf",
     "BuildsDir"             : "Builds",
     "IntDir"                : "Int"
 }
