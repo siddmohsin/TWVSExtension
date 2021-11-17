@@ -270,7 +270,7 @@
                 "Version"     : "1.0",
                 "VersionInfo" : 
                 {
-                    "Command"    : "${InstallDir}/TWAppIdCompiler/TWAppIdCompiler --version",
+                    "Command"    : "${InstallDir}/TWBuildGen/TWBuildGen --version",
                     "OutputType" : "PlainText",
                     "Prefix"     : "v",
                     "Line"       : 1,
@@ -284,7 +284,7 @@
                         "ARM64":  "https://github.com/TallySolutions/TWBuildTools/releases/tag/TWBuildGen-v${VERSION}",
                         "Files":  ["TWBuildGen.exe","TWBuildGen.TWSchemaDB"]
                     },
-                    "InstallDir"      : "${TWHome}\\Tools\\TWAppIdCompiler",
+                    "InstallDir"      : "${TWHome}\\Tools\\TWBuildGen",
                     "PostInstalls"    : [],
                     "UninstallMethod" : "RemoveDir"
                 }
