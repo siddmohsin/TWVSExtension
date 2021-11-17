@@ -31,7 +31,7 @@
                 "Version"     : "3.21",
                 "VersionInfo" : 
                 {
-                    "Command"    : "/usr/bin/cmake --version",
+                    "Command"    : "cmake --version",
                     "OutputType" : "PlainText",
                     "Line"       : 1,
                     "Column"     : 3
@@ -54,7 +54,7 @@
                 "Version"     : "3.21",
                 "VersionInfo" : 
                 {
-                    "Command"    : "/usr/bin/cmake --version",
+                    "Command"    : "cmake --version",
                     "OutputType" : "PlainText",
                     "Line"       : 1,
                     "Column"     : 3
@@ -68,7 +68,7 @@
                     },
                     "FileType"        : "CompressedTarball",
                     "InstallDir"      : "/Users/Shared",
-                    "PostInstalls"    : ["mv -f ${InstallDir}/${FILENAME_WE}/CMake.app/Contents ${InstallDir}/${NAME}", "rm -rf ${InstallDir}/${FILENAME_WE}"],
+                    "PostInstalls"    : ["mv -f ${InstallDir}/${FILENAME_WE}/CMake.app /Applications", "ln -sf /Applications/CMake.app/Contents/bin/cmake /usr/local/bin/cmake", "rm -rf ${InstallDir}/${FILENAME_WE}"],
                     "UninstallMethod" : "RemoveDir"
                 }
            }
