@@ -77,6 +77,55 @@
            }
         },
         {
+            "Name"        : "Ninja",
+            "Windows"     :
+            {
+                "Version"     : "1.10.2",
+                "Command"     : "${InstallDir}\\Ninja\\ninja",
+                "VersionInfo" : 
+                {
+                    "Command"    : "${COMMAND} --version",
+                    "OutputType" : "PlainText",
+                    "Line"       : 1,
+                    "Column"     : 1
+                },
+                "Installer" : 
+                { 
+                    "URL": 
+                    {
+                        "x64"  :  "https://github.com/ninja-build/ninja/releases/download/v1.10.2/ninja-win.zip",
+                        "ARM64":  "https://github.com/ninja-build/ninja/releases/download/v1.10.2/ninja-win.zip"
+                    },
+                    "FileType"        : "Zip",
+                    "InstallDir"      : "${TWHome}\\Tools\\Ninja",
+                    "PostInstalls"    : []
+                }
+            },
+            "Linux"     :
+            {
+                "Version"     : "1.10.2",
+                "Command"     : "/usr/bin/ninja",
+                "VersionInfo" : 
+                {
+                    "Command"    : "${COMMAND} --version",
+                    "OutputType" : "PlainText",
+                    "Line"       : 1,
+                    "Column"     : 1
+                },
+                "Installer" : 
+                { 
+                    "URL": 
+                    {
+                        "x64":   "https://github.com/ninja-build/ninja/releases/download/v1.10.2/ninja-linux.zip",
+                        "ARM64": "https://github.com/ninja-build/ninja/releases/download/v1.10.2/ninja-linux.zip"
+                    },
+                    "FileType"        : "Zip",
+                    "InstallDir"      : "/usr/bin",
+                    "PostInstalls"    : []
+                }
+            }
+        },
+        {
             "Name"        : "rsync",
             "Windows"     :
             {
