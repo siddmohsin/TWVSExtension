@@ -22,7 +22,7 @@
                     },
                     "FileType"        : "Zip",
                     "InstallDir"      : "${TWHome}\\Tools",
-                    "PostInstalls"    : ["rename ${InstallDir}\\${FILENAME_WE} ${NAME}"],
+                    "PostInstalls"    : ["rename ${InstallDir}\\${FILENAME_WE_0} ${NAME}"],
                     "UninstallMethod" : "RemoveDir"
                 }
             },
@@ -45,7 +45,7 @@
                     },
                     "FileType"        : "CompressedTarball",
                     "InstallDir"      : "/usr/share",
-                    "PostInstalls"    : ["mv -f ${InstallDir}/${FILENAME_WE} ${InstallDir}/${NAME}", "ln -sf ${InstallDir}/${NAME}/bin/cmake /usr/bin/cmake"],
+                    "PostInstalls"    : ["mv -f ${InstallDir}/${FILENAME_WE_0} ${InstallDir}/${NAME}", "ln -sf ${InstallDir}/${NAME}/bin/cmake /usr/bin/cmake"],
                     "UninstallMethod" : "RemoveDir"
                 }
             },
@@ -68,7 +68,7 @@
                     },
                     "FileType"        : "CompressedTarball",
                     "InstallDir"      : "/Users/Shared",
-                    "PostInstalls"    : ["mv -f ${InstallDir}/${FILENAME_WE}/CMake.app /Applications", "ln -sf /Applications/CMake.app/Contents/bin/cmake /usr/local/bin/cmake", "rm -rf ${InstallDir}/${FILENAME_WE}"],
+                    "PostInstalls"    : ["mv -f ${InstallDir}/${FILENAME_WE_0}/CMake.app /Applications", "ln -sf /Applications/CMake.app/Contents/bin/cmake /usr/local/bin/cmake", "rm -rf ${InstallDir}/${FILENAME_WE_0}"],
                     "UninstallMethod" : "RemoveDir"
                 }
            }
@@ -235,6 +235,60 @@
                     }
                 ]
            }
+        },
+        {
+            "Name"        : "TWAppIdCompiler",
+            "Windows"     :
+            {
+                "Version"     : "2.3.7",
+                "VersionInfo" : 
+                {
+                    "Command"    : "${InstallDir}/TWAppIdCompiler/TWAppIdCompiler --version",
+                    "OutputType" : "PlainText",
+                    "Prefix"     : "v",
+                    "Line"       : 1,
+                    "Column"     : 1
+                },
+                "Installer" : 
+                { 
+                    "URL": 
+                    {
+                        "x64"  :  "https://github.com/TallySolutions/TWBuildTools/releases/tag/TWAppIdCompiler-v${VERSION}",
+                        "ARM64":  "https://github.com/TallySolutions/TWBuildTools/releases/tag/TWAppIdCompiler-v${VERSION}",
+                        "Files":  ["TWAppIDCompiler.exe","TWAppIDCompiler.TWSchemaDB"]
+                    },
+                    "InstallDir"      : "${TWHome}\\Tools\\TWAppIdCompiler",
+                    "PostInstalls"    : [],
+                    "UninstallMethod" : "RemoveDir"
+                }
+            }
+        },
+        {
+            "Name"        : "TWBuildGen",
+            "Windows"     :
+            {
+                "Version"     : "1.0",
+                "VersionInfo" : 
+                {
+                    "Command"    : "${InstallDir}/TWAppIdCompiler/TWAppIdCompiler --version",
+                    "OutputType" : "PlainText",
+                    "Prefix"     : "v",
+                    "Line"       : 1,
+                    "Column"     : 1
+                },
+                "Installer" : 
+                { 
+                    "URL": 
+                    {
+                        "x64"  :  "https://github.com/TallySolutions/TWBuildTools/releases/tag/TWBuildGen-v${VERSION}",
+                        "ARM64":  "https://github.com/TallySolutions/TWBuildTools/releases/tag/TWBuildGen-v${VERSION}",
+                        "Files":  ["TWBuildGen.exe","TWBuildGen.TWSchemaDB"]
+                    },
+                    "InstallDir"      : "${TWHome}\\Tools\\TWAppIdCompiler",
+                    "PostInstalls"    : [],
+                    "UninstallMethod" : "RemoveDir"
+                }
+            }
         }
     ],
 
