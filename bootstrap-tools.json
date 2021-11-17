@@ -54,7 +54,7 @@
                 "Version"     : "3.21",
                 "VersionInfo" : 
                 {
-                    "Command"    : "cmake --version",
+                    "Command"    : "/usr/local/bin/cmake --version",
                     "OutputType" : "PlainText",
                     "Line"       : 1,
                     "Column"     : 3
