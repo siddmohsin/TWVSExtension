@@ -6,7 +6,7 @@
             "Windows"     :
             {
                 "Version"     : "3.21",
-                "Command"     : "${InstallDir}/CMake/bin/cmake",
+                "Command"     : "${InstallDir}\\CMake\\bin\\cmake",
                 "VersionInfo" : 
                 {
                     "Command"    : "${COMMAND} --version",
