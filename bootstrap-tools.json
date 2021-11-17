@@ -22,7 +22,7 @@
                     },
                     "FileType"        : "Zip",
                     "InstallDir"      : "${TWHome}\\Tools",
-                    "PostInstalls"    : ["rename ${InstallDir}\\${FILENAME_WE} ${InstallDir}\\${NAME}"],
+                    "PostInstalls"    : ["rename ${InstallDir}\\${FILENAME_WE} ${NAME}"],
                     "UninstallMethod" : "RemoveDir"
                 }
             },
