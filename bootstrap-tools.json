@@ -6,9 +6,10 @@
             "Windows"     :
             {
                 "Version"     : "3.21",
+                "Command"     : "${InstallDir}/CMake/bin/cmake",
                 "VersionInfo" : 
                 {
-                    "Command"    : "${InstallDir}/CMake/bin/cmake --version",
+                    "Command"    : "${COMMAND} --version",
                     "OutputType" : "PlainText",
                     "Line"       : 1,
                     "Column"     : 3
@@ -29,9 +30,10 @@
             "Linux"     :
             {
                 "Version"     : "3.21",
+                "Command"     : "/usr/bin/cmake",
                 "VersionInfo" : 
                 {
-                    "Command"    : "cmake --version",
+                    "Command"    : "${COMMAND} --version",
                     "OutputType" : "PlainText",
                     "Line"       : 1,
                     "Column"     : 3
@@ -52,9 +54,10 @@
             "MacOS"     :
             {
                 "Version"     : "3.21",
+                "Command"     : "/usr/local/bin/cmake",
                 "VersionInfo" : 
                 {
-                    "Command"    : "/usr/local/bin/cmake --version",
+                    "Command"    : "${COMMAND} --version",
                     "OutputType" : "PlainText",
                     "Line"       : 1,
                     "Column"     : 3
@@ -291,6 +294,5 @@
             }
         }
     ],
-
     "ValidationCMakeFile"  :  "${BootstrapURL}/CMake/ValidateEnvironment.cmake"
 }
