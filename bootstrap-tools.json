@@ -243,7 +243,7 @@
                 "Version"     : "2.3.7",
                 "VersionInfo" : 
                 {
-                    "Command"    : "${InstallDir}/TWAppIdCompiler/TWAppIdCompiler --version",
+                    "Command"    : "${InstallDir}/TWAppIdCompiler --version",
                     "OutputType" : "PlainText",
                     "Prefix"     : "v",
                     "Line"       : 1,
@@ -253,8 +253,8 @@
                 { 
                     "URL": 
                     {
-                        "x64"  :  "https://github.com/TallySolutions/TWBuildTools/releases/tag/TWAppIdCompiler-v${VERSION}",
-                        "ARM64":  "https://github.com/TallySolutions/TWBuildTools/releases/tag/TWAppIdCompiler-v${VERSION}",
+                        "x64"  :  "https://github.com/TallySolutions/TWBuildTools/releases/download/TWAppIdCompiler-v${VERSION}",
+                        "ARM64":  "https://github.com/TallySolutions/TWBuildTools/releases/download/TWAppIdCompiler-v${VERSION}",
                         "Files":  ["TWAppIDCompiler.exe","TWAppIDCompiler.TWSchemaDB"]
                     },
                     "InstallDir"      : "${TWHome}\\Tools\\TWAppIdCompiler",
@@ -270,7 +270,7 @@
                 "Version"     : "1.0",
                 "VersionInfo" : 
                 {
-                    "Command"    : "${InstallDir}/TWBuildGen/TWBuildGen --version",
+                    "Command"    : "${InstallDir}/TWBuildGen --version",
                     "OutputType" : "PlainText",
                     "Prefix"     : "v",
                     "Line"       : 1,
@@ -280,8 +280,8 @@
                 { 
                     "URL": 
                     {
-                        "x64"  :  "https://github.com/TallySolutions/TWBuildTools/releases/tag/TWBuildGen-v${VERSION}",
-                        "ARM64":  "https://github.com/TallySolutions/TWBuildTools/releases/tag/TWBuildGen-v${VERSION}",
+                        "x64"  :  "https://github.com/TallySolutions/TWBuildTools/releases/download/TWBuildGen-v${VERSION}",
+                        "ARM64":  "https://github.com/TallySolutions/TWBuildTools/releases/download/TWBuildGen-v${VERSION}",
                         "Files":  ["TWBuildGen.exe","TWBuildGen.TWSchemaDB"]
                     },
                     "InstallDir"      : "${TWHome}\\Tools\\TWBuildGen",
