@@ -81,7 +81,7 @@
             "Windows"     :
             {
                 "Version"     : "1.10.2",
-                "Command"     : "${InstallDir}\\Ninja\\ninja",
+                "Command"     : "${InstallDir}\\ninja",
                 "VersionInfo" : 
                 {
                     "Command"    : "${COMMAND} --version",
