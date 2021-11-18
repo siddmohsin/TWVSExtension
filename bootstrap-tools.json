@@ -306,7 +306,7 @@
                 "Version"     : "2.3.7",
                 "VersionInfo" : 
                 {
-                    "Command"    : "${InstallDir}/TWAppIdCompiler --version",
+                    "Command"    : "${InstallDir}/TWAppIdCompiler/TWAppIdCompiler --version",
                     "OutputType" : "PlainText",
                     "Prefix"     : "v",
                     "Line"       : 1,
@@ -315,7 +315,7 @@
                 "Installer" : 
                 { 
                     "InstallDoc"      : "https://tallywiki.tallysolutions.com/display/TWP/Install+Required+Toolsets",
-                    "InstallDir"      : "${TWHome}\\Tools\\TWAppIdCompiler"
+                    "InstallDir"      : "${TWHome}\\Tools"
                 }
             }
         },
@@ -326,7 +326,7 @@
                 "Version"     : "1.0",
                 "VersionInfo" : 
                 {
-                    "Command"    : "${InstallDir}/TWBuildGen --version",
+                    "Command"    : "${InstallDir}/TWBuildGen/TWBuildGen --version",
                     "OutputType" : "PlainText",
                     "Prefix"     : "v",
                     "Line"       : 1,
@@ -335,7 +335,7 @@
                 "Installer" : 
                 { 
                     "InstallDoc"      : "https://tallywiki.tallysolutions.com/display/TWP/Install+Required+Toolsets",
-                    "InstallDir"      : "${TWHome}\\Tools\\TWBuildGen"
+                    "InstallDir"      : "${TWHome}\\Tools"
                 }
             }
         }
