@@ -16,7 +16,7 @@
                 },
                 "Installer" : 
                 { 
-                    "URL": 
+                    "URL_disabled": 
                     {
                         "x64"  :  "https://github.com/Kitware/CMake/releases/download/v3.21.4/cmake-3.21.4-windows-x86_64.zip",
                         "ARM64":  "https://github.com/Kitware/CMake/releases/download/v3.21.4/cmake-3.21.4-windows-x86_64.zip"
@@ -24,7 +24,8 @@
                     "FileType"        : "Zip",
                     "InstallDir"      : "${TWHome}\\Tools",
                     "PostInstalls"    : ["rename ${InstallDir}\\${FILENAME_WE_0} ${NAME}"],
-                    "UninstallMethod" : "RemoveDir"
+                    "UninstallMethod" : "RemoveDir",
+                    "InstallDoc"      : "https://tallywiki.tallysolutions.com/display/TWP/Install+Required+Toolsets"
                 }
             },
             "Linux"     :
@@ -40,7 +41,7 @@
                 },
                 "Installer" : 
                 { 
-                    "URL": 
+                    "URL_disabled": 
                     {
                         "x64":   "https://github.com/Kitware/CMake/releases/download/v3.21.4/cmake-3.21.4-linux-x86_64.tar.gz",
                         "ARM64": "https://github.com/Kitware/CMake/releases/download/v3.21.4/cmake-3.21.4-linux-aarch64.tar.gz"
@@ -48,7 +49,9 @@
                     "FileType"        : "CompressedTarball",
                     "InstallDir"      : "/usr/share",
                     "PostInstalls"    : ["mv -f ${InstallDir}/${FILENAME_WE_0} ${InstallDir}/${NAME}", "ln -sf ${InstallDir}/${NAME}/bin/cmake /usr/bin/cmake"],
-                    "UninstallMethod" : "RemoveDir"
+                    "UninstallMethod" : "RemoveDir",
+                    "InstallDoc"      : "https://tallywiki.tallysolutions.com/display/TWP/Install+Required+Toolsets"
+
                 }
             },
             "MacOS"     :
@@ -64,7 +67,7 @@
                 },
                 "Installer" : 
                 { 
-                    "URL": 
+                    "URL_disabled": 
                     {
                         "x64":   "https://github.com/Kitware/CMake/releases/download/v3.21.4/cmake-3.21.4-macos-universal.tar.gz",
                         "ARM64": "https://github.com/Kitware/CMake/releases/download/v3.21.4/cmake-3.21.4-macos-universal.tar.gz"
@@ -72,7 +75,9 @@
                     "FileType"        : "CompressedTarball",
                     "InstallDir"      : "/Users/Shared",
                     "PostInstalls"    : ["mv -f ${InstallDir}/${FILENAME_WE_0}/CMake.app /Applications", "ln -sf /Applications/CMake.app/Contents/bin/cmake /usr/local/bin/cmake", "rm -rf ${InstallDir}/${FILENAME_WE_0}"],
-                    "UninstallMethod" : "RemoveDir"
+                    "UninstallMethod" : "RemoveDir",
+                    "InstallDoc"      : "https://tallywiki.tallysolutions.com/display/TWP/Install+Required+Toolsets"
+
                 }
            }
         },
@@ -91,14 +96,16 @@
                 },
                 "Installer" : 
                 { 
-                    "URL": 
+                    "URL_disabled": 
                     {
                         "x64"  :  "https://github.com/ninja-build/ninja/releases/download/v1.10.2/ninja-win.zip",
                         "ARM64":  "https://github.com/ninja-build/ninja/releases/download/v1.10.2/ninja-win.zip"
                     },
                     "FileType"        : "Zip",
                     "InstallDir"      : "${TWHome}\\Tools\\Ninja",
-                    "PostInstalls"    : []
+                    "PostInstalls"    : [],
+                    "InstallDoc"      : "https://tallywiki.tallysolutions.com/display/TWP/Install+Required+Toolsets"
+
                 }
             },
             "Linux"     :
@@ -114,14 +121,16 @@
                 },
                 "Installer" : 
                 { 
-                    "URL": 
+                    "URL_disabled": 
                     {
                         "x64":   "https://github.com/ninja-build/ninja/releases/download/v1.10.2/ninja-linux.zip",
                         "ARM64": "https://github.com/ninja-build/ninja/releases/download/v1.10.2/ninja-linux.zip"
                     },
                     "FileType"        : "Zip",
                     "InstallDir"      : "/usr/bin",
-                    "PostInstalls"    : []
+                    "PostInstalls"    : [],
+                    "InstallDoc"      : "https://tallywiki.tallysolutions.com/display/TWP/Install+Required+Toolsets"
+
                 }
             }
         },
@@ -139,7 +148,7 @@
                 },
                 "Installer" : 
                 { 
-                    "URL": 
+                    "URL_disabled": 
                     {
                         "x64"  :  "https://github.com/TallySolutions/RSync/releases/download/v3.1.3/rsync-3.1.3-windows-x86_64.zip",
                         "ARM64":  "https://github.com/TallySolutions/RSync/releases/download/v3.1.3/rsync-3.1.3-windows-arm64.zip"
@@ -147,7 +156,9 @@
                     "FileType"        : "Zip",
                     "InstallDir"      : "${TWHome}\\Tools",
                     "PostInstalls"    : [],
-                    "UninstallMethod" : "RemoveDir"
+                    "UninstallMethod" : "RemoveDir",
+                    "InstallDoc"      : "https://tallywiki.tallysolutions.com/display/TWP/Install+Required+Toolsets"
+
                 }
             },
             "Linux"     :
@@ -303,15 +314,7 @@
                 },
                 "Installer" : 
                 { 
-                    "URL": 
-                    {
-                        "x64"  :  "https://github.com/TallySolutions/TWBuildTools/releases/download/TWAppIdCompiler-v${VERSION}",
-                        "ARM64":  "https://github.com/TallySolutions/TWBuildTools/releases/download/TWAppIdCompiler-v${VERSION}",
-                        "Files":  ["TWAppIDCompiler.exe","TWAppIDCompiler.TWSchemaDB"]
-                    },
-                    "InstallDir"      : "${TWHome}\\Tools\\TWAppIdCompiler",
-                    "PostInstalls"    : [],
-                    "UninstallMethod" : "RemoveDir"
+                    "InstallDoc"      : "https://tallywiki.tallysolutions.com/display/TWP/Install+Required+Toolsets"
                 }
             }
         },
@@ -330,15 +333,7 @@
                 },
                 "Installer" : 
                 { 
-                    "URL": 
-                    {
-                        "x64"  :  "https://github.com/TallySolutions/TWBuildTools/releases/download/TWBuildGen-v${VERSION}",
-                        "ARM64":  "https://github.com/TallySolutions/TWBuildTools/releases/download/TWBuildGen-v${VERSION}",
-                        "Files":  ["TWBuildGen.exe","TWBuildGen.TWSchemaDB"]
-                    },
-                    "InstallDir"      : "${TWHome}\\Tools\\TWBuildGen",
-                    "PostInstalls"    : [],
-                    "UninstallMethod" : "RemoveDir"
+                    "InstallDoc"      : "https://tallywiki.tallysolutions.com/display/TWP/Install+Required+Toolsets"
                 }
             }
         }
