@@ -343,7 +343,7 @@
             "Name"        : "TWCLangFormat",
             "Windows"     :
             {
-                "Version"     : "3",
+                "Version"     : "3.0.0",
                 "VersionInfo" : 
                 {
                     "Command"    : "${TWHome}\\Tools\\TWCLangFormat\\tclang-format.exe --version",
