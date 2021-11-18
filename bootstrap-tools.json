@@ -338,6 +338,32 @@
                     "InstallDir"      : "${TWHome}\\Tools"
                 }
             }
+        },
+        {
+            "Name"        : "TWCLangFormat",
+            "Windows"     :
+            {
+                "Version"     : "3",
+                "VersionInfo" : 
+                {
+                    "Command"    : "${TWHome}\\Tools\\TWCLangFormat\\tclang-format.exe --version",
+                    "OutputType" : "PlainText",
+                    "Line"       : 1,
+                    "Column"     : 3,
+                    "Prefix"     : "Tally-r"
+                },
+                "Installer" : 
+                { 
+                    "URL": 
+                    {
+                        "x64"  :  "https://github.com/TallySolutions/TWLLVMCLangFormat.Source/releases/download/TallyWorld-R3",
+                        "ARM64":  "https://github.com/TallySolutions/TWLLVMCLangFormat.Source/releases/download/TallyWorld-R3",
+                        "FILES":  ["tclang-format.exe", "_clang-format"]
+                    },
+                    "InstallDir"      : "${TWHome}\\Tools\\TWCLangFormat",
+                    "PostInstalls"    : ["copy ${InstallDir}\\_clang-format ${TWHome}\\Workspace"],
+                    "UninstallMethod" : "RemoveDir"                }
+            }
         }
     ],
     "ValidationCMakeFile"  :  "${BootstrapURL}/CMake/ValidateEnvironment.cmake"
