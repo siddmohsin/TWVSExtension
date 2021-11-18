@@ -358,7 +358,7 @@
                     {
                         "x64"  :  "https://github.com/TallySolutions/TWLLVMCLangFormat.Source/releases/download/TallyWorld-R3",
                         "ARM64":  "https://github.com/TallySolutions/TWLLVMCLangFormat.Source/releases/download/TallyWorld-R3",
-                        "FILES":  ["tclang-format.exe", "_clang-format"]
+                        "Files":  ["tclang-format.exe", "_clang-format"]
                     },
                     "InstallDir"      : "${TWHome}\\Tools\\TWCLangFormat",
                     "PostInstalls"    : ["copy ${InstallDir}\\_clang-format ${TWHome}\\Workspace"],
