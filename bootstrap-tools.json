@@ -231,11 +231,6 @@
                         "FixCommand"     : "git config --global core.compression 0"
                     },
                     {
-                        "Command"        : "git config --global --default store credential.helper",
-                        "ExpectedOutput" : "manager",
-                        "FixCommand"     : "git config --global credential.helper manager"
-                    },
-                    {
                         "Command"        : "git config --global --default false core.autocrlf",
                         "ExpectedOutput" : "false",
                         "FixCommand"     : "git config --global core.autocrlf false"
