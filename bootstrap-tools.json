@@ -1,0 +1,365 @@
+{
+    "RequiredSoftwares" :
+    [
+        {
+            "Name"        : "CMake",
+            "Windows"     :
+            {
+                "Version"     : "3.21",
+                "Command"     : "${InstallDir}\\CMake\\bin\\cmake",
+                "VersionInfo" : 
+                {
+                    "Command"    : "${COMMAND} --version",
+                    "OutputType" : "PlainText",
+                    "Line"       : 1,
+                    "Column"     : 3
+                },
+                "Installer" : 
+                { 
+                    "URL_disabled": 
+                    {
+                        "x64"  :  "https://github.com/Kitware/CMake/releases/download/v3.21.4/cmake-3.21.4-windows-x86_64.zip",
+                        "ARM64":  "https://github.com/Kitware/CMake/releases/download/v3.21.4/cmake-3.21.4-windows-x86_64.zip"
+                    },
+                    "FileType"        : "Zip",
+                    "InstallDir"      : "${TWHome}\\Tools",
+                    "PostInstalls"    : ["rename ${InstallDir}\\${FILENAME_WE_0} ${NAME}"],
+                    "UninstallMethod" : "RemoveDir",
+                    "InstallDoc"      : "https://tallywiki.tallysolutions.com/display/TWP/Install+Required+Toolsets"
+                }
+            },
+            "Linux"     :
+            {
+                "Version"     : "3.21",
+                "Command"     : "/usr/bin/cmake",
+                "VersionInfo" : 
+                {
+                    "Command"    : "${COMMAND} --version",
+                    "OutputType" : "PlainText",
+                    "Line"       : 1,
+                    "Column"     : 3
+                },
+                "Installer" : 
+                { 
+                    "URL_disabled": 
+                    {
+                        "x64":   "https://github.com/Kitware/CMake/releases/download/v3.21.4/cmake-3.21.4-linux-x86_64.tar.gz",
+                        "ARM64": "https://github.com/Kitware/CMake/releases/download/v3.21.4/cmake-3.21.4-linux-aarch64.tar.gz"
+                    },
+                    "FileType"        : "CompressedTarball",
+                    "InstallDir"      : "/usr/share",
+                    "PostInstalls"    : ["mv -f ${InstallDir}/${FILENAME_WE_0} ${InstallDir}/${NAME}", "ln -sf ${InstallDir}/${NAME}/bin/cmake /usr/bin/cmake"],
+                    "UninstallMethod" : "RemoveDir",
+                    "InstallDoc"      : "https://tallywiki.tallysolutions.com/display/TWP/Install+Required+Toolsets"
+
+                }
+            },
+            "MacOS"     :
+            {
+                "Version"     : "3.21",
+                "Command"     : "/usr/local/bin/cmake",
+                "VersionInfo" : 
+                {
+                    "Command"    : "${COMMAND} --version",
+                    "OutputType" : "PlainText",
+                    "Line"       : 1,
+                    "Column"     : 3
+                },
+                "Installer" : 
+                { 
+                    "URL_disabled": 
+                    {
+                        "x64":   "https://github.com/Kitware/CMake/releases/download/v3.21.4/cmake-3.21.4-macos-universal.tar.gz",
+                        "ARM64": "https://github.com/Kitware/CMake/releases/download/v3.21.4/cmake-3.21.4-macos-universal.tar.gz"
+                    },
+                    "FileType"        : "CompressedTarball",
+                    "InstallDir"      : "/Users/Shared",
+                    "PostInstalls"    : ["mv -f ${InstallDir}/${FILENAME_WE_0}/CMake.app /Applications", "ln -sf /Applications/CMake.app/Contents/bin/cmake /usr/local/bin/cmake", "rm -rf ${InstallDir}/${FILENAME_WE_0}"],
+                    "UninstallMethod" : "RemoveDir",
+                    "InstallDoc"      : "https://tallywiki.tallysolutions.com/display/TWP/Install+Required+Toolsets"
+
+                }
+           }
+        },
+        {
+            "Name"        : "Ninja",
+            "Windows"     :
+            {
+                "Version"     : "1.10.2",
+                "Command"     : "${InstallDir}\\ninja",
+                "VersionInfo" : 
+                {
+                    "Command"    : "${COMMAND} --version",
+                    "OutputType" : "PlainText",
+                    "Line"       : 1,
+                    "Column"     : 1
+                },
+                "Installer" : 
+                { 
+                    "URL_disabled": 
+                    {
+                        "x64"  :  "https://github.com/ninja-build/ninja/releases/download/v1.10.2/ninja-win.zip",
+                        "ARM64":  "https://github.com/ninja-build/ninja/releases/download/v1.10.2/ninja-win.zip"
+                    },
+                    "FileType"        : "Zip",
+                    "InstallDir"      : "${TWHome}\\Tools\\Ninja",
+                    "PostInstalls"    : [],
+                    "InstallDoc"      : "https://tallywiki.tallysolutions.com/display/TWP/Install+Required+Toolsets"
+
+                }
+            },
+            "Linux"     :
+            {
+                "Version"     : "1.10.2",
+                "Command"     : "/usr/bin/ninja",
+                "VersionInfo" : 
+                {
+                    "Command"    : "${COMMAND} --version",
+                    "OutputType" : "PlainText",
+                    "Line"       : 1,
+                    "Column"     : 1
+                },
+                "Installer" : 
+                { 
+                    "URL_disabled": 
+                    {
+                        "x64":   "https://github.com/ninja-build/ninja/releases/download/v1.10.2/ninja-linux.zip",
+                        "ARM64": "https://github.com/ninja-build/ninja/releases/download/v1.10.2/ninja-linux.zip"
+                    },
+                    "FileType"        : "Zip",
+                    "InstallDir"      : "/usr/bin",
+                    "PostInstalls"    : [],
+                    "InstallDoc"      : "https://tallywiki.tallysolutions.com/display/TWP/Install+Required+Toolsets"
+
+                }
+            }
+        },
+        {
+            "Name"        : "rsync",
+            "Windows"     :
+            {
+                "Version"     : "3.1.3",
+                "VersionInfo" : 
+                {
+                    "Command"    : "${InstallDir}/rsync/rsync --version",
+                    "OutputType" : "PlainText",
+                    "Line"       : 1,
+                    "Column"     : 3
+                },
+                "Installer" : 
+                { 
+                    "URL_disabled": 
+                    {
+                        "x64"  :  "https://github.com/TallySolutions/RSync/releases/download/v3.1.3/rsync-3.1.3-windows-x86_64.zip",
+                        "ARM64":  "https://github.com/TallySolutions/RSync/releases/download/v3.1.3/rsync-3.1.3-windows-arm64.zip"
+                    },
+                    "FileType"        : "Zip",
+                    "InstallDir"      : "${TWHome}\\Tools",
+                    "PostInstalls"    : [],
+                    "UninstallMethod" : "RemoveDir",
+                    "InstallDoc"      : "https://tallywiki.tallysolutions.com/display/TWP/Install+Required+Toolsets"
+
+                }
+            },
+            "Linux"     :
+            {
+                "Version"     : "3.1.3",
+                "VersionInfo" : 
+                {
+                    "Command"    : "rsync --version",
+                    "OutputType" : "PlainText",
+                    "Line"       : 1,
+                    "Column"     : 3
+                },
+                "Installer" : 
+                { 
+                    "InstallDoc"      : "https://rsync.samba.org/download.html"
+                }
+            },
+            "MacOS"     :
+            {
+                "Version"     : "2.6.9",
+                "VersionInfo" : 
+                {
+                    "Command"    : "rsync --version",
+                    "OutputType" : "PlainText",
+                    "Line"       : 1,
+                    "Column"     : 3
+                },
+                "Installer" : 
+                { 
+                    "InstallDoc"      : "https://rsync.samba.org/download.html"
+                }
+           }
+        },
+        {
+            "Name"        : "git",
+            "Windows"     :
+            {
+                "Version"     : "2.33",
+                "VersionInfo" : 
+                {
+                    "Command"    : "git version",
+                    "OutputType" : "PlainText",
+                    "Line"       : 1,
+                    "Column"     : 3
+                },
+                "Installer" : 
+                { 
+                    "InstallDoc"      : "https://git-scm.com/download/win"
+                },
+                "Validations"   : 
+                [
+                    {
+                        "Command"        : "git config --system --default false core.longpaths",
+                        "ExpectedOutput" : "true",
+                        "FixCommand"     : "git config --system core.longpaths true"
+                    },
+                    {
+                        "Command"        : "git config --global --default false pull.rebase",
+                        "ExpectedOutput" : "true",
+                        "FixCommand"     : "git config --global pull.rebase true"
+                    },
+                    {
+                        "Command"        : "git config --global --default false http.sslVerify",
+                        "ExpectedOutput" : "false",
+                        "FixCommand"     : "git config --global http.sslVerify false"
+                    },
+                    {
+                        "Command"        : "git config --global --default 0 core.compression",
+                        "ExpectedOutput" : "0",
+                        "FixCommand"     : "git config --global core.compression 0"
+                    },
+                    {
+                        "Command"        : "git config --global --default false core.autocrlf",
+                        "ExpectedOutput" : "false",
+                        "FixCommand"     : "git config --global core.autocrlf false"
+                    },
+                    {
+                        "Command"        : "git config --global user.name",
+                        "ExpectedOutput" : "${USERNAME}",
+                        "FixCommand"     : "git config --global user.name \"${USERNAME}\""
+                    },
+                    {
+                        "Command"        : "git config --global user.email",
+                        "ExpectedOutput" : "${EMAIL}",
+                        "FixCommand"     : "git config --global user.email ${EMAIL}"
+                    }
+                ]
+            },
+            "Linux"     :
+            {
+                "Version"     : "2.25",
+                "VersionInfo" : 
+                {
+                    "Command"    : "git version",
+                    "OutputType" : "PlainText",
+                    "Line"       : 1,
+                    "Column"     : 3
+                },
+                "Installer" : 
+                { 
+                    "InstallDoc"      : "https://git-scm.com/download/linux"
+                },
+                "Validations"   : 
+                [
+                    {
+                        "Command"        : "git config --global --default input core.autocrlf",
+                        "ExpectedOutput" : "input",
+                        "FixCommand"     : "git config --global core.autocrlf input"
+                    }
+                ]
+            },
+            "MacOS"     :
+            {
+                "Version"     : "2.30",
+                "VersionInfo" : 
+                {
+                    "Command"    : "git version",
+                    "OutputType" : "PlainText",
+                    "Line"       : 1,
+                    "Column"     : 3
+                },
+                "Installer" : 
+                { 
+                    "InstallDoc"      : "https://git-scm.com/download/mac"
+                },
+                "Validations"   : 
+                [
+                    {
+                        "Command"        : "git config --global --default input core.autocrlf",
+                        "ExpectedOutput" : "input",
+                        "FixCommand"     : "git config --global core.autocrlf input"
+                    }
+                ]
+           }
+        },
+        {
+            "Name"        : "TWAppIdCompiler",
+            "Windows"     :
+            {
+                "Version"     : "2.3.8",
+                "VersionInfo" : 
+                {
+                    "Command"    : "${InstallDir}/TWAppIdCompiler/TWAppIdCompiler --version",
+                    "OutputType" : "PlainText",
+                    "Prefix"     : "v",
+                    "Line"       : 1,
+                    "Column"     : 1
+                },
+                "Installer" : 
+                { 
+                    "InstallDoc"      : "https://tallywiki.tallysolutions.com/display/TWP/Install+Required+Toolsets",
+                    "InstallDir"      : "${TWHome}\\Tools"
+                }
+            }
+        },
+        {
+            "Name"        : "TWBuildGen",
+            "Windows"     :
+            {
+                "Version"     : "1.0.1",
+                "VersionInfo" : 
+                {
+                    "Command"    : "${InstallDir}/TWBuildGen/TWBuildGen --version",
+                    "OutputType" : "PlainText",
+                    "Prefix"     : "v",
+                    "Line"       : 1,
+                    "Column"     : 1
+                },
+                "Installer" : 
+                { 
+                    "InstallDoc"      : "https://tallywiki.tallysolutions.com/display/TWP/Install+Required+Toolsets",
+                    "InstallDir"      : "${TWHome}\\Tools"
+                }
+            }
+        },
+        {
+            "Name"        : "TWCLangFormat",
+            "Windows"     :
+            {
+                "Version"     : "3.0.0",
+                "VersionInfo" : 
+                {
+                    "Command"    : "${TWHome}\\Tools\\TWCLangFormat\\tclang-format.exe --version",
+                    "OutputType" : "PlainText",
+                    "Line"       : 1,
+                    "Column"     : 3,
+                    "Prefix"     : "Tally-r"
+                },
+                "Installer" : 
+                { 
+                    "URL": 
+                    {
+                        "x64"  :  "https://github.com/TallySolutions/TWLLVMCLangFormat.Source/releases/download/TallyWorld-R3",
+                        "ARM64":  "https://github.com/TallySolutions/TWLLVMCLangFormat.Source/releases/download/TallyWorld-R3",
+                        "Files":  ["tclang-format.exe", "_clang-format"]
+                    },
+                    "InstallDir"      : "${TWHome}\\Tools\\TWCLangFormat",
+                    "PostInstalls"    : ["copy ${InstallDir}\\_clang-format ${TWHome}\\Workspace"],
+                    "UninstallMethod" : "RemoveDir"                }
+            }
+        }
+    ],
+    "ValidationCMakeFile"  :  "${BootstrapURL}/CMake/ValidateEnvironment.cmake"
+}

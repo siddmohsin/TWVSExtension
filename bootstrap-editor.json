@@ -1,0 +1,15 @@
+{
+    "TWAppIdCompiler"       :
+    {
+        "LanguageService"   : 
+        {
+            "PlistFileURL"  : "${BootstrapURL}/TWAppIDCompiler/Language.plist",
+            "PlistLocalPath": "${UserProfile}\\.vs\\Extensions\\TWAppIDLanguage\\Syntaxes\\Language.plist"
+        }
+    },
+    "TallyWorld"            :
+    {
+        "TraceFunction"     :  "TRACEFUNC;",
+        "NoTraceIndicator"  :  "/*NoTrace*/"
+    }
+}

@@ -1,0 +1,71 @@
+{
+    "ADORepositories"        :
+    {
+        "BranchPolicies" :
+        {
+            "DevelopmentTrunkName" : "DevTrunk",
+            "PreReleaseTrunkName"  : "PreReleaseTrunk",
+            "ReleaseTrunkName"     : "ReleaseTrunk",
+            "WorkBranchPrefix"     : "Work"
+        },
+        "Repositories":
+        [
+            {
+                "Name"          : "ADOService",
+                "URL"           : "https://dev.azure.com",
+                "Organizations" : 
+                [
+                    {
+                        "Name"          : "TallyWorld",
+                        "ProjectFilter" : [],
+                        "Mandatory"     : true,
+                        "Comments"      : "Blank project filter means, ALL projects under the Organization."
+                    },
+                    {
+                        "Name"          : "TallyDevOps",
+                        "ProjectFilter" : ["TallyWorldPMT"],
+                        "Mandatory"     : false
+                    },
+                    {
+                        "Name"          : "TWPersonal",
+                        "ProjectFilter" : ["${DomainName}"],
+                        "Mandatory"     : false
+                    },
+                    {
+                        "Name"          : "TWArchives",
+                        "ProjectFilter" : [],
+                        "Mandatory"     : false
+                    }
+                ]
+            }
+        ]
+    },
+    "ThirdPartyRepositories" :
+    [
+        {
+            "Name"           : "GitHub",
+            "URL"            : "https://github.com",
+            "Owners"  :
+            [
+                {
+                    "Name"           : "TallySolutions",
+                    "Repositories"   : 
+                    [
+                        {
+                            "Name"    : "NanOS",
+                            "CloneDir": "ThirdParty/NanOS"
+                        },
+                        {
+                            "Name"    : "OPS",
+                            "CloneDir": "ThirdParty/OPS"
+                        },
+                        {
+                            "Name"    : "TWVSExtension",
+                            "CloneDir": "TallyDevOps/TallyWorldPMT/TWVSExtension"
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}
