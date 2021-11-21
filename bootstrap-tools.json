@@ -39,7 +39,7 @@
                 "VersionInfo" : 
                 {
                     "Command"    : "sudo az --version",
-                    "EnvVars"    : [{"Name" : "PATH", "Value" : "/opt/homebrew/bin:$PATH"}],
+                    "EnvVars"    : [{"Name" : "PATH", "Value" : "/opt/homebrew/bin:/usr/local/bin:$PATH"}],
                     "OutputType" : "PlainText",
                     "Line"       : 1,
                     "Column"     : 2
@@ -90,7 +90,7 @@
                 "VersionInfo" : 
                 {
                     "Command"    : "sudo az extension list",
-                    "EnvVars"    : [{"Name" : "PATH", "Value" : "/opt/homebrew/bin:$PATH"}],
+                    "EnvVars"    : [{"Name" : "PATH", "Value" : "/opt/homebrew/bin:/usr/local/bin:$PATH"}],
                     "OutputType" : "JsonArray",
                     "SearchTag"  : "name",
                     "SearchValue": "azure-devops",
@@ -620,7 +620,8 @@
                     "Command"    : "${InstallDir}\\Qt\\${HOST-OS}-${HOST-ARCH}\\bin\\qmake --version",
                     "OutputType" : "PlainText",
                     "Line"       : 2,
-                    "Column"     : 4                },
+                    "Column"     : 4                
+                },
                 "Installer" : 
                 { 
                     "InstallDoc"      : "https://tallywiki.tallysolutions.com/display/TWP/Install+Required+Toolsets#InstallRequiredToolsets-InstallQt",
@@ -635,7 +636,8 @@
                     "Command"    : "/usr/share/Qt/${HOST-OS}-${HOST-ARCH}/bin/qmake --version",
                     "OutputType" : "PlainText",
                     "Line"       : 2,
-                    "Column"     : 4                },
+                    "Column"     : 4                
+                },
                 "Installer" : 
                 { 
                     "InstallDoc"      : "https://tallywiki.tallysolutions.com/display/TWP/Install+Required+Toolsets#InstallRequiredToolsets-InstallQt",
@@ -650,7 +652,8 @@
                     "Command"    : "/Users/Shared/Qt/${HOST-OS}-${HOST-ARCH}/bin/qmake --version",
                     "OutputType" : "PlainText",
                     "Line"       : 2,
-                    "Column"     : 4                },
+                    "Column"     : 4                
+                },
                 "Installer" : 
                 { 
                     "InstallDoc"      : "https://tallywiki.tallysolutions.com/display/TWP/Install+Required+Toolsets#InstallRequiredToolsets-InstallQt",
