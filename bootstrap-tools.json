@@ -2,6 +2,106 @@
     "RequiredSoftwares" :
     [
         {
+            "Name"        : "AzureCLI",
+            "Windows"     :
+            {
+                "Version"     : "2.30",
+                "VersionInfo" : 
+                {
+                    "Command"    : "az --version",
+                    "OutputType" : "PlainText",
+                    "Line"       : 1,
+                    "Column"     : 2
+                },
+                "Installer" : 
+                { 
+                    "InstallDoc"      : "https://tallywiki.tallysolutions.com/display/TWP/Install+Required+Toolsets#InstallRequiredToolsets-InstallAzureCLI"
+                }
+            },
+            "Linux"     :
+            {
+                "Version"     : "2.30",
+                "VersionInfo" : 
+                {
+                    "Command"    : "sudo az --version",
+                    "OutputType" : "PlainText",
+                    "Line"       : 1,
+                    "Column"     : 2
+                },
+                "Installer" : 
+                { 
+                    "InstallDoc"      : "https://tallywiki.tallysolutions.com/display/TWP/Install+Required+Toolsets#InstallRequiredToolsets-InstallAzureCLI"
+                }
+            },
+            "MacOS"     :
+            {
+                "Version"     : "2.30",
+                "VersionInfo" : 
+                {
+                    "Command"    : "sudo az --version",
+                    "OutputType" : "PlainText",
+                    "Line"       : 1,
+                    "Column"     : 2
+                },
+                "Installer" : 
+                { 
+                    "InstallDoc"      : "https://tallywiki.tallysolutions.com/display/TWP/Install+Required+Toolsets#InstallRequiredToolsets-InstallAzureCLI"
+                }
+           }
+        },
+        {
+            "Name"        : "AzureCLIDevOps",
+            "Windows"     :
+            {
+                "Version"     : "0.21",
+                "VersionInfo" : 
+                {
+                    "Command"    : "az extension list",
+                    "OutputType" : "JsonArray",
+                    "SearchTag"  : "name",
+                    "SearchValue": "azure-devops",
+                    "VersionTag" : "version"
+                },
+                "Installer" : 
+                { 
+                    "InstallDoc"      : "https://tallywiki.tallysolutions.com/display/TWP/Install+Required+Toolsets#InstallRequiredToolsets-InstallAzureCLIDevOpsExtension"
+                }
+            },
+            "Linux"     :
+            {
+                "Version"     : "0.21",
+                "VersionInfo" : 
+                {
+                    "Command"    : "sudo az extension list",
+                    "OutputType" : "Json",
+                    "SearchTag"  : "name",
+                    "SearchValue": "azure-devops",
+                    "VersionTag" : "version"
+                },
+                "Installer" : 
+                { 
+                    "InstallDoc"      : "https://tallywiki.tallysolutions.com/display/TWP/Install+Required+Toolsets#InstallRequiredToolsets-InstallAzureCLIDevOpsExtension"
+                }
+            },
+            "MacOS"     :
+            {
+                "Version"     : "0.21",
+                "VersionInfo" : 
+                {
+                    "Command"    : "sudo az extension list",
+                    "OutputType" : "Json",
+                    "SearchTag"  : "name",
+                    "SearchValue": "azure-devops",
+                    "VersionTag" : "version"
+                },
+                "Installer" : 
+                { 
+                    "InstallDoc"      : "https://tallywiki.tallysolutions.com/display/TWP/Install+Required+Toolsets#InstallRequiredToolsets-InstallAzureCLIDevOpsExtension"
+                }
+           }
+        },
+
+        {
             "Name"        : "CMake",
             "Windows"     :
             {
@@ -25,7 +125,7 @@
                     "InstallDir"      : "${TWHome}\\Tools",
                     "PostInstalls"    : ["rename ${InstallDir}\\${FILENAME_WE_0} ${NAME}"],
                     "UninstallMethod" : "RemoveDir",
-                    "InstallDoc"      : "https://tallywiki.tallysolutions.com/display/TWP/Install+Required+Toolsets"
+                    "InstallDoc"      : "https://tallywiki.tallysolutions.com/display/TWP/Install+Required+Toolsets#InstallRequiredToolsets-InstallCMake"
                 }
             },
             "Linux"     :
@@ -50,7 +150,7 @@
                     "InstallDir"      : "/usr/share",
                     "PostInstalls"    : ["mv -f ${InstallDir}/${FILENAME_WE_0} ${InstallDir}/${NAME}", "ln -sf ${InstallDir}/${NAME}/bin/cmake /usr/bin/cmake"],
                     "UninstallMethod" : "RemoveDir",
-                    "InstallDoc"      : "https://tallywiki.tallysolutions.com/display/TWP/Install+Required+Toolsets"
+                    "InstallDoc"      : "https://tallywiki.tallysolutions.com/display/TWP/Install+Required+Toolsets#InstallRequiredToolsets-InstallCMake"
 
                 }
             },
@@ -76,7 +176,7 @@
                     "InstallDir"      : "/Users/Shared",
                     "PostInstalls"    : ["mv -f ${InstallDir}/${FILENAME_WE_0}/CMake.app /Applications", "ln -sf /Applications/CMake.app/Contents/bin/cmake /usr/local/bin/cmake", "rm -rf ${InstallDir}/${FILENAME_WE_0}"],
                     "UninstallMethod" : "RemoveDir",
-                    "InstallDoc"      : "https://tallywiki.tallysolutions.com/display/TWP/Install+Required+Toolsets"
+                    "InstallDoc"      : "https://tallywiki.tallysolutions.com/display/TWP/Install+Required+Toolsets#InstallRequiredToolsets-InstallCMake"
 
                 }
            }
@@ -104,7 +204,7 @@
                     "FileType"        : "Zip",
                     "InstallDir"      : "${TWHome}\\Tools\\Ninja",
                     "PostInstalls"    : [],
-                    "InstallDoc"      : "https://tallywiki.tallysolutions.com/display/TWP/Install+Required+Toolsets"
+                    "InstallDoc"      : "https://tallywiki.tallysolutions.com/display/TWP/Install+Required+Toolsets#InstallRequiredToolsets-InstallNinja"
 
                 }
             },
@@ -129,7 +229,7 @@
                     "FileType"        : "Zip",
                     "InstallDir"      : "/usr/bin",
                     "PostInstalls"    : [],
-                    "InstallDoc"      : "https://tallywiki.tallysolutions.com/display/TWP/Install+Required+Toolsets"
+                    "InstallDoc"      : "https://tallywiki.tallysolutions.com/display/TWP/Install+Required+Toolsets#InstallRequiredToolsets-InstallNinja"
 
                 }
             }
@@ -157,7 +257,7 @@
                     "InstallDir"      : "${TWHome}\\Tools",
                     "PostInstalls"    : [],
                     "UninstallMethod" : "RemoveDir",
-                    "InstallDoc"      : "https://tallywiki.tallysolutions.com/display/TWP/Install+Required+Toolsets"
+                    "InstallDoc"      : "https://tallywiki.tallysolutions.com/display/TWP/Install+Required+Toolsets#InstallRequiredToolsets-InstallRSync"
 
                 }
             },
@@ -206,7 +306,7 @@
                 },
                 "Installer" : 
                 { 
-                    "InstallDoc"      : "https://git-scm.com/download/win"
+                    "InstallDoc"      : "https://tallywiki.tallysolutions.com/display/TWP/Install+Required+Toolsets#InstallRequiredToolsets-InstallGit"
                 },
                 "Validations"   : 
                 [
@@ -259,7 +359,7 @@
                 },
                 "Installer" : 
                 { 
-                    "InstallDoc"      : "https://git-scm.com/download/linux"
+                    "InstallDoc"      : "https://tallywiki.tallysolutions.com/display/TWP/Install+Required+Toolsets#InstallRequiredToolsets-InstallGit"
                 },
                 "Validations"   : 
                 [
@@ -282,7 +382,7 @@
                 },
                 "Installer" : 
                 { 
-                    "InstallDoc"      : "https://git-scm.com/download/mac"
+                    "InstallDoc"      : "https://tallywiki.tallysolutions.com/display/TWP/Install+Required+Toolsets#InstallRequiredToolsets-InstallGit"
                 },
                 "Validations"   : 
                 [
@@ -309,7 +409,7 @@
                 },
                 "Installer" : 
                 { 
-                    "InstallDoc"      : "https://tallywiki.tallysolutions.com/display/TWP/Install+Required+Toolsets",
+                    "InstallDoc"      : "https://tallywiki.tallysolutions.com/display/TWP/Install+Required+Toolsets#InstallRequiredToolsets-InstallTWAppIDCompiler",
                     "InstallDir"      : "${TWHome}\\Tools"
                 }
             }
@@ -329,7 +429,227 @@
                 },
                 "Installer" : 
                 { 
-                    "InstallDoc"      : "https://tallywiki.tallysolutions.com/display/TWP/Install+Required+Toolsets",
+                    "InstallDoc"      : "https://tallywiki.tallysolutions.com/display/TWP/Install+Required+Toolsets#InstallRequiredToolsets-InstallTWBuildGen",
+                    "InstallDir"      : "${TWHome}\\Tools"
+                }
+            }
+        },
+        {
+            "Name"        : "Java",
+            "Windows"     :
+            {
+                "Version"     : "1.8",
+                "VersionInfo" : 
+                {
+                    "Command"    : "${InstallDir}\\Java\\bin\\java -version",
+                    "OutputType" : "PlainText",
+                    "Line"       : 1,
+                    "Column"     : 3
+                },
+                "Installer" : 
+                { 
+                    "InstallDoc"      : "https://tallywiki.tallysolutions.com/display/TWP/Install+Required+Toolsets#InstallRequiredToolsets-InstallJava",
+                    "InstallDir"      : "${TWHome}\\Tools"
+                }
+            }
+        },
+        {
+            "Name"        : "AndroidSDK",
+            "Windows"     :
+            {
+                "Version"     : "5.0",
+                "VersionInfo" : 
+                {
+                    "Command"    : "type ${InstallDir}\\Android\\SDK\\cmdline-tools\\latest\\source.properties",
+                    "OutputType" : "PlainText",
+                    "Line"       : 1,
+                    "Column"     : 1,
+                    "Prefix"     : "Pkg.Revision="
+                },
+                "Installer" : 
+                { 
+                    "InstallDoc"      : "https://tallywiki.tallysolutions.com/display/TWP/Install+Required+Toolsets#InstallRequiredToolsets-InstallAndroidSDK",
+                    "InstallDir"      : "${TWHome}\\Tools"
+                }
+            }
+        },
+        {
+            "Name"        : "AndroidNDK",
+            "Windows"     :
+            {
+                "Version"     : "23.0",
+                "VersionInfo" : 
+                {
+                    "Command"    : "type ${InstallDir}\\Android\\NDK\\source.properties",
+                    "OutputType" : "PlainText",
+                    "Line"       : 2,
+                    "Column"     : 3                },
+                "Installer" : 
+                { 
+                    "InstallDoc"      : "https://tallywiki.tallysolutions.com/display/TWP/Install+Required+Toolsets#InstallRequiredToolsets-InstallAndroidNDK",
+                    "InstallDir"      : "${TWHome}\\Tools"
+                }
+            }
+        },
+        {
+            "Name"        : "Flex",
+            "Windows"     :
+            {
+                "Version"     : "2.6.4",
+                "VersionInfo" : 
+                {
+                    "Command"    : "${InstallDir}\\FlexBison\\win_flex.exe --version",
+                    "OutputType" : "PlainText",
+                    "Line"       : 1,
+                    "Column"     : 2                },
+                "Installer" : 
+                { 
+                    "InstallDoc"      : "https://tallywiki.tallysolutions.com/display/TWP/Install+Required+Toolsets#InstallRequiredToolsets-InstallFlexandBison",
+                    "InstallDir"      : "${TWHome}\\Tools"
+                }
+            },
+            "Linux"     :
+            {
+                "Version"     : "2.6.4",
+                "VersionInfo" : 
+                {
+                    "Command"    : "flex --version",
+                    "OutputType" : "PlainText",
+                    "Line"       : 1,
+                    "Column"     : 2                },
+                "Installer" : 
+                { 
+                    "InstallDoc"      : "https://tallywiki.tallysolutions.com/display/TWP/Install+Required+Toolsets#InstallRequiredToolsets-InstallFlexandBison",
+                    "InstallDir"      : "${TWHome}\\Tools"
+                }
+            },
+            "MacOS"     :
+            {
+                "Version"     : "2.6.4",
+                "VersionInfo" : 
+                {
+                    "Command"    : "flex --version",
+                    "OutputType" : "PlainText",
+                    "Line"       : 1,
+                    "Column"     : 2                },
+                "Installer" : 
+                { 
+                    "InstallDoc"      : "https://tallywiki.tallysolutions.com/display/TWP/Install+Required+Toolsets#InstallRequiredToolsets-InstallFlexandBison",
+                    "InstallDir"      : "${TWHome}\\Tools"
+                }
+            }
+        },
+        {
+            "Name"        : "Bison",
+            "Windows"     :
+            {
+                "Version"     : "3.7.4",
+                "VersionInfo" : 
+                {
+                    "Command"    : "${InstallDir}\\FlexBison\\win_bison.exe --version",
+                    "OutputType" : "PlainText",
+                    "Line"       : 1,
+                    "Column"     : 4                },
+                "Installer" : 
+                { 
+                    "InstallDoc"      : "https://tallywiki.tallysolutions.com/display/TWP/Install+Required+Toolsets#InstallRequiredToolsets-InstallFlexandBison",
+                    "InstallDir"      : "${TWHome}\\Tools"
+                }
+            },
+            "Linux"     :
+            {
+                "Version"     : "3.5.1",
+                "VersionInfo" : 
+                {
+                    "Command"    : "bison --version",
+                    "OutputType" : "PlainText",
+                    "Line"       : 1,
+                    "Column"     : 4                },
+                "Installer" : 
+                { 
+                    "InstallDoc"      : "https://tallywiki.tallysolutions.com/display/TWP/Install+Required+Toolsets#InstallRequiredToolsets-InstallFlexandBison",
+                    "InstallDir"      : "${TWHome}\\Tools"
+                }
+            },
+            "MacOS"     :
+            {
+                "Version"     : "3.7.6",
+                "VersionInfo" : 
+                {
+                    "Command"    : "bison --version",
+                    "OutputType" : "PlainText",
+                    "Line"       : 1,
+                    "Column"     : 4                },
+                "Installer" : 
+                { 
+                    "InstallDoc"      : "https://tallywiki.tallysolutions.com/display/TWP/Install+Required+Toolsets#InstallRequiredToolsets-InstallFlexandBison",
+                    "InstallDir"      : "${TWHome}\\Tools"
+                }
+            }
+        },
+        {
+            "Name"        : "Gradle",
+            "Windows"     :
+            {
+                "Version"     : "7.1",
+                "VersionInfo" : 
+                {
+                    "Command"    : "${TWHome}\\Tools\\gradle\\bin\\gradle.bat --version --quiet -Dorg.gradle.internal.launcher.welcomeMessageEnabled=false",
+                    "OutputType" : "PlainText",
+                    "Line"       : 3,
+                    "Column"     : 2
+                },
+                "Installer" : 
+                { 
+                    "InstallDir"      : "${TWHome}\\Tools",
+                    "InstallDoc"      : "https://tallywiki.tallysolutions.com/display/TWP/Install+Required+Toolsets#InstallRequiredToolsets-InstallGradle"
+                }
+            }
+        },
+        {
+            "Name"        : "Qt",
+            "Windows"     :
+            {
+                "Version"     : "6.2.0",
+                "VersionInfo" : 
+                {
+                    "Command"    : "${InstallDir}\\Qt\\${HOST-OS}-${HOST-ARCH}\\bin\\qmake --version",
+                    "OutputType" : "PlainText",
+                    "Line"       : 2,
+                    "Column"     : 4                },
+                "Installer" : 
+                { 
+                    "InstallDoc"      : "https://tallywiki.tallysolutions.com/display/TWP/Install+Required+Toolsets#InstallRequiredToolsets-InstallQt",
+                    "InstallDir"      : "${TWHome}\\Tools"
+                }
+            },
+            "Linux"     :
+            {
+                "Version"     : "6.2.0",
+                "VersionInfo" : 
+                {
+                    "Command"    : "/usr/share/Qt/${HOST-OS}-${HOST-ARCH}/bin/qmake --version",
+                    "OutputType" : "PlainText",
+                    "Line"       : 2,
+                    "Column"     : 4                },
+                "Installer" : 
+                { 
+                    "InstallDoc"      : "https://tallywiki.tallysolutions.com/display/TWP/Install+Required+Toolsets#InstallRequiredToolsets-InstallQt",
+                    "InstallDir"      : "${TWHome}\\Tools"
+                }
+            },
+            "MacOS"     :
+            {
+                "Version"     : "6.2.0",
+                "VersionInfo" : 
+                {
+                    "Command"    : "/Users/Shaed/Qt/${HOST-OS}-${HOST-ARCH}/bin/qmake --version",
+                    "OutputType" : "PlainText",
+                    "Line"       : 2,
+                    "Column"     : 4                },
+                "Installer" : 
+                { 
+                    "InstallDoc"      : "https://tallywiki.tallysolutions.com/display/TWP/Install+Required+Toolsets#InstallRequiredToolsets-InstallQt",
                     "InstallDir"      : "${TWHome}\\Tools"
                 }
             }
