@@ -39,7 +39,7 @@
                 "VersionInfo" : 
                 {
                     "Command"    : "sudo az --version",
-                    "EnvVars"    : [{"Name" : "PATH", "Value" : "/opt/homebrew/bin;$PATH"}],
+                    "EnvVars"    : [{"Name" : "PATH", "Value" : "/opt/homebrew/bin:$PATH"}],
                     "OutputType" : "PlainText",
                     "Line"       : 1,
                     "Column"     : 2
@@ -90,7 +90,7 @@
                 "VersionInfo" : 
                 {
                     "Command"    : "sudo az extension list",
-                    "EnvVars"    : [{"Name" : "PATH", "Value" : "/opt/homebrew/bin;$PATH"}],
+                    "EnvVars"    : [{"Name" : "PATH", "Value" : "/opt/homebrew/bin:$PATH"}],
                     "OutputType" : "JsonArray",
                     "SearchTag"  : "name",
                     "SearchValue": "azure-devops",
@@ -579,7 +579,7 @@
                 "VersionInfo" : 
                 {
                     "Command"    : "bison --version",
-                    "EnvVars"    : [{"Name" : "PATH", "Value" : "/opt/homebrew/opt/bison/bin;$PATH"}],
+                    "EnvVars"    : [{"Name" : "PATH", "Value" : "/opt/homebrew/opt/bison/bin:$PATH"}],
                     "OutputType" : "PlainText",
                     "Line"       : 1,
                     "Column"     : 4                },
