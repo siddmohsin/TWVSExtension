@@ -1,1 +1,1 @@
-message(STATUS "Verifying softwares ...")
+#message(STATUS "Verifying softwares ...")
