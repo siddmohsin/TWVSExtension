@@ -579,6 +579,7 @@
                 "VersionInfo" : 
                 {
                     "Command"    : "bison --version",
+                    "EnvVars"    : [{"Name" : "PATH", "Value" : "/opt/homebrew/opt/bison/bin;$PATH"}],
                     "OutputType" : "PlainText",
                     "Line"       : 1,
                     "Column"     : 4                },
@@ -645,7 +646,7 @@
                 "Version"     : "6.2.0",
                 "VersionInfo" : 
                 {
-                    "Command"    : "/Users/Shaed/Qt/${HOST-OS}-${HOST-ARCH}/bin/qmake --version",
+                    "Command"    : "/Users/Shared/Qt/${HOST-OS}-${HOST-ARCH}/bin/qmake --version",
                     "OutputType" : "PlainText",
                     "Line"       : 2,
                     "Column"     : 4                },
