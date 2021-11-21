@@ -531,6 +531,7 @@
                 "VersionInfo" : 
                 {
                     "Command"    : "flex --version",
+                    "EnvVars"    : [{"Name" : "PATH", "Value" : "/opt/homebrew/opt/flex/bin:$PATH"}],
                     "OutputType" : "PlainText",
                     "Line"       : 1,
                     "Column"     : 2                },
