@@ -74,7 +74,7 @@
                 "VersionInfo" : 
                 {
                     "Command"    : "sudo az extension list",
-                    "OutputType" : "Json",
+                    "OutputType" : "JsonArray",
                     "SearchTag"  : "name",
                     "SearchValue": "azure-devops",
                     "VersionTag" : "version"
@@ -91,7 +91,7 @@
                 {
                     "Command"    : "sudo az extension list",
                     "EnvVars"    : [{"Name" : "PATH", "Value" : "/opt/homebrew/bin;$PATH"}],
-                    "OutputType" : "Json",
+                    "OutputType" : "JsonArray",
                     "SearchTag"  : "name",
                     "SearchValue": "azure-devops",
                     "VersionTag" : "version"
