@@ -675,7 +675,7 @@
 
           <dict>
             <key>begin</key>
-            <string>^\s?*(TWBuildConfiguration)\s?*(RELEASE|DEBUG|SIMULATOR|METRICS)\b\s?*</string>
+            <string>^\s?*(TWBuildConfiguration)\s?*(RELEASE|DEBUG|SIMULATION|METRICS)\b\s?*</string>
             <key>beginCaptures</key>
             <dict>
               <key>1</key>
