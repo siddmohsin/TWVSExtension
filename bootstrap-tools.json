@@ -140,7 +140,7 @@
             "Windows"     :
             {
                 "Version"     : "12.0.0",
-                "Command"     : "${InstallDir}\\bin\\clang++",
+                "Command"     : "${TWHome}\\LLVM\\bin\\clang++",
                 "VersionInfo" : 
                 {
                     "Command"    : "${COMMAND} --version",
