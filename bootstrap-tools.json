@@ -26,7 +26,7 @@
                     "InstallDir"      : "${TWHome}\\Tools",
                     "PostInstalls"    : ["rename ${InstallDir}\\${FILENAME_WE_0} ${NAME}"],
                     "UninstallMethod" : "RemoveDir",
-                    "InstallDoc"      : "https://tallywiki.tallysolutions.com/display/TWP/Install+Required+Toolsets#InstallRequiredToolsets-InstallCMake"
+                    "InstallDoc"      : "https://tallywiki.tallysolutions.com/display/TWP/Install+Required+Software+on+Windows+x64+Host#InstallRequiredSoftwareonWindowsx64Host-InstallCMake"
                 }
             },
             "Linux"     :
@@ -51,7 +51,7 @@
                     "InstallDir"      : "/usr/share",
                     "PostInstalls"    : ["mv -f ${InstallDir}/${FILENAME_WE_0} ${InstallDir}/${NAME}", "ln -sf ${InstallDir}/${NAME}/bin/cmake /usr/bin/cmake"],
                     "UninstallMethod" : "RemoveDir",
-                    "InstallDoc"      : "https://tallywiki.tallysolutions.com/display/TWP/Install+Required+Toolsets#InstallRequiredToolsets-InstallCMake"
+                    "InstallDoc"      : "https://tallywiki.tallysolutions.com/display/TWP/Install+Required+Software+on+Linux+x64+Host#InstallRequiredSoftwareonLinuxx64Host-InstallCMake"
 
                 }
             },
@@ -77,7 +77,7 @@
                     "InstallDir"      : "/Users/Shared",
                     "PostInstalls"    : ["mv -f ${InstallDir}/${FILENAME_WE_0}/CMake.app /Applications", "ln -sf /Applications/CMake.app/Contents/bin/cmake /usr/local/bin/cmake", "rm -rf ${InstallDir}/${FILENAME_WE_0}"],
                     "UninstallMethod" : "RemoveDir",
-                    "InstallDoc"      : "https://tallywiki.tallysolutions.com/display/TWP/Install+Required+Toolsets#InstallRequiredToolsets-InstallCMake"
+                    "InstallDoc"      : "https://tallywiki.tallysolutions.com/display/TWP/Install+Required+Software+on+MacOS+x64+and+ARM64+Host#InstallRequiredSoftwareonMacOSx64andARM64Host-InstallCMake"
 
                 }
            }
@@ -105,7 +105,7 @@
                     "FileType"        : "Zip",
                     "InstallDir"      : "${TWHome}\\Tools\\Ninja",
                     "PostInstalls"    : [],
-                    "InstallDoc"      : "https://tallywiki.tallysolutions.com/display/TWP/Install+Required+Toolsets#InstallRequiredToolsets-InstallNinja"
+                    "InstallDoc"      : "https://tallywiki.tallysolutions.com/display/TWP/Install+Required+Software+on+Windows+x64+Host#InstallRequiredSoftwareonWindowsx64Host-InstallNinja"
 
                 }
             },
@@ -130,8 +130,43 @@
                     "FileType"        : "Zip",
                     "InstallDir"      : "/usr/bin",
                     "PostInstalls"    : [],
-                    "InstallDoc"      : "https://tallywiki.tallysolutions.com/display/TWP/Install+Required+Toolsets#InstallRequiredToolsets-InstallNinja"
+                    "InstallDoc"      : "https://tallywiki.tallysolutions.com/display/TWP/Install+Required+Software+on+Linux+x64+Host#InstallRequiredSoftwareonLinuxx64Host-InstallNinja"
 
+                }
+            }
+        },
+        {
+            "Name"        : "LLVM",
+            "Windows"     :
+            {
+                "Version"     : "12.0.0",
+                "Command"     : "${InstallDir}\\bin\\clang++",
+                "VersionInfo" : 
+                {
+                    "Command"    : "${COMMAND} --version",
+                    "OutputType" : "PlainText",
+                    "Line"       : 1,
+                    "Column"     : 3
+                },
+                "Installer" : 
+                { 
+                    "InstallDoc"      : "https://tallywiki.tallysolutions.com/display/TWP/Install+Required+Software+on+Windows+x64+Host#InstallRequiredSoftwareonWindowsx64Host-InstallLLVM"
+                }
+            },
+            "Linux"     :
+            {
+                "Version"     : "12.0.0",
+                "Command"     : "clang++",
+                "VersionInfo" : 
+                {
+                    "Command"    : "${COMMAND} --version",
+                    "OutputType" : "PlainText",
+                    "Line"       : 1,
+                    "Column"     : 4
+                },
+                "Installer" : 
+                { 
+                    "InstallDoc"      : "https://tallywiki.tallysolutions.com/display/TWP/Install+Required+Software+on+Linux+x64+Host#InstallRequiredSoftwareonLinuxx64Host-InstallLLVM"
                 }
             }
         },
@@ -158,7 +193,7 @@
                     "InstallDir"      : "${TWHome}\\Tools",
                     "PostInstalls"    : [],
                     "UninstallMethod" : "RemoveDir",
-                    "InstallDoc"      : "https://tallywiki.tallysolutions.com/display/TWP/Install+Required+Toolsets#InstallRequiredToolsets-InstallRSync"
+                    "InstallDoc"      : "https://tallywiki.tallysolutions.com/display/TWP/Install+Required+Software+on+Windows+x64+Host#InstallRequiredSoftwareonWindowsx64Host-InstallRSync"
 
                 }
             },
@@ -207,7 +242,7 @@
                 },
                 "Installer" : 
                 { 
-                    "InstallDoc"      : "https://tallywiki.tallysolutions.com/display/TWP/Install+Required+Toolsets#InstallRequiredToolsets-InstallGit"
+                    "InstallDoc"      : "https://tallywiki.tallysolutions.com/display/TWP/Install+Required+Software+on+Windows+x64+Host#InstallRequiredSoftwareonWindowsx64Host-InstallGit"
                 },
                 "Validations"   : 
                 [
@@ -260,7 +295,7 @@
                 },
                 "Installer" : 
                 { 
-                    "InstallDoc"      : "https://tallywiki.tallysolutions.com/display/TWP/Install+Required+Toolsets#InstallRequiredToolsets-InstallGit"
+                    "InstallDoc"      : "https://tallywiki.tallysolutions.com/display/TWP/Install+Required+Software+on+Linux+x64+Host#InstallRequiredSoftwareonLinuxx64Host-InstallGit"
                 },
                 "Validations"   : 
                 [
@@ -283,7 +318,7 @@
                 },
                 "Installer" : 
                 { 
-                    "InstallDoc"      : "https://tallywiki.tallysolutions.com/display/TWP/Install+Required+Toolsets#InstallRequiredToolsets-InstallGit"
+                    "InstallDoc"      : "https://tallywiki.tallysolutions.com/display/TWP/Install+Required+Software+on+MacOS+x64+and+ARM64+Host#InstallRequiredSoftwareonMacOSx64andARM64Host-InstallGit"
                 },
                 "Validations"   : 
                 [
@@ -309,7 +344,7 @@
                 },
                 "Installer" : 
                 { 
-                    "InstallDoc"      : "https://tallywiki.tallysolutions.com/display/TWP/Install+Required+Toolsets#InstallRequiredToolsets-InstallAzureCLI"
+                    "InstallDoc"      : "https://tallywiki.tallysolutions.com/display/TWP/Install+Required+Software+on+Windows+x64+Host#InstallRequiredSoftwareonWindowsx64Host-InstallAzureCLI"
                 }
             }
         },
@@ -328,7 +363,7 @@
                 },
                 "Installer" : 
                 { 
-                    "InstallDoc"      : "https://tallywiki.tallysolutions.com/display/TWP/Install+Required+Toolsets#InstallRequiredToolsets-InstallAzureCLIDevOpsExtension"
+                    "InstallDoc"      : "https://tallywiki.tallysolutions.com/display/TWP/Install+Required+Software+on+Windows+x64+Host#InstallRequiredSoftwareonWindowsx64Host-InstallAzureCLIDevOpsExtension"
                 }
             }
         },
@@ -347,7 +382,7 @@
                 },
                 "Installer" : 
                 { 
-                    "InstallDoc"      : "https://tallywiki.tallysolutions.com/display/TWP/Install+Required+Toolsets#InstallRequiredToolsets-InstallTWAppIDCompiler",
+                    "InstallDoc"      : "https://tallywiki.tallysolutions.com/display/TWP/Install+Required+Software+on+Windows+x64+Host#InstallRequiredSoftwareonWindowsx64Host-InstallTWAppIDCompiler",
                     "InstallDir"      : "${TWHome}\\Tools"
                 }
             }
@@ -367,7 +402,7 @@
                 },
                 "Installer" : 
                 { 
-                    "InstallDoc"      : "https://tallywiki.tallysolutions.com/display/TWP/Install+Required+Toolsets#InstallRequiredToolsets-InstallTWBuildGen",
+                    "InstallDoc"      : "https://tallywiki.tallysolutions.com/display/TWP/Install+Required+Software+on+Windows+x64+Host#InstallRequiredSoftwareonWindowsx64Host-InstallTWBuildGen",
                     "InstallDir"      : "${TWHome}\\Tools"
                 }
             }
@@ -386,7 +421,7 @@
                 },
                 "Installer" : 
                 { 
-                    "InstallDoc"      : "https://tallywiki.tallysolutions.com/display/TWP/Install+Required+Toolsets#InstallRequiredToolsets-InstallJava",
+                    "InstallDoc"      : "https://tallywiki.tallysolutions.com/display/TWP/Install+Required+Software+on+Windows+x64+Host#InstallRequiredSoftwareonWindowsx64Host-InstallJava",
                     "InstallDir"      : "${TWHome}\\Tools"
                 }
             }
@@ -406,7 +441,7 @@
                 },
                 "Installer" : 
                 { 
-                    "InstallDoc"      : "https://tallywiki.tallysolutions.com/display/TWP/Install+Required+Toolsets#InstallRequiredToolsets-InstallAndroidSDK",
+                    "InstallDoc"      : "https://tallywiki.tallysolutions.com/display/TWP/Install+Required+Software+on+Windows+x64+Host#InstallRequiredSoftwareonWindowsx64Host-InstallAndroidSDK",
                     "InstallDir"      : "${TWHome}\\Tools"
                 }
             }
@@ -424,7 +459,7 @@
                     "Column"     : 3                },
                 "Installer" : 
                 { 
-                    "InstallDoc"      : "https://tallywiki.tallysolutions.com/display/TWP/Install+Required+Toolsets#InstallRequiredToolsets-InstallAndroidNDK",
+                    "InstallDoc"      : "https://tallywiki.tallysolutions.com/display/TWP/Install+Required+Software+on+Windows+x64+Host#InstallRequiredSoftwareonWindowsx64Host-InstallAndroidNDK",
                     "InstallDir"      : "${TWHome}\\Tools"
                 }
             }
@@ -442,7 +477,7 @@
                     "Column"     : 2                },
                 "Installer" : 
                 { 
-                    "InstallDoc"      : "https://tallywiki.tallysolutions.com/display/TWP/Install+Required+Toolsets#InstallRequiredToolsets-InstallFlexandBison",
+                    "InstallDoc"      : "https://tallywiki.tallysolutions.com/display/TWP/Install+Required+Software+on+Windows+x64+Host#InstallRequiredSoftwareonWindowsx64Host-InstallFlexandBison",
                     "InstallDir"      : "${TWHome}\\Tools"
                 }
             },
@@ -457,7 +492,7 @@
                     "Column"     : 2                },
                 "Installer" : 
                 { 
-                    "InstallDoc"      : "https://tallywiki.tallysolutions.com/display/TWP/Install+Required+Toolsets#InstallRequiredToolsets-InstallFlexandBison",
+                    "InstallDoc"      : "https://tallywiki.tallysolutions.com/display/TWP/Install+Required+Software+on+Linux+x64+Host#InstallRequiredSoftwareonLinuxx64Host-InstallFlexandBison",
                     "InstallDir"      : "${TWHome}\\Tools"
                 }
             },
@@ -473,7 +508,7 @@
                     "Column"     : 2                },
                 "Installer" : 
                 { 
-                    "InstallDoc"      : "https://tallywiki.tallysolutions.com/display/TWP/Install+Required+Toolsets#InstallRequiredToolsets-InstallFlexandBison",
+                    "InstallDoc"      : "https://tallywiki.tallysolutions.com/display/TWP/Install+Required+Software+on+MacOS+x64+and+ARM64+Host#InstallRequiredSoftwareonMacOSx64andARM64Host-InstallFlexandBison",
                     "InstallDir"      : "${TWHome}\\Tools"
                 }
             }
@@ -491,7 +526,7 @@
                     "Column"     : 4                },
                 "Installer" : 
                 { 
-                    "InstallDoc"      : "https://tallywiki.tallysolutions.com/display/TWP/Install+Required+Toolsets#InstallRequiredToolsets-InstallFlexandBison",
+                    "InstallDoc"      : "https://tallywiki.tallysolutions.com/display/TWP/Install+Required+Software+on+Windows+x64+Host#InstallRequiredSoftwareonWindowsx64Host-InstallFlexandBison",
                     "InstallDir"      : "${TWHome}\\Tools"
                 }
             },
@@ -506,7 +541,7 @@
                     "Column"     : 4                },
                 "Installer" : 
                 { 
-                    "InstallDoc"      : "https://tallywiki.tallysolutions.com/display/TWP/Install+Required+Toolsets#InstallRequiredToolsets-InstallFlexandBison",
+                    "InstallDoc"      : "https://tallywiki.tallysolutions.com/display/TWP/Install+Required+Software+on+Linux+x64+Host#InstallRequiredSoftwareonLinuxx64Host-InstallFlexandBison",
                     "InstallDir"      : "${TWHome}\\Tools"
                 }
             },
@@ -522,7 +557,7 @@
                     "Column"     : 4                },
                 "Installer" : 
                 { 
-                    "InstallDoc"      : "https://tallywiki.tallysolutions.com/display/TWP/Install+Required+Toolsets#InstallRequiredToolsets-InstallFlexandBison",
+                    "InstallDoc"      : "https://tallywiki.tallysolutions.com/display/TWP/Install+Required+Software+on+MacOS+x64+and+ARM64+Host#InstallRequiredSoftwareonMacOSx64andARM64Host-InstallFlexandBison",
                     "InstallDir"      : "${TWHome}\\Tools"
                 }
             }
@@ -542,7 +577,7 @@
                 "Installer" : 
                 { 
                     "InstallDir"      : "${TWHome}\\Tools",
-                    "InstallDoc"      : "https://tallywiki.tallysolutions.com/display/TWP/Install+Required+Toolsets#InstallRequiredToolsets-InstallGradle"
+                    "InstallDoc"      : "https://tallywiki.tallysolutions.com/display/TWP/Install+Required+Software+on+Windows+x64+Host#InstallRequiredSoftwareonWindowsx64Host-InstallGradle"
                 }
             }
         },
@@ -560,7 +595,7 @@
                 },
                 "Installer" : 
                 { 
-                    "InstallDoc"      : "https://tallywiki.tallysolutions.com/display/TWP/Install+Required+Toolsets#InstallRequiredToolsets-InstallQt",
+                    "InstallDoc"      : "https://tallywiki.tallysolutions.com/display/TWP/Install+Required+Software+on+Windows+x64+Host#InstallRequiredSoftwareonWindowsx64Host-InstallQt",
                     "InstallDir"      : "${TWHome}\\Tools"
                 }
             },
@@ -576,7 +611,7 @@
                 },
                 "Installer" : 
                 { 
-                    "InstallDoc"      : "https://tallywiki.tallysolutions.com/display/TWP/Install+Required+Toolsets#InstallRequiredToolsets-InstallQt",
+                    "InstallDoc"      : "https://tallywiki.tallysolutions.com/display/TWP/Install+Required+Software+on+Linux+x64+Host#InstallRequiredSoftwareonLinuxx64Host-InstallQt",
                     "InstallDir"      : "${TWHome}\\Tools"
                 }
             },
@@ -592,7 +627,7 @@
                 },
                 "Installer" : 
                 { 
-                    "InstallDoc"      : "https://tallywiki.tallysolutions.com/display/TWP/Install+Required+Toolsets#InstallRequiredToolsets-InstallQt",
+                    "InstallDoc"      : "https://tallywiki.tallysolutions.com/display/TWP/Install+Required+Software+on+MacOS+x64+and+ARM64+Host#InstallRequiredSoftwareonMacOSx64andARM64Host-InstallQt",
                     "InstallDir"      : "${TWHome}\\Tools"
                 }
             }
