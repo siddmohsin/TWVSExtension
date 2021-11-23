@@ -8,5 +8,5 @@
     "RSyncConfFile"         : "${TWWorkspaceHome}\\TallyWorld\\BuildSupportPlatform\\TWBuildSupport.Source\\Scripts\\rsync.conf",
     "BuildsDir"             : "Builds",
     "IntDir"                : "TWInt",
-	"TWEnvScript"           : "${TWWorkspaceHome}\\TallyWorld\\BuildSupportPlatform\\TWBuildSupport.Source\\Scripts\\TWEnv.bat"
+    "TWEnvScript"           : "${TWWorkspaceHome}\\TallyWorld\\BuildSupportPlatform\\TWBuildSupport.Source\\Scripts\\TWEnv.bat"
 }
