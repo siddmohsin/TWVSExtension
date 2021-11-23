@@ -7,5 +7,6 @@
     "RemoteBuildScript"     : "$HOME/${TWWorkspaceDir}/TallyWorld/BuildSupportPlatform/TWBuildSupport.Source/Scripts/RemoteBuild.sh",
     "RSyncConfFile"         : "${TWWorkspaceHome}\\TallyWorld\\BuildSupportPlatform\\TWBuildSupport.Source\\Scripts\\rsync.conf",
     "BuildsDir"             : "Builds",
-    "IntDir"                : "TWInt"
+    "IntDir"                : "TWInt",
+    "TWEnvScript"           : "${TWWorkspaceHome}\\TallyWorld\\BuildSupportPlatform\\TWBuildSupport.Source\\Scripts\\TWEnv.bat"
 }
