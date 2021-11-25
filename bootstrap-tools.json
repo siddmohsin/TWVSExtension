@@ -655,7 +655,17 @@
                     },
                     "InstallDir"      : "${TWHome}\\Tools\\TWCLangFormat",
                     "PostInstalls"    : ["copy ${InstallDir}\\_clang-format ${TWHome}\\Workspace"],
-                    "UninstallMethod" : "RemoveDir"                }
+                    "UninstallMethod" : "RemoveDir"                
+				}, 
+                "Validations"   : 
+                [
+                    {
+                        "Command"        : "if  exist ${TWHome}\\Workspace\\_clang-format echo present",
+                        "ExpectedOutput" : "present",
+                        "FixCommand"     : "copy ${InstallDir}\\_clang-format ${TWHome}\\Workspace"
+                    }
+				]
+				
             }
         }
     ],
