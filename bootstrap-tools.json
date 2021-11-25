@@ -660,7 +660,7 @@
                 "Validations"   : 
                 [
                     {
-                        "Command"        : "if  exist ${TWHome}\\Workspace\\clang-format echo present",
+                        "Command"        : "if  exist ${TWHome}\\Workspace\\_clang-format echo present",
                         "ExpectedOutput" : "present",
                         "FixCommand"     : "copy ${InstallDir}\\_clang-format ${TWHome}\\Workspace"
                     }
