@@ -371,7 +371,7 @@
             "Name"        : "TWAppIdCompiler",
             "Windows"     :
             {
-                "Version"     : "2.3.9",
+                "Version"     : "2.3.10",
                 "VersionInfo" : 
                 {
                     "Command"    : "${InstallDir}/TWAppIdCompiler/TWAppIdCompiler --version",
