@@ -670,6 +670,7 @@
         }
     ],
     "ValidationCMakeFile"  :  "${BootstrapURL}/CMake/ValidateEnvironment.cmake",
+	"VSSettingsFile"       :  "${BootstrapURL}/TallyWorld.vssettings",
 	"VisualStudioOptions"  :
 	[
 		{
@@ -684,20 +685,13 @@
 				},
 				{
 					"Name"     : "EnableClangFormatSupport",
-					"Value"    : true,
+					"Value"    : true
 				},
 				{
 					"Name"     : "UseCustomClangFormatExe",
-					"Value"    : true,
+					"Value"    : true
 				}
 			]
 		}
 	]
 }
-"TextEditor"
-"C/C++ Specific"
-
-"ClangFormatExePath"
-
-"EnableClangFormatSupport"
-"UseCustomClangFormatExe"
