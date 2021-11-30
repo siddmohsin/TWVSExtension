@@ -371,7 +371,7 @@
             "Name"        : "TWAppIdCompiler",
             "Windows"     :
             {
-                "Version"     : "2.3.9",
+                "Version"     : "2.3.11",
                 "VersionInfo" : 
                 {
                     "Command"    : "${InstallDir}/TWAppIdCompiler/TWAppIdCompiler --version",
@@ -391,7 +391,7 @@
             "Name"        : "TWBuildGen",
             "Windows"     :
             {
-                "Version"     : "1.0.3",
+                "Version"     : "1.0.4",
                 "VersionInfo" : 
                 {
                     "Command"    : "${InstallDir}/TWBuildGen/TWBuildGen --version",
