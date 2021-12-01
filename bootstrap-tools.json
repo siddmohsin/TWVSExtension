@@ -391,7 +391,7 @@
             "Name"        : "TWBuildGen",
             "Windows"     :
             {
-                "Version"     : "1.0.4",
+                "Version"     : "1.0.5",
                 "VersionInfo" : 
                 {
                     "Command"    : "${InstallDir}/TWBuildGen/TWBuildGen --version",
