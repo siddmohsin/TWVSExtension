@@ -3,7 +3,7 @@
     "BuildGenScript"        : "${TWWorkspaceHome}\\TallyWorld\\BuildSupportPlatform\\TWBuildSupport.Source\\Scripts\\RunBuildGen.bat",
     "SchemaGenScript"       : "${TWWorkspaceHome}\\TallyWorld\\BuildSupportPlatform\\TWBuildSupport.Source\\Scripts\\RunSchemaGen.bat",
 	"SchemaGenCleanScript"  : "${TWWorkspaceHome}\\TallyWorld\\BuildSupportPlatform\\TWBuildSupport.Source\\Scripts\\CleanSchemaGenFiles.bat",
-    "LocalBuildScript"      : "${TWWorkspaceHome}\\TallyWorld\\BuildSupportPlatform\\TWBuildSupport.Source\\Scripts\\RunLocalBuildNew.bat",
+    "LocalBuildScript"      : "${TWWorkspaceHome}\\TallyWorld\\BuildSupportPlatform\\TWBuildSupport.Source\\Scripts\\RunLocalBuild.bat",
     "TransferScript"        : "${TWWorkspaceHome}\\TallyWorld\\BuildSupportPlatform\\TWBuildSupport.Source\\Scripts\\Transfer.bat",
     "RemoteBuildScript"     : "$HOME/${TWWorkspaceDir}/TallyWorld/BuildSupportPlatform/TWBuildSupport.Source/Scripts/RunRemoteBuild.sh",
     "RSyncConfFile"         : "${TWWorkspaceHome}\\TallyWorld\\BuildSupportPlatform\\TWBuildSupport.Source\\Scripts\\rsync.conf",
