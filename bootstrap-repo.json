@@ -79,7 +79,7 @@
     },
     "RepoListConfig"   :
     {
-        "AcceptableRefreshGap" : 10,
-        "DelayedExecutionTime" : 10
+        "AcceptableRefreshGap" : 1,
+        "DelayedExecutionTime" : 2
     }
  }
