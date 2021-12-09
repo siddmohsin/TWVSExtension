@@ -76,5 +76,9 @@
             "FirstWait"     : 5,
             "IncrementWait" : 5
         }
+    },
+    "RepoListConfig"   :
+    {
+        "AcceptableRefreshGap" : 10
     }
-}
+ }
