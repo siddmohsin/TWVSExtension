@@ -67,5 +67,14 @@
                 }
             ]
         }
-    ]
+    ],
+    "GitConfig" : 
+    {
+        "CommandRecovery" : 
+        {
+            "Retries"       : 3,
+            "FirstWait"     : 5,
+            "IncrementWait" : 5
+        }
+    }
 }
