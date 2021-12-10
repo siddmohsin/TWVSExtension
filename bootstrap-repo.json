@@ -70,12 +70,7 @@
     ],
     "GitConfig" : 
     {
-        "CommandRecovery" : 
-        {
-            "Retries"       : 3,
-            "FirstWait"     : 5,
-            "IncrementWait" : 5
-        }
+        "CloneWaitTime"  : 300
     },
     "RepoListConfig"   :
     {
