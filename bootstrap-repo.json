@@ -31,10 +31,15 @@
                         "Name"          : "TWPersonal",
                         "ProjectFilter" : ["${DomainName}"],
                         "Mandatory"     : false
-                    },
+                    },"SharedProjects"
                     {
                         "Name"          : "TWArchives",
-                        "ProjectFilter" : [],
+                        "ProjectFilter" : ["SharedProjects"],
+                        "Mandatory"     : false
+                    },
+                    {
+                        "Name"          : "TallyWorldPoC",
+                        "ProjectFilter" : ["TWProofOfConcept"],
                         "Mandatory"     : false
                     }
                 ]
