@@ -28,5 +28,10 @@
             "Name"   : "Tools",
             "Path"   : "Tools"
         }
-    ]
+    ],
+	"Logging"      :
+	{
+		"MaxSize" : 10,
+		"MaxFiles": 10
+	}
 }

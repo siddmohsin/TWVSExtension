@@ -371,7 +371,7 @@
             "Name"        : "TWAppIdCompiler",
             "Windows"     :
             {
-                "Version"     : "2.3.8",
+                "Version"     : "2.3.16",
                 "VersionInfo" : 
                 {
                     "Command"    : "${InstallDir}/TWAppIdCompiler/TWAppIdCompiler --version",
@@ -391,7 +391,7 @@
             "Name"        : "TWBuildGen",
             "Windows"     :
             {
-                "Version"     : "1.0.2",
+                "Version"     : "1.0.8",
                 "VersionInfo" : 
                 {
                     "Command"    : "${InstallDir}/TWBuildGen/TWBuildGen --version",
@@ -655,9 +655,43 @@
                     },
                     "InstallDir"      : "${TWHome}\\Tools\\TWCLangFormat",
                     "PostInstalls"    : ["copy ${InstallDir}\\_clang-format ${TWHome}\\Workspace"],
-                    "UninstallMethod" : "RemoveDir"                }
+                    "UninstallMethod" : "RemoveDir"                
+				}, 
+                "Validations"   : 
+                [
+                    {
+                        "Command"        : "if  exist ${TWHome}\\Workspace\\_clang-format echo present",
+                        "ExpectedOutput" : "present",
+                        "FixCommand"     : "copy ${InstallDir}\\_clang-format ${TWHome}\\Workspace"
+                    }
+				]
+				
             }
         }
     ],
-    "ValidationCMakeFile"  :  "${BootstrapURL}/CMake/ValidateEnvironment.cmake"
+    "ValidationCMakeFile"  :  "${BootstrapURL}/CMake/ValidateEnvironment.cmake",
+	"VSSettingsFile"       :  "${BootstrapURL}/TallyWorld.vssettings",
+	"VisualStudioOptions"  :
+	[
+		{
+			"Category"     : "TextEditor",
+			"SubCategory"  : "C/C++ Specific",
+			"Properties"   :
+			[
+				{
+					"Name"     : "ClangFormatExePath",
+					"Value"    : "${TWHome}\\Tools\\TWCLangFormat\\tclang-format.exe",
+					"Install"  : "TWCLangFormat"
+				},
+				{
+					"Name"     : "EnableClangFormatSupport",
+					"Value"    : true
+				},
+				{
+					"Name"     : "UseCustomClangFormatExe",
+					"Value"    : true
+				}
+			]
+		}
+	]
 }

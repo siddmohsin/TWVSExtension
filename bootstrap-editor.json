@@ -9,7 +9,8 @@
     },
     "TallyWorld"            :
     {
-        "TraceFunction"     :  "TRACEFUNC;",
-        "NoTraceIndicator"  :  "/*NoTrace*/"
+        "TraceFunction"         :  "TRACEFUNC;",
+        "NoTraceIndicator"      :  "/*NoTrace*/",
+        "NoFileTraceIndicator"  :  "/*File:NoTrace*/"
     }
 }

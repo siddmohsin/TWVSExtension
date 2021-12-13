@@ -67,5 +67,14 @@
                 }
             ]
         }
-    ]
-}
+    ],
+    "GitConfig" : 
+    {
+        "CloneWaitTime"  : 300
+    },
+    "RepoListConfig"   :
+    {
+        "AcceptableRefreshGap" : 1,
+        "DelayedExecutionTime" : 3
+    }
+ }
