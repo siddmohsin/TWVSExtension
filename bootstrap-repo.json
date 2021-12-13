@@ -6,7 +6,8 @@
             "DevelopmentTrunkName" : "DevTrunk",
             "PreReleaseTrunkName"  : "PreReleaseTrunk",
             "ReleaseTrunkName"     : "ReleaseTrunk",
-            "WorkBranchPrefix"     : "Work"
+            "WorkBranchPrefix"     : "Work",
+            "EnableRecursiveRebase": false
         },
         "Repositories":
         [
@@ -33,7 +34,12 @@
                     },
                     {
                         "Name"          : "TWArchives",
-                        "ProjectFilter" : [],
+                        "ProjectFilter" : ["SharedProjects"],
+                        "Mandatory"     : false
+                    },
+                    {
+                        "Name"          : "TallyWorldPoC",
+                        "ProjectFilter" : ["TWProofOfConcept"],
                         "Mandatory"     : false
                     }
                 ]
