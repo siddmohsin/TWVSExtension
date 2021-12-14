@@ -7,7 +7,7 @@
             "PreReleaseTrunkName"  : "PreReleaseTrunk",
             "ReleaseTrunkName"     : "ReleaseTrunk",
             "WorkBranchPrefix"     : "Work",
-            "EnableRecursiveRebase": false
+            "EnableRecursiveRebase": true
         },
         "Repositories":
         [
