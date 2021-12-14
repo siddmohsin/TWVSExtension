@@ -1,21 +1,22 @@
 {
+    "Version"                :  "1.0",
     "BootstrapsConfigs"      :
     [
         { 
             "Name"   : "Editor",
-            "Config" : "${BootstrapURL}/bootstrap-editor.json"
+            "Config" : "bootstrap-editor.json"
         },
         { 
             "Name"   : "Tools",
-            "Config" : "${BootstrapURL}/bootstrap-tools.json"
+            "Config" : "bootstrap-tools.json"
         },
         { 
             "Name"   : "Repo",
-            "Config" : "${BootstrapURL}/bootstrap-repo.json"
+            "Config" : "bootstrap-repo.json"
         },
         { 
             "Name"   : "Build",
-            "Config" : "${BootstrapURL}/bootstrap-build.json"
+            "Config" : "bootstrap-build.json"
         }
     ],
     "Directories"        :

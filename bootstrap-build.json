@@ -1,4 +1,5 @@
 {
+    "Version"               : "1.0",
     "BuildConfigFile"       : "${TWWorkspaceHome}\\TWBuildTargets.json",
     "BuildGenScript"        : "${TWWorkspaceHome}\\TallyWorld\\BuildSupportPlatform\\TWBuildSupport.Source\\Scripts\\RunBuildGen.bat",
     "SchemaGenScript"       : "${TWWorkspaceHome}\\TallyWorld\\BuildSupportPlatform\\TWBuildSupport.Source\\Scripts\\RunSchemaGen.bat",
