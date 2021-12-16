@@ -83,6 +83,6 @@
     {
         "AcceptableRefreshGap" : 1,
         "DelayedExecutionTime" : 3,
-        "StaleIfNotSyncSince"  : 4
+        "StaleIfNotSyncSince"  : 24
     }
  }
