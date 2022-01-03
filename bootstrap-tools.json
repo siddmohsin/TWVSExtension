@@ -681,7 +681,7 @@
             "Name"        : "OPS",
             "Linux"     :
             {
-                "Version"     : "0.1.28",
+                "Version"     : "0.1.27",
                 "VersionInfo" : 
                 {
                     "Command"    : "$HOME/.ops/bin/ops version",
