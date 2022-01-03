@@ -380,7 +380,7 @@
             "Name"        : "TWAppIdCompiler",
             "Windows"     :
             {
-                "Version"     : "2.3.20",
+                "Version"     : "2.4.2",
                 "VersionInfo" : 
                 {
                     "Command"    : "${InstallDir}/TWAppIdCompiler/TWAppIdCompiler --version",
@@ -400,7 +400,7 @@
             "Name"        : "TWBuildGen",
             "Windows"     :
             {
-                "Version"     : "1.0.11",
+                "Version"     : "1.1.2",
                 "VersionInfo" : 
                 {
                     "Command"    : "${InstallDir}/TWBuildGen/TWBuildGen --version",
@@ -676,7 +676,26 @@
 				]
 				
             }
+        },
+        {
+            "Name"        : "OPS",
+            "Linux"     :
+            {
+                "Version"     : "0.1.28",
+                "VersionInfo" : 
+                {
+                    "Command"    : "$HOME/.ops/bin/ops version",
+                    "OutputType" : "PlainText",
+                    "Line"       : 1,
+                    "Column"     : 3
+                },
+                "Installer" : 
+                { 
+                    "InstallDoc"      : "https://tallywiki.tallysolutions.com/pages/viewpage.action?spaceKey=TWP&title=Install+Required+Software+on+Linux+x64+Host#InstallRequiredSoftwareonLinuxx64Host-InstallUnikernel(NanoVm)"
+				}
+            }
         }
+
     ],
     "ValidationCMakeFile"  :  "${BootstrapURL}/CMake/ValidateEnvironment.cmake",
 	"VSSettingsFile"       :  "${BootstrapURL}/TallyWorld.vssettings",
