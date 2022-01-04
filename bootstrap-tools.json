@@ -1,5 +1,5 @@
 {
-    "Version"                :  "1.1",
+    "Version"                :  "1.2",
     "TWAppIdCompiler"       :
     {
         "LanguageService"   : 
@@ -699,6 +699,7 @@
     ],
     "ValidationCMakeFile"  :  "${BootstrapURL}/CMake/ValidateEnvironment.cmake",
 	"VSSettingsFile"       :  "${BootstrapURL}/TallyWorld.vssettings",
+    "UserConfigFileName"   :  "TallyWorld.twuserconfig",
 	"VisualStudioOptions"  :
 	[
 		{
