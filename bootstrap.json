@@ -1,5 +1,5 @@
 {
-    "Version"                :  "1.0",
+    "Version"                :  "1.1",
     "BootstrapsConfigs"      :
     [
         { 
@@ -34,5 +34,6 @@
 	{
 		"MaxSize" : 10,
 		"MaxFiles": 10
-	}
+	},
+    "UserConfigFileName"  : "TallyWorld.twuserconfig"
 }
