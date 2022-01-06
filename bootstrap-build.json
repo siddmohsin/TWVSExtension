@@ -1,14 +1,11 @@
 {
-    "Version"               : "1.1",
-    "BuildConfigFile"       : "${TWWorkspaceHome}\\TWBuildTargets.json",
-    "BuildGenScript"        : "${TWWorkspaceHome}\\TallyWorld\\BuildSupportPlatform\\TWBuildSupport.Source\\Scripts\\RunBuildGen.bat",
-    "SchemaGenScript"       : "${TWWorkspaceHome}\\TallyWorld\\BuildSupportPlatform\\TWBuildSupport.Source\\Scripts\\RunSchemaGen.bat",
-	"SchemaGenCleanScript"  : "${TWWorkspaceHome}\\TallyWorld\\BuildSupportPlatform\\TWBuildSupport.Source\\Scripts\\CleanSchemaGenFiles.bat",
-    "TransferScript"        : "${TWWorkspaceHome}\\TallyWorld\\BuildSupportPlatform\\TWBuildSupport.Source\\Scripts\\Transfer.bat",
-    "LocalBuildScript"      : "${TWWorkspaceHome}\\TallyWorld\\BuildSupportPlatform\\TWBuildSupport.Source\\CMake\\Build\\TWBuild.cmake",
-    "RemoteBuildScript"     : "$HOME/${TWWorkspaceDir}/TallyWorld/BuildSupportPlatform/TWBuildSupport.Source/CMake/Build/TWBuild.cmake",
-    "RSyncConfFile"         : "${TWWorkspaceHome}\\TallyWorld\\BuildSupportPlatform\\TWBuildSupport.Source\\Scripts\\rsync.conf",
+    "Version"               : "1.2",
+    "BuildConfigFile"       : "TWBuildTargets.json",
+    "BuildGenScript"        : "CMake/Build/TWBuildGen.cmake",
+    "SchemaGenScript"       : "CMake/Build/TWBuild.cmake",
+    "SchemaGenCleanScript"  : "CMake/CMakeCacheGen/TWCleanSchemaGenFiles.cmake",
+    "BuildScript"           : "CMake/Build/TWBuild.cmake",
+    "RSyncConfFile"         : "Configs/rsync.conf",
     "BuildsDir"             : "Builds",
-    "IntDir"                : "TWInt",
-    "TWEnvScript"           : "${TWWorkspaceHome}\\TallyWorld\\BuildSupportPlatform\\TWBuildSupport.Source\\Scripts\\TWEnv.bat"
+    "IntDir"                : "TWInt"
 }
