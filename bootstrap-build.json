@@ -1,7 +1,8 @@
 {
-    "Version"               : "1.2",
+    "Version"               : "1.3",
     "BuildConfigFile"       : "TWBuildTargets.json",
     "BuildGenScript"        : "CMake/Build/TWBuildGen.cmake",
+    "BuildGenOptions"       : "TWBuildGen/TallyWorld.twbuildconfig",
     "SchemaGenScript"       : "CMake/Build/TWBuild.cmake",
     "SchemaGenCleanScript"  : "CMake/CMakeCacheGen/TWCleanSchemaGenFiles.cmake",
     "BuildScript"           : "CMake/Build/TWBuild.cmake",
