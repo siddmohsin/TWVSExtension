@@ -1,5 +1,5 @@
 {
-    "Version"               : "1.3",
+    "Version"               : "1.4",
     "BuildConfigFile"       : "TWBuildTargets.json",
     "BuildGenScript"        : "CMake/BuildGen/TWRunBuildGen.cmake",
     "BuildGenOptions"       : "TWBuildGen/TallyWorld.twbuildconfig",
@@ -7,6 +7,7 @@
     "SchemaGenCleanScript"  : "CMake/CMakeCacheGen/TWCleanSchemaGenFiles.cmake",
     "BuildScript"           : "CMake/Build/TWBuild.cmake",
     "RSyncConfFile"         : "Configs/rsync.conf",
+    "RSyncOptions"          : "-t --delete --delete-excluded -r --exclude=.vs --exclude=.git --exclude=out --exclude=backups --exclude=.pmt --exclude=.favourites --exclude=_clang-format --exclude=TWArchives --exclude=TWPersonal --exclude=TallyDevOps -8 -v",
     "BuildsDir"             : "Builds",
     "IntDir"                : "TWInt"
 }
