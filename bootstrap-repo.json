@@ -34,13 +34,8 @@
                         "Mandatory"     : false
                     },
                     {
-                        "Name"          : "TWArchives",
-                        "ProjectFilter" : ["ADO_Repo_Archives"],
-                        "Mandatory"     : false
-                    },
-                    {
                         "Name"          : "TallySolutions",
-                        "ProjectFilter" : ["TWShared"],
+                        "ProjectFilter" : ["TWShared","TWArchives"],
                         "Mandatory"     : false
                     }
                 ]
