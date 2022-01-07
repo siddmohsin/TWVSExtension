@@ -39,7 +39,7 @@
                         "Mandatory"     : false
                     },
                     {
-                        "Name"          : "TWShared",
+                        "Name"          : "TallySolutions",
                         "ProjectFilter" : ["TWShared"],
                         "Mandatory"     : false
                     }
