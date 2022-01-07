@@ -24,18 +24,13 @@
                         "Comments"      : "Blank project filter means, ALL projects under the Organization."
                     },
                     {
-                        "Name"          : "TallyDevOps",
-                        "ProjectFilter" : ["TallyWorldPMT"],
-                        "Mandatory"     : false
-                    },
-                    {
                         "Name"          : "TWPersonal",
                         "ProjectFilter" : ["${DomainName}"],
                         "Mandatory"     : false
                     },
                     {
                         "Name"          : "TallySolutions",
-                        "ProjectFilter" : ["TWShared","TWArchives"],
+                        "ProjectFilter" : ["TallyPMT","TWShared","TWArchives"],
                         "Mandatory"     : false
                     }
                 ]
