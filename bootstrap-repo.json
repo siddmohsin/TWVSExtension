@@ -35,12 +35,12 @@
                     },
                     {
                         "Name"          : "TWArchives",
-                        "ProjectFilter" : ["SharedProjects"],
+                        "ProjectFilter" : ["ADO_Repo_Archives"],
                         "Mandatory"     : false
                     },
                     {
-                        "Name"          : "TallyWorldPoC",
-                        "ProjectFilter" : ["TWProofOfConcept"],
+                        "Name"          : "TWShared",
+                        "ProjectFilter" : ["TWShared"],
                         "Mandatory"     : false
                     }
                 ]
