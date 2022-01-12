@@ -50,15 +50,15 @@
                     [
                         {
                             "Name"    : "NanOS",
-                            "CloneDir": "ThirdParty\\NanOS"
+                            "CloneDir": "ThirdParty"
                         },
                         {
                             "Name"    : "OPS",
-                            "CloneDir": "ThirdParty\\OPS"
+                            "CloneDir": "ThirdParty"
                         },
                         {
                             "Name"    : "TWVSExtension",
-                            "CloneDir": "TallySolutions\\TWVSExtension"
+                            "CloneDir": "TallySolutions"
                         }
                     ]
                 }
