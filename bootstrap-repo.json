@@ -58,7 +58,7 @@
                         },
                         {
                             "Name"    : "TWVSExtension",
-                            "CloneDir": "TallyDevOps/TallyWorldPMT/TWVSExtension"
+                            "CloneDir": "TallySolutions/TWVSExtension"
                         }
                     ]
                 }
