@@ -662,7 +662,7 @@
 
 					<dict>
 						<key>begin</key>
-						<string>^\s?*(TWBuildKernel)\s?*(WINDOWS|LINUX|APPLE|IOS|ANDROID)\b\s?*</string>
+						<string>^\s?*(TWBuildKernel)\s?*(\S+)\b\s?*</string>
 						<key>beginCaptures</key>
 						<dict>
 							<key>1</key>
@@ -676,7 +676,7 @@
 
 					<dict>
 						<key>begin</key>
-						<string>^\s?*(TWBuildArchitecture)\s?*(X64|ARM64|X86|ARM)\b\s?*</string>
+						<string>^\s?*(TWBuildArchitecture)\s?*(\S+)\b\s?*</string>
 						<key>beginCaptures</key>
 						<dict>
 							<key>1</key>
