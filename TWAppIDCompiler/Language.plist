@@ -453,7 +453,7 @@
 				<array>
 					<dict>
 						<key>match</key>
-						<string>\s?*(TWAPIDef|TWAPIHandler|TWAppCode|TWAppToolKit|TWCommandLineTool)\s?*(\{)</string>
+						<string>\s?*(TWAPIDef|TWAPIHandler|TWAppCode|TWAppToolKit|TWCommandLineTool|TWReqDataSchema|TWRespDataSchema|TWReqContextSchema|TWRespContextSchema)\s?*(\{)</string>
 						<key>captures</key>
 						<dict>
 							<key>1</key>
@@ -636,7 +636,7 @@
 
 					<dict>
 						<key>begin</key>
-						<string>^\s?*(TWName|TWOSList|TWIsBuildHost|TWHostOS|TWVSIntelliSenseMode|TWInactive|TWIsSimulator|TWSimulatedOS)\b\s?*</string>
+						<string>^\s?*(TWName|TWOSList|TWIsBuildHost|TWHostOS|TWVSIntelliSenseEnviron|TWVSIntelliSenseIncludes|TWVSName|TWCMakeName|TWBuildGeneratorName|TWVSIntelliSenseMode|TWInactive|TWIsSimulator|TWSimulatedOS)\b\s?*</string>
 						<key>beginCaptures</key>
 						<dict>
 							<key>1</key>
