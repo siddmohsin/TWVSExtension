@@ -636,7 +636,7 @@
 
 					<dict>
 						<key>begin</key>
-						<string>^\s?*(TWName|TWOSList|TWIsBuildHost|TWHostOS|TWVSIntelliSenseEnviron|TWVSIntelliSenseIncludes|TWVSName|TWCMakeName|TWBuildGeneratorName|TWVSIntelliSenseMode|TWInactive|TWIsSimulator|TWSimulatedOS)\b\s?*</string>
+						<string>^\s?*(TWName|TWOSList|TWIsBuildHost|TWHostOS|TWVSIntelliSenseEnviron|TWVSIntelliSenseIncludes|TWVSName|TWCMakeName|TWBuildGeneratorName|TWVSIntelliSenseMode|TWInactive|TWIsSimulator|TWSimulatedOS|TWSourceDir|TWTestDir|TWBaseLayer|TWCategory)\b\s?*</string>
 						<key>beginCaptures</key>
 						<dict>
 							<key>1</key>
@@ -690,6 +690,19 @@
 					<dict>
 						<key>begin</key>
 						<string>^\s?*(TWBuildConfiguration)\b\s?*</string>
+						<key>beginCaptures</key>
+						<dict>
+							<key>1</key>
+							<dict>
+								<key>name</key>
+								<string>keyword.control.c</string>
+							</dict>
+						</dict>
+					</dict>
+
+					<dict>
+						<key>begin</key>
+						<string>^\s?*(TWLayer)\b\s?*</string>
 						<key>beginCaptures</key>
 						<dict>
 							<key>1</key>
