@@ -689,20 +689,7 @@
 
 					<dict>
 						<key>begin</key>
-						<string>^\s?*(TWBuildConfiguration)\b\s?*</string>
-						<key>beginCaptures</key>
-						<dict>
-							<key>1</key>
-							<dict>
-								<key>name</key>
-								<string>keyword.control.c</string>
-							</dict>
-						</dict>
-					</dict>
-
-					<dict>
-						<key>begin</key>
-						<string>^\s?*(TWLayer)\b\s?*</string>
+						<string>^\s?*(TWBuildConfiguration|TWLayer)\b\s?*</string>
 						<key>beginCaptures</key>
 						<dict>
 							<key>1</key>
