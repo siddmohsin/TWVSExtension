@@ -78,7 +78,7 @@
 			<dict>
 				<key>include</key>
 				<string>#twbuildoptions</string>
-			</dict>
+			</dict>		
 		</array>
 		<key>repository</key>
 		<dict>
@@ -257,7 +257,7 @@
 							<key>2</key>
 							<dict>
 								<key>name</key>
-								<string>entity.name.type</string>
+								<string>rdi.name.type</string>
 							</dict>
 							<key>4</key>
 							<dict>
@@ -302,7 +302,7 @@
 				<array>
 					<dict>
 						<key>begin</key>
-						<string>^\s?*(TWAppLayer|TWAppTestLayer)\s?*[a-zA-Z]+\s?*(\{)</string>
+						<string>^\s?*(TWAppLayer1|TWAppTestLayer1)\b\s?*[a-zA-Z]+\s?*(\{)</string>
 						<key>beginCaptures</key>
 						<dict>
 							<key>1</key>
@@ -320,7 +320,7 @@
 				<array>
 					<dict>
 						<key>match</key>
-						<string>(TWSchemaObject|TWAppSchema|TWSchemaField|TWSchemaReservedObject|TWDCSection)\b</string>
+						<string>(TWSchemaObject|TWAppSchema|TWSchemaField|TWSchemaReservedObject|TWDCSection|TWAppDCSchema|TWAppAPISchema)\b\s?*(\S+|\s?*)\s?*</string>
 						<key>captures</key>
 						<dict>
 							<key>1</key>
@@ -355,6 +355,24 @@
 					</dict>
 					<dict>
 						<key>begin</key>
+						<string>^\s?*(TUInt8|TUInt16|TUInt32|TUInt64)\s?*(\S+)\s?*</string>
+						<key>beginCaptures</key>
+						<dict>
+							<key>1</key>
+							<dict>
+								<key>name</key>
+								<string>keyword.control.c</string>
+							</dict>
+							<key>2</key>
+							<dict>
+								<key>name</key>
+								<string>entity.name.type</string>
+							</dict>
+						</dict>
+					</dict>
+					
+					<dict>
+						<key>begin</key>
 						<string>^\s?*(TWAppOptionsDisable|TWAppConstantsModify)\s?*(\{)</string>
 						<key>beginCaptures</key>
 						<dict>
@@ -373,7 +391,7 @@
 				<array>
 					<dict>
 						<key>begin</key>
-						<string>^\s?*(TWAppAdminTier|TWAppAdminTierFunction|TWAppAdminTestFunction|TWAppClientTierFunction|TWAppClientTier|TWAppClientTestFunction|TWAppServerTier|TWAppServerTierFunction|TWAppServerTestFunction|TWAppPresentationTier|TWAppPresentationTierFunction|TWAppPresentationTestFunction)\s?*(\S+)+\s?*(\{)</string>
+						<string>^\s?*(TWAppAdminTier|TWAppAdminTierFunction|TWAppAdminTestFunction|TWAppClientTierFunction|TWAppClientTier|TWAppClientTestFunction|TWAppServerTier|TWAppServerTierFunction|TWAppServerTestFunction|TWAppPresentationTier|TWAppPresentationTierFunction|TWAppPresentationTestFunction|TWAppAdminFunction|TWAPIDef)\s?*(\S+|\s?*)+\s?*(\{)</string>
 						<key>beginCaptures</key>
 						<dict>
 							<key>1</key>
@@ -411,7 +429,7 @@
 				<array>
 					<dict>
 						<key>begin</key>
-						<string>^\s?*(TWAppProduct|TWAppTest)\s?*[a-zA-Z]+\s?*(\{)</string>
+						<string>^\s?*(TWAppProduct|TWAppTest|TWAppSampleProduct)\b\s?*[a-zA-Z]+\s?*(\{)</string>
 						<key>beginCaptures</key>
 						<dict>
 							<key>1</key>
@@ -453,7 +471,7 @@
 				<array>
 					<dict>
 						<key>match</key>
-						<string>\s?*(TWAPIDef|TWAPIHandler|TWAppCode|TWAppToolKit|TWCommandLineTool|TWReqDataSchema|TWRespDataSchema|TWReqContextSchema|TWRespContextSchema)\s?*(\{)</string>
+						<string>\s?*(TWAPIHandler|TWAppCode|TWAppToolKit|TWCommandLineTool|TWReqDataSchema|TWRespDataSchema|TWReqContextSchema|TWRespContextSchema)\s?*(\{)</string>
 						<key>captures</key>
 						<dict>
 							<key>1</key>
@@ -522,7 +540,7 @@
 				<array>
 					<dict>
 						<key>match</key>
-						<string>^\s?*(TWDepends|TWUses|TWAppLayer|TWAppTestLayer|TWAppSignalHandler|TWBootstrapAPIHandler)\s+(\w+|\{)</string>
+						<string>^\s?*(TWDepends|TWUses|TWAppLayer|TWAppTestLayer|TWAppSignalHandler|TWBootstrapAPIHandler|TWAppToolKit)\s+(\w+|\{)</string>
 						<key>captures</key>
 						<dict>
 							<key>1</key>
@@ -612,6 +630,7 @@
 					</dict>
 				</array>
 			</dict>
+
 			<key>twbuildoptions</key>
 			<dict>
 				<key>patterns</key>
@@ -636,7 +655,7 @@
 
 					<dict>
 						<key>begin</key>
-						<string>^\s?*(TWName|TWOSList|TWIsBuildHost|TWHostOS|TWVSIntelliSenseEnviron|TWVSIntelliSenseIncludes|TWVSName|TWCMakeName|TWBuildGeneratorName|TWVSIntelliSenseMode|TWInactive|TWIsSimulator|TWSimulatedOS|TWSourceDir|TWTestDir|TWBaseLayer|TWCategory)\b\s?*</string>
+						<string>^\s?*(TWName|TWOSList|TWIsBuildHost|TWHostOS|TWVSIntelliSenseEnviron|TWRemoteSourceDir|TWVSIntelliSenseIncludes|TWVSName|TWCMakeName|TWBuildGeneratorName|KERNEL|TWVSIntelliSenseMode|TWInactive|TWIsSimulator|TWSimulatedOS|TWSourceDir|TWTestDir|TWBaseLayer|TWCategory|NAME|TWVSIntelliSenseDefines|TWVSIntelliSenseCompilerFlags|TWRemoteOS|TWRemoteArchitecture|TWRemoteIncludes|TWWorkspaceFolderName|TWGenFolderName|TWToolsFolderName|TWBuildFolderName|TWIntFolderName|TWLibFolderName|TWBinFolderName|TWIgnoreFolders|TWLayerConfigPath|TWToolConfigPath|TWAppIDOptionsPath|TWBuildConfigPath|TWVSConfigPath|TWPublicInclude|TWPrivateInclude|TWSourceExtensions|TWAppIDExtensions|TWAppIDFilesPaths|TWAppIDAppProdExtension|TWAppIDAppTestExtension|TWCppPropValidIntelliSenseModes|TWCppPropValidIntelliSenseEnvirons|TWOSArchInvalidValues|TWCMakeEnvironVarOutFile|TWCMakeMainOutFile|TWBuildTargetsJsonFile|TWCppPropertiesOutFile|TWCMakePresetsOutFile|TWLaunchVSJsonFile|TWTaskVSJsonFile|TWSchemaGenCMakeFile|TWCMakeTopText|TWCMakeBottomText|TWCMakeEnvTopText|TWCMakeEnvBottomText|TWCMakeSchemaGenTopText|TWCMakeSchemaGenBottomText)\b\s?*</string>
 						<key>beginCaptures</key>
 						<dict>
 							<key>1</key>
@@ -649,7 +668,7 @@
 
 					<dict>
 						<key>begin</key>
-						<string>^\s?*(TWBuildOS)\s?*(\S+)\b\s?*</string>
+						<string>^\s?*(TWBuildOS)\b\s?*\s?*</string>
 						<key>beginCaptures</key>
 						<dict>
 							<key>1</key>
@@ -702,7 +721,7 @@
 					
 					<dict>
 						<key>begin</key>
-						<string>^\s?*(TWLayer)\s?*(\S+)\b\s?*</string>
+						<string>^\s?*(TWLayer)\b\s?*(\S+)\b\s?*</string>
 						<key>beginCaptures</key>
 						<dict>
 							<key>1</key>
