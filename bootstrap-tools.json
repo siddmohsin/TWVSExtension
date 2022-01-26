@@ -732,7 +732,7 @@
                 "Version"     : "1.10.4",
                 "VersionInfo" : 
                 {
-                    "Command"    : "type /Users/Shared/GoogleTest/googletest.properties",
+                    "Command"    : "cat /Users/Shared/GoogleTest/googletest.properties",
                     "OutputType" : "PlainText",
                     "Line"       : 1,
                     "Column"     : 3                },
