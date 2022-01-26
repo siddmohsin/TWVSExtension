@@ -717,7 +717,7 @@
                 "Version"     : "1.10.4",
                 "VersionInfo" : 
                 {	    
-                    "Command"    : "type ${InstallDir}\\GoogleTest\\googletest.properties",
+                    "Command"    : "type /usr/share/GoogleTest/googletest.properties",
                     "OutputType" : "PlainText",
                     "Line"       : 1,
                     "Column"     : 3                },
@@ -732,7 +732,7 @@
                 "Version"     : "1.10.4",
                 "VersionInfo" : 
                 {
-                    "Command"    : "type ${InstallDir}\\GoogleTest\\googletest.properties",
+                    "Command"    : "type /User/Shared/GoogleTest/googletest.properties",
                     "OutputType" : "PlainText",
                     "Line"       : 1,
                     "Column"     : 3                },
