@@ -716,8 +716,7 @@
             {
                 "Version"     : "1.10.4",
                 "VersionInfo" : 
-                {
-		    "InstallDir" : "/user/share",
+                {	    
                     "Command"    : "type ${InstallDir}\\GoogleTest\\googletest.properties",
                     "OutputType" : "PlainText",
                     "Line"       : 1,
@@ -725,7 +724,7 @@
                 "Installer" : 
                 { 
                     "InstallDoc"      : "https://tallywiki.tallysolutions.com/display/TWP/Install+Required+Software+on+Linux+x64+Host#InstallRequiredSoftwareonLinuxx64Host-InstallGoogleTest",
-                    "InstallDir"      : "${TWHome}\\Tools"
+                    "InstallDir"      : "/user/share",
                 }
             },
 	    "MacOS"     :
