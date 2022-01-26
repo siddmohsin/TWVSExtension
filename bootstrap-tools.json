@@ -717,7 +717,7 @@
                 "Version"     : "1.10.4",
                 "VersionInfo" : 
                 {	    
-                    "Command"    : "type /usr/share/GoogleTest/googletest.properties",
+                    "Command"    : "cat /usr/share/GoogleTest/googletest.properties",
                     "OutputType" : "PlainText",
                     "Line"       : 1,
                     "Column"     : 3                },
