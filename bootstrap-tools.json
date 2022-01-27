@@ -724,7 +724,7 @@
                 "Installer" : 
                 { 
                     "InstallDoc"      : "https://tallywiki.tallysolutions.com/display/TWP/Install+Required+Software+on+Linux+x64+Host#InstallRequiredSoftwareonLinuxx64Host-InstallGoogleTest",
-                    "InstallDir"      : "/user/share",
+                    "InstallDir"      : "/usr/share"
                 }
             },
 	    "MacOS"     :
