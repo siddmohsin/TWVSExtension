@@ -377,46 +377,6 @@
             }
         },
         {
-            "Name"        : "TWAppIdCompiler",
-            "Windows"     :
-            {
-                "Version"     : "2.4.5",
-                "VersionInfo" : 
-                {
-                    "Command"    : "${InstallDir}/TWAppIdCompiler/TWAppIdCompiler --version",
-                    "OutputType" : "PlainText",
-                    "Prefix"     : "v",
-                    "Line"       : 1,
-                    "Column"     : 1
-                },
-                "Installer" : 
-                { 
-                    "InstallDoc"      : "https://tallywiki.tallysolutions.com/display/TWP/Install+Required+Software+on+Windows+x64+Host#InstallRequiredSoftwareonWindowsx64Host-InstallTWAppIDCompiler",
-                    "InstallDir"      : "${TWHome}\\Tools"
-                }
-            }
-        },
-        {
-            "Name"        : "TWBuildGen",
-            "Windows"     :
-            {
-                "Version"     : "1.2.0",
-                "VersionInfo" : 
-                {
-                    "Command"    : "${InstallDir}/TWBuildGen/TWBuildGen --version",
-                    "OutputType" : "PlainText",
-                    "Prefix"     : "v",
-                    "Line"       : 1,
-                    "Column"     : 1
-                },
-                "Installer" : 
-                { 
-                    "InstallDoc"      : "https://tallywiki.tallysolutions.com/display/TWP/Install+Required+Software+on+Windows+x64+Host#InstallRequiredSoftwareonWindowsx64Host-InstallTWBuildGen",
-                    "InstallDir"      : "${TWHome}\\Tools"
-                }
-            }
-        },
-        {
             "Name"        : "TWAppGen",
             "Windows"     :
             {
