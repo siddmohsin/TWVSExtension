@@ -417,6 +417,26 @@
             }
         },
         {
+            "Name"        : "TWAppGen",
+            "Windows"     :
+            {
+                "Version"     : "1.1.0",
+                "VersionInfo" : 
+                {
+                    "Command"    : "${InstallDir}/TWBuildGen/TWAppGen --version",
+                    "OutputType" : "PlainText",
+                    "Prefix"     : "v",
+                    "Line"       : 1,
+                    "Column"     : 1
+                },
+                "Installer" : 
+                { 
+                    "InstallDoc"      : "https://tallywiki.tallysolutions.com/display/TWP/Install+Required+Software+on+Windows+x64+Host#InstallRequiredSoftwareonWindowsx64Host-InstallTWAppGen",
+                    "InstallDir"      : "${TWHome}\\Tools"
+                }
+            }
+        },
+        {
             "Name"        : "Java",
             "Windows"     :
             {
