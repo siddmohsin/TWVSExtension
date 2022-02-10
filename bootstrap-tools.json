@@ -383,7 +383,7 @@
                 "Version"     : "1.1.0",
                 "VersionInfo" : 
                 {
-                    "Command"    : "${InstallDir}/TWBuildGen/TWAppGen --version",
+                    "Command"    : "${InstallDir}/TWAppGen/TWAppGen --version",
                     "OutputType" : "PlainText",
                     "Prefix"     : "v",
                     "Line"       : 1,
