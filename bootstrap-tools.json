@@ -15,7 +15,7 @@
             "Name"        : "CMake",
             "Windows"     :
             {
-                "Version"     : "3.21",
+                "Version"     : "3.22",
                 "Command"     : "${InstallDir}\\CMake\\bin\\cmake",
                 "VersionInfo" : 
                 {
@@ -28,8 +28,8 @@
                 { 
                     "URL_disabled": 
                     {
-                        "x64"  :  "https://github.com/Kitware/CMake/releases/download/v3.21.4/cmake-3.21.4-windows-x86_64.zip",
-                        "ARM64":  "https://github.com/Kitware/CMake/releases/download/v3.21.4/cmake-3.21.4-windows-x86_64.zip"
+                        "x64"  :  "https://github.com/Kitware/CMake/releases/download/v3.22.2/cmake-3.22.2-windows-x86_64.zip",
+                        "ARM64":  "https://github.com/Kitware/CMake/releases/download/v3.22.2/cmake-3.22.2-windows-x86_64.zip"
                     },
                     "FileType"        : "Zip",
                     "InstallDir"      : "${TWHome}\\Tools",
@@ -40,7 +40,7 @@
             },
             "Linux"     :
             {
-                "Version"     : "3.21",
+                "Version"     : "3.22",
                 "Command"     : "/usr/bin/cmake",
                 "VersionInfo" : 
                 {
@@ -53,8 +53,8 @@
                 { 
                     "URL_disabled": 
                     {
-                        "x64":   "https://github.com/Kitware/CMake/releases/download/v3.21.4/cmake-3.21.4-linux-x86_64.tar.gz",
-                        "ARM64": "https://github.com/Kitware/CMake/releases/download/v3.21.4/cmake-3.21.4-linux-aarch64.tar.gz"
+                        "x64":   "https://github.com/Kitware/CMake/releases/download/v3.22.2/cmake-3.22.2-linux-x86_64.tar.gz",
+                        "ARM64": "https://github.com/Kitware/CMake/releases/download/v3.22.2/cmake-3.22.2-linux-aarch64.tar.gz"
                     },
                     "FileType"        : "CompressedTarball",
                     "InstallDir"      : "/usr/share",
@@ -66,7 +66,7 @@
             },
             "MacOS"     :
             {
-                "Version"     : "3.21",
+                "Version"     : "3.22",
                 "Command"     : "/usr/local/bin/cmake",
                 "VersionInfo" : 
                 {
@@ -79,8 +79,8 @@
                 { 
                     "URL_disabled": 
                     {
-                        "x64":   "https://github.com/Kitware/CMake/releases/download/v3.21.4/cmake-3.21.4-macos-universal.tar.gz",
-                        "ARM64": "https://github.com/Kitware/CMake/releases/download/v3.21.4/cmake-3.21.4-macos-universal.tar.gz"
+                        "x64":   "https://github.com/Kitware/CMake/releases/download/v3.22.2/cmake-3.22.2-macos-universal.tar.gz",
+                        "ARM64": "https://github.com/Kitware/CMake/releases/download/v3.22.2/cmake-3.22.2-macos-universal.tar.gz"
                     },
                     "FileType"        : "CompressedTarball",
                     "InstallDir"      : "/Users/Shared",
