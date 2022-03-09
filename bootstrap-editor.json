@@ -2,7 +2,7 @@
     "Version"                :  "1.1",
     "TallyWorld"            :
     {
-        "TraceFunction"         :  "TRACEFUNC;",
+        "TraceFunction"         :  "TRACEFUNC;\r\n",
         "NoTraceIndicator"      :  "/*NoTrace*/",
         "NoFileTraceIndicator"  :  "/*File:NoTrace*/"
     }
