@@ -3,12 +3,7 @@
 	<ToolsOptions>
 		<ToolsOptionsCategory name="Environment" RegisteredName="Environment"/>
 		<ToolsOptionsCategory name="TextEditor" RegisteredName="TextEditor">
-				<ToolsOptionsSubCategory name="C/C++" RegisteredName="C/C++" PackageName="Text Management Package">
-					<PropertyValue name="TabSize">4</PropertyValue>
-					<PropertyValue name="IndentSize">4</PropertyValue>
-					<PropertyValue name="InsertTabs">false</PropertyValue>
-				</ToolsOptionsSubCategory>
-				<ToolsOptionsSubCategory name="CSharp" RegisteredName="CSharp" PackageName="Text Management Package">
+				<ToolsOptionsSubCategory name="AllLanguages" RegisteredName="AllLanguages" PackageName="Text Management Package">
 					<PropertyValue name="TabSize">4</PropertyValue>
 					<PropertyValue name="IndentSize">4</PropertyValue>
 					<PropertyValue name="InsertTabs">false</PropertyValue>
