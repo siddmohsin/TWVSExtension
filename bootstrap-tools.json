@@ -747,14 +747,6 @@
 				{
 					"Name"     : "UseCustomClangFormatExe",
 					"Value"    : true
-				},
-                {
-					"Name"     : "TabSize",
-					"Value"    : 4
-				},
-                {
-					"Name"     : "InsertTabs",
-					"Value"    : false
 				}
  
 			]

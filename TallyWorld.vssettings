@@ -2,6 +2,18 @@
 	<ApplicationIdentity version="16.0"/>
 	<ToolsOptions>
 		<ToolsOptionsCategory name="Environment" RegisteredName="Environment"/>
+		<ToolsOptionsCategory name="TextEditor" RegisteredName="TextEditor">
+				<ToolsOptionsSubCategory name="C/C++" RegisteredName="C/C++" PackageName="Text Management Package">
+					<PropertyValue name="TabSize">4</PropertyValue>
+					<PropertyValue name="IndentSize">4</PropertyValue>
+					<PropertyValue name="InsertTabs">false</PropertyValue>
+				</ToolsOptionsSubCategory>
+				<ToolsOptionsSubCategory name="CSharp" RegisteredName="CSharp" PackageName="Text Management Package">
+					<PropertyValue name="TabSize">4</PropertyValue>
+					<PropertyValue name="IndentSize">4</PropertyValue>
+					<PropertyValue name="InsertTabs">false</PropertyValue>
+				</ToolsOptionsSubCategory>
+	    </ToolsOptionsCategory>
 	</ToolsOptions>
 	<Category name="Environment_Group" RegisteredName="Environment_Group">
 		<Category name="Environment_ExtensionManager" Category="{539391d7-9414-4715-b033-8669db0abee1}" Package="{e7576c05-1874-450c-9e98-cf3a0897a069}" RegisteredName="Environment_ExtensionManager" PackageName="ExtensionManagerPackage">
