@@ -30,7 +30,7 @@
                     },
                     {
                         "Name"          : "TallySolutions",
-                        "ProjectFilter" : ["TallyPMT","TWShared","TWArchives"],
+                        "ProjectFilter" : ["TallyPMT","TWShared"],
                         "Mandatory"     : false
                     }
                 ]
