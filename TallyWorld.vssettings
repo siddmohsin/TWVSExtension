@@ -114,13 +114,13 @@
 					<Shortcut Command="Edit.FindinFiles" Scope="Text Editor">Ctrl+D</Shortcut>
 					<Shortcut Command="Edit.InsertTab" Scope="Text Editor">Ctrl+Tab</Shortcut>
 
-                    <Shortcut Command="EditorContextMenus.CodeWindow.CamelCaseForward" Scope="Text Editor">Ctrl+Right Arrow</Shortcut>
-                    <Shortcut Command="EditorContextMenus.CodeWindow.CamelCaseBackward" Scope="Text Editor">Ctrl+Left Arrow</Shortcut>
-                    <Shortcut Command="EditorContextMenus.CodeWindow.NextFunction" Scope="Text Editor">Ctrl+PgDn</Shortcut>
-                    <Shortcut Command="EditorContextMenus.CodeWindow.PreviousFunction" Scope="Text Editor">Ctrl+PgUp</Shortcut>
-                    <Shortcut Command="EditorContextMenus.CodeWindow.TabOver" Scope="Text Editor">Tab</Shortcut>
-                    <Shortcut Command="EditorContextMenus.CodeWindow.AddClassTemplate" Scope="Text Editor">Alt+C</Shortcut>
-                    <Shortcut Command="EditorContextMenus.CodeWindow.TraceFunction" Scope="Text Editor">Alt+T</Shortcut>
+                    <Shortcut Command="EditorContextMenus.CodeWindow.TWVSEditor.CamelCaseForward" Scope="Text Editor">Ctrl+Right Arrow</Shortcut>
+                    <Shortcut Command="EditorContextMenus.CodeWindow.TWVSEditor.CamelCaseBackward" Scope="Text Editor">Ctrl+Left Arrow</Shortcut>
+                    <Shortcut Command="EditorContextMenus.CodeWindow.TWVSEditor.NextFunction" Scope="Text Editor">Ctrl+PgDn</Shortcut>
+                    <Shortcut Command="EditorContextMenus.CodeWindow.TWVSEditor.PreviousFunction" Scope="Text Editor">Ctrl+PgUp</Shortcut>
+                    <Shortcut Command="EditorContextMenus.CodeWindow.TWVSEditor.TabOver" Scope="Text Editor">Tab</Shortcut>
+                    <Shortcut Command="EditorContextMenus.CodeWindow.TWVSEditor.AddClassTemplate" Scope="Text Editor">Alt+C</Shortcut>
+                    <Shortcut Command="EditorContextMenus.CodeWindow.TWVSEditor.TraceFunction" Scope="Text Editor">Alt+T</Shortcut>
 
 				</UserShortcuts>
 			</KeyboardShortcuts>
