@@ -8,6 +8,15 @@
 					<PropertyValue name="IndentSize">4</PropertyValue>
 					<PropertyValue name="InsertTabs">false</PropertyValue>
 				</ToolsOptionsSubCategory>
+		        <ToolsOptionsSubCategory name="C/C++ Specific" RegisteredName="C/C++ Specific" PackageName="Visual C++ Language Manager Package">
+	                <PropertyValue name="AutoIndentOnTab">false</PropertyValue>
+					<PropertyValue name="AutoFormatOnSemicolon">false</PropertyValue>
+					<PropertyValue name="AutoFormatOnPaste2">1</PropertyValue>
+                    <PropertyValue name="AutoFormatOnPaste">false</PropertyValue>
+					<PropertyValue name="AutoFormatOnBraceCompletion">false</PropertyValue>
+                    <PropertyValue name="AutoFormatOnClosingBrace">true</PropertyValue>
+                    <!--PropertyValue name="BraceCompletion">true</PropertyValue  *TODO* should we set it to false?-->
+                </ToolsOptionsSubCategory>
 	    </ToolsOptionsCategory>
 	</ToolsOptions>
 	<Category name="Environment_Group" RegisteredName="Environment_Group">
