@@ -1,5 +1,22 @@
 {
-    "Version"                :  "1.2",
+    "Version"               :  "1.3",
+    "ADOArtifcatories"      :
+    [
+        {
+            "Name"          : "ADOService",
+            "Uri"           : "https://dev.azure.com",
+            "Feed"          : "https://feeds.dev.azure.com",
+            "Organizations" :
+            [
+                              "TallyWorld"
+            ] 
+        }
+    ],
+    "DefaultToolsDir"       :
+    {
+        "Linux"             :  "/usr/share",
+        "MacOS"             :  "/Users/Shared"
+    },
     "TWAppIdCompiler"       :
     {
         "LanguageService"   : 
@@ -15,9 +32,9 @@
             "Name"        : "CMake",
             "Windows"     :
             {
-                "Version"     : "3.22",
-                "Command"     : "${InstallDir}\\CMake\\bin\\cmake",
-                "VersionInfo" : 
+                "VersionString"  : "3.22",
+                "Command"        : "${InstallDir}\\CMake\\bin\\cmake",
+                "VersionInfo"    : 
                 {
                     "Command"    : "${COMMAND} --version",
                     "OutputType" : "PlainText",
@@ -40,9 +57,9 @@
             },
             "Linux"     :
             {
-                "Version"     : "3.22",
-                "Command"     : "/usr/bin/cmake",
-                "VersionInfo" : 
+                "VersionString"  : "3.22",
+                "Command"        : "/usr/bin/cmake",
+                "VersionInfo"    : 
                 {
                     "Command"    : "${COMMAND} --version",
                     "OutputType" : "PlainText",
@@ -66,9 +83,9 @@
             },
             "MacOS"     :
             {
-                "Version"     : "3.22",
-                "Command"     : "/usr/local/bin/cmake",
-                "VersionInfo" : 
+                "VersionString"  : "3.22",
+                "Command"        : "/usr/local/bin/cmake",
+                "VersionInfo"    : 
                 {
                     "Command"    : "${COMMAND} --version",
                     "OutputType" : "PlainText",
@@ -95,9 +112,9 @@
             "Name"        : "Ninja",
             "Windows"     :
             {
-                "Version"     : "1.10.2",
-                "Command"     : "${InstallDir}\\ninja",
-                "VersionInfo" : 
+                "VersionString"  : "1.10.2",
+                "Command"        : "${InstallDir}\\ninja",
+                "VersionInfo"    : 
                 {
                     "Command"    : "${COMMAND} --version",
                     "OutputType" : "PlainText",
@@ -120,9 +137,9 @@
             },
             "Linux"     :
             {
-                "Version"     : "1.10.2",
-                "Command"     : "/usr/bin/ninja",
-                "VersionInfo" : 
+                "VersionString"  : "1.10.2",
+                "Command"        : "/usr/bin/ninja",
+                "VersionInfo"    : 
                 {
                     "Command"    : "${COMMAND} --version",
                     "OutputType" : "PlainText",
@@ -148,9 +165,9 @@
             "Name"        : "LLVM",
             "Windows"     :
             {
-                "Version"     : "12.0.0",
-                "Command"     : "${TWHome}\\Tools\\LLVM\\bin\\clang++",
-                "VersionInfo" : 
+                "VersionString"  : "12.0.0",
+                "Command"        : "${TWHome}\\Tools\\LLVM\\bin\\clang++",
+                "VersionInfo"    : 
                 {
                     "Command"    : "${COMMAND} --version",
                     "OutputType" : "PlainText",
@@ -164,9 +181,9 @@
             },
             "Linux"     :
             {
-                "Version"     : "12.0.0",
-                "Command"     : "clang++",
-                "VersionInfo" : 
+                "VersionString"  : "12.0.0",
+                "Command"        : "clang++",
+                "VersionInfo"    : 
                 {
                     "Command"    : "${COMMAND} --version",
                     "OutputType" : "PlainText",
@@ -183,8 +200,8 @@
             "Name"        : "rsync",
             "Windows"     :
             {
-                "Version"     : "3.1.3",
-                "VersionInfo" : 
+                "VersionString"  : "3.1.3",
+                "VersionInfo"    : 
                 {
                     "Command"    : "${InstallDir}/rsync/rsync --version",
                     "OutputType" : "PlainText",
@@ -208,8 +225,8 @@
             },
             "Linux"     :
             {
-                "Version"     : "3.1.3",
-                "VersionInfo" : 
+                "VersionString"  : "3.1.3",
+                "VersionInfo"    : 
                 {
                     "Command"    : "rsync --version",
                     "OutputType" : "PlainText",
@@ -223,8 +240,8 @@
             },
             "MacOS"     :
             {
-                "Version"     : "2.6.9",
-                "VersionInfo" : 
+                "VersionString"  : "2.6.9",
+                "VersionInfo"    : 
                 {
                     "Command"    : "rsync --version",
                     "OutputType" : "PlainText",
@@ -241,8 +258,8 @@
             "Name"        : "git",
             "Windows"     :
             {
-                "Version"     : "2.33",
-                "VersionInfo" : 
+                "VersionString"  : "2.33",
+                "VersionInfo"    : 
                 {
                     "Command"    : "git version",
                     "OutputType" : "PlainText",
@@ -294,8 +311,8 @@
             },
             "Linux"     :
             {
-                "Version"     : "2.25",
-                "VersionInfo" : 
+                "VersionString"  : "2.25",
+                "VersionInfo"    : 
                 {
                     "Command"    : "git version",
                     "OutputType" : "PlainText",
@@ -317,8 +334,8 @@
             },
             "MacOS"     :
             {
-                "Version"     : "2.30",
-                "VersionInfo" : 
+                "VersionString"  : "2.30",
+                "VersionInfo"    : 
                 {
                     "Command"    : "git version",
                     "OutputType" : "PlainText",
@@ -343,8 +360,8 @@
             "Name"        : "AzureCLI",
             "Windows"     :
             {
-                "Version"     : "2.30",
-                "VersionInfo" : 
+                "VersionString"  : "2.34",
+                "VersionInfo"    : 
                 {
                     "Command"    : "az --version",
                     "OutputType" : "PlainText",
@@ -361,8 +378,8 @@
             "Name"        : "AzureCLIDevOps",
             "Windows"     :
             {
-                "Version"     : "0.21",
-                "VersionInfo" : 
+                "VersionString"  : "0.23",
+                "VersionInfo"    : 
                 {
                     "Command"    : "az extension list",
                     "OutputType" : "JsonArray",
@@ -380,7 +397,14 @@
             "Name"        : "TWAppGen",
             "Windows"     :
             {
-                "Version"     : "1.5.0",
+                "VersionType" : "ArtifactoryLatest",
+                "Artifactory" : 
+                {
+                        "Name"         : "ADOService",
+                        "Organization" : "TallyWorld",
+                        "Feed"         : "Windows-x64-BuildTools",
+                        "Package"      : "twappgen"
+                },
                 "VersionInfo" : 
                 {
                     "Command"    : "${InstallDir}/TWAppGen/TWAppGen --version",
@@ -400,8 +424,8 @@
             "Name"        : "Java",
             "Windows"     :
             {
-                "Version"     : "1.8",
-                "VersionInfo" : 
+                "VersionString"  : "1.8",
+                "VersionInfo"    : 
                 {
                     "Command"    : "${InstallDir}\\Java\\bin\\java -version",
                     "OutputType" : "PlainText",
@@ -419,8 +443,8 @@
             "Name"        : "AndroidSDK",
             "Windows"     :
             {
-                "Version"     : "5.0",
-                "VersionInfo" : 
+                "VersionString"  : "5.0",
+                "VersionInfo"    : 
                 {
                     "Command"    : "type ${InstallDir}\\Android\\SDK\\cmdline-tools\\latest\\source.properties",
                     "OutputType" : "PlainText",
@@ -439,8 +463,8 @@
             "Name"        : "AndroidNDK",
             "Windows"     :
             {
-                "Version"     : "23.0",
-                "VersionInfo" : 
+                "VersionString"  : "23.0",
+                "VersionInfo"    : 
                 {
                     "Command"    : "type ${InstallDir}\\Android\\NDK\\source.properties",
                     "OutputType" : "PlainText",
@@ -457,8 +481,8 @@
             "Name"        : "Flex",
             "Windows"     :
             {
-                "Version"     : "2.6.4",
-                "VersionInfo" : 
+                "VersionString"  : "2.6.4",
+                "VersionInfo"    : 
                 {
                     "Command"    : "${InstallDir}\\FlexBison\\win_flex.exe --version",
                     "OutputType" : "PlainText",
@@ -472,8 +496,8 @@
             },
             "Linux"     :
             {
-                "Version"     : "2.6.4",
-                "VersionInfo" : 
+                "VersionString"  : "2.6.4",
+                "VersionInfo"    : 
                 {
                     "Command"    : "flex --version",
                     "OutputType" : "PlainText",
@@ -487,8 +511,8 @@
             },
             "MacOS"     :
             {
-                "Version"     : "2.6.4",
-                "VersionInfo" : 
+                "VersionString"  : "2.6.4",
+                "VersionInfo"    : 
                 {
                     "Command"    : "flex --version",
                     "EnvVars"    : [{"Name" : "PATH", "Value" : "/opt/homebrew/opt/flex/bin:$PATH"}],
@@ -506,8 +530,8 @@
             "Name"        : "Bison",
             "Windows"     :
             {
-                "Version"     : "3.7.4",
-                "VersionInfo" : 
+                "VersionString"  : "3.7.4",
+                "VersionInfo"    : 
                 {
                     "Command"    : "${InstallDir}\\FlexBison\\win_bison.exe --version",
                     "OutputType" : "PlainText",
@@ -521,8 +545,8 @@
             },
             "Linux"     :
             {
-                "Version"     : "3.5.1",
-                "VersionInfo" : 
+                "VersionString"  : "3.5.1",
+                "VersionInfo"    : 
                 {
                     "Command"    : "bison --version",
                     "OutputType" : "PlainText",
@@ -536,8 +560,8 @@
             },
             "MacOS"     :
             {
-                "Version"     : "3.7.6",
-                "VersionInfo" : 
+                "VersionString"  : "3.7.6",
+                "VersionInfo"    : 
                 {
                     "Command"    : "bison --version",
                     "EnvVars"    : [{"Name" : "PATH", "Value" : "/opt/homebrew/opt/bison/bin:$PATH"}],
@@ -555,8 +579,8 @@
             "Name"        : "Gradle",
             "Windows"     :
             {
-                "Version"     : "7.1",
-                "VersionInfo" : 
+                "VersionString"  : "7.1",
+                "VersionInfo"    : 
                 {
                     "Command"    : "${TWHome}\\Tools\\gradle\\bin\\gradle.bat --version --quiet -Dorg.gradle.internal.launcher.welcomeMessageEnabled=false",
                     "OutputType" : "PlainText",
@@ -574,8 +598,8 @@
             "Name"        : "Qt",
             "Windows"     :
             {
-                "Version"     : "6.2.0",
-                "VersionInfo" : 
+                "VersionString"  : "6.2.0",
+                "VersionInfo"    : 
                 {
                     "Command"    : "${InstallDir}\\Qt\\${HOST-OS}-${HOST-ARCH}\\bin\\qmake --version",
                     "OutputType" : "PlainText",
@@ -590,8 +614,8 @@
             },
             "Linux"     :
             {
-                "Version"     : "6.2.0",
-                "VersionInfo" : 
+                "VersionString"  : "6.2.0",
+                "VersionInfo"    : 
                 {
                     "Command"    : "/usr/share/Qt/${HOST-OS}-${HOST-ARCH}/bin/qmake --version",
                     "OutputType" : "PlainText",
@@ -606,8 +630,8 @@
             },
             "MacOS"     :
             {
-                "Version"     : "6.2.0",
-                "VersionInfo" : 
+                "VersionString"  : "6.2.0",
+                "VersionInfo"    : 
                 {
                     "Command"    : "/Users/Shared/Qt/${HOST-OS}-${HOST-ARCH}/bin/qmake --version",
                     "OutputType" : "PlainText",
@@ -625,8 +649,8 @@
             "Name"        : "TWCLangFormat",
             "Windows"     :
             {
-                "Version"     : "12.0.0",
-                "VersionInfo" : 
+                "VersionString"  : "12.0.0",
+                "VersionInfo"    : 
                 {
                     "Command"    : "${TWHome}\\Tools\\TWCLangFormat\\clang-format.exe --version",
                     "OutputType" : "PlainText",
@@ -660,8 +684,8 @@
             "Name"        : "OPS",
             "Linux"     :
             {
-                "Version"     : "0.1.27",
-                "VersionInfo" : 
+                "VersionString"  : "0.1.27",
+                "VersionInfo"    : 
                 {
                     "Command"    : "$HOME/.ops/bin/ops version",
                     "OutputType" : "PlainText",
@@ -678,8 +702,8 @@
             "Name"        : "GoogleTest",
             "Windows"     :
             {
-                "Version"     : "1.10.4",
-                "VersionInfo" : 
+                "VersionString"  : "1.10.4",
+                "VersionInfo"    : 
                 {
                     "Command"    : "type ${InstallDir}\\GoogleTest\\googletest.properties",
                     "OutputType" : "PlainText",
@@ -693,8 +717,8 @@
             },
 	    "Linux"     :
             {
-                "Version"     : "1.10.4",
-                "VersionInfo" : 
+                "VersionString"  : "1.10.4",
+                "VersionInfo"    : 
                 {	    
                     "Command"    : "cat /usr/share/GoogleTest/googletest.properties",
                     "OutputType" : "PlainText",
@@ -708,8 +732,8 @@
             },
 	    "MacOS"     :
             {
-                "Version"     : "1.10.4",
-                "VersionInfo" : 
+                "VersionString"  : "1.10.4",
+                "VersionInfo"    : 
                 {
                     "Command"    : "cat /Users/Shared/GoogleTest/googletest.properties",
                     "OutputType" : "PlainText",
