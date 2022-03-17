@@ -16,6 +16,10 @@ macro(check_linux_package package_name)
 
 endmacro()
 
+if(CMAKE_HOST_SYSTEM_NAME STREQUAL Windows)
+    message(STATUS "Packages verified for Windows")
+endif()
+
 if(CMAKE_HOST_SYSTEM_NAME STREQUAL Linux)
 
    message(STATUS "Verifying packages installed on Linux ...")
@@ -102,4 +106,8 @@ if(CMAKE_HOST_SYSTEM_NAME STREQUAL Linux)
 
     endif()
 
+endif()
+
+if(CMAKE_HOST_SYSTEM_NAME STREQUAL Darwin)
+    message(STATUS "Packages verified for MacOS")
 endif()
