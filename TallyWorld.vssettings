@@ -121,6 +121,8 @@
                     <Shortcut Command="EditorContextMenus.CodeWindow.TWVSEditor.TabOver" Scope="Text Editor">Tab</Shortcut>
                     <Shortcut Command="EditorContextMenus.CodeWindow.TWVSEditor.AddClassTemplate" Scope="Text Editor">Alt+C</Shortcut>
                     <Shortcut Command="EditorContextMenus.CodeWindow.TWVSEditor.TraceFunction" Scope="Text Editor">Alt+T</Shortcut>
+                    <Shortcut Command="EditorContextMenus.CodeWindow.TWVSEditor.FixLineEndings" Scope="Text Editor">Alt+N</Shortcut>
+                    <Shortcut Command="EditorContextMenus.CodeWindow.TWVSEditor.ReplaceTabWithSpace" Scope="Text Editor">Alt+S</Shortcut>
 
 				</UserShortcuts>
 			</KeyboardShortcuts>
