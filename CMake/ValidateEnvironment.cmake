@@ -2,7 +2,7 @@
 macro(check_linux_package package_name)
 
     execute_process(
-        COMMAND  apt list --installed build-essential ${package_name}
+        COMMAND  apt list --installed ${package_name}
         COMMAND  grep -iw ${package_name}
         ERROR_QUIET
         RESULT_VARIABLE retCode
