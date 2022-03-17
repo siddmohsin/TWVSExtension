@@ -92,6 +92,7 @@ if(CMAKE_HOST_SYSTEM_NAME STREQUAL Linux)
    list(LENGTH failed_list failed_count)
    if(NOT failed_count STREQUAL 0)
        
+        message(NOTICE "Follow this page to install uninstalled packages : https://tallywiki.tallysolutions.com/display/TWP/Install+Required+Software+on+Linux+x64+Host")
         message(FATAL_ERROR "Following packages not installed: ${failed_count}")
 
     endif()
