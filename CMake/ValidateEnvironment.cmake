@@ -10,7 +10,7 @@ macro(check_linux_package package_name)
 
     if(NOT retCode STREQUAL 0)
        
-        message(SEND_ERROR "Package ${package_name} not found.")
+        list(APPEND failed_list ${package_name})
 
     endif()
 
@@ -19,6 +19,8 @@ endmacro()
 if(CMAKE_HOST_SYSTEM_NAME STREQUAL Linux)
 
    message(STATUS "Verifying packages installed on Linux ...")
+
+   set(failed_list)
 
    check_linux_package("zip")
    check_linux_package("unzip")
@@ -82,9 +84,16 @@ if(CMAKE_HOST_SYSTEM_NAME STREQUAL Linux)
    check_linux_package("libtiff-dev")
    check_linux_package("libgbm-dev")
    check_linux_package("pulseaudio")
-   check_linux_package("libdrm-de")
+   check_linux_package("libdrm-dev")
    check_linux_package("libssl-dev")
    check_linux_package("qemu-kvm")
    check_linux_package("qemu-utils")
+
+   list(LENGTH failed_list failed_count)
+   if(NOT failed_count STREQUAL 0)
+       
+        message(FATAL_ERROR "Following packages not installed: ${failed_count}")
+
+    endif()
 
 endif()
