@@ -43,7 +43,7 @@
                 },
                 "Installer" : 
                 { 
-                    "URL_disabled": 
+                    "URL": 
                     {
                         "x64"  :  "https://github.com/Kitware/CMake/releases/download/v3.22.2/cmake-3.22.2-windows-x86_64.zip",
                         "ARM64":  "https://github.com/Kitware/CMake/releases/download/v3.22.2/cmake-3.22.2-windows-x86_64.zip"
@@ -68,7 +68,7 @@
                 },
                 "Installer" : 
                 { 
-                    "URL_disabled": 
+                    "URL": 
                     {
                         "x64":   "https://github.com/Kitware/CMake/releases/download/v3.22.2/cmake-3.22.2-linux-x86_64.tar.gz",
                         "ARM64": "https://github.com/Kitware/CMake/releases/download/v3.22.2/cmake-3.22.2-linux-aarch64.tar.gz"
@@ -94,7 +94,7 @@
                 },
                 "Installer" : 
                 { 
-                    "URL_disabled": 
+                    "URL": 
                     {
                         "x64":   "https://github.com/Kitware/CMake/releases/download/v3.22.2/cmake-3.22.2-macos-universal.tar.gz",
                         "ARM64": "https://github.com/Kitware/CMake/releases/download/v3.22.2/cmake-3.22.2-macos-universal.tar.gz"
@@ -123,7 +123,7 @@
                 },
                 "Installer" : 
                 { 
-                    "URL_disabled": 
+                    "URL": 
                     {
                         "x64"  :  "https://github.com/ninja-build/ninja/releases/download/v1.10.2/ninja-win.zip",
                         "ARM64":  "https://github.com/ninja-build/ninja/releases/download/v1.10.2/ninja-win.zip"
@@ -148,7 +148,7 @@
                 },
                 "Installer" : 
                 { 
-                    "URL_disabled": 
+                    "URL": 
                     {
                         "x64":   "https://github.com/ninja-build/ninja/releases/download/v1.10.2/ninja-linux.zip",
                         "ARM64": "https://github.com/ninja-build/ninja/releases/download/v1.10.2/ninja-linux.zip"
@@ -165,7 +165,7 @@
             "Name"        : "LLVM",
             "Windows"     :
             {
-                "VersionString"  : "12.0.0",
+                "VersionString"  : "13.0.0",
                 "Command"        : "${TWHome}\\Tools\\LLVM\\bin\\clang++",
                 "VersionInfo"    : 
                 {
@@ -181,7 +181,7 @@
             },
             "Linux"     :
             {
-                "VersionString"  : "12.0.0",
+                "VersionString"  : "13.0.0",
                 "Command"        : "clang++",
                 "VersionInfo"    : 
                 {
@@ -210,7 +210,7 @@
                 },
                 "Installer" : 
                 { 
-                    "URL_disabled": 
+                    "URL": 
                     {
                         "x64"  :  "https://github.com/TallySolutions/RSync/releases/download/v3.1.3/rsync-3.1.3-windows-x86_64.zip",
                         "ARM64":  "https://github.com/TallySolutions/RSync/releases/download/v3.1.3/rsync-3.1.3-windows-arm64.zip"
@@ -580,6 +580,13 @@
             "Windows"     :
             {
                 "VersionString"  : "7.1",
+                "Artifactory" : 
+                {
+                        "Name"         : "ADOService",
+                        "Organization" : "TallyWorld",
+                        "Feed"         : "Windows-x64-BuildTools",
+                        "Package"      : "gradle"
+                },
                 "VersionInfo"    : 
                 {
                     "Command"    : "${TWHome}\\Tools\\gradle\\bin\\gradle.bat --version --quiet -Dorg.gradle.internal.launcher.welcomeMessageEnabled=false",
@@ -599,6 +606,13 @@
             "Windows"     :
             {
                 "VersionString"  : "6.2.0",
+                "Artifactory" : 
+                {
+                        "Name"         : "ADOService",
+                        "Organization" : "TallyWorld",
+                        "Feed"         : "Windows-x64-BuildTools",
+                        "Package"      : "qt6.2"
+                },
                 "VersionInfo"    : 
                 {
                     "Command"    : "${InstallDir}\\Qt\\${HOST-OS}-${HOST-ARCH}\\bin\\qmake --version",
@@ -615,6 +629,13 @@
             "Linux"     :
             {
                 "VersionString"  : "6.2.0",
+                "Artifactory" : 
+                {
+                        "Name"         : "ADOService",
+                        "Organization" : "TallyWorld",
+                        "Feed"         : "Linux-x64-BuildTools",
+                        "Package"      : "qt6.2"
+                },
                 "VersionInfo"    : 
                 {
                     "Command"    : "/usr/share/Qt/${HOST-OS}-${HOST-ARCH}/bin/qmake --version",
@@ -625,12 +646,28 @@
                 "Installer" : 
                 { 
                     "InstallDoc"      : "https://tallywiki.tallysolutions.com/display/TWP/Install+Required+Software+on+Linux+x64+Host#InstallRequiredSoftwareonLinuxx64Host-InstallQt",
-                    "InstallDir"      : "${TWHome}\\Tools"
+                    "InstallDir"      : "/usr/share",
+                    "PostInstalls"    : 
+                    [
+                        "sudo chmod -R 755 /usr/share/Qt/Linux-x64",
+                        "sudo apt update",
+                        "sudo apt-get install build-essential libgl1-mesa-dev -y",
+                        "sudo apt-get install libdouble-conversion-dev libpcre2-16-0 -y",
+                        "sudo apt install -y zlib1g zlib1g-dev libpcre2-dev libglib2.0-dev libgl1-mesa-dev libglfw3-dev libgles2-mesa-dev libegl1-mesa-dev libegl-dev libgegl-dev libatspi2.0-0 libatspi2.0-dev libudev-dev libpng-dev libharfbuzz-dev libfreetype-dev libfontconfig1-dev libmtdev-dev libinput-dev libxcb-xkb-dev libxkbcommon-dev libx11-xcb-dev libxcb-composite0-dev libkf5pulseaudioqt-dev libfontconfig1-dev libfreetype6-dev libx11-dev libx11-xcb-dev libxext-dev libxfixes-dev libxi-dev libxrender-dev libxcb1-dev libxcb-glx0-dev libxcb-keysyms1-dev libxcb-image0-dev libxcb-shm0-dev libxcb-icccm4-dev libxcb-sync-dev libxcb-xfixes0-dev libxcb-shape0-dev libxcb-randr0-dev libxcb-render-util0-dev libxcb-util-dev libxcb-xinerama0-dev libxcb-xkb-dev libxkbcommon-dev libxkbcommon-x11-dev libxcb-xinput-dev libxcb-xinput0 libtiff-dev libgbm-dev pulseaudio libdrm-dev",
+                        "sudo apt install -y libssl-dev"
+                    ]
                 }
             },
             "MacOS"     :
             {
                 "VersionString"  : "6.2.0",
+                "Artifactory" : 
+                {
+                        "Name"         : "ADOService",
+                        "Organization" : "TallyWorld",
+                        "Feed"         : "MacOS-x64-BuildTools",
+                        "Package"      : "qt6.2"
+                },
                 "VersionInfo"    : 
                 {
                     "Command"    : "/Users/Shared/Qt/${HOST-OS}-${HOST-ARCH}/bin/qmake --version",
@@ -641,7 +678,11 @@
                 "Installer" : 
                 { 
                     "InstallDoc"      : "https://tallywiki.tallysolutions.com/display/TWP/Install+Required+Software+on+MacOS+x64+and+ARM64+Host#InstallRequiredSoftwareonMacOSx64andARM64Host-InstallQt",
-                    "InstallDir"      : "${TWHome}\\Tools"
+                    "InstallDir"      : "/Users/Shared",
+                    "PostInstalls"    : 
+                    [
+                        "sudo chmod -R 755 /Users/Shared/Qt"
+                    ]
                 }
             }
         },
@@ -703,6 +744,13 @@
             "Windows"     :
             {
                 "VersionString"  : "1.10.4",
+                "Artifactory" : 
+                {
+                        "Name"         : "ADOService",
+                        "Organization" : "TallyWorld",
+                        "Feed"         : "Windows-Build-Libs",
+                        "Package"      : "googletest"
+                },
                 "VersionInfo"    : 
                 {
                     "Command"    : "type ${InstallDir}\\GoogleTest\\googletest.properties",
@@ -718,6 +766,13 @@
 	    "Linux"     :
             {
                 "VersionString"  : "1.10.4",
+                "Artifactory" : 
+                {
+                        "Name"         : "ADOService",
+                        "Organization" : "TallyWorld",
+                        "Feed"         : "Linux-Build-Libs",
+                        "Package"      : "googletest"
+                },
                 "VersionInfo"    : 
                 {	    
                     "Command"    : "cat /usr/share/GoogleTest/googletest.properties",
@@ -727,12 +782,23 @@
                 "Installer" : 
                 { 
                     "InstallDoc"      : "https://tallywiki.tallysolutions.com/display/TWP/Install+Required+Software+on+Linux+x64+Host#InstallRequiredSoftwareonLinuxx64Host-InstallGoogleTest",
-                    "InstallDir"      : "/usr/share"
+                    "InstallDir"      : "/usr/share",
+                    "PostInstalls"    : 
+                    [
+                        "sudo chmod -R 755 /usr/share/GoogleTest/Linux"
+                    ]
                 }
             },
 	    "MacOS"     :
             {
                 "VersionString"  : "1.10.4",
+                "Artifactory" : 
+                {
+                        "Name"         : "ADOService",
+                        "Organization" : "TallyWorld",
+                        "Feed"         : "MacOS-Build-Libs",
+                        "Package"      : "googletest"
+                },
                 "VersionInfo"    : 
                 {
                     "Command"    : "cat /Users/Shared/GoogleTest/googletest.properties",
@@ -742,7 +808,11 @@
                  "Installer" : 
                 { 
                     "InstallDoc"      : "https://tallywiki.tallysolutions.com/display/TWP/Install+Required+Software+on+MacOS+x64+and+ARM64+Host#InstallRequiredSoftwareonMacOSx64andARM64Host-InstallGoogleTest",
-                    "InstallDir"      : "/Users/Shared"
+                    "InstallDir"      : "/Users/Shared",
+                    "PostInstalls"    : 
+                    [
+                        "sudo chmod -R 755 /Users/Shared/GoogleTest/Apple"
+                    ]
                 }
             }
         }
