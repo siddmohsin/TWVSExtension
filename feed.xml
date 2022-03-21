@@ -2,24 +2,24 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title>VSIX Gallery</title>
   <id>5a7c2525-ddd8-4c44-b2e3-f57ba01a0d81</id>
-  <updated>2022-03-21T05:09:36Z</updated>
+  <updated>2022-03-21T07:38:04Z</updated>
   <subtitle>Add this feed to Visual Studio's extension manager from Tools -&gt; Options -&gt; Environment -&gt; Extensions and Updates</subtitle>
   <link rel="alternate" href="feed.xml" />
   <entry>
     <id>TWVSEditor.e45c0d07-34b0-4405-b94f-ede84e4b95b5</id>
     <title type="text">TWVSEditor</title>
-    <link rel="alternate" href="https://github.com/TallySolutions/TWVSExtension/releases/download/TWVSEditor-v3.10.13/Tally.TWVSEditor.vsix" />
+    <link rel="alternate" href="https://github.com/TallySolutions/TWVSExtension/releases/download/TWVSEditor-v3.10.14/Tally.TWVSEditor.vsix" />
     <summary type="text">TallyWorld Visual Studio Editor Support</summary>
-    <published>2022-03-21T05:09:14Z</published>
-    <updated>2022-03-21T05:09:14Z</updated>
+    <published>2022-03-21T07:37:52Z</published>
+    <updated>2022-03-21T07:37:52Z</updated>
     <author>
       <name>Tally</name>
     </author>
-    <content type="application/octet-stream" src="https://github.com/TallySolutions/TWVSExtension/releases/download/TWVSEditor-v3.10.13/Tally.TWVSEditor.vsix" />
+    <content type="application/octet-stream" src="https://github.com/TallySolutions/TWVSExtension/releases/download/TWVSEditor-v3.10.14/Tally.TWVSEditor.vsix" />
     <link rel="icon" href="icons\TWVSEditor.e45c0d07-34b0-4405-b94f-ede84e4b95b5" />
     <Vsix xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/developer/vsx-syndication-schema/2010">
       <Id>TWVSEditor.e45c0d07-34b0-4405-b94f-ede84e4b95b5</Id>
-      <Version>3.10.13</Version>
+      <Version>3.10.14</Version>
       <References />
       <Rating xsi:nil="true" />
       <RatingCount xsi:nil="true" />
