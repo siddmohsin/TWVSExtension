@@ -171,8 +171,9 @@
                         "x64"  :  "https://github.com/llvm/llvm-project/releases/download/llvmorg-${VERSION}/LLVM-${VERSION}-win64.exe",
                         "ARM64":  "https://github.com/llvm/llvm-project/releases/download/llvmorg-${VERSION}/LLVM-${VERSION}-arm64.exe"
                     },
-                    "FileType"        : "NSIS",
+                    "FileType"        : "INSTALLER",
                     "InstallDir" : "D:\\TW\\Tools\\LLVM",
+                    "InstallerArgs" : "/S /D=\"${InstallDir}\"",
                     "InstallDoc"      : "https://tallywiki.tallysolutions.com/display/TWP/Install+Required+Software+on+Windows+x64+Host#InstallRequiredSoftwareonWindowsx64Host-InstallLLVM"
                 }
             },
@@ -285,9 +286,10 @@
                         "x64"  :  "https://github.com/git-for-windows/git/releases/download/v${VERSION}.windows.1/Git-${VERSION}-64-bit.exe",
                         "ARM64":  "https://github.com/git-for-windows/git/releases/download/v${VERSION}.windows.1/Git-${VERSION}-64-bit.exe"
                     },
-                    "FileType" : "INNO",
+                    "FileType" : "INSTALLER",
                     "InstallDir" : "C:\\Program Files\\Git",
-                    "InstallDoc"      : "https://tallywiki.tallysolutions.com/display/TWP/Install+Required+Software+on+Windows+x64+Host#InstallRequiredSoftwareonWindowsx64Host-InstallGit"
+                    "InstallDoc"      : "https://tallywiki.tallysolutions.com/display/TWP/Install+Required+Software+on+Windows+x64+Host#InstallRequiredSoftwareonWindowsx64Host-InstallGit",
+                    "InstallerArgs" : "/SILENT /DIR=\"${InstallDir}\""
                 },
                 "Validations"   : 
                 [
@@ -403,8 +405,9 @@
                         "x64"  :  "https://azcliprod.blob.core.windows.net/msi/azure-cli-${VERSION}.msi",
                         "ARM64":  "https://azcliprod.blob.core.windows.net/msi/azure-cli-${VERSION}.msi"
                     },
-                    "FileType"   : "NSIS",
+                    "FileType"   : "INSTALLER",
                     "InstallDir" : "C:\\Program Files (x86)\\Microsoft SDKs\\Azure\\CLI2",
+                    "InstallerArgs" : "/S",
                     "InstallDoc"      : "https://tallywiki.tallysolutions.com/display/TWP/Install+Required+Software+on+Windows+x64+Host#InstallRequiredSoftwareonWindowsx64Host-InstallAzureCLI"
                 }
             }
@@ -482,7 +485,8 @@
                 { 
                     "InstallDoc"      : "https://tallywiki.tallysolutions.com/display/TWP/Install+Required+Software+on+Windows+x64+Host#InstallRequiredSoftwareonWindowsx64Host-InstallJava",
                     "InstallDir"      : "${TWHome}\\Tools\\Java",
-                    "FileType"        : "NSIS",
+                    "FileType"        : "INSTALLER",
+                    "InstallerArgs" : "/S /D=\"${InstallDir}\"",
                     "PostInstallMessage" : "Please set JAVA_HOME System Environment Varable to ${InstallDir}"
                 }
             }
