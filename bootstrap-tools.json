@@ -172,8 +172,8 @@
                         "ARM64":  "https://github.com/llvm/llvm-project/releases/download/llvmorg-${VERSION}/LLVM-${VERSION}-arm64.exe"
                     },
                     "FileType"        : "INSTALLER",
-                    "InstallDir" : "D:\\TW\\Tools\\LLVM",
-                    "InstallerArgs" : "/S /D=\"${InstallDir}\"",
+                    "InstallDir" : "${TWHome}\\Tools\\LLVM",
+                    "InstallerArgs" : "/S /D=${InstallDir}",
                     "InstallDoc"      : "https://tallywiki.tallysolutions.com/display/TWP/Install+Required+Software+on+Windows+x64+Host#InstallRequiredSoftwareonWindowsx64Host-InstallLLVM"
                 }
             },
@@ -289,7 +289,7 @@
                     "FileType" : "INSTALLER",
                     "InstallDir" : "C:\\Program Files\\Git",
                     "InstallDoc"      : "https://tallywiki.tallysolutions.com/display/TWP/Install+Required+Software+on+Windows+x64+Host#InstallRequiredSoftwareonWindowsx64Host-InstallGit",
-                    "InstallerArgs" : "/SILENT /DIR=\"${InstallDir}\""
+                    "InstallerArgs" : "/SILENT"
                 },
                 "Validations"   : 
                 [
@@ -486,7 +486,7 @@
                     "InstallDoc"      : "https://tallywiki.tallysolutions.com/display/TWP/Install+Required+Software+on+Windows+x64+Host#InstallRequiredSoftwareonWindowsx64Host-InstallJava",
                     "InstallDir"      : "${TWHome}\\Tools\\Java",
                     "FileType"        : "INSTALLER",
-                    "InstallerArgs" : "/S /D=\"${InstallDir}\"",
+                    "InstallerArgs" : "/S /D=${InstallDir}",
                     "PostInstallMessage" : "Please set JAVA_HOME System Environment Varable to ${InstallDir}"
                 }
             }
