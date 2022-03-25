@@ -408,7 +408,7 @@
                     "FileName"   : "azure-cli-${VERSION}.msi",
                     "FileType"   : "INSTALLER",
                     "InstallDir" : "C:\\Program Files (x86)\\Microsoft SDKs\\Azure\\CLI2",
-                    "InstallerArgs" : "/S",
+                    "InstallerArgs" : "/quiet",
                     "InstallDoc"      : "https://tallywiki.tallysolutions.com/display/TWP/Install+Required+Software+on+Windows+x64+Host#InstallRequiredSoftwareonWindowsx64Host-InstallAzureCLI"
                 }
             }
