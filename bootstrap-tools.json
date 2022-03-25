@@ -486,8 +486,11 @@
                 { 
                     "InstallDoc"      : "https://tallywiki.tallysolutions.com/display/TWP/Install+Required+Software+on+Windows+x64+Host#InstallRequiredSoftwareonWindowsx64Host-InstallJava",
                     "InstallDir"      : "${TWHome}\\Tools\\Java",
-                    "FileType"        : "INSTALLER",
-                    "InstallerArgs" : "/S /D=${InstallDir}",
+                    "PostInstalls"    :
+                    [
+                        "${TWHome}\\Tools\\Java\\jdk-8u311-windows-x64.exe /s ADDLOCAL=ToolsFeature INSTALLDIR=${TWHome}\\Tools\\Java",
+                        "del /f ${TWHome}\\Tools\\Java\\jdk-8u311-windows-x64.exe"
+                    ],
                     "PostInstallMessage" : "Please set JAVA_HOME System Environment Varable to ${InstallDir}"
                 }
             }
