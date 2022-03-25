@@ -510,6 +510,7 @@
                 },
                 "Installer" : 
                 { 
+                    "EnvVars"    : [{"Name" : "JAVA_HOME", "Value" : "${TWHome}\\Tools\\Java"}],
                     "URL": 
                     {
                         "x64"  :  "https://dl.google.com/android/repository/commandlinetools-win-7583922_latest.zip",
@@ -520,17 +521,15 @@
                     "InstallDir"      : "${TWHome}\\Tools\\Android\\SDK",
                     "PostInstalls"    :
                     [
-                        "del /F ${InstallDir}/${FILENAME_0}",
-                        "set JAVA_HOME=${TWHome}\\Tools\\Java", 
+                        "del /F ${InstallDir}\\{FILENAME_0}",
                         "mkdir ${InstallDir}\\cmdline-tools\\latest",
                         "move ${InstallDir}\\cmdline-tools\\bin ${InstallDir}\\cmdline-tools\\latest\\bin",
                         "move ${InstallDir}\\cmdline-tools\\lib ${InstallDir}\\cmdline-tools\\latest\\lib",
                         "move ${InstallDir}\\cmdline-tools\\NOTICE.txt ${InstallDir}\\cmdline-tools\\latest\\NOTICE.txt",
                         "move ${InstallDir}\\cmdline-tools\\source.properties ${InstallDir}\\cmdline-tools\\latest\\source.properties",
-                        "cd ${InstallDir}\\cmdline-tools\\latest\\bin",
-                        "set JAVA_HOME=${TWHome}\\Tools\\Java && sdkmanager.bat \"platforms;android-30\" \"build-tools;30.0.3\" \"system-images;android-30;google_apis;x86_64\"",
-                        "set JAVA_HOME=${TWHome}\\Tools\\Java && sdkmanager.bat --update",
-                        "set JAVA_HOME=${TWHome}\\Tools\\Java && start \"SDKLicenses\" /wait sdkmanager.bat --licenses"
+                        "${InstallDir}\\cmdline-tools\\latest\\bin\\sdkmanager.bat \"platforms;android-30\" \"build-tools;30.0.3\" \"system-images;android-30;google_apis;x86_64\"",
+                        "${InstallDir}\\cmdline-tools\\latest\\bin\\sdkmanager.bat --update",
+                        "start \"SDKLicenses\" /wait ${InstallDir}\\cmdline-tools\\latest\\bin\\sdkmanager.bat --licenses"
                     ]
                 }
             }
@@ -555,7 +554,13 @@
                     },
                     "FileType"        : "Zip",
                     "InstallDoc"      : "https://tallywiki.tallysolutions.com/display/TWP/Install+Required+Software+on+Windows+x64+Host#InstallRequiredSoftwareonWindowsx64Host-InstallAndroidNDK",
-                    "InstallDir"      : "${TWHome}\\Tools\\Android\\NDK"
+                    "InstallDir"      : "${TWHome}\\Tools\\Android\\NDK",
+                    "PostInstalls"    :
+                    [
+                        "move ${TWHome}\\Tools\\Android\\NDK\\android-ndk-r23b ${TWHome}\\Tools\\Android\\android-ndk-r23b",
+                        "rmdir ${TWHome}\\Tools\\Android\\NDK",
+                        "move ${TWHome}\\Tools\\Android\\android-ndk-r23b ${TWHome}\\Tools\\Android\\NDK"
+                    ]
                 }
             }
         },
