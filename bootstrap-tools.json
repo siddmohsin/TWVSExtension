@@ -173,7 +173,7 @@
                     },
                     "FileType"        : "NSIS",
                     "InstallDir" : "D:\\TW\\Tools\\LLVM",
-                    "InstallDoc"      : "https://tallywiki.tallysolutions.com/display/TWP/Install+Required+Software+on+Windows+x64+Host#InstallRequiredSoftwareonWindowsx64Host-InstallLLVM",
+                    "InstallDoc"      : "https://tallywiki.tallysolutions.com/display/TWP/Install+Required+Software+on+Windows+x64+Host#InstallRequiredSoftwareonWindowsx64Host-InstallLLVM"
                 }
             },
             "Linux"     :
