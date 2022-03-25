@@ -402,9 +402,10 @@
                 { 
                     "URL": 
                     {
-                        "x64"  :  "https://azcliprod.blob.core.windows.net/msi/azure-cli-${VERSION}.msi",
-                        "ARM64":  "https://azcliprod.blob.core.windows.net/msi/azure-cli-${VERSION}.msi"
+                        "x64"  :  "https://aka.ms/installazurecliwindows",
+                        "ARM64":  "https://aka.ms/installazurecliwindows"
                     },
+                    "FileName"   : "azure-cli-${VERSION}.msi",
                     "FileType"   : "INSTALLER",
                     "InstallDir" : "C:\\Program Files (x86)\\Microsoft SDKs\\Azure\\CLI2",
                     "InstallerArgs" : "/S",
