@@ -43,6 +43,7 @@
                 },
                 "Installer" : 
                 { 
+                    "InstallDir"      : "${VSCMakeProductLocation}",
                     "InstallDoc"      : "https://tallywiki.tallysolutions.com/display/TWP/Install+Required+Software+on+Windows+x64+Host#InstallRequiredSoftwareonWindowsx64Host-InstallCMake"
                 }
             },
@@ -65,8 +66,8 @@
                         "ARM64": "https://github.com/Kitware/CMake/releases/download/v3.22.2/cmake-3.22.2-linux-aarch64.tar.gz"
                     },
                     "FileType"        : "CompressedTarball",
-                    "InstallDir"      : "/usr/share",
-                    "PostInstalls"    : ["mv -f ${InstallDir}/${FILENAME_WE_0} ${InstallDir}/${NAME}", "ln -sf ${InstallDir}/${NAME}/bin/cmake /usr/bin/cmake"],
+                    "InstallDir"      : "/usr/share/${NAME}",
+                    "PostInstalls"    : ["ln -sf ${InstallDir}/${NAME}/${FILENAME_WE_0}/bin/cmake /usr/bin/cmake"],
                     "UninstallMethod" : "RemoveDir",
                     "InstallDoc"      : "https://tallywiki.tallysolutions.com/display/TWP/Install+Required+Software+on+Linux+x64+Host#InstallRequiredSoftwareonLinuxx64Host-InstallCMake"
 
@@ -91,8 +92,14 @@
                         "ARM64": "https://github.com/Kitware/CMake/releases/download/v3.22.2/cmake-3.22.2-macos-universal.tar.gz"
                     },
                     "FileType"        : "CompressedTarball",
-                    "InstallDir"      : "/Users/Shared",
-                    "PostInstalls"    : ["mv -f ${InstallDir}/${FILENAME_WE_0}/CMake.app /Applications", "ln -sf /Applications/CMake.app/Contents/bin/cmake /usr/local/bin/cmake", "rm -rf ${InstallDir}/${FILENAME_WE_0}"],
+                    "InstallDir"      : "/Applications/CMake.app",
+                    "PostInstalls"    : 
+                    [
+                        "mv -f ${InstallDir}/${FILENAME_WE_0}/CMake.app /tmp", 
+                        "rm -rf ${InstallDir}",
+                        "mv -f /tmp/CMake.app /Applications/",
+                        "ln -sf /Applications/CMake.app/Contents/bin/cmake /usr/local/bin/cmake"
+                    ],
                     "UninstallMethod" : "RemoveDir",
                     "InstallDoc"      : "https://tallywiki.tallysolutions.com/display/TWP/Install+Required+Software+on+MacOS+x64+and+ARM64+Host#InstallRequiredSoftwareonMacOSx64andARM64Host-InstallCMake"
 
@@ -114,6 +121,7 @@
                 },
                 "Installer" : 
                 { 
+                    "InstallDir"      : "${VSNinjaProductLocation}",
                     "InstallDoc"      : "https://tallywiki.tallysolutions.com/display/TWP/Install+Required+Software+on+Windows+x64+Host#InstallRequiredSoftwareonWindowsx64Host-InstallNinja"
                 }
             },
@@ -147,7 +155,7 @@
             "Name"        : "LLVM",
             "Windows"     :
             {
-                "VersionString"  : "13.0.0",
+                "VersionString"  : "13.0.1",
                 "Command"        : "${TWHome}\\Tools\\LLVM\\bin\\clang++",
                 "VersionInfo"    : 
                 {
@@ -158,12 +166,23 @@
                 },
                 "Installer" : 
                 { 
-                    "InstallDoc"      : "https://tallywiki.tallysolutions.com/display/TWP/Install+Required+Software+on+Windows+x64+Host#InstallRequiredSoftwareonWindowsx64Host-InstallLLVM"
+                    "URL": 
+                    {
+                        "x64"  :  "https://github.com/llvm/llvm-project/releases/download/llvmorg-${VERSION}/LLVM-${VERSION}-win64.exe",
+                        "ARM64":  "https://github.com/llvm/llvm-project/releases/download/llvmorg-${VERSION}/LLVM-${VERSION}-arm64.exe"
+                    },
+                    "InstallDir" : "D:\\TW\\Tools\\LLVM",
+                    "InstallDoc"      : "https://tallywiki.tallysolutions.com/display/TWP/Install+Required+Software+on+Windows+x64+Host#InstallRequiredSoftwareonWindowsx64Host-InstallLLVM",
+                    "PostInstalls"    : 
+                    [
+                        "start \"LLVMInstall\" /wait ${InstallDir}/${FILENAME_0} /S /D=${InstallDir}",
+                        "del /F ${InstallDir}/${FILENAME_0}"
+                    ]
                 }
             },
             "Linux"     :
             {
-                "VersionString"  : "13.0.0",
+                "VersionString"  : "13.0.1",
                 "Command"        : "clang++",
                 "VersionInfo"    : 
                 {
@@ -174,6 +193,28 @@
                 },
                 "Installer" : 
                 { 
+                    "URL": 
+                    {
+                        "x64"  :  "https://apt.llvm.org/llvm.sh",
+                        "ARM64":  "https://apt.llvm.org/llvm.sh"
+                    },
+                    "InstallDir" : "/usr/bin",
+                    "PostInstalls"    : 
+                    [
+                        "sudo apt update",
+                        "chmod +x ${InstallDir}/llvm.sh",
+                        "sudo ${InstallDir}/llvm.sh ${VERSION-MAJOR}",
+                        "rm ${InstallDir}/llvm.sh",
+                        "sudo ln -sf /usr/bin/clang-${VERSION-MAJOR} /usr/bin/clang",
+                        "sudo ln -sf /usr/bin/clang++-${VERSION-MAJOR} /usr/bin/clang++",
+                        "sudo ln -sf /usr/bin/llvm-ar-${VERSION-MAJOR} /usr/bin/llvm-ar",
+                        "sudo ln -sf /usr/bin/llvm-ranlib-${VERSION-MAJOR} /usr/bin/llvm-ranlib",
+                        "sudo ln -sf /usr/bin/lld-link-${VERSION-MAJOR} /usr/bin/lld-link",
+                        "sudo apt install -y gcc-aarch64-linux-gnu  libgcc-9-dev-arm64-cross libstdc++-10-dev-arm64-cross",
+                        "sudo apt install -y gcc-multilib g++-multilib",
+                        "sudo apt install -y gcc-multilib-arm-linux-gnueabi gcc-multilib-arm-linux-gnueabihf"
+                    ],
+
                     "InstallDoc"      : "https://tallywiki.tallysolutions.com/display/TWP/Install+Required+Software+on+Linux+x64+Host#InstallRequiredSoftwareonLinuxx64Host-InstallLLVM"
                 }
             }
@@ -192,6 +233,7 @@
                 },
                 "Installer" : 
                 { 
+                    "InstallDir"      : "${VSRSyncProductLocation}",
                     "InstallDoc"      : "https://tallywiki.tallysolutions.com/display/TWP/Install+Required+Software+on+Windows+x64+Host#InstallRequiredSoftwareonWindowsx64Host-InstallRSync"
                 }
             },
@@ -207,6 +249,7 @@
                 },
                 "Installer" : 
                 { 
+                    "InstallDir"      : "/usr/bin",
                     "InstallDoc"      : "https://rsync.samba.org/download.html"
                 }
             },
@@ -222,6 +265,7 @@
                 },
                 "Installer" : 
                 { 
+                    "InstallDir"      : "/usr/bin",
                     "InstallDoc"      : "https://rsync.samba.org/download.html"
                 }
            }
@@ -230,7 +274,7 @@
             "Name"        : "git",
             "Windows"     :
             {
-                "VersionString"  : "2.33",
+                "VersionString"  : "2.34.0",
                 "VersionInfo"    : 
                 {
                     "Command"    : "git version",
@@ -240,6 +284,17 @@
                 },
                 "Installer" : 
                 { 
+                    "URL": 
+                    {
+                        "x64"  :  "https://github.com/git-for-windows/git/releases/download/v${VERSION}.windows.1/Git-${VERSION}-64-bit.exe",
+                        "ARM64":  "https://github.com/git-for-windows/git/releases/download/v${VERSION}.windows.1/Git-${VERSION}-64-bit.exe"
+                    },
+                    "InstallDir" : "C:\\Program Files\\Git",
+                    "PostInstalls"    : 
+                    [
+                        "start \"GitInstall\" /wait ${InstallDir}/${FILENAME_0} /S",
+                        "del /F ${InstallDir}/${FILENAME_0}"
+                    ],
                     "InstallDoc"      : "https://tallywiki.tallysolutions.com/display/TWP/Install+Required+Software+on+Windows+x64+Host#InstallRequiredSoftwareonWindowsx64Host-InstallGit"
                 },
                 "Validations"   : 
@@ -293,6 +348,14 @@
                 },
                 "Installer" : 
                 { 
+                    "InstallCommands" : 
+                    [
+                        "sudo add-apt-repository ppa:git-core/ppa",
+                        "sudo apt update",
+                        "sudo apt-get install git -y",
+                        "sudo git config --global core.autocrlf input"
+                    ],
+                    "InstallDir"      : "/usr/bin",
                     "InstallDoc"      : "https://tallywiki.tallysolutions.com/display/TWP/Install+Required+Software+on+Linux+x64+Host#InstallRequiredSoftwareonLinuxx64Host-InstallGit"
                 },
                 "Validations"   : 
@@ -316,6 +379,7 @@
                 },
                 "Installer" : 
                 { 
+                    "InstallDir"      : "/usr/local/bin",
                     "InstallDoc"      : "https://tallywiki.tallysolutions.com/display/TWP/Install+Required+Software+on+MacOS+x64+and+ARM64+Host#InstallRequiredSoftwareonMacOSx64andARM64Host-InstallGit"
                 },
                 "Validations"   : 
@@ -342,6 +406,18 @@
                 },
                 "Installer" : 
                 { 
+                    "URL": 
+                    {
+                        "x64"  :  "https://azcliprod.blob.core.windows.net/msi/azure-cli-${VERSION}.msi",
+                        "ARM64":  "https://azcliprod.blob.core.windows.net/msi/azure-cli-${VERSION}.msi"
+                    },
+                    "InstallDir" : "C:\\Program Files (x86)\\Microsoft SDKs\\Azure\\CLI2",
+                    "PostInstalls"    : 
+                    [
+                        "start \"AzureInstall\" /wait ${InstallDir}/${FILENAME_0} /S",
+                        "del /F ${InstallDir}/${FILENAME_0}"
+                    ],
+
                     "InstallDoc"      : "https://tallywiki.tallysolutions.com/display/TWP/Install+Required+Software+on+Windows+x64+Host#InstallRequiredSoftwareonWindowsx64Host-InstallAzureCLI"
                 }
             }
@@ -361,6 +437,10 @@
                 },
                 "Installer" : 
                 { 
+                    "InstallCommands" : 
+                    [
+                        "az extension add --name azure-devops"
+                    ],
                     "InstallDoc"      : "https://tallywiki.tallysolutions.com/display/TWP/Install+Required+Software+on+Windows+x64+Host#InstallRequiredSoftwareonWindowsx64Host-InstallAzureCLIDevOpsExtension"
                 }
             }
@@ -379,7 +459,7 @@
                 },
                 "VersionInfo" : 
                 {
-                    "Command"    : "${InstallDir}/TWAppGen/TWAppGen --version",
+                    "Command"    : "${InstallDir}/TWAppGen --version",
                     "OutputType" : "PlainText",
                     "Prefix"     : "v",
                     "Line"       : 1,
@@ -388,7 +468,7 @@
                 "Installer" : 
                 { 
                     "InstallDoc"      : "https://tallywiki.tallysolutions.com/display/TWP/Install+Required+Software+on+Windows+x64+Host#InstallRequiredSoftwareonWindowsx64Host-InstallTWAppGen",
-                    "InstallDir"      : "${TWHome}\\Tools"
+                    "InstallDir"      : "${TWHome}\\Tools\\TWAppGen"
                 }
             }
         },
@@ -397,9 +477,16 @@
             "Windows"     :
             {
                 "VersionString"  : "1.8",
+                "Artifactory" : 
+                {
+                        "Name"         : "ADOService",
+                        "Organization" : "TallyWorld",
+                        "Feed"         : "Windows-x64-BuildTools",
+                        "Package"      : "java"
+                },
                 "VersionInfo"    : 
                 {
-                    "Command"    : "${InstallDir}\\Java\\bin\\java -version",
+                    "Command"    : "${InstallDir}\\bin\\java -version",
                     "OutputType" : "PlainText",
                     "Line"       : 1,
                     "Column"     : 3
@@ -407,7 +494,13 @@
                 "Installer" : 
                 { 
                     "InstallDoc"      : "https://tallywiki.tallysolutions.com/display/TWP/Install+Required+Software+on+Windows+x64+Host#InstallRequiredSoftwareonWindowsx64Host-InstallJava",
-                    "InstallDir"      : "${TWHome}\\Tools"
+                    "InstallDir"      : "${TWHome}\\Tools\\Java",
+                    "PostInstalls"    :
+                    [
+                        "start \"JavaInstall\" /wait ${InstallDir}/jdk-8u311-windows-x64.exe /s ADDLOCAL=ToolsFeature INSTALLDIR=${InstallDir}",
+                        "del /F ${InstallDir}/jdk-8u311-windows-x64.exe",
+                        "set JAVA_HOME=${InstallDir}"
+                    ]
                 }
             }
         },
@@ -418,7 +511,7 @@
                 "VersionString"  : "5.0",
                 "VersionInfo"    : 
                 {
-                    "Command"    : "type ${InstallDir}\\Android\\SDK\\cmdline-tools\\latest\\source.properties",
+                    "Command"    : "type ${InstallDir}\\cmdline-tools\\latest\\source.properties",
                     "OutputType" : "PlainText",
                     "Line"       : 1,
                     "Column"     : 1,
@@ -426,8 +519,27 @@
                 },
                 "Installer" : 
                 { 
+                    "URL": 
+                    {
+                        "x64"  :  "https://dl.google.com/android/repository/commandlinetools-win-7583922_latest.zip",
+                        "ARM64":  "https://dl.google.com/android/repository/commandlinetools-win-7583922_latest.zip"
+                    },
                     "InstallDoc"      : "https://tallywiki.tallysolutions.com/display/TWP/Install+Required+Software+on+Windows+x64+Host#InstallRequiredSoftwareonWindowsx64Host-InstallAndroidSDK",
-                    "InstallDir"      : "${TWHome}\\Tools"
+                    "InstallDir"      : "${TWHome}\\Tools\\Android\\SDK",
+                    "PostInstalls"    :
+                    [
+                        "del /F ${InstallDir}/${FILENAME_0}",
+                        "set JAVA_HOME=${TWHome}\\Tools\\Java", 
+                        "mkdir ${InstallDir}\\cmdline-tools\\latest",
+                        "move ${InstallDir}\\cmdline-tools\\bin ${InstallDir}\\cmdline-tools\\latest\\bin",
+                        "move ${InstallDir}\\cmdline-tools\\lib ${InstallDir}\\cmdline-tools\\latest\\lib",
+                        "move ${InstallDir}\\cmdline-tools\\NOTICE.txt ${InstallDir}\\cmdline-tools\\latest\\NOTICE.txt",
+                        "move ${InstallDir}\\cmdline-tools\\source.properties ${InstallDir}\\cmdline-tools\\latest\\source.properties",
+                        "cd ${InstallDir}\\cmdline-tools\\latest\\bin",
+                        "set JAVA_HOME=${TWHome}\\Tools\\Java && sdkmanager.bat \"platforms;android-30\" \"build-tools;30.0.3\" \"system-images;android-30;google_apis;x86_64\"",
+                        "set JAVA_HOME=${TWHome}\\Tools\\Java && sdkmanager.bat --update",
+                        "set JAVA_HOME=${TWHome}\\Tools\\Java && start \"SDKLicenses\" /wait sdkmanager.bat --licenses"
+                    ]
                 }
             }
         },
@@ -438,14 +550,19 @@
                 "VersionString"  : "23.0",
                 "VersionInfo"    : 
                 {
-                    "Command"    : "type ${InstallDir}\\Android\\NDK\\source.properties",
+                    "Command"    : "type ${InstallDir}\\source.properties",
                     "OutputType" : "PlainText",
                     "Line"       : 2,
                     "Column"     : 3                },
                 "Installer" : 
                 { 
+                    "URL": 
+                    {
+                        "x64"  :  "https://dl.google.com/android/repository/android-ndk-r23b-windows.zip",
+                        "ARM64":  "https://dl.google.com/android/repository/android-ndk-r23b-windows.zip"
+                    },
                     "InstallDoc"      : "https://tallywiki.tallysolutions.com/display/TWP/Install+Required+Software+on+Windows+x64+Host#InstallRequiredSoftwareonWindowsx64Host-InstallAndroidNDK",
-                    "InstallDir"      : "${TWHome}\\Tools"
+                    "InstallDir"      : "${TWHome}\\Tools\\Android\\NDK"
                 }
             }
         },
@@ -456,14 +573,19 @@
                 "VersionString"  : "2.6.4",
                 "VersionInfo"    : 
                 {
-                    "Command"    : "${InstallDir}\\FlexBison\\win_flex.exe --version",
+                    "Command"    : "${InstallDir}\\win_flex.exe --version",
                     "OutputType" : "PlainText",
                     "Line"       : 1,
                     "Column"     : 2                },
                 "Installer" : 
                 { 
+                    "URL": 
+                    {
+                        "x64"  :  "https://github.com/lexxmark/winflexbison/releases/download/v2.5.24/win_flex_bison-2.5.24.zip",
+                        "ARM64":  "https://github.com/lexxmark/winflexbison/releases/download/v2.5.24/win_flex_bison-2.5.24.zip"
+                    },
                     "InstallDoc"      : "https://tallywiki.tallysolutions.com/display/TWP/Install+Required+Software+on+Windows+x64+Host#InstallRequiredSoftwareonWindowsx64Host-InstallFlexandBison",
-                    "InstallDir"      : "${TWHome}\\Tools"
+                    "InstallDir"      : "${TWHome}\\Tools\\FlexBison"
                 }
             },
             "Linux"     :
@@ -477,8 +599,12 @@
                     "Column"     : 2                },
                 "Installer" : 
                 { 
+                    "InstallCommands" :
+                    [
+                        "sudo apt-get install flex bison -y"
+                    ],
                     "InstallDoc"      : "https://tallywiki.tallysolutions.com/display/TWP/Install+Required+Software+on+Linux+x64+Host#InstallRequiredSoftwareonLinuxx64Host-InstallFlexandBison",
-                    "InstallDir"      : "${TWHome}\\Tools"
+                    "InstallDir"      : "/usr/bin"
                 }
             },
             "MacOS"     :
@@ -494,7 +620,7 @@
                 "Installer" : 
                 { 
                     "InstallDoc"      : "https://tallywiki.tallysolutions.com/display/TWP/Install+Required+Software+on+MacOS+x64+and+ARM64+Host#InstallRequiredSoftwareonMacOSx64andARM64Host-InstallFlexandBison",
-                    "InstallDir"      : "${TWHome}\\Tools"
+                    "InstallDir"      : "/opt/homebrew/opt/flex"
                 }
             }
         },
@@ -505,14 +631,21 @@
                 "VersionString"  : "3.7.4",
                 "VersionInfo"    : 
                 {
-                    "Command"    : "${InstallDir}\\FlexBison\\win_bison.exe --version",
+                    "Command"    : "${InstallDir}\\win_bison.exe --version",
                     "OutputType" : "PlainText",
                     "Line"       : 1,
-                    "Column"     : 4                },
+                    "Column"     : 4                
+                },
                 "Installer" : 
                 { 
+                    "URL": 
+                    {
+                        "x64"  :  "https://github.com/lexxmark/winflexbison/releases/download/v2.5.24/win_flex_bison-2.5.24.zip",
+                        "ARM64":  "https://github.com/lexxmark/winflexbison/releases/download/v2.5.24/win_flex_bison-2.5.24.zip"
+                    },
+
                     "InstallDoc"      : "https://tallywiki.tallysolutions.com/display/TWP/Install+Required+Software+on+Windows+x64+Host#InstallRequiredSoftwareonWindowsx64Host-InstallFlexandBison",
-                    "InstallDir"      : "${TWHome}\\Tools"
+                    "InstallDir"      : "${TWHome}\\Tools\\FlexBison"
                 }
             },
             "Linux"     :
@@ -526,8 +659,12 @@
                     "Column"     : 4                },
                 "Installer" : 
                 { 
+                    "InstallCommands" :
+                    [
+                        "sudo apt-get install flex bison -y"
+                    ],
                     "InstallDoc"      : "https://tallywiki.tallysolutions.com/display/TWP/Install+Required+Software+on+Linux+x64+Host#InstallRequiredSoftwareonLinuxx64Host-InstallFlexandBison",
-                    "InstallDir"      : "${TWHome}\\Tools"
+                    "InstallDir"      : "/usr/bin"
                 }
             },
             "MacOS"     :
@@ -543,7 +680,7 @@
                 "Installer" : 
                 { 
                     "InstallDoc"      : "https://tallywiki.tallysolutions.com/display/TWP/Install+Required+Software+on+MacOS+x64+and+ARM64+Host#InstallRequiredSoftwareonMacOSx64andARM64Host-InstallFlexandBison",
-                    "InstallDir"      : "${TWHome}\\Tools"
+                    "InstallDir"      : "/opt/homebrew/opt/bison"
                 }
             }
         },
@@ -568,7 +705,7 @@
                 },
                 "Installer" : 
                 { 
-                    "InstallDir"      : "${TWHome}\\Tools",
+                    "InstallDir"      : "${TWHome}\\Tools\\gradle",
                     "InstallDoc"      : "https://tallywiki.tallysolutions.com/display/TWP/Install+Required+Software+on+Windows+x64+Host#InstallRequiredSoftwareonWindowsx64Host-InstallGradle"
                 }
             }
@@ -587,7 +724,7 @@
                 },
                 "VersionInfo"    : 
                 {
-                    "Command"    : "${InstallDir}\\Qt\\${HOST-OS}-${HOST-ARCH}\\bin\\qmake --version",
+                    "Command"    : "${InstallDir}\\${HOST-OS}-${HOST-ARCH}\\bin\\qmake --version",
                     "OutputType" : "PlainText",
                     "Line"       : 2,
                     "Column"     : 4                
@@ -595,7 +732,7 @@
                 "Installer" : 
                 { 
                     "InstallDoc"      : "https://tallywiki.tallysolutions.com/display/TWP/Install+Required+Software+on+Windows+x64+Host#InstallRequiredSoftwareonWindowsx64Host-InstallQt",
-                    "InstallDir"      : "${TWHome}\\Tools"
+                    "InstallDir"      : "${TWHome}\\Tools\\Qt"
                 }
             },
             "Linux"     :
@@ -618,7 +755,7 @@
                 "Installer" : 
                 { 
                     "InstallDoc"      : "https://tallywiki.tallysolutions.com/display/TWP/Install+Required+Software+on+Linux+x64+Host#InstallRequiredSoftwareonLinuxx64Host-InstallQt",
-                    "InstallDir"      : "/usr/share",
+                    "InstallDir"      : "/usr/share/Qt",
                     "PostInstalls"    : 
                     [
                         "sudo chmod -R 755 /usr/share/Qt/Linux-x64",
@@ -650,7 +787,7 @@
                 "Installer" : 
                 { 
                     "InstallDoc"      : "https://tallywiki.tallysolutions.com/display/TWP/Install+Required+Software+on+MacOS+x64+and+ARM64+Host#InstallRequiredSoftwareonMacOSx64andARM64Host-InstallQt",
-                    "InstallDir"      : "/Users/Shared",
+                    "InstallDir"      : "/Users/Shared/Qt",
                     "PostInstalls"    : 
                     [
                         "sudo chmod -R 755 /Users/Shared/Qt"
@@ -707,6 +844,12 @@
                 },
                 "Installer" : 
                 { 
+                    "InstallCommands" :
+                    [
+                        "curl https://ops.city/get.sh -sSfL | sh",
+                        "sudo apt-get install qemu-kvm qemu-utils -y"
+                    ],
+                    "InstallDir"      : "${HOME}/.ops",
                     "InstallDoc"      : "https://tallywiki.tallysolutions.com/pages/viewpage.action?spaceKey=TWP&title=Install+Required+Software+on+Linux+x64+Host#InstallRequiredSoftwareonLinuxx64Host-InstallUnikernel(NanoVm)"
 				}
             }
@@ -725,14 +868,14 @@
                 },
                 "VersionInfo"    : 
                 {
-                    "Command"    : "type ${InstallDir}\\GoogleTest\\googletest.properties",
+                    "Command"    : "type ${InstallDir}\\googletest.properties",
                     "OutputType" : "PlainText",
                     "Line"       : 1,
                     "Column"     : 3                },
                 "Installer" : 
                 { 
                     "InstallDoc"      : "https://tallywiki.tallysolutions.com/display/TWP/Install+Required+Software+on+Windows+x64+Host#InstallRequiredSoftwareonWindowsx64Host-InstallGoogleTest",
-                    "InstallDir"      : "${TWHome}\\Tools"
+                    "InstallDir"      : "${TWHome}\\Tools\\GoogleTest"
                 }
             },
 	    "Linux"     :
@@ -754,7 +897,7 @@
                 "Installer" : 
                 { 
                     "InstallDoc"      : "https://tallywiki.tallysolutions.com/display/TWP/Install+Required+Software+on+Linux+x64+Host#InstallRequiredSoftwareonLinuxx64Host-InstallGoogleTest",
-                    "InstallDir"      : "/usr/share",
+                    "InstallDir"      : "/usr/share/GoogleTest",
                     "PostInstalls"    : 
                     [
                         "sudo chmod -R 755 /usr/share/GoogleTest/Linux"
@@ -780,7 +923,7 @@
                  "Installer" : 
                 { 
                     "InstallDoc"      : "https://tallywiki.tallysolutions.com/display/TWP/Install+Required+Software+on+MacOS+x64+and+ARM64+Host#InstallRequiredSoftwareonMacOSx64andARM64Host-InstallGoogleTest",
-                    "InstallDir"      : "/Users/Shared",
+                    "InstallDir"      : "/Users/Shared/GoogleTest",
                     "PostInstalls"    : 
                     [
                         "sudo chmod -R 755 /Users/Shared/GoogleTest/Apple"
