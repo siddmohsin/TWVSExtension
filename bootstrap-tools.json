@@ -499,7 +499,7 @@
             "Name"        : "AndroidSDK",
             "Windows"     :
             {
-                "VersionString"  : "5.0",
+                "VersionString"  : "6.0",
                 "VersionInfo"    : 
                 {
                     "Command"    : "type ${InstallDir}\\cmdline-tools\\latest\\source.properties",
@@ -513,8 +513,8 @@
                     "EnvVars"    : [{"Name" : "JAVA_HOME", "Value" : "${TWHome}\\Tools\\Java"}],
                     "URL": 
                     {
-                        "x64"  :  "https://dl.google.com/android/repository/commandlinetools-win-7583922_latest.zip",
-                        "ARM64":  "https://dl.google.com/android/repository/commandlinetools-win-7583922_latest.zip"
+                        "x64"  :  "https://dl.google.com/android/repository/commandlinetools-win-8092744_latest.zip",
+                        "ARM64":  "https://dl.google.com/android/repository/commandlinetools-win-8092744_latest.zip"
                     },
                     "FileType"        : "Zip",
                     "InstallDoc"      : "https://tallywiki.tallysolutions.com/display/TWP/Install+Required+Software+on+Windows+x64+Host#InstallRequiredSoftwareonWindowsx64Host-InstallAndroidSDK",
@@ -527,9 +527,9 @@
                         "move ${InstallDir}\\cmdline-tools\\lib ${InstallDir}\\cmdline-tools\\latest\\lib",
                         "move ${InstallDir}\\cmdline-tools\\NOTICE.txt ${InstallDir}\\cmdline-tools\\latest\\NOTICE.txt",
                         "move ${InstallDir}\\cmdline-tools\\source.properties ${InstallDir}\\cmdline-tools\\latest\\source.properties",
-                        "${InstallDir}\\cmdline-tools\\latest\\bin\\sdkmanager.bat \"platforms;android-30\" \"build-tools;30.0.3\" \"system-images;android-30;google_apis;x86_64\"",
-                        "${InstallDir}\\cmdline-tools\\latest\\bin\\sdkmanager.bat --update",
-                        "start \"SDKLicenses\" /wait ${InstallDir}\\cmdline-tools\\latest\\bin\\sdkmanager.bat --licenses"
+                        "start \"Android SDK Installer\" cmd /c ${InstallDir}\\cmdline-tools\\latest\\bin\\sdkmanager.bat \"platforms;android-30\" \"build-tools;30.0.3\" \"system-images;android-30;google_apis;x86_64\"",
+                        "start \"Android SDK Updates\" cmd /c ${InstallDir}\\cmdline-tools\\latest\\bin\\sdkmanager.bat --update",
+                        "start \"Android SDK Licenses - Please accept all\" cmd /c ${InstallDir}\\cmdline-tools\\latest\\bin\\sdkmanager.bat --licenses"
                     ]
                 }
             }

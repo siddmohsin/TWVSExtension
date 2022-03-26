@@ -1,4 +1,3 @@
-
 macro(check_linux_package package_name)
 
     execute_process(
@@ -10,15 +9,81 @@ macro(check_linux_package package_name)
 
     if(NOT retCode STREQUAL 0)
        
-        list(APPEND failed_list ${package_name})
+        list(APPEND failed_package_list ${package_name})
+
+    endif()
+
+endmacro()
+
+macro(check_ssh_config)
+
+    execute_process(
+        COMMAND  grep -i "^PermitUserEnvironment[ ]*yes" /etc/ssh/sshd_config
+        ERROR_QUIET
+        RESULT_VARIABLE retCode
+    )
+
+    if(NOT retCode STREQUAL 0)
+       
+        message(FATAL_ERROR "Please set 'PermitUserEnvironment yes' in /etc/ssh/sshd_config and restart ssh.")
+
+    endif()
+
+endmacro()
+
+macro(check_ssh_environment)
+
+    if(NOT EXISTS "~/.ssh/environment")
+
+        message(FATAL_ERROR "File not found: ~/.ssh/environment")
+
+    endif()
+
+    execute_process(
+        COMMAND  stat -c '%a' ~/.ssh/environment
+        ERROR_QUIET
+        RESULT_VARIABLE retCode
+        OUTPUT_VARIABLE out
+    )
+
+    if(NOT out STREQUAL "600")
+       
+        message(FATAL_ERROR "File ~/.ssh/environment does not have permission 600.")
+
+    endif()
+
+endmacro()
+
+
+macro(check_env_variable variable)
+
+    if(NOT DEFINED ENV{${variable}})
+       
+        list(APPEND failed_env_variables ${variable})
 
     endif()
 
 endmacro()
 
 if(CMAKE_HOST_SYSTEM_NAME STREQUAL Windows)
+    
+    message(STATUS "Verifying environment variables ...")
 
-    #TODO Add Windows validations here
+    set(failed_env_variables)
+
+    check_env_variable("JAVA_HOME")
+
+    list(LENGTH failed_env_variables failed_count)
+    if(NOT failed_count STREQUAL 0)
+        
+         foreach(var ${failed_env_variables})
+            message(NOTICE "Environment variable ${var} not defined, please set it in system environment variable and restart Visual Studio.")
+         endforeach()
+         
+         message(FATAL_ERROR "One or more environment variables not defined.")
+ 
+     endif()
+
 
 endif()
 
@@ -26,7 +91,7 @@ if(CMAKE_HOST_SYSTEM_NAME STREQUAL Linux)
 
    message(STATUS "Verifying packages installed on Linux ...")
 
-   set(failed_list)
+   set(failed_package_list)
 
    check_linux_package("zip")
    check_linux_package("unzip")
@@ -95,12 +160,12 @@ if(CMAKE_HOST_SYSTEM_NAME STREQUAL Linux)
    check_linux_package("qemu-kvm")
    check_linux_package("qemu-utils")
 
-   list(LENGTH failed_list failed_count)
+   list(LENGTH failed_package_list failed_count)
    if(NOT failed_count STREQUAL 0)
        
         message(NOTICE "Follow this page to install required packages on Linux : https://tallywiki.tallysolutions.com/display/TWP/Install+Required+Software+on+Linux+x64+Host")
         message(NOTICE "Run following command to install missing packages:")
-        foreach(PKG ${failed_list})
+        foreach(PKG ${failed_package_list})
            message(NOTICE "   sudo apt install ${PKG} -y")
         endforeach()
         
@@ -112,6 +177,26 @@ endif()
 
 if(CMAKE_HOST_SYSTEM_NAME STREQUAL Darwin)
     
-    #TODO Add MacOS Validations here
+    message(STATUS "Verifying ssh config ...")
+
+    check_ssh_config()
+    check_ssh_environment()
+
+    message(STATUS "Verifying environment variables ...")
+
+    set(failed_env_variables)
+
+    check_env_variable("HOME")
+
+    list(LENGTH failed_env_variables failed_count)
+    if(NOT failed_count STREQUAL 0)
     
+        foreach(var ${failed_env_variables})
+            message(NOTICE "Environment variable ${var} not defined, please set it in ~/.ssh/environment file.")
+        endforeach()
+     
+        message(FATAL_ERROR "One or more environment variables not defined.")
+
+    endif()
+ 
 endif()
