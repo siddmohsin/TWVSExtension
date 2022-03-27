@@ -46,10 +46,7 @@ macro(check_ssh_environment)
         ERROR_VARIABLE error
     )
 
-    message(NOTICE "stat output -> ${out}")
-    message(NOTICE "stat return -> ${retCode}")
-    message(NOTICE "stat error -> ${error}")
-    if(NOT out STREQUAL "-rw-------")
+    if(NOT out MATCHES "-rw-------")
        
         message(SEND_ERROR "File .ssh/environment does not have permission 600.")
 
@@ -93,7 +90,7 @@ if(CMAKE_HOST_SYSTEM_NAME STREQUAL Windows)
 
      endif()
 
-     message(STATUS "Verifying completed.")
+     message(STATUS "Verification completed.")
 
 
 endif()
@@ -183,7 +180,7 @@ if(CMAKE_HOST_SYSTEM_NAME STREQUAL Linux)
         message(SEND_ERROR "One or more packages not installed.")
 
     endif()
-    message(STATUS "Verifying completed.")
+    message(STATUS "Verification completed.")
 endif()
 
 if(CMAKE_HOST_SYSTEM_NAME STREQUAL Darwin)
@@ -210,6 +207,6 @@ if(CMAKE_HOST_SYSTEM_NAME STREQUAL Darwin)
 
     endif()
 
-    message(STATUS "Verifying completed.")
+    message(STATUS "Verification completed.")
 
 endif()

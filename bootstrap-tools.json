@@ -519,9 +519,11 @@
                     "FileType"        : "Zip",
                     "InstallDoc"      : "https://tallywiki.tallysolutions.com/display/TWP/Install+Required+Software+on+Windows+x64+Host#InstallRequiredSoftwareonWindowsx64Host-InstallAndroidSDK",
                     "InstallDir"      : "${TWHome}\\Tools\\Android\\SDK",
+                    "UninstallMethod" : "RemoveDir",                
                     "PostInstalls"    :
                     [
                         "del /F ${InstallDir}\\{FILENAME_0}",
+                        "rmdir /S /Q ${InstallDir}\\cmdline-tools\\latest",
                         "mkdir ${InstallDir}\\cmdline-tools\\latest",
                         "move ${InstallDir}\\cmdline-tools\\bin ${InstallDir}\\cmdline-tools\\latest\\bin",
                         "move ${InstallDir}\\cmdline-tools\\lib ${InstallDir}\\cmdline-tools\\latest\\lib",
@@ -555,6 +557,7 @@
                     "FileType"        : "Zip",
                     "InstallDoc"      : "https://tallywiki.tallysolutions.com/display/TWP/Install+Required+Software+on+Windows+x64+Host#InstallRequiredSoftwareonWindowsx64Host-InstallAndroidNDK",
                     "InstallDir"      : "${TWHome}\\Tools\\Android\\NDK",
+                    "UninstallMethod" : "RemoveDir",                
                     "PostInstalls"    :
                     [
                         "move ${TWHome}\\Tools\\Android\\NDK\\android-ndk-r23b ${TWHome}\\Tools\\Android\\android-ndk-r23b",
