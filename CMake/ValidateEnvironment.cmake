@@ -41,11 +41,14 @@ macro(check_ssh_environment)
 
     execute_process(
         COMMAND  stat -f '%Sp' .ssh/environment
-        ERROR_QUIET
         RESULT_VARIABLE retCode
         OUTPUT_VARIABLE out
+        ERROR_VARIABLE error
     )
 
+    message(NOTiCE "stat output -> ${out}")
+    message(NOTiCE "stat return -> ${retCode}")
+    message(NOTiCE "stat error -> ${error}")
     if(NOT out STREQUAL "-rw-------")
        
         message(FATAL_ERROR "File .ssh/environment does not have permission 600.")
