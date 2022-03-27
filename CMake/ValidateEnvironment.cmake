@@ -25,7 +25,7 @@ macro(check_ssh_config)
 
     if(NOT retCode STREQUAL 0)
        
-        message(FATAL_ERROR "Please set 'PermitUserEnvironment yes' in /etc/ssh/sshd_config and restart ssh.")
+        message(SEND_ERROR "Please set 'PermitUserEnvironment yes' in /etc/ssh/sshd_config and restart ssh.")
 
     endif()
 
@@ -35,7 +35,7 @@ macro(check_ssh_environment)
 
     if(NOT EXISTS ".ssh/environment")
 
-        message(FATAL_ERROR "File not found: .ssh/environment (at user's home directory)")
+        message(SEND_ERROR "File not found: .ssh/environment (at user's home directory)")
 
     endif()
 
@@ -51,7 +51,7 @@ macro(check_ssh_environment)
     message(NOTICE "stat error -> ${error}")
     if(NOT out STREQUAL "-rw-------")
        
-        message(FATAL_ERROR "File .ssh/environment does not have permission 600.")
+        message(SEND_ERROR "File .ssh/environment does not have permission 600.")
 
     endif()
 
@@ -83,13 +83,13 @@ if(CMAKE_HOST_SYSTEM_NAME STREQUAL Windows)
             message(NOTICE "Environment variable ${var} not defined, please set it in system environment variable and restart Visual Studio.")
          endforeach()
          
-         message(FATAL_ERROR "One or more environment variables not defined.")
+         message(SEND_ERROR "One or more environment variables not defined.")
  
      endif()
 
      if(NOT EXISTS $ENV{JAVA_HOME}/bin/java.exe)
 
-        message(FATAL_ERROR "Invalid JAVA_HOME set -> file not found: $ENV{JAVA_HOME}/bin/java.exe")
+        message(SEND_ERROR "Invalid JAVA_HOME set -> file not found: $ENV{JAVA_HOME}/bin/java.exe")
 
      endif()
 
@@ -180,7 +180,7 @@ if(CMAKE_HOST_SYSTEM_NAME STREQUAL Linux)
            message(NOTICE "   sudo apt install ${PKG} -y")
         endforeach()
         
-        message(FATAL_ERROR "One or more packages not installed.")
+        message(SEND_ERROR "One or more packages not installed.")
 
     endif()
     message(STATUS "Verifying completed.")
@@ -206,7 +206,7 @@ if(CMAKE_HOST_SYSTEM_NAME STREQUAL Darwin)
             message(NOTICE "Environment variable ${var} not defined, please set it in .ssh/environment file at user's home directory.")
         endforeach()
      
-        message(FATAL_ERROR "One or more environment variables not defined.")
+        message(SEND_ERROR "One or more environment variables not defined.")
 
     endif()
 
