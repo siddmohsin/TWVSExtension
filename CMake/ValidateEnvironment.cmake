@@ -33,22 +33,22 @@ endmacro()
 
 macro(check_ssh_environment)
 
-    if(NOT EXISTS "~/.ssh/environment")
+    if(NOT EXISTS ".ssh/environment")
 
-        message(FATAL_ERROR "File not found: ~/.ssh/environment")
+        message(FATAL_ERROR "File not found: .ssh/environment (at user's home directory)")
 
     endif()
 
     execute_process(
-        COMMAND  stat -c '%a' ~/.ssh/environment
+        COMMAND  stat -f '%Sp' .ssh/environment
         ERROR_QUIET
         RESULT_VARIABLE retCode
         OUTPUT_VARIABLE out
     )
 
-    if(NOT out STREQUAL "600")
+    if(NOT out STREQUAL "-rw-------")
        
-        message(FATAL_ERROR "File ~/.ssh/environment does not have permission 600.")
+        message(FATAL_ERROR "File .ssh/environment does not have permission 600.")
 
     endif()
 
@@ -192,7 +192,7 @@ if(CMAKE_HOST_SYSTEM_NAME STREQUAL Darwin)
     if(NOT failed_count STREQUAL 0)
     
         foreach(var ${failed_env_variables})
-            message(NOTICE "Environment variable ${var} not defined, please set it in ~/.ssh/environment file.")
+            message(NOTICE "Environment variable ${var} not defined, please set it in .ssh/environment file at user's home directory.")
         endforeach()
      
         message(FATAL_ERROR "One or more environment variables not defined.")
