@@ -40,15 +40,15 @@ macro(check_ssh_environment)
     endif()
 
     execute_process(
-        COMMAND  stat -f '%Sp' .ssh/environment
+        COMMAND  stat -f %Sp .ssh/environment
         RESULT_VARIABLE retCode
         OUTPUT_VARIABLE out
         ERROR_VARIABLE error
     )
 
-    message(NOTiCE "stat output -> ${out}")
-    message(NOTiCE "stat return -> ${retCode}")
-    message(NOTiCE "stat error -> ${error}")
+    message(NOTICE "stat output -> ${out}")
+    message(NOTICE "stat return -> ${retCode}")
+    message(NOTICE "stat error -> ${error}")
     if(NOT out STREQUAL "-rw-------")
        
         message(FATAL_ERROR "File .ssh/environment does not have permission 600.")
@@ -86,6 +86,14 @@ if(CMAKE_HOST_SYSTEM_NAME STREQUAL Windows)
          message(FATAL_ERROR "One or more environment variables not defined.")
  
      endif()
+
+     if(NOT EXISTS $ENV{JAVA_HOME}/bin/java.exe)
+
+        message(FATAL_ERROR "Invalid JAVA_HOME set -> file not found: $ENV{JAVA_HOME}/bin/java.exe")
+
+     endif()
+
+     message(STATUS "Verifying completed.")
 
 
 endif()
@@ -175,7 +183,7 @@ if(CMAKE_HOST_SYSTEM_NAME STREQUAL Linux)
         message(FATAL_ERROR "One or more packages not installed.")
 
     endif()
-
+    message(STATUS "Verifying completed.")
 endif()
 
 if(CMAKE_HOST_SYSTEM_NAME STREQUAL Darwin)
@@ -201,5 +209,7 @@ if(CMAKE_HOST_SYSTEM_NAME STREQUAL Darwin)
         message(FATAL_ERROR "One or more environment variables not defined.")
 
     endif()
- 
+
+    message(STATUS "Verifying completed.")
+
 endif()
