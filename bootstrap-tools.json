@@ -1,5 +1,5 @@
 {
-    "Version"               :  "1.4",
+    "Version"               :  "1.5",
     "ADOArtifcatories"      :
     [
         {
@@ -49,7 +49,7 @@
             },
             "Linux"     :
             {
-                "VersionString"  : "3.22",
+                "VersionString"  : "3.22.2",
                 "Command"        : "/usr/bin/cmake",
                 "VersionInfo"    : 
                 {
@@ -62,20 +62,29 @@
                 { 
                     "URL": 
                     {
-                        "x64":   "https://github.com/Kitware/CMake/releases/download/v3.22.2/cmake-3.22.2-linux-x86_64.tar.gz",
-                        "ARM64": "https://github.com/Kitware/CMake/releases/download/v3.22.2/cmake-3.22.2-linux-aarch64.tar.gz"
+                        "x64":   "https://github.com/Kitware/CMake/releases/download/v${VERSION}/cmake-${VERSION}-linux-x86_64.tar.gz",
+                        "ARM64": "https://github.com/Kitware/CMake/releases/download/v${VERSION}/cmake-${VERSION}-linux-aarch64.tar.gz"
                     },
-                    "FileType"        : "CompressedTarball",
-                    "InstallDir"      : "/usr/share/${NAME}",
-                    "PostInstalls"    : ["ln -sf ${InstallDir}/${NAME}/${FILENAME_WE_0}/bin/cmake /usr/bin/cmake"],
-                    "UninstallMethod" : "RemoveDir",
-                    "InstallDoc"      : "https://tallywiki.tallysolutions.com/display/TWP/Install+Required+Software+on+Linux+x64+Host#InstallRequiredSoftwareonLinuxx64Host-InstallCMake"
+                    "InstallDir"       : "/usr/share/${NAME}",
+                    "InstallCommands"  : 
+                    [
+                        "DOWNLOAD ${URL_0} /tmp/${FILENAME_0}",
+                        "tar xvzf /tmp/${FILENAME_0} -C ${InstallDir}",
+                        "sudo ln -sf ${InstallDir}/${FILENAME_WE_0}/bin/cmake /usr/bin/cmake",
+                        "rm -rf /tmp/${FILENAME_0}"
+                    ],
+                    "UninstallCommands": 
+                    [
+                        "sudo rm -f /usr/bin/cmake",
+                        "sudo rm -rf ${InstallDir}"
+                    ],
+                    "InstallDoc"       : "https://tallywiki.tallysolutions.com/display/TWP/Install+Required+Software+on+Linux+x64+Host#InstallRequiredSoftwareonLinuxx64Host-InstallCMake"
 
                 }
             },
             "MacOS"     :
             {
-                "VersionString"  : "3.22",
+                "VersionString"  : "3.22.2",
                 "Command"        : "/usr/local/bin/cmake",
                 "VersionInfo"    : 
                 {
@@ -88,19 +97,24 @@
                 { 
                     "URL": 
                     {
-                        "x64":   "https://github.com/Kitware/CMake/releases/download/v3.22.2/cmake-3.22.2-macos-universal.tar.gz",
-                        "ARM64": "https://github.com/Kitware/CMake/releases/download/v3.22.2/cmake-3.22.2-macos-universal.tar.gz"
+                        "x64":   "https://github.com/Kitware/CMake/releases/download/v${VERSION}/cmake-${VERSION}-macos-universal.tar.gz",
+                        "ARM64": "https://github.com/Kitware/CMake/releases/download/v${VERSION}/cmake-${VERSION}-macos-universal.tar.gz"
                     },
-                    "FileType"        : "CompressedTarball",
                     "InstallDir"      : "/Applications/CMake.app",
-                    "PostInstalls"    : 
+                    "InstallCommands"  : 
                     [
-                        "mv -f ${InstallDir}/${FILENAME_WE_0}/CMake.app /tmp", 
-                        "rm -rf ${InstallDir}",
-                        "mv -f /tmp/CMake.app /Applications/",
-                        "ln -sf /Applications/CMake.app/Contents/bin/cmake /usr/local/bin/cmake"
+                        "DOWNLOAD ${URL_0} /tmp/${FILENAME_0}",
+                        "sudo tar xvzf /tmp/${FILENAME_0} -C ${InstallDir}",
+                        "sudo mv -f ${InstallDir}/${FILENAME_WE_0}/CMake.app /tmp", 
+                        "sudo mv -f /tmp/CMake.app /Applications/",
+                        "sudo ln -sf /Applications/CMake.app/Contents/bin/cmake /usr/local/bin/cmake",
+                        "rm -f /tmp/${FILENAME_0}"
                     ],
-                    "UninstallMethod" : "RemoveDir",
+                    "UninstallCommands": 
+                    [
+                        "sudo rm -f /usr/local/bin/cmake",
+                        "sudo rm -rf ${InstallDir}"
+                    ],
                     "InstallDoc"      : "https://tallywiki.tallysolutions.com/display/TWP/Install+Required+Software+on+MacOS+x64+and+ARM64+Host#InstallRequiredSoftwareonMacOSx64andARM64Host-InstallCMake"
 
                 }
@@ -143,76 +157,19 @@
                         "x64":   "https://github.com/ninja-build/ninja/releases/download/v1.10.2/ninja-linux.zip",
                         "ARM64": "https://github.com/ninja-build/ninja/releases/download/v1.10.2/ninja-linux.zip"
                     },
-                    "FileType"        : "Zip",
                     "InstallDir"      : "/usr/bin",
-                    "PostInstalls"    : [],
+                    "InstallCommands"  : 
+                    [
+                        "DOWNLOAD ${URL_0} /tmp/${FILENAME_0}",
+                        "sudo unzip -o /tmp/${FILENAME_0} -d ${InstallDir}",
+                        "rm -f /tmp/${FILENAME_0}"
+                    ],
+                    "UninstallCommands": 
+                    [
+                        "sudo rm -f ${InstallDir}/ninja"
+                    ],
                     "InstallDoc"      : "https://tallywiki.tallysolutions.com/display/TWP/Install+Required+Software+on+Linux+x64+Host#InstallRequiredSoftwareonLinuxx64Host-InstallNinja"
 
-                }
-            }
-        },
-        {
-            "Name"        : "LLVM",
-            "Windows"     :
-            {
-                "VersionString"  : "13.0.1",
-                "Command"        : "${TWHome}\\Tools\\LLVM\\bin\\clang++",
-                "VersionInfo"    : 
-                {
-                    "Command"    : "${COMMAND} --version",
-                    "OutputType" : "PlainText",
-                    "Line"       : 1,
-                    "Column"     : 3
-                },
-                "Installer" : 
-                { 
-                    "URL": 
-                    {
-                        "x64"  :  "https://github.com/llvm/llvm-project/releases/download/llvmorg-${VERSION}/LLVM-${VERSION}-win64.exe",
-                        "ARM64":  "https://github.com/llvm/llvm-project/releases/download/llvmorg-${VERSION}/LLVM-${VERSION}-arm64.exe"
-                    },
-                    "FileType"        : "INSTALLER",
-                    "InstallDir" : "${TWHome}\\Tools\\LLVM",
-                    "InstallerArgs" : "/S /D=${InstallDir}",
-                    "InstallDoc"      : "https://tallywiki.tallysolutions.com/display/TWP/Install+Required+Software+on+Windows+x64+Host#InstallRequiredSoftwareonWindowsx64Host-InstallLLVM"
-                }
-            },
-            "Linux"     :
-            {
-                "VersionString"  : "13.0.1",
-                "Command"        : "clang++",
-                "VersionInfo"    : 
-                {
-                    "Command"    : "${COMMAND} --version",
-                    "OutputType" : "PlainText",
-                    "Line"       : 1,
-                    "Column"     : 4
-                },
-                "Installer" : 
-                { 
-                    "URL": 
-                    {
-                        "x64"  :  "https://apt.llvm.org/llvm.sh",
-                        "ARM64":  "https://apt.llvm.org/llvm.sh"
-                    },
-                    "InstallDir" : "/usr/bin",
-                    "PostInstalls"    : 
-                    [
-                        "sudo apt update",
-                        "chmod +x ${InstallDir}/llvm.sh",
-                        "sudo ${InstallDir}/llvm.sh ${VERSION-MAJOR}",
-                        "rm ${InstallDir}/llvm.sh",
-                        "sudo ln -sf /usr/bin/clang-${VERSION-MAJOR} /usr/bin/clang",
-                        "sudo ln -sf /usr/bin/clang++-${VERSION-MAJOR} /usr/bin/clang++",
-                        "sudo ln -sf /usr/bin/llvm-ar-${VERSION-MAJOR} /usr/bin/llvm-ar",
-                        "sudo ln -sf /usr/bin/llvm-ranlib-${VERSION-MAJOR} /usr/bin/llvm-ranlib",
-                        "sudo ln -sf /usr/bin/lld-link-${VERSION-MAJOR} /usr/bin/lld-link",
-                        "sudo apt install -y gcc-aarch64-linux-gnu  libgcc-9-dev-arm64-cross libstdc++-10-dev-arm64-cross",
-                        "sudo apt install -y gcc-multilib g++-multilib",
-                        "sudo apt install -y gcc-multilib-arm-linux-gnueabi gcc-multilib-arm-linux-gnueabihf"
-                    ],
-
-                    "InstallDoc"      : "https://tallywiki.tallysolutions.com/display/TWP/Install+Required+Software+on+Linux+x64+Host#InstallRequiredSoftwareonLinuxx64Host-InstallLLVM"
                 }
             }
         },
@@ -268,6 +225,84 @@
            }
         },
         {
+            "Name"        : "LLVM",
+            "Windows"     :
+            {
+                "VersionString"  : "13.0.1",
+                "Command"        : "${TWHome}\\Tools\\LLVM\\bin\\clang++",
+                "VersionInfo"    : 
+                {
+                    "Command"    : "${COMMAND} --version",
+                    "OutputType" : "PlainText",
+                    "Line"       : 1,
+                    "Column"     : 3
+                },
+                "Installer" : 
+                { 
+                    "URL": 
+                    {
+                        "x64"  :  "https://github.com/llvm/llvm-project/releases/download/llvmorg-${VERSION}/LLVM-${VERSION}-win64.exe",
+                        "ARM64":  "https://github.com/llvm/llvm-project/releases/download/llvmorg-${VERSION}/LLVM-${VERSION}-arm64.exe"
+                    },
+                    "InstallDir" : "${TWHome}\\Tools\\LLVM",
+                    "InstallCommands"  : 
+                    [
+                        "DOWNLOAD ${URL_0} ${TEMPDIR}\\${FILENAME_0}",
+                        "start /wait ${TEMPDIR}\\${FILENAME_0} /S /D=${InstallDir}",
+                        "del /F ${TEMPDIR}\\${FILENAME_0}"
+                    ],
+                    "UninstallCommands": 
+                    [
+                        "start /wait ${InstallDir}\\Uninstall.exe /S"
+                    ],
+                    "InstallerArgs" : "/S /D=${InstallDir}",
+                    "InstallDoc"      : "https://tallywiki.tallysolutions.com/display/TWP/Install+Required+Software+on+Windows+x64+Host#InstallRequiredSoftwareonWindowsx64Host-InstallLLVM"
+                }
+            },
+            "Linux"     :
+            {
+                "VersionString"  : "13.0.1",
+                "Command"        : "clang++",
+                "VersionInfo"    : 
+                {
+                    "Command"    : "${COMMAND} --version",
+                    "OutputType" : "PlainText",
+                    "Line"       : 1,
+                    "Column"     : 4
+                },
+                "Installer" : 
+                { 
+                    "URL": 
+                    {
+                        "x64"  :  "https://apt.llvm.org/llvm.sh",
+                        "ARM64":  "https://apt.llvm.org/llvm.sh"
+                    },
+                    "InstallDir" : "/usr/bin",
+                    "InstallCommands"  : 
+                    [
+                        "DOWNLOAD ${URL_0} /tmp/llvm.sh",
+                        "sudo apt update",
+                        "chmod +x /tmp/llvm.sh",
+                        "sudo /tmp/llvm.sh ${VERSION-MAJOR}",
+                        "rm /tmp/llvm.sh",
+                        "sudo ln -sf /usr/bin/clang-${VERSION-MAJOR} /usr/bin/clang",
+                        "sudo ln -sf /usr/bin/clang++-${VERSION-MAJOR} /usr/bin/clang++",
+                        "sudo ln -sf /usr/bin/llvm-ar-${VERSION-MAJOR} /usr/bin/llvm-ar",
+                        "sudo ln -sf /usr/bin/llvm-ranlib-${VERSION-MAJOR} /usr/bin/llvm-ranlib",
+                        "sudo ln -sf /usr/bin/lld-link-${VERSION-MAJOR} /usr/bin/lld-link",
+                        "sudo apt install -y gcc-aarch64-linux-gnu  libgcc-9-dev-arm64-cross libstdc++-10-dev-arm64-cross",
+                        "sudo apt install -y gcc-multilib g++-multilib",
+                        "sudo apt install -y gcc-multilib-arm-linux-gnueabi gcc-multilib-arm-linux-gnueabihf"
+                    ],
+                    "UninstallCommands":
+                    [
+                        "sudo apt purge llvm-${VERSION-MAJOR} clang-${VERSION-MAJOR} -y"
+                    ],
+                    "InstallDoc"      : "https://tallywiki.tallysolutions.com/display/TWP/Install+Required+Software+on+Linux+x64+Host#InstallRequiredSoftwareonLinuxx64Host-InstallLLVM"
+                }
+            }
+        },
+        {
             "Name"        : "git",
             "Windows"     :
             {
@@ -286,10 +321,18 @@
                         "x64"  :  "https://github.com/git-for-windows/git/releases/download/v${VERSION}.windows.1/Git-${VERSION}-64-bit.exe",
                         "ARM64":  "https://github.com/git-for-windows/git/releases/download/v${VERSION}.windows.1/Git-${VERSION}-64-bit.exe"
                     },
-                    "FileType" : "INSTALLER",
                     "InstallDir" : "C:\\Program Files\\Git",
-                    "InstallDoc"      : "https://tallywiki.tallysolutions.com/display/TWP/Install+Required+Software+on+Windows+x64+Host#InstallRequiredSoftwareonWindowsx64Host-InstallGit",
-                    "InstallerArgs" : "/SILENT"
+                    "InstallCommands"  : 
+                    [
+                        "DOWNLOAD ${URL_0} ${TEMPDIR}\\Git-${VERSION}-64-bit.exe",
+                        "start /wait ${TEMPDIR}\\Git-${VERSION}-64-bit.exe /SILENT",
+                        "DEL /F ${TEMPDIR}\\Git-${VERSION}-64-bit.exe"
+                    ],
+                    "UninstallCommands" :
+                    [
+                        "start /wait ${InstallDir}\\unins001.exe /SILENT"
+                    ],
+                    "InstallDoc"      : "https://tallywiki.tallysolutions.com/display/TWP/Install+Required+Software+on+Windows+x64+Host#InstallRequiredSoftwareonWindowsx64Host-InstallGit"
                 },
                 "Validations"   : 
                 [
@@ -349,6 +392,12 @@
                         "sudo apt-get install git -y",
                         "sudo git config --global core.autocrlf input"
                     ],
+                    "UninstallCommands":
+                    [
+                        "sudo add-apt-repository ppa:git-core/ppa",
+                        "sudo apt update",
+                        "sudo apt-get purge git -y"
+                    ],
                     "InstallDir"      : "/usr/bin",
                     "InstallDoc"      : "https://tallywiki.tallysolutions.com/display/TWP/Install+Required+Software+on+Linux+x64+Host#InstallRequiredSoftwareonLinuxx64Host-InstallGit"
                 },
@@ -405,13 +454,61 @@
                         "x64"  :  "https://aka.ms/installazurecliwindows",
                         "ARM64":  "https://aka.ms/installazurecliwindows"
                     },
-                    "FileName"   : "azure-cli-${VERSION}.msi",
-                    "FileType"   : "INSTALLER",
                     "InstallDir" : "C:\\Program Files (x86)\\Microsoft SDKs\\Azure\\CLI2",
-                    "InstallerArgs" : "/quiet",
+                    "InstallCommands"  : 
+                    [
+                        "DOWNLOAD ${URL_0} ${TEMPDIR}\\azure-cli-${VERSION}.msi",
+                        "start /wait ${TEMPDIR}\\azure-cli-${VERSION}.msi /quiet",
+                        "DEL /F ${TEMPDIR}\\azure-cli-${VERSION}.msi"
+                    ],
                     "InstallDoc"      : "https://tallywiki.tallysolutions.com/display/TWP/Install+Required+Software+on+Windows+x64+Host#InstallRequiredSoftwareonWindowsx64Host-InstallAzureCLI"
                 }
+            },
+            "Linux"     :
+            {
+                "VersionString"  : "2.34",
+                "VersionInfo"    : 
+                {
+                    "Command"    : "az --version",
+                    "OutputType" : "PlainText",
+                    "Line"       : 1,
+                    "Column"     : 2
+                },
+                "Installer" : 
+                { 
+                    "InstallDir" : "/usr/bin",
+                    "InstallCommands" : 
+                    [
+                        "curl -sL https://aka.ms/InstallAzureCLIDeb > /tmp/az.sh",
+                        "chmod +x /tmp/az.sh",
+                        "sudo bash /tmp/az.sh",
+                        "sudo az upgrade",
+                        "rm -rf /tmp/az.sh"
+                    ],
+                    "UninstallCommands":
+                    [
+                        "sudo apt purge azure-cli -y"
+                    ],
+                    "InstallDoc"      : "https://tallywiki.tallysolutions.com/display/TWP/Install+Required+Software+on+Linux+x64+Host#InstallRequiredSoftwareonLinuxx64Host-InstallAzureCLI"
+                }
+            },
+            "MacOS"     :
+            {
+                "VersionString"  : "2.34",
+                "VersionInfo"    : 
+                {
+                    "Command"    : "az --version",
+                    "OutputType" : "PlainText",
+                    "Line"       : 1,
+                    "Column"     : 2
+                },
+                "Installer" : 
+                { 
+                    "InstallDir" : "/usr/local/bin",
+                    "InstallDoc" : "https://tallywiki.tallysolutions.com/display/TWP/Install+Required+Software+on+MacOS+x64+and+ARM64+Host#InstallRequiredSoftwareonMacOSx64andARM64Host-InstallAzureCLI"
+                }
             }
+
         },
         {
             "Name"        : "AzureCLIDevOps",
@@ -433,6 +530,46 @@
                         "az extension add --name azure-devops"
                     ],
                     "InstallDoc"      : "https://tallywiki.tallysolutions.com/display/TWP/Install+Required+Software+on+Windows+x64+Host#InstallRequiredSoftwareonWindowsx64Host-InstallAzureCLIDevOpsExtension"
+                }
+            },
+            "Linux"     :
+            {
+                "VersionString"  : "0.23",
+                "VersionInfo"    : 
+                {
+                    "Command"    : "sudo az extension list",
+                    "OutputType" : "JsonArray",
+                    "SearchTag"  : "name",
+                    "SearchValue": "azure-devops",
+                    "VersionTag" : "version"
+                },
+                "Installer" : 
+                { 
+                    "InstallCommands" : 
+                    [
+                        "sudo az extension add --name azure-devops"
+                    ],
+                    "InstallDoc"      : "https://tallywiki.tallysolutions.com/display/TWP/Install+Required+Software+on+Linux+x64+Host#InstallRequiredSoftwareonLinuxx64Host-InstallAzureCLIDevOpsExtension"
+                }
+            },
+            "MacOS"     :
+            {
+                "VersionString"  : "0.23",
+                "VersionInfo"    : 
+                {
+                    "Command"    : "sudo az extension list",
+                    "OutputType" : "JsonArray",
+                    "SearchTag"  : "name",
+                    "SearchValue": "azure-devops",
+                    "VersionTag" : "version"
+                },
+                "Installer" : 
+                { 
+                    "InstallCommands" : 
+                    [
+                        "sudo az extension add --name azure-devops"
+                    ],
+                    "InstallDoc"      : "https://tallywiki.tallysolutions.com/display/TWP/Install+Required+Software+on+MacOS+x64+and+ARM64+Host#InstallRequiredSoftwareonMacOSx64andARM64Host-InstallAzureCLIDevOpsExtension"
                 }
             }
         },
@@ -458,6 +595,10 @@
                 },
                 "Installer" : 
                 { 
+                    "UninstallCommands":
+                    [
+                        "rmdir /S /Q ${InstallDir}"
+                    ],
                     "InstallDoc"      : "https://tallywiki.tallysolutions.com/display/TWP/Install+Required+Software+on+Windows+x64+Host#InstallRequiredSoftwareonWindowsx64Host-InstallTWAppGen",
                     "InstallDir"      : "${TWHome}\\Tools\\TWAppGen"
                 }
@@ -486,10 +627,10 @@
                 { 
                     "InstallDoc"      : "https://tallywiki.tallysolutions.com/display/TWP/Install+Required+Software+on+Windows+x64+Host#InstallRequiredSoftwareonWindowsx64Host-InstallJava",
                     "InstallDir"      : "${TWHome}\\Tools\\Java",
-                    "PostInstalls"    :
+                    "InstallCommands"    :
                     [
-                        "${TWHome}\\Tools\\Java\\jdk-8u311-windows-x64.exe /s ADDLOCAL=ToolsFeature INSTALLDIR=${TWHome}\\Tools\\Java",
-                        "del /f ${TWHome}\\Tools\\Java\\jdk-8u311-windows-x64.exe"
+                        "${InstallDir}\\jdk-8u311-windows-x64.exe /s ADDLOCAL=ToolsFeature INSTALLDIR=${TWHome}\\Tools\\Java",
+                        "del /f ${InstallDir}\\jdk-8u311-windows-x64.exe"
                     ],
                     "PostInstallMessage" : "Please set JAVA_HOME System Environment Varable to ${InstallDir}"
                 }
@@ -516,14 +657,13 @@
                         "x64"  :  "https://dl.google.com/android/repository/commandlinetools-win-8092744_latest.zip",
                         "ARM64":  "https://dl.google.com/android/repository/commandlinetools-win-8092744_latest.zip"
                     },
-                    "FileType"        : "Zip",
                     "InstallDoc"      : "https://tallywiki.tallysolutions.com/display/TWP/Install+Required+Software+on+Windows+x64+Host#InstallRequiredSoftwareonWindowsx64Host-InstallAndroidSDK",
                     "InstallDir"      : "${TWHome}\\Tools\\Android\\SDK",
-                    "UninstallMethod" : "RemoveDir",                
-                    "PostInstalls"    :
+                    "Installcommands"    :
                     [
-                        "del /F ${InstallDir}\\{FILENAME_0}",
-                        "rmdir /S /Q ${InstallDir}\\cmdline-tools\\latest",
+                        "DOWNLOAD {URL_0} ${TEMPDIR}\\commandlinetools-win-8092744_latest.zip",
+                        "UNZIP ${TEMPDIR}\\commandlinetools-win-8092744_latest.zip",
+                        "DEL /F ${TEMPDIR}\\commandlinetools-win-8092744_latest.zip",
                         "mkdir ${InstallDir}\\cmdline-tools\\latest",
                         "move ${InstallDir}\\cmdline-tools\\bin ${InstallDir}\\cmdline-tools\\latest\\bin",
                         "move ${InstallDir}\\cmdline-tools\\lib ${InstallDir}\\cmdline-tools\\latest\\lib",
@@ -532,6 +672,10 @@
                         "start \"Android SDK Installer\" cmd /c ${InstallDir}\\cmdline-tools\\latest\\bin\\sdkmanager.bat \"platforms;android-30\" \"build-tools;30.0.3\" \"system-images;android-30;google_apis;x86_64\"",
                         "start \"Android SDK Updates\" cmd /c ${InstallDir}\\cmdline-tools\\latest\\bin\\sdkmanager.bat --update",
                         "start \"Android SDK Licenses - Please accept all\" cmd /c ${InstallDir}\\cmdline-tools\\latest\\bin\\sdkmanager.bat --licenses"
+                    ],
+                    "UninstallCommands":
+                    [
+                        "rmdir /S /Q ${InstallDir}"
                     ]
                 }
             }
@@ -554,15 +698,20 @@
                         "x64"  :  "https://dl.google.com/android/repository/android-ndk-r23b-windows.zip",
                         "ARM64":  "https://dl.google.com/android/repository/android-ndk-r23b-windows.zip"
                     },
-                    "FileType"        : "Zip",
                     "InstallDoc"      : "https://tallywiki.tallysolutions.com/display/TWP/Install+Required+Software+on+Windows+x64+Host#InstallRequiredSoftwareonWindowsx64Host-InstallAndroidNDK",
                     "InstallDir"      : "${TWHome}\\Tools\\Android\\NDK",
-                    "UninstallMethod" : "RemoveDir",                
-                    "PostInstalls"    :
+                    "Installcommands"    :
                     [
+                        "DOWNLOAD {URL_0} ${TEMPDIR}\\android-ndk-r23b-windows.zip",
+                        "UNZIP ${TEMPDIR}\\android-ndk-r23b-windows.zip",
+                        "DEL /F ${TEMPDIR}\\android-ndk-r23b-windows.zip",
                         "move ${TWHome}\\Tools\\Android\\NDK\\android-ndk-r23b ${TWHome}\\Tools\\Android\\android-ndk-r23b",
                         "rmdir ${TWHome}\\Tools\\Android\\NDK",
                         "move ${TWHome}\\Tools\\Android\\android-ndk-r23b ${TWHome}\\Tools\\Android\\NDK"
+                    ],
+                    "UninstallCommands":
+                    [
+                        "rmdir /S /Q ${InstallDir}"
                     ]
                 }
             }
@@ -585,7 +734,16 @@
                         "x64"  :  "https://github.com/lexxmark/winflexbison/releases/download/v2.5.24/win_flex_bison-2.5.24.zip",
                         "ARM64":  "https://github.com/lexxmark/winflexbison/releases/download/v2.5.24/win_flex_bison-2.5.24.zip"
                     },
-                    "FileType"        : "Zip",
+                    "Installcommands"    :
+                    [
+                        "DOWNLOAD {URL_0} ${TEMPDIR}\\win_flex_bison-2.5.24.zip",
+                        "UNZIP ${TEMPDIR}\\win_flex_bison-2.5.24.zip",
+                        "DEL /F ${TEMPDIR}\\win_flex_bison-2.5.24.zip"
+                    ],
+                    "UninstallCommands":
+                    [
+                        "rmdir /S /Q ${InstallDir}"
+                    ],
                     "InstallDoc"      : "https://tallywiki.tallysolutions.com/display/TWP/Install+Required+Software+on+Windows+x64+Host#InstallRequiredSoftwareonWindowsx64Host-InstallFlexandBison",
                     "InstallDir"      : "${TWHome}\\Tools\\FlexBison"
                 }
@@ -604,6 +762,10 @@
                     "InstallCommands" :
                     [
                         "sudo apt-get install flex bison -y"
+                    ],
+                    "UninstallCommands":
+                    [
+                        "sudo apt purge flex bison -y"
                     ],
                     "InstallDoc"      : "https://tallywiki.tallysolutions.com/display/TWP/Install+Required+Software+on+Linux+x64+Host#InstallRequiredSoftwareonLinuxx64Host-InstallFlexandBison",
                     "InstallDir"      : "/usr/bin"
@@ -645,7 +807,16 @@
                         "x64"  :  "https://github.com/lexxmark/winflexbison/releases/download/v2.5.24/win_flex_bison-2.5.24.zip",
                         "ARM64":  "https://github.com/lexxmark/winflexbison/releases/download/v2.5.24/win_flex_bison-2.5.24.zip"
                     },
-                    "FileType"        : "Zip",
+                    "Installcommands"    :
+                    [
+                        "DOWNLOAD {URL_0} ${TEMPDIR}\\win_flex_bison-2.5.24.zip",
+                        "UNZIP ${TEMPDIR}\\win_flex_bison-2.5.24.zip",
+                        "DEL /F ${TEMPDIR}\\win_flex_bison-2.5.24.zip"
+                    ],
+                    "UninstallCommands":
+                    [
+                        "rmdir /S /Q ${InstallDir}"
+                    ],
                     "InstallDoc"      : "https://tallywiki.tallysolutions.com/display/TWP/Install+Required+Software+on+Windows+x64+Host#InstallRequiredSoftwareonWindowsx64Host-InstallFlexandBison",
                     "InstallDir"      : "${TWHome}\\Tools\\FlexBison"
                 }
@@ -664,6 +835,10 @@
                     "InstallCommands" :
                     [
                         "sudo apt-get install flex bison -y"
+                    ],
+                    "UninstallCommands":
+                    [
+                        "sudo apt purge flex bison -y"
                     ],
                     "InstallDoc"      : "https://tallywiki.tallysolutions.com/display/TWP/Install+Required+Software+on+Linux+x64+Host#InstallRequiredSoftwareonLinuxx64Host-InstallFlexandBison",
                     "InstallDir"      : "/usr/bin"
@@ -707,6 +882,10 @@
                 },
                 "Installer" : 
                 { 
+                    "UninstallCommands":
+                    [
+                        "rmdir /S /Q ${InstallDir}"
+                    ],
                     "InstallDir"      : "${TWHome}\\Tools\\gradle",
                     "InstallDoc"      : "https://tallywiki.tallysolutions.com/display/TWP/Install+Required+Software+on+Windows+x64+Host#InstallRequiredSoftwareonWindowsx64Host-InstallGradle"
                 }
@@ -733,6 +912,10 @@
                 },
                 "Installer" : 
                 { 
+                    "UninstallCommands":
+                    [
+                        "rmdir /S /Q ${InstallDir}"
+                    ],
                     "InstallDoc"      : "https://tallywiki.tallysolutions.com/display/TWP/Install+Required+Software+on+Windows+x64+Host#InstallRequiredSoftwareonWindowsx64Host-InstallQt",
                     "InstallDir"      : "${TWHome}\\Tools\\Qt"
                 }
@@ -758,7 +941,7 @@
                 { 
                     "InstallDoc"      : "https://tallywiki.tallysolutions.com/display/TWP/Install+Required+Software+on+Linux+x64+Host#InstallRequiredSoftwareonLinuxx64Host-InstallQt",
                     "InstallDir"      : "/usr/share/Qt",
-                    "PostInstalls"    : 
+                    "InstallCommands"    : 
                     [
                         "sudo chmod -R 755 /usr/share/Qt/Linux-x64",
                         "sudo apt update",
@@ -766,6 +949,10 @@
                         "sudo apt-get install libdouble-conversion-dev libpcre2-16-0 -y",
                         "sudo apt install -y zlib1g zlib1g-dev libpcre2-dev libglib2.0-dev libgl1-mesa-dev libglfw3-dev libgles2-mesa-dev libegl1-mesa-dev libegl-dev libgegl-dev libatspi2.0-0 libatspi2.0-dev libudev-dev libpng-dev libharfbuzz-dev libfreetype-dev libfontconfig1-dev libmtdev-dev libinput-dev libxcb-xkb-dev libxkbcommon-dev libx11-xcb-dev libxcb-composite0-dev libkf5pulseaudioqt-dev libfontconfig1-dev libfreetype6-dev libx11-dev libx11-xcb-dev libxext-dev libxfixes-dev libxi-dev libxrender-dev libxcb1-dev libxcb-glx0-dev libxcb-keysyms1-dev libxcb-image0-dev libxcb-shm0-dev libxcb-icccm4-dev libxcb-sync-dev libxcb-xfixes0-dev libxcb-shape0-dev libxcb-randr0-dev libxcb-render-util0-dev libxcb-util-dev libxcb-xinerama0-dev libxcb-xkb-dev libxkbcommon-dev libxkbcommon-x11-dev libxcb-xinput-dev libxcb-xinput0 libtiff-dev libgbm-dev pulseaudio libdrm-dev",
                         "sudo apt install -y libssl-dev"
+                    ],
+                    "UninstallCommands":
+                    [
+                        "sudo rm -rf /usr/share/Qt"
                     ]
                 }
             },
@@ -790,9 +977,13 @@
                 { 
                     "InstallDoc"      : "https://tallywiki.tallysolutions.com/display/TWP/Install+Required+Software+on+MacOS+x64+and+ARM64+Host#InstallRequiredSoftwareonMacOSx64andARM64Host-InstallQt",
                     "InstallDir"      : "/Users/Shared/Qt",
-                    "PostInstalls"    : 
+                    "InstallCommands"    : 
                     [
                         "sudo chmod -R 755 /Users/Shared/Qt"
+                    ],
+                    "UninstallCommands":
+                    [
+                        "sudo rm -rf //Users/Shared/Qt"
                     ]
                 }
             }
@@ -818,8 +1009,17 @@
                         "Files":  ["clang-format.exe", "_clang-format"]
                     },
                     "InstallDir"      : "${TWHome}\\Tools\\TWCLangFormat",
-                    "PostInstalls"    : ["copy ${InstallDir}\\_clang-format ${TWHome}\\Workspace"],
-                    "UninstallMethod" : "RemoveDir"                
+                    "InstallCommands":
+                    [
+                        "DOWNLOAD {URL_0} {InstallDir}\\{FILENAME_0}",
+                        "DOWNLOAD {URL_1} {InstallDir}\\{FILENAME_1}",
+                        "copy ${InstallDir}\\_clang-format ${TWHome}\\Workspace"
+                    ],
+                    "UninstallCommands":
+                    [
+                        "DEL /F ${TWHome}\\Workspace\\_clang-format",
+                        "rmdir /S /Q ${InstallDir}"
+                    ]
 				}, 
                 "Validations"   : 
                 [
@@ -851,6 +1051,11 @@
                         "curl https://ops.city/get.sh -sSfL | sh",
                         "sudo apt-get install qemu-kvm qemu-utils -y"
                     ],
+                    "UninstallCommands":
+                    [   
+                        "sudo apt  purge qemu-kvm qemu-utils -y",
+                        "rm -rf ${InstallDir}"
+                    ],
                     "InstallDir"      : "${HOME}/.ops",
                     "InstallDoc"      : "https://tallywiki.tallysolutions.com/pages/viewpage.action?spaceKey=TWP&title=Install+Required+Software+on+Linux+x64+Host#InstallRequiredSoftwareonLinuxx64Host-InstallUnikernel(NanoVm)"
 				}
@@ -877,7 +1082,11 @@
                 "Installer" : 
                 { 
                     "InstallDoc"      : "https://tallywiki.tallysolutions.com/display/TWP/Install+Required+Software+on+Windows+x64+Host#InstallRequiredSoftwareonWindowsx64Host-InstallGoogleTest",
-                    "InstallDir"      : "${TWHome}\\Tools\\GoogleTest"
+                    "InstallDir"      : "${TWHome}\\Tools\\GoogleTest",
+                    "UninstallCommands":
+                    [
+                        "rmdir /S /Q ${InstallDir}"
+                    ]
                 }
             },
 	    "Linux"     :
@@ -900,9 +1109,13 @@
                 { 
                     "InstallDoc"      : "https://tallywiki.tallysolutions.com/display/TWP/Install+Required+Software+on+Linux+x64+Host#InstallRequiredSoftwareonLinuxx64Host-InstallGoogleTest",
                     "InstallDir"      : "/usr/share/GoogleTest",
-                    "PostInstalls"    : 
+                    "InstallCommands"    : 
                     [
                         "sudo chmod -R 755 /usr/share/GoogleTest/Linux"
+                    ],
+                    "UninstallCommands":
+                    [
+                        "sudo rm -rf ${InstallDir}"
                     ]
                 }
             },
@@ -926,9 +1139,13 @@
                 { 
                     "InstallDoc"      : "https://tallywiki.tallysolutions.com/display/TWP/Install+Required+Software+on+MacOS+x64+and+ARM64+Host#InstallRequiredSoftwareonMacOSx64andARM64Host-InstallGoogleTest",
                     "InstallDir"      : "/Users/Shared/GoogleTest",
-                    "PostInstalls"    : 
+                    "InstallCommands"    : 
                     [
                         "sudo chmod -R 755 /Users/Shared/GoogleTest/Apple"
+                    ],
+                    "UninstallCommands":
+                    [
+                        "sudo rm -rf ${InstallDir}"
                     ]
                 }
             }
