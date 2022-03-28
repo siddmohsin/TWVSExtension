@@ -330,7 +330,7 @@
                     ],
                     "UninstallCommands" :
                     [
-                        "start /wait ${InstallDir}\\unins001.exe /SILENT"
+                        "start /wait \"${InstallDir}\\unins001.exe\" /SILENT"
                     ],
                     "InstallDoc"      : "https://tallywiki.tallysolutions.com/display/TWP/Install+Required+Software+on+Windows+x64+Host#InstallRequiredSoftwareonWindowsx64Host-InstallGit"
                 },
@@ -469,7 +469,7 @@
                 "VersionString"  : "2.34",
                 "VersionInfo"    : 
                 {
-                    "Command"    : "az --version",
+                    "Command"    : "sudo az --version",
                     "OutputType" : "PlainText",
                     "Line"       : 1,
                     "Column"     : 2
@@ -497,7 +497,7 @@
                 "VersionString"  : "2.34",
                 "VersionInfo"    : 
                 {
-                    "Command"    : "az --version",
+                    "Command"    : "sudo az --version",
                     "OutputType" : "PlainText",
                     "Line"       : 1,
                     "Column"     : 2
@@ -1011,8 +1011,8 @@
                     "InstallDir"      : "${TWHome}\\Tools\\TWCLangFormat",
                     "InstallCommands":
                     [
-                        "DOWNLOAD {URL_0} {InstallDir}\\{FILENAME_0}",
-                        "DOWNLOAD {URL_1} {InstallDir}\\{FILENAME_1}",
+                        "DOWNLOAD ${URL_0} ${InstallDir}\\${FILENAME_0}",
+                        "DOWNLOAD ${URL_1} ${InstallDir}\\${FILENAME_1}",
                         "copy ${InstallDir}\\_clang-format ${TWHome}\\Workspace"
                     ],
                     "UninstallCommands":
