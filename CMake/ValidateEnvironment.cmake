@@ -10,7 +10,6 @@ endmacro()
 macro(check_linux_package_end)
 
     string (REPLACE ";" "\n" packages "${LINUX_PACKAGES}")
-    message(NOTICE ${packages})
 
     file(WRITE "/tmp/pkg.txt" ${packages})
     execute_process(
@@ -32,7 +31,7 @@ macro(check_linux_package_end)
 
     message(NOTICE ${failed_package_list})
 
-    #file(REMOVE /tmp/pkg.txt /tmp/apt_pkg.txt /tmp/missing.txt)
+    file(REMOVE /tmp/pkg.txt /tmp/apt_pkg.txt /tmp/missing.txt)
 endmacro()
 
 macro(check_ssh_config)
@@ -187,6 +186,7 @@ if(CMAKE_HOST_SYSTEM_NAME STREQUAL Linux)
    check_linux_package("libssl-dev")
    check_linux_package("qemu-kvm")
    check_linux_package("qemu-utils")
+   check_linux_package("qemu-utils2")
    check_linux_package_end()
 
    list(LENGTH failed_package_list failed_count)
