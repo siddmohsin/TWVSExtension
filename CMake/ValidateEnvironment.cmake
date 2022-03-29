@@ -1,18 +1,38 @@
+
+macro(check_linux_package_start)
+    set(LINUX_PACKAGES)
+endmacro()
+
 macro(check_linux_package package_name)
+    list(APPEND LINUX_PACKAGES ${package_name})
+endmacro()
 
+macro(check_linux_package_end)
+
+    string (REPLACE ";" "\n" packages "${LINUX_PACKAGES}")
+    message(NOTICE ${packages})
+
+    file(WRITE "/tmp/pkg.txt" ${packages})
     execute_process(
-        COMMAND  apt list --installed ${package_name}
-        COMMAND  grep -iw ${package_name}
+        COMMAND  apt list --installed ${LINUX_PACKAGES} 
         ERROR_QUIET
-        RESULT_VARIABLE retCode
+        OUTPUT_FILE "/tmp/apt_pkg.txt"
     )
+    execute_process(
+        COMMAND grep -Fwoif /tmp/pkg.txt /tmp/apt_pkg.txt
+        COMMAND grep -f- -Fviw /tmp/pkg.txt
+        ERROR_QUIET
+        OUTPUT_FILE "/tmp/missing.txt"
+    )
+    file(READ /tmp/missing.txt missing_packages)
 
-    if(NOT retCode STREQUAL 0)
-       
-        list(APPEND failed_package_list ${package_name})
+    message(NOTICE ${missing_packages})
 
-    endif()
+    string (REPLACE "\n" ";" failed_package_list "${missing_packages}")
 
+    message(NOTICE ${failed_package_list})
+
+    #file(REMOVE /tmp/pkg.txt /tmp/apt_pkg.txt /tmp/missing.txt)
 endmacro()
 
 macro(check_ssh_config)
@@ -100,7 +120,7 @@ if(CMAKE_HOST_SYSTEM_NAME STREQUAL Linux)
    message(STATUS "Verifying packages installed on Linux ...")
 
    set(failed_package_list)
-
+   check_linux_package_start()
    check_linux_package("zip")
    check_linux_package("unzip")
    check_linux_package("build-essential")
@@ -167,6 +187,7 @@ if(CMAKE_HOST_SYSTEM_NAME STREQUAL Linux)
    check_linux_package("libssl-dev")
    check_linux_package("qemu-kvm")
    check_linux_package("qemu-utils")
+   check_linux_package_end()
 
    list(LENGTH failed_package_list failed_count)
    if(NOT failed_count STREQUAL 0)
