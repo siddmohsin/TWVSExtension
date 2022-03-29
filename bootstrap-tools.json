@@ -385,6 +385,7 @@
                 },
                 "Installer" : 
                 { 
+                    "InstallDir"      : "/usr/bin",
                     "InstallCommands" : 
                     [
                         "sudo add-apt-repository ppa:git-core/ppa",
@@ -398,7 +399,6 @@
                         "sudo apt update",
                         "sudo apt-get purge git -y"
                     ],
-                    "InstallDir"      : "/usr/bin",
                     "InstallDoc"      : "https://tallywiki.tallysolutions.com/display/TWP/Install+Required+Software+on+Linux+x64+Host#InstallRequiredSoftwareonLinuxx64Host-InstallGit"
                 },
                 "Validations"   : 
@@ -507,15 +507,10 @@
                     "InstallDir" : "/usr/local/bin",
                     "InstallCommands" : 
                     [
-                        "sudo chown -R $(whoami) /usr/local/var/homebrew",
+                        "sudo echo",
                         "brew update",
                         "brew install azure-cli",
                         "sudo az upgrade"
-                    ],
-                    "UninstallCommands":
-                    [
-                        "sudo chown -R $(whoami) /usr/local/var/homebrew",
-                        "brew uninstall azure-cli"
                     ],
                     "InstallDoc" : "https://tallywiki.tallysolutions.com/display/TWP/Install+Required+Software+on+MacOS+x64+and+ARM64+Host#InstallRequiredSoftwareonMacOSx64andARM64Host-InstallAzureCLI"
                 }
@@ -607,12 +602,43 @@
                 },
                 "Installer" : 
                 { 
+                    "InstallDoc"      : "https://tallywiki.tallysolutions.com/display/TWP/Install+Required+Software+on+Windows+x64+Host#InstallRequiredSoftwareonWindowsx64Host-InstallTWAppGen",
+                    "InstallDir"      : "${TWHome}\\Tools\\TWAppGen",
                     "UninstallCommands":
                     [
                         "rmdir /S /Q ${InstallDir}"
-                    ],
-                    "InstallDoc"      : "https://tallywiki.tallysolutions.com/display/TWP/Install+Required+Software+on+Windows+x64+Host#InstallRequiredSoftwareonWindowsx64Host-InstallTWAppGen",
-                    "InstallDir"      : "${TWHome}\\Tools\\TWAppGen"
+                    ]
+                }
+            }
+        },
+        {
+            "Name"        : "TWUniversalSchema",
+            "Windows"     :
+            {
+                "VersionType" : "ArtifactoryLatest",
+                "Artifactory" : 
+                {
+                        "Name"         : "ADOService",
+                        "Organization" : "TallyWorld",
+                        "Feed"         : "Common-BuildTools",
+                        "Package"      : "twunischemadb"
+                },
+                "VersionInfo" : 
+                {
+                    "Command"    : "echo ${VERSION}",
+                    "OutputType" : "PlainText",
+                    "Prefix"     : "v",
+                    "Line"       : 1,
+                    "Column"     : 1
+                },
+                "Installer" : 
+                { 
+                    "InstallDoc"      : "https://tallywiki.tallysolutions.com/display/TWP/Install+Required+Software+on+Windows+x64+Host#InstallRequiredSoftwareonWindowsx64Host-InstallTWUniversalSchemaDB",
+                    "InstallDir"      : "${TWHome}\\Tools\\TWUniversalSchemaDB",
+                    "UninstallCommands":
+                    [
+                        "rmdir /S /Q ${InstallDir}"
+                    ]
                 }
             }
         },
@@ -746,6 +772,8 @@
                         "x64"  :  "https://github.com/lexxmark/winflexbison/releases/download/v2.5.24/win_flex_bison-2.5.24.zip",
                         "ARM64":  "https://github.com/lexxmark/winflexbison/releases/download/v2.5.24/win_flex_bison-2.5.24.zip"
                     },
+                    "InstallDoc"      : "https://tallywiki.tallysolutions.com/display/TWP/Install+Required+Software+on+Windows+x64+Host#InstallRequiredSoftwareonWindowsx64Host-InstallFlexandBison",
+                    "InstallDir"      : "${TWHome}\\Tools\\FlexBison",
                     "Installcommands"    :
                     [
                         "DOWNLOAD {URL_0} ${TEMPDIR}\\win_flex_bison-2.5.24.zip",
@@ -755,9 +783,7 @@
                     "UninstallCommands":
                     [
                         "rmdir /S /Q ${InstallDir}"
-                    ],
-                    "InstallDoc"      : "https://tallywiki.tallysolutions.com/display/TWP/Install+Required+Software+on+Windows+x64+Host#InstallRequiredSoftwareonWindowsx64Host-InstallFlexandBison",
-                    "InstallDir"      : "${TWHome}\\Tools\\FlexBison"
+                    ]
                 }
             },
             "Linux"     :
@@ -771,16 +797,16 @@
                     "Column"     : 2                },
                 "Installer" : 
                 { 
+                    "InstallDoc"      : "https://tallywiki.tallysolutions.com/display/TWP/Install+Required+Software+on+Linux+x64+Host#InstallRequiredSoftwareonLinuxx64Host-InstallFlexandBison",
+                    "InstallDir"      : "/usr/bin",
                     "InstallCommands" :
                     [
-                        "sudo apt-get install flex bison -y"
+                        "sudo apt-get install flex -y"
                     ],
                     "UninstallCommands":
                     [
-                        "sudo apt purge flex bison -y"
-                    ],
-                    "InstallDoc"      : "https://tallywiki.tallysolutions.com/display/TWP/Install+Required+Software+on+Linux+x64+Host#InstallRequiredSoftwareonLinuxx64Host-InstallFlexandBison",
-                    "InstallDir"      : "/usr/bin"
+                        "sudo apt purge flex -y"
+                    ]
                 }
             },
             "MacOS"     :
@@ -799,16 +825,11 @@
                     "InstallDir"      : "/opt/homebrew/opt/flex",
                     "InstallCommands" :
                     [
-                        "sudo chown -R $(whoami) /usr/local/var/homebrew",
+                        "sudo echo",
                         "brew update",
                         "brew install flex",
                         "sudo mkdir -p /opt/homebrew/opt",
                         "OPTIONAL_LINK /usr/local/Cellar/flex/${VERSION}_2 /opt/homebrew/opt/flex"
-                    ],
-                    "UninstallCommands":
-                    [
-                        "sudo chown -R $(whoami) /usr/local/var/homebrew",
-                        "brew uninstall flex"
                     ]
 
                 }
@@ -833,6 +854,8 @@
                         "x64"  :  "https://github.com/lexxmark/winflexbison/releases/download/v2.5.24/win_flex_bison-2.5.24.zip",
                         "ARM64":  "https://github.com/lexxmark/winflexbison/releases/download/v2.5.24/win_flex_bison-2.5.24.zip"
                     },
+                    "InstallDoc"      : "https://tallywiki.tallysolutions.com/display/TWP/Install+Required+Software+on+Windows+x64+Host#InstallRequiredSoftwareonWindowsx64Host-InstallFlexandBison",
+                    "InstallDir"      : "${TWHome}\\Tools\\FlexBison",
                     "Installcommands"    :
                     [
                         "DOWNLOAD {URL_0} ${TEMPDIR}\\win_flex_bison-2.5.24.zip",
@@ -842,9 +865,7 @@
                     "UninstallCommands":
                     [
                         "rmdir /S /Q ${InstallDir}"
-                    ],
-                    "InstallDoc"      : "https://tallywiki.tallysolutions.com/display/TWP/Install+Required+Software+on+Windows+x64+Host#InstallRequiredSoftwareonWindowsx64Host-InstallFlexandBison",
-                    "InstallDir"      : "${TWHome}\\Tools\\FlexBison"
+                    ]
                 }
             },
             "Linux"     :
@@ -858,16 +879,16 @@
                     "Column"     : 4                },
                 "Installer" : 
                 { 
+                    "InstallDoc"      : "https://tallywiki.tallysolutions.com/display/TWP/Install+Required+Software+on+Linux+x64+Host#InstallRequiredSoftwareonLinuxx64Host-InstallFlexandBison",
+                    "InstallDir"      : "/usr/bin",
                     "InstallCommands" :
                     [
-                        "sudo apt-get install flex bison -y"
+                        "sudo apt-get install bison -y"
                     ],
                     "UninstallCommands":
                     [
-                        "sudo apt purge flex bison -y"
-                    ],
-                    "InstallDoc"      : "https://tallywiki.tallysolutions.com/display/TWP/Install+Required+Software+on+Linux+x64+Host#InstallRequiredSoftwareonLinuxx64Host-InstallFlexandBison",
-                    "InstallDir"      : "/usr/bin"
+                        "sudo apt purge bison -y"
+                    ]
                 }
             },
             "MacOS"     :
@@ -886,16 +907,11 @@
                     "InstallDir"      : "/opt/homebrew/opt/bison",
                     "InstallCommands" :
                     [
-                        "sudo chown -R $(whoami) /usr/local/var/homebrew",
+                        "sudo echo",
                         "brew update",
                         "brew install bison",
                         "sudo mkdir -p /opt/homebrew/opt",
                         "OPTIONAL_LINK /usr/local/Cellar/bison/${VERSION} /opt/homebrew/opt/bison"
-                    ],
-                    "UninstallCommands":
-                    [
-                        "sudo chown -R $(whoami) /usr/local/var/homebrew",
-                        "brew uninstall bison"
                     ]
 
                 }
@@ -922,12 +938,12 @@
                 },
                 "Installer" : 
                 { 
+                    "InstallDir"      : "${TWHome}\\Tools\\gradle",
+                    "InstallDoc"      : "https://tallywiki.tallysolutions.com/display/TWP/Install+Required+Software+on+Windows+x64+Host#InstallRequiredSoftwareonWindowsx64Host-InstallGradle",
                     "UninstallCommands":
                     [
                         "rmdir /S /Q ${InstallDir}"
-                    ],
-                    "InstallDir"      : "${TWHome}\\Tools\\gradle",
-                    "InstallDoc"      : "https://tallywiki.tallysolutions.com/display/TWP/Install+Required+Software+on+Windows+x64+Host#InstallRequiredSoftwareonWindowsx64Host-InstallGradle"
+                    ]
                 }
             }
         },
@@ -952,12 +968,12 @@
                 },
                 "Installer" : 
                 { 
+                    "InstallDoc"      : "https://tallywiki.tallysolutions.com/display/TWP/Install+Required+Software+on+Windows+x64+Host#InstallRequiredSoftwareonWindowsx64Host-InstallQt",
+                    "InstallDir"      : "${TWHome}\\Tools\\Qt",
                     "UninstallCommands":
                     [
                         "rmdir /S /Q ${InstallDir}"
-                    ],
-                    "InstallDoc"      : "https://tallywiki.tallysolutions.com/display/TWP/Install+Required+Software+on+Windows+x64+Host#InstallRequiredSoftwareonWindowsx64Host-InstallQt",
-                    "InstallDir"      : "${TWHome}\\Tools\\Qt"
+                    ]
                 }
             },
             "Linux"     :
@@ -1086,6 +1102,8 @@
                 },
                 "Installer" : 
                 { 
+                    "InstallDir"      : "${HOME}/.ops",
+                    "InstallDoc"      : "https://tallywiki.tallysolutions.com/pages/viewpage.action?spaceKey=TWP&title=Install+Required+Software+on+Linux+x64+Host#InstallRequiredSoftwareonLinuxx64Host-InstallUnikernel(NanoVm)",
                     "InstallCommands" :
                     [
                         "curl https://ops.city/get.sh -sSfL | sh",
@@ -1095,9 +1113,7 @@
                     [   
                         "sudo apt  purge qemu-kvm qemu-utils -y",
                         "rm -rf ${InstallDir}"
-                    ],
-                    "InstallDir"      : "${HOME}/.ops",
-                    "InstallDoc"      : "https://tallywiki.tallysolutions.com/pages/viewpage.action?spaceKey=TWP&title=Install+Required+Software+on+Linux+x64+Host#InstallRequiredSoftwareonLinuxx64Host-InstallUnikernel(NanoVm)"
+                    ]
 				}
             }
         },
