@@ -25,8 +25,8 @@ macro(check_linux_package_end)
     )
     file(READ /tmp/missing.txt missing_packages)
 
-    string (REPLACE "\n" ";" failed_package_list "${missing_packages}")
-    #string (REPLACE ";$" "" failed_package_list "${missing_packages}")
+    string (REPLACE "\n" ";" failed_package_list_temp "${missing_packages}")
+    string (REPLACE ";$" "" failed_package_list "${failed_package_list_temp}")
 
     file(REMOVE /tmp/pkg.txt /tmp/apt_pkg.txt /tmp/missing.txt)
 endmacro()
@@ -186,7 +186,6 @@ if(CMAKE_HOST_SYSTEM_NAME STREQUAL Linux)
    check_linux_package("qemu-utils2")
    check_linux_package_end()
 
-   cmake_policy(SET CMP0007 OLD)
 
    list(LENGTH failed_package_list failed_count)
    if(NOT failed_count STREQUAL 0)
