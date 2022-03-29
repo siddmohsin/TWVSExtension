@@ -796,7 +796,21 @@
                 "Installer" : 
                 { 
                     "InstallDoc"      : "https://tallywiki.tallysolutions.com/display/TWP/Install+Required+Software+on+MacOS+x64+and+ARM64+Host#InstallRequiredSoftwareonMacOSx64andARM64Host-InstallFlexandBison",
-                    "InstallDir"      : "/opt/homebrew/opt/flex"
+                    "InstallDir"      : "/opt/homebrew/opt/flex",
+                    "InstallCommands" :
+                    [
+                        "sudo echo \"logged in...\"",
+                        "brew update",
+                        "brew install flex",
+                        "sudo mkdir -p /opt/homebrew/opt",
+                        "OPTIONAL_LINK /usr/local/Cellar/flex/${VERSION}_2 /opt/homebrew/opt/flex"
+                    ],
+                    "UninstallCommands":
+                    [
+                        "sudo echo \"logged in...\"",
+                        "brew uninstall flex"
+                    ]
+
                 }
             }
         },
@@ -869,7 +883,21 @@
                 "Installer" : 
                 { 
                     "InstallDoc"      : "https://tallywiki.tallysolutions.com/display/TWP/Install+Required+Software+on+MacOS+x64+and+ARM64+Host#InstallRequiredSoftwareonMacOSx64andARM64Host-InstallFlexandBison",
-                    "InstallDir"      : "/opt/homebrew/opt/bison"
+                    "InstallDir"      : "/opt/homebrew/opt/bison",
+                    "InstallCommands" :
+                    [
+                        "sudo echo \"logged in...\"",
+                        "brew update",
+                        "brew install bison",
+                        "sudo mkdir -p /opt/homebrew/opt",
+                        "OPTIONAL_LINK /usr/local/Cellar/bison/${VERSION} /opt/homebrew/opt/bison"
+                    ],
+                    "UninstallCommands":
+                    [
+                        "sudo echo \"logged in...\"",
+                        "brew uninstall bison"
+                    ]
+
                 }
             }
         },
