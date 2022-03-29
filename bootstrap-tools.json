@@ -505,6 +505,18 @@
                 "Installer" : 
                 { 
                     "InstallDir" : "/usr/local/bin",
+                    "InstallCommands" : 
+                    [
+                        "sudo echo \"Logged in\"",
+                        "brew update",
+                        "brew install azure-cli",
+                        "sudo az upgrade"
+                    ],
+                    "UninstallCommands":
+                    [
+                        "sudo echo \"Logged in\"",
+                        "brew uninstall azure-cli"
+                    ],
                     "InstallDoc" : "https://tallywiki.tallysolutions.com/display/TWP/Install+Required+Software+on+MacOS+x64+and+ARM64+Host#InstallRequiredSoftwareonMacOSx64andARM64Host-InstallAzureCLI"
                 }
             }
