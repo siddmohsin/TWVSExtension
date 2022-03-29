@@ -507,14 +507,14 @@
                     "InstallDir" : "/usr/local/bin",
                     "InstallCommands" : 
                     [
-                        "sudo echo \"Logged in\"",
+                        "sudo chown -R $(whoami) /usr/local/Homebrew",
                         "brew update",
                         "brew install azure-cli",
                         "sudo az upgrade"
                     ],
                     "UninstallCommands":
                     [
-                        "sudo echo \"Logged in\"",
+                        "sudo chown -R $(whoami) /usr/local/Homebrew",
                         "brew uninstall azure-cli"
                     ],
                     "InstallDoc" : "https://tallywiki.tallysolutions.com/display/TWP/Install+Required+Software+on+MacOS+x64+and+ARM64+Host#InstallRequiredSoftwareonMacOSx64andARM64Host-InstallAzureCLI"
@@ -799,7 +799,7 @@
                     "InstallDir"      : "/opt/homebrew/opt/flex",
                     "InstallCommands" :
                     [
-                        "sudo echo \"logged in...\"",
+                        "sudo chown -R $(whoami) /usr/local/Homebrew",
                         "brew update",
                         "brew install flex",
                         "sudo mkdir -p /opt/homebrew/opt",
@@ -807,7 +807,7 @@
                     ],
                     "UninstallCommands":
                     [
-                        "sudo echo \"logged in...\"",
+                        "sudo chown -R $(whoami) /usr/local/Homebrew",
                         "brew uninstall flex"
                     ]
 
@@ -886,7 +886,7 @@
                     "InstallDir"      : "/opt/homebrew/opt/bison",
                     "InstallCommands" :
                     [
-                        "sudo echo \"logged in...\"",
+                        "sudo chown -R $(whoami) /usr/local/Homebrew",
                         "brew update",
                         "brew install bison",
                         "sudo mkdir -p /opt/homebrew/opt",
@@ -894,7 +894,7 @@
                     ],
                     "UninstallCommands":
                     [
-                        "sudo echo \"logged in...\"",
+                        "sudo chown -R $(whoami) /usr/local/Homebrew",
                         "brew uninstall bison"
                     ]
 

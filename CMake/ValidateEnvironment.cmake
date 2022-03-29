@@ -25,8 +25,10 @@ macro(check_linux_package_end)
     )
     file(READ /tmp/missing.txt missing_packages)
 
-    string (REPLACE "\n" ";" failed_package_list_temp "${missing_packages}")
-    string (REPLACE ";$" "" failed_package_list "${failed_package_list_temp}")
+    string(REGEX REPLACE "\n$" "" failed_package_list_temp "${missing_packages}")
+    string (REPLACE "\n" ";" failed_package_list "${failed_package_list_temp}")
+
+    message(NOTICE "Failed: ${failed_package_list}")
 
     file(REMOVE /tmp/pkg.txt /tmp/apt_pkg.txt /tmp/missing.txt)
 endmacro()
