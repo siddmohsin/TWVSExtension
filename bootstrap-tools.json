@@ -1,5 +1,5 @@
 {
-    "Version"               :  "1.5",
+    "Version"               :  "1.6",
     "ADOArtifcatories"      :
     [
         {
@@ -625,7 +625,7 @@
                 },
                 "VersionInfo" : 
                 {
-                    "Command"    : "echo ${VERSION}",
+                    "Command"    : "if  exist ${InstallDir}\\TWUniversalSchema.TWSchemaDB echo ${VERSION}",
                     "OutputType" : "PlainText",
                     "Prefix"     : "v",
                     "Line"       : 1,
@@ -776,14 +776,15 @@
                     "InstallDir"      : "${TWHome}\\Tools\\FlexBison",
                     "Installcommands"    :
                     [
-                        "DOWNLOAD {URL_0} ${TEMPDIR}\\win_flex_bison-2.5.24.zip",
+                        "DOWNLOAD ${URL_0} ${TEMPDIR}\\win_flex_bison-2.5.24.zip",
                         "UNZIP ${TEMPDIR}\\win_flex_bison-2.5.24.zip",
                         "DEL /F ${TEMPDIR}\\win_flex_bison-2.5.24.zip"
                     ],
                     "UninstallCommands":
                     [
                         "rmdir /S /Q ${InstallDir}"
-                    ]
+                    ],
+                    "AlsoInstalls" : "Bison"
                 }
             },
             "Linux"     :
@@ -858,14 +859,15 @@
                     "InstallDir"      : "${TWHome}\\Tools\\FlexBison",
                     "Installcommands"    :
                     [
-                        "DOWNLOAD {URL_0} ${TEMPDIR}\\win_flex_bison-2.5.24.zip",
+                        "DOWNLOAD ${URL_0} ${TEMPDIR}\\win_flex_bison-2.5.24.zip",
                         "UNZIP ${TEMPDIR}\\win_flex_bison-2.5.24.zip",
                         "DEL /F ${TEMPDIR}\\win_flex_bison-2.5.24.zip"
                     ],
                     "UninstallCommands":
                     [
                         "rmdir /S /Q ${InstallDir}"
-                    ]
+                    ],
+                    "AlsoInstalls" : "Flex"
                 }
             },
             "Linux"     :
