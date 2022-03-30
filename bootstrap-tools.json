@@ -604,6 +604,10 @@
                 { 
                     "InstallDoc"      : "https://tallywiki.tallysolutions.com/display/TWP/Install+Required+Software+on+Windows+x64+Host#InstallRequiredSoftwareonWindowsx64Host-InstallTWAppGen",
                     "InstallDir"      : "${TWHome}\\Tools\\TWAppGen",
+                    "InstallCommands" :
+                    [
+                        "ADO_DOWNLOAD"
+                    ],
                     "UninstallCommands":
                     [
                         "rmdir /S /Q ${InstallDir}"
@@ -635,6 +639,10 @@
                 { 
                     "InstallDoc"      : "https://tallywiki.tallysolutions.com/display/TWP/Install+Required+Software+on+Windows+x64+Host#InstallRequiredSoftwareonWindowsx64Host-InstallTWUniversalSchemaDB",
                     "InstallDir"      : "${TWHome}\\Tools\\TWUniversalSchemaDB",
+                    "InstallCommands" :
+                    [
+                        "ADO_DOWNLOAD"
+                    ],
                     "UninstallCommands":
                     [
                         "rmdir /S /Q ${InstallDir}"
@@ -667,6 +675,7 @@
                     "InstallDir"      : "${TWHome}\\Tools\\Java",
                     "InstallCommands"    :
                     [
+                        "ADO_DOWNLOAD",
                         "${InstallDir}\\jdk-8u311-windows-x64.exe /s ADDLOCAL=ToolsFeature INSTALLDIR=${TWHome}\\Tools\\Java",
                         "del /f ${InstallDir}\\jdk-8u311-windows-x64.exe"
                     ],
@@ -942,6 +951,10 @@
                 { 
                     "InstallDir"      : "${TWHome}\\Tools\\gradle",
                     "InstallDoc"      : "https://tallywiki.tallysolutions.com/display/TWP/Install+Required+Software+on+Windows+x64+Host#InstallRequiredSoftwareonWindowsx64Host-InstallGradle",
+                    "InstallCommands" :
+                    [
+                        "ADO_DOWNLOAD"
+                    ],
                     "UninstallCommands":
                     [
                         "rmdir /S /Q ${InstallDir}"
@@ -972,6 +985,10 @@
                 { 
                     "InstallDoc"      : "https://tallywiki.tallysolutions.com/display/TWP/Install+Required+Software+on+Windows+x64+Host#InstallRequiredSoftwareonWindowsx64Host-InstallQt",
                     "InstallDir"      : "${TWHome}\\Tools\\Qt",
+                    "InstallCommands" :
+                    [
+                        "ADO_DOWNLOAD"
+                    ],
                     "UninstallCommands":
                     [
                         "rmdir /S /Q ${InstallDir}"
@@ -999,8 +1016,9 @@
                 { 
                     "InstallDoc"      : "https://tallywiki.tallysolutions.com/display/TWP/Install+Required+Software+on+Linux+x64+Host#InstallRequiredSoftwareonLinuxx64Host-InstallQt",
                     "InstallDir"      : "/usr/share/Qt",
-                    "InstallCommands"    : 
+                    "InstallCommands" :
                     [
+                        "ADO_DOWNLOAD",
                         "sudo chmod -R 755 /usr/share/Qt/Linux-x64",
                         "sudo apt update",
                         "sudo apt-get install build-essential libgl1-mesa-dev -y",
@@ -1035,8 +1053,9 @@
                 { 
                     "InstallDoc"      : "https://tallywiki.tallysolutions.com/display/TWP/Install+Required+Software+on+MacOS+x64+and+ARM64+Host#InstallRequiredSoftwareonMacOSx64andARM64Host-InstallQt",
                     "InstallDir"      : "/Users/Shared/Qt",
-                    "InstallCommands"    : 
+                    "InstallCommands" :
                     [
+                        "ADO_DOWNLOAD",
                         "sudo chmod -R 755 /Users/Shared/Qt"
                     ],
                     "UninstallCommands":
@@ -1141,6 +1160,10 @@
                 { 
                     "InstallDoc"      : "https://tallywiki.tallysolutions.com/display/TWP/Install+Required+Software+on+Windows+x64+Host#InstallRequiredSoftwareonWindowsx64Host-InstallGoogleTest",
                     "InstallDir"      : "${TWHome}\\Tools\\GoogleTest",
+                    "InstallCommands" :
+                    [
+                        "ADO_DOWNLOAD"
+                    ],
                     "UninstallCommands":
                     [
                         "rmdir /S /Q ${InstallDir}"
@@ -1167,8 +1190,9 @@
                 { 
                     "InstallDoc"      : "https://tallywiki.tallysolutions.com/display/TWP/Install+Required+Software+on+Linux+x64+Host#InstallRequiredSoftwareonLinuxx64Host-InstallGoogleTest",
                     "InstallDir"      : "/usr/share/GoogleTest",
-                    "InstallCommands"    : 
+                    "InstallCommands" :
                     [
+                        "ADO_DOWNLOAD",
                         "sudo chmod -R 755 /usr/share/GoogleTest/Linux"
                     ],
                     "UninstallCommands":
@@ -1193,12 +1217,13 @@
                     "OutputType" : "PlainText",
                     "Line"       : 1,
                     "Column"     : 3                },
-                 "Installer" : 
+                "Installer" : 
                 { 
                     "InstallDoc"      : "https://tallywiki.tallysolutions.com/display/TWP/Install+Required+Software+on+MacOS+x64+and+ARM64+Host#InstallRequiredSoftwareonMacOSx64andARM64Host-InstallGoogleTest",
                     "InstallDir"      : "/Users/Shared/GoogleTest",
-                    "InstallCommands"    : 
+                    "InstallCommands" :
                     [
+                        "ADO_DOWNLOAD",
                         "sudo chmod -R 755 /Users/Shared/GoogleTest/Apple"
                     ],
                     "UninstallCommands":
