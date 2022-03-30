@@ -303,6 +303,51 @@
             }
         },
         {
+            "Name"        : "Homebrew",
+            "MacOS"     :
+            {
+                "VersionString"  : "3.4.4",
+                "VersionInfo"    : 
+                {
+                    "Command"    : "brew --version",
+                    "OutputType" : "PlainText",
+                    "Line"       : 1,
+                    "Column"     : 2
+                },
+                "Installer" : 
+                { 
+                    "InstallDir"      : "/usr/local/bin",
+                    "InstallDoc"      : "https://docs.brew.sh/Installation",
+                    "InstallCommands" : 
+                    [
+                        "sudo rm -rf /Library/Caches/Homebrew",
+                        "sudo rm -rf  /opt/homebrew",
+                        "sudo rm -f /usr/local/bin/brew",
+                        "sudo git clone https://github.com/Homebrew/brew  /opt/homebrew",
+                        "sudo chown -R $(whoami) /opt/homebrew",
+                        "sudo mkdir -p /usr/local/var/homebrew",
+                        "sudo chown -R $(whoami) /usr/local/var/homebrew",
+                        "/opt/homebrew/bin/brew update --force --quiet",
+                        "ln -sf /opt/homebrew/bin/brew /usr/local/bin/brew"
+                    ],
+                    "UninstallCommands" :
+                    [
+                        "sudo rm -rf /Library/Caches/Homebrew",
+                        "sudo rm -rf /opt/homebrew",
+                        "sudo rm -f /usr/local/bin/brew"
+                    ]
+                },
+                "Validations"   : 
+                [
+                    {
+                        "Command"        : "git config --global --default input core.autocrlf",
+                        "ExpectedOutput" : "input",
+                        "FixCommand"     : "git config --global core.autocrlf input"
+                    }
+                ]
+           }
+        },
+        {
             "Name"        : "git",
             "Windows"     :
             {
@@ -426,18 +471,12 @@
                     "InstallDoc"      : "https://tallywiki.tallysolutions.com/display/TWP/Install+Required+Software+on+MacOS+x64+and+ARM64+Host#InstallRequiredSoftwareonMacOSx64andARM64Host-InstallGit",
                     "InstallCommands" : 
                     [
-                        "sudo rm -rf /Library/Caches/Homebrew",
-                        "sudo rm -rf  /opt/homebrew",
-                        "sudo -v &&  NONINTERACTIVE=yes /bin/bash -c \"$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)\"",
-                        "brew install git",
+                        "ASADMIN brew install git",
                         "sudo git config --global core.autocrlf input"
                     ],
                     "UninstallCommands" :
                     [
-                        "sudo rm -rf /Library/Caches/Homebrew",
-                        "sudo rm -rf  /opt/homebrew",
-                        "sudo -v &&  NONINTERACTIVE=yes /bin/bash -c \"$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)\"",
-                        "brew uninstall git"
+                        "ASADMIN brew uninstall git"
                     ]
                 },
                 "Validations"   : 
@@ -522,18 +561,12 @@
                     "InstallDir" : "/usr/local/bin",
                     "InstallCommands" : 
                     [
-                        "sudo rm -rf /Library/Caches/Homebrew",
-                        "sudo rm -rf  /opt/homebrew",
-                        "NONINTERACTIVE=1 /bin/bash -c \"$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)\"",
-                        "brew install azure-cli",
+                        "ASADMIN brew install azure-cli",
                         "sudo az upgrade"
                     ],
                     "UninstallCommands" :
                     [
-                        "sudo rm -rf /Library/Caches/Homebrew",
-                        "sudo rm -rf  /opt/homebrew",
-                        "sudo NONINTERACTIVE=yes /bin/bash -c \"$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)\"",
-                        "brew uninstall azure-cli"
+                        "ASADMIN brew uninstall azure-cli"
                     ],
                     "InstallDoc" : "https://tallywiki.tallysolutions.com/display/TWP/Install+Required+Software+on+MacOS+x64+and+ARM64+Host#InstallRequiredSoftwareonMacOSx64andARM64Host-InstallAzureCLI"
                 }
@@ -858,19 +891,13 @@
                     "InstallDir"      : "/opt/homebrew/opt/flex",
                     "InstallCommands" :
                     [
-                        "sudo rm -rf /Library/Caches/Homebrew",
-                        "sudo rm -rf  /opt/homebrew",
-                        "sudo -v &&  NONINTERACTIVE=yes /bin/bash -c \"$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)\"",
-                        "brew install flex",
+                        "ASADMIN brew install flex",
                         "sudo mkdir -p /opt/homebrew/opt",
                         "OPTIONAL_LINK /usr/local/Cellar/flex/${VERSION}_2 /opt/homebrew/opt/flex"
                     ],
                     "UninstallCommands" :
                     [
-                        "sudo rm -rf /Library/Caches/Homebrew",
-                        "sudo rm -rf  /opt/homebrew",
-                        "sudo -v &&  NONINTERACTIVE=yes /bin/bash -c \"$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)\"",
-                        "brew uninstall flex"
+                        "ASADMIN brew uninstall flex"
                     ]
                 }
             }
@@ -948,19 +975,13 @@
                     "InstallDir"      : "/opt/homebrew/opt/bison",
                     "InstallCommands" :
                     [
-                        "sudo rm -rf /Library/Caches/Homebrew",
-                        "sudo rm -rf  /opt/homebrew",
-                        "sudo -v &&  NONINTERACTIVE=yes /bin/bash -c \"$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)\"",
-                        "brew install bison",
+                        "ASADMIN brew install bison",
                         "sudo mkdir -p /opt/homebrew/opt",
                         "OPTIONAL_LINK /usr/local/Cellar/bison/${VERSION} /opt/homebrew/opt/bison"
                     ],
                     "UninstallCommands" :
                     [
-                        "sudo rm -rf /Library/Caches/Homebrew",
-                        "sudo rm -rf  /opt/homebrew",
-                        "sudo -v &&  NONINTERACTIVE=yes /bin/bash -c \"$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)\"",
-                        "brew uninstall bison"
+                        "ASADMIN brew uninstall bison"
                     ]
 
                 }

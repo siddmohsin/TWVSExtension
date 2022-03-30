@@ -225,12 +225,6 @@ if(CMAKE_HOST_SYSTEM_NAME STREQUAL Darwin)
 
     endif()
 
-    execute_process(COMMAND brew --version RESULT_VARIABLE RetCode)
-
-    if(NOT RetCode STREQUAL 0)
-        message(SEND_ERROR "Could not run 'brew --version'. Make sure 'brew' is installed and path of brew (run command 'which brew' to find where brew is installed), is added in PATH variable inside .ssh/environment file.")
-    endif()
-
     message(STATUS "Verification completed.")
 
 endif()
