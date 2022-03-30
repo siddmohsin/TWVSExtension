@@ -303,51 +303,6 @@
             }
         },
         {
-            "Name"        : "Homebrew",
-            "MacOS"     :
-            {
-                "VersionString"  : "3.4.4",
-                "VersionInfo"    : 
-                {
-                    "Command"    : "brew --version",
-                    "OutputType" : "PlainText",
-                    "Line"       : 1,
-                    "Column"     : 2
-                },
-                "Installer" : 
-                { 
-                    "InstallDir"      : "/usr/local/bin",
-                    "InstallDoc"      : "https://docs.brew.sh/Installation",
-                    "InstallCommands" : 
-                    [
-                        "sudo rm -rf /Library/Caches/Homebrew",
-                        "sudo rm -rf  /opt/homebrew",
-                        "sudo rm -f /usr/local/bin/brew",
-                        "sudo git clone https://github.com/Homebrew/brew  /opt/homebrew",
-                        "sudo chown -R $(whoami) /opt/homebrew",
-                        "sudo mkdir -p /usr/local/var/homebrew",
-                        "sudo chown -R $(whoami) /usr/local/var/homebrew",
-                        "/opt/homebrew/bin/brew update --force --quiet",
-                        "ln -sf /opt/homebrew/bin/brew /usr/local/bin/brew"
-                    ],
-                    "UninstallCommands" :
-                    [
-                        "sudo rm -rf /Library/Caches/Homebrew",
-                        "sudo rm -rf /opt/homebrew",
-                        "sudo rm -f /usr/local/bin/brew"
-                    ]
-                },
-                "Validations"   : 
-                [
-                    {
-                        "Command"        : "git config --global --default input core.autocrlf",
-                        "ExpectedOutput" : "input",
-                        "FixCommand"     : "git config --global core.autocrlf input"
-                    }
-                ]
-           }
-        },
-        {
             "Name"        : "git",
             "Windows"     :
             {
@@ -487,6 +442,43 @@
                         "FixCommand"     : "git config --global core.autocrlf input"
                     }
                 ]
+           }
+        },
+        {
+            "Name"        : "Homebrew",
+            "MacOS"     :
+            {
+                "VersionString"  : "3.4.4",
+                "VersionInfo"    : 
+                {
+                    "Command"    : "brew --version",
+                    "OutputType" : "PlainText",
+                    "Line"       : 1,
+                    "Column"     : 2
+                },
+                "Installer" : 
+                { 
+                    "InstallDir"      : "/usr/local/bin",
+                    "InstallDoc"      : "https://docs.brew.sh/Installation",
+                    "InstallCommands" : 
+                    [
+                        "sudo rm -rf /Library/Caches/Homebrew",
+                        "sudo rm -rf  /opt/homebrew",
+                        "sudo rm -f /usr/local/bin/brew",
+                        "sudo git clone https://github.com/Homebrew/brew  /opt/homebrew",
+                        "sudo chown -R $(whoami) /opt/homebrew",
+                        "sudo mkdir -p /usr/local/var/homebrew",
+                        "sudo chown -R $(whoami) /usr/local/var/homebrew",
+                        "/opt/homebrew/bin/brew update --force --quiet",
+                        "sudo ln -sf /opt/homebrew/bin/brew /usr/local/bin/brew"
+                    ],
+                    "UninstallCommands" :
+                    [
+                        "sudo rm -rf /Library/Caches/Homebrew",
+                        "sudo rm -rf /opt/homebrew",
+                        "sudo rm -f /usr/local/bin/brew"
+                    ]
+                }
            }
         },
         {
