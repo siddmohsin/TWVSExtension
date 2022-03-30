@@ -426,9 +426,18 @@
                     "InstallDoc"      : "https://tallywiki.tallysolutions.com/display/TWP/Install+Required+Software+on+MacOS+x64+and+ARM64+Host#InstallRequiredSoftwareonMacOSx64andARM64Host-InstallGit",
                     "InstallCommands" : 
                     [
-                        "sudo echo",
+                        "sudo rm -rf /Library/Caches/Homebrew",
+                        "sudo rm -rf  /opt/homebrew",
+                        "yes '' | ruby -e \"$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)\"",
                         "brew install git",
                         "sudo git config --global core.autocrlf input"
+                    ],
+                    "UninstallCommands" :
+                    [
+                        "sudo rm -rf /Library/Caches/Homebrew",
+                        "sudo rm -rf  /opt/homebrew",
+                        "yes '' | ruby -e \"$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)\"",
+                        "brew uninstall git"
                     ]
                 },
                 "Validations"   : 
@@ -513,10 +522,18 @@
                     "InstallDir" : "/usr/local/bin",
                     "InstallCommands" : 
                     [
-                        "sudo echo",
-                        "brew update",
+                        "sudo rm -rf /Library/Caches/Homebrew",
+                        "sudo rm -rf  /opt/homebrew",
+                        "yes '' | ruby -e \"$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)\"",
                         "brew install azure-cli",
                         "sudo az upgrade"
+                    ],
+                    "UninstallCommands" :
+                    [
+                        "sudo rm -rf /Library/Caches/Homebrew",
+                        "sudo rm -rf  /opt/homebrew",
+                        "yes '' | ruby -e \"$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)\"",
+                        "brew uninstall azure-cli"
                     ],
                     "InstallDoc" : "https://tallywiki.tallysolutions.com/display/TWP/Install+Required+Software+on+MacOS+x64+and+ARM64+Host#InstallRequiredSoftwareonMacOSx64andARM64Host-InstallAzureCLI"
                 }
@@ -841,13 +858,20 @@
                     "InstallDir"      : "/opt/homebrew/opt/flex",
                     "InstallCommands" :
                     [
-                        "sudo echo",
-                        "brew update",
+                        "sudo rm -rf /Library/Caches/Homebrew",
+                        "sudo rm -rf  /opt/homebrew",
+                        "yes '' | ruby -e \"$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)\"",
                         "brew install flex",
                         "sudo mkdir -p /opt/homebrew/opt",
                         "OPTIONAL_LINK /usr/local/Cellar/flex/${VERSION}_2 /opt/homebrew/opt/flex"
+                    ],
+                    "UninstallCommands" :
+                    [
+                        "sudo rm -rf /Library/Caches/Homebrew",
+                        "sudo rm -rf  /opt/homebrew",
+                        "yes '' | ruby -e \"$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)\"",
+                        "brew uninstall flex"
                     ]
-
                 }
             }
         },
@@ -924,11 +948,19 @@
                     "InstallDir"      : "/opt/homebrew/opt/bison",
                     "InstallCommands" :
                     [
-                        "sudo echo",
-                        "brew update",
+                        "sudo rm -rf /Library/Caches/Homebrew",
+                        "sudo rm -rf  /opt/homebrew",
+                        "yes '' | ruby -e \"$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)\"",
                         "brew install bison",
                         "sudo mkdir -p /opt/homebrew/opt",
                         "OPTIONAL_LINK /usr/local/Cellar/bison/${VERSION} /opt/homebrew/opt/bison"
+                    ],
+                    "UninstallCommands" :
+                    [
+                        "sudo rm -rf /Library/Caches/Homebrew",
+                        "sudo rm -rf  /opt/homebrew",
+                        "yes '' | ruby -e \"$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)\"",
+                        "brew uninstall bison"
                     ]
 
                 }
