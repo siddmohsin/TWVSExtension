@@ -677,7 +677,7 @@
                 },
                 "VersionInfo" : 
                 {
-                    "Command"    : "if  exist ${InstallDir}\\TWUniversalSchema.TWSchemaDB echo ${VERSION}",
+                    "Command"    : "if exist ${InstallDir}\\TWUniversalSchema.TWSchemaDB echo ${VERSION}",
                     "OutputType" : "PlainText",
                     "Prefix"     : "v",
                     "Line"       : 1,
@@ -885,7 +885,8 @@
                     [
                         "ASADMIN brew install flex",
                         "sudo mkdir -p /opt/homebrew/opt",
-                        "OPTIONAL_LINK /usr/local/Cellar/flex/${VERSION}_2 /opt/homebrew/opt/flex"
+                        "OPTIONAL_LINK /usr/local/opt/flex /opt/homebrew/opt/flex",
+                        "OPTIONAL_LINK /usr/local/opt/flex/bin/flex /usr/local/bin/flex"
                     ],
                     "UninstallCommands" :
                     [
@@ -969,7 +970,8 @@
                     [
                         "ASADMIN brew install bison",
                         "sudo mkdir -p /opt/homebrew/opt",
-                        "OPTIONAL_LINK /usr/local/Cellar/bison/${VERSION} /opt/homebrew/opt/bison"
+                        "OPTIONAL_LINK /usr/local/opt/bison /opt/homebrew/opt/bison",
+                        "OPTIONAL_LINK /usr/local/opt/bison/bin/bison /usr/local/bin/bison"
                     ],
                     "UninstallCommands" :
                     [
