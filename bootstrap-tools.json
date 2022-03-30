@@ -104,6 +104,7 @@
                     "InstallCommands"  : 
                     [
                         "DOWNLOAD ${URL_0} /tmp/${FILENAME_0}",
+                        "sudo mkdir -p ${InstallDir}",
                         "sudo tar xvzf /tmp/${FILENAME_0} -C ${InstallDir}",
                         "sudo mv -f ${InstallDir}/${FILENAME_WE_0}/CMake.app /tmp", 
                         "sudo mv -f /tmp/CMake.app /Applications/",
