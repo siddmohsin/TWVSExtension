@@ -107,9 +107,10 @@
                         "sudo mkdir -p ${InstallDir}",
                         "sudo tar xvzf /tmp/${FILENAME_0} -C ${InstallDir}",
                         "sudo mv -f ${InstallDir}/${FILENAME_WE_0}/CMake.app /tmp", 
+                        "sudo rm -rf /Applications/CMake.app",
                         "sudo mv -f /tmp/CMake.app /Applications/",
                         "sudo ln -sf /Applications/CMake.app/Contents/bin/cmake /usr/local/bin/cmake",
-                        "rm -f /tmp/${FILENAME_0}"
+                        "sudo rm -f /tmp/${FILENAME_0}"
                     ],
                     "UninstallCommands": 
                     [
