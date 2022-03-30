@@ -423,7 +423,13 @@
                 "Installer" : 
                 { 
                     "InstallDir"      : "/usr/local/bin",
-                    "InstallDoc"      : "https://tallywiki.tallysolutions.com/display/TWP/Install+Required+Software+on+MacOS+x64+and+ARM64+Host#InstallRequiredSoftwareonMacOSx64andARM64Host-InstallGit"
+                    "InstallDoc"      : "https://tallywiki.tallysolutions.com/display/TWP/Install+Required+Software+on+MacOS+x64+and+ARM64+Host#InstallRequiredSoftwareonMacOSx64andARM64Host-InstallGit",
+                    "InstallCommands" : 
+                    [
+                        "sudo echo",
+                        "brew install git",
+                        "sudo git config --global core.autocrlf input"
+                    ]
                 },
                 "Validations"   : 
                 [
