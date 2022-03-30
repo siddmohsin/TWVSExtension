@@ -460,26 +460,8 @@
                 },
                 "Installer" : 
                 { 
-                    "InstallDir"      : "/usr/local/bin",
-                    "InstallDoc"      : "https://docs.brew.sh/Installation",
-                    "InstallCommands" : 
-                    [
-                        "sudo rm -rf /Library/Caches/Homebrew",
-                        "sudo rm -rf  /opt/homebrew",
-                        "sudo rm -f /usr/local/bin/brew",
-                        "sudo git clone https://github.com/Homebrew/brew  /opt/homebrew",
-                        "sudo chown -R $(whoami) /opt/homebrew",
-                        "sudo mkdir -p /usr/local/var/homebrew",
-                        "sudo chown -R $(whoami) /usr/local/var/homebrew",
-                        "/opt/homebrew/bin/brew update --force --quiet",
-                        "sudo ln -sf /opt/homebrew/bin/brew /usr/local/bin/brew"
-                    ],
-                    "UninstallCommands" :
-                    [
-                        "sudo rm -rf /Library/Caches/Homebrew",
-                        "sudo rm -rf /opt/homebrew",
-                        "sudo rm -f /usr/local/bin/brew"
-                    ]
+                    "InstallDir"      : "/opt/homebrew",
+                    "InstallDoc"      : "https://docs.brew.sh/Installation"
                 }
            }
         },
@@ -882,7 +864,7 @@
                 "Installer" : 
                 { 
                     "InstallDoc"      : "https://tallywiki.tallysolutions.com/display/TWP/Install+Required+Software+on+MacOS+x64+and+ARM64+Host#InstallRequiredSoftwareonMacOSx64andARM64Host-InstallFlexandBison",
-                    "InstallDir"      : "/opt/homebrew/opt/flex",
+                    "InstallDir"      : "/usr/local/bin",
                     "InstallCommands" :
                     [
                         "ASADMIN brew install flex",
@@ -967,7 +949,7 @@
                 "Installer" : 
                 { 
                     "InstallDoc"      : "https://tallywiki.tallysolutions.com/display/TWP/Install+Required+Software+on+MacOS+x64+and+ARM64+Host#InstallRequiredSoftwareonMacOSx64andARM64Host-InstallFlexandBison",
-                    "InstallDir"      : "/opt/homebrew/opt/bison",
+                    "InstallDir"      : "/usr/local/bin",
                     "InstallCommands" :
                     [
                         "ASADMIN brew install bison",
