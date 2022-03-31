@@ -225,6 +225,10 @@ if(CMAKE_HOST_SYSTEM_NAME STREQUAL Darwin)
 
     endif()
 
+    if(EXISTS ".vs/cmake/bin/cmake")
+        message(SEND_ERROR "Found file '~/.vs/cmake/bin/cmake', please run 'rm -rf ~/.vs/cmake' to cleanup this first.")
+    endif()
+
     message(STATUS "Verification completed.")
 
 endif()
