@@ -83,7 +83,7 @@ endmacro()
 
 if(CMAKE_HOST_SYSTEM_NAME STREQUAL Windows)
     
-    message(STATUS "Verifying environment variables ...")
+    message(NOTICE "Verifying environment variables ...")
 
     set(failed_env_variables)
 
@@ -106,14 +106,11 @@ if(CMAKE_HOST_SYSTEM_NAME STREQUAL Windows)
 
      endif()
 
-     message(STATUS "Verification completed.")
-
-
 endif()
 
 if(CMAKE_HOST_SYSTEM_NAME STREQUAL Linux)
 
-   message(STATUS "Verifying packages installed on Linux ...")
+   message(NOTICE "Verifying packages installed on Linux ...")
 
    set(failed_package_list)
    check_linux_package_start()
@@ -198,17 +195,16 @@ if(CMAKE_HOST_SYSTEM_NAME STREQUAL Linux)
         message(SEND_ERROR "One or more packages not installed.")
 
     endif()
-    message(STATUS "Verification completed.")
 endif()
 
 if(CMAKE_HOST_SYSTEM_NAME STREQUAL Darwin)
     
-    message(STATUS "Verifying ssh config ...")
+    message(NOTICE "Verifying ssh config ...")
 
     check_ssh_config()
     check_ssh_environment()
 
-    message(STATUS "Verifying environment variables ...")
+    message(NOTICE "Verifying environment variables ...")
 
     set(failed_env_variables)
 
@@ -225,10 +221,9 @@ if(CMAKE_HOST_SYSTEM_NAME STREQUAL Darwin)
 
     endif()
 
+    message(NOTICE "Verifying if wrong cmake installed from VS ...")
     if(EXISTS ".vs/cmake/bin/cmake")
         message(SEND_ERROR "Found file '~/.vs/cmake/bin/cmake', please run 'rm -rf ~/.vs/cmake' to cleanup this first.")
     endif()
-
-    message(STATUS "Verification completed.")
 
 endif()
