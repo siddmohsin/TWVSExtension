@@ -661,7 +661,7 @@
                 },
                 "VersionInfo" : 
                 {
-                    "Command"    : "${TWHome}\\Tools\\TWAppGen --usdbversion=${InstallDir}\\TWUniversalSchema.TWSchemaDB",
+                    "Command"    : "${TWHome}\\Tools\\TWAppGen\\TWAppGen --usdbversion=${InstallDir}\\TWUniversalSchema.TWSchemaDB",
                     "OutputType" : "PlainText",
                     "Prefix"     : "v",
                     "Line"       : 1,
