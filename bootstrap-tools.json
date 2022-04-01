@@ -489,7 +489,7 @@
                     "InstallCommands"  : 
                     [
                         "DOWNLOAD ${URL_0} ${TEMPDIR}\\azure-cli-${VERSION}.msi",
-                        "start /wait ${TEMPDIR}\\azure-cli-${VERSION}.msi /quiet",
+                        "start /wait msiexec /i ${TEMPDIR}\\azure-cli-${VERSION}.msi /passive",
                         "DEL /F ${TEMPDIR}\\azure-cli-${VERSION}.msi"
                     ],
                     "InstallDoc"      : "https://tallywiki.tallysolutions.com/display/TWP/Install+Required+Software+on+Windows+x64+Host#InstallRequiredSoftwareonWindowsx64Host-InstallAzureCLI"
@@ -567,6 +567,9 @@
                     "InstallCommands": [
                         "az extension add --name azure-devops"
                     ],
+                    "UninstallCommands": [
+                        "az extension remove --name azure-devops"
+                    ],
                     "InstallDir": "C:\\Program Files (x86)\\Microsoft SDKs\\Azure\\CLI2",
                     "InstallDoc": "https://tallywiki.tallysolutions.com/display/TWP/Install+Required+Software+on+Windows+x64+Host#InstallRequiredSoftwareonWindowsx64Host-InstallAzureCLIDevOpsExtension"
                 }
@@ -587,6 +590,9 @@
                     "InstallCommands": [
                         "sudo az extension add --name azure-devops"
                     ],
+                    "UninstallCommands": [
+                        "sudo az extension remove --name azure-devops"
+                    ],
                     "InstallDir": "/usr/bin",
                     "InstallDoc": "https://tallywiki.tallysolutions.com/display/TWP/Install+Required+Software+on+Linux+x64+Host#InstallRequiredSoftwareonLinuxx64Host-InstallAzureCLIDevOpsExtension"
                 }
@@ -606,6 +612,9 @@
                 "Installer": {
                     "InstallCommands": [
                         "sudo az extension add --name azure-devops"
+                    ],
+                    "UninstallCommands": [
+                        "sudo az extension remove --name azure-devops"
                     ],
                     "InstallDir": "/usr/local/bin",
                     "InstallDoc": "https://tallywiki.tallysolutions.com/display/TWP/Install+Required+Software+on+MacOS+x64+and+ARM64+Host#InstallRequiredSoftwareonMacOSx64andARM64Host-InstallAzureCLIDevOpsExtension"
