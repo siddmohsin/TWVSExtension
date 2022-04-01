@@ -68,10 +68,10 @@
                     "InstallDir"       : "/usr/share/${NAME}",
                     "InstallCommands"  : 
                     [
-                        "DOWNLOAD ${URL_0} /tmp/${FILENAME_0}",
-                        "tar xvzf /tmp/${FILENAME_0} -C ${InstallDir}",
+                        "DOWNLOAD ${URL_0} ${FILENAME_0}",
+                        "tar xvzf ${FILENAME_0} -C ${InstallDir}",
                         "sudo ln -sf ${InstallDir}/${FILENAME_WE_0}/bin/cmake /usr/bin/cmake",
-                        "rm -rf /tmp/${FILENAME_0}"
+                        "rm -rf ${FILENAME_0}"
                     ],
                     "UninstallCommands": 
                     [
@@ -103,14 +103,14 @@
                     "InstallDir"      : "/Applications/CMake.app",
                     "InstallCommands"  : 
                     [
-                        "DOWNLOAD ${URL_0} /tmp/${FILENAME_0}",
+                        "DOWNLOAD ${URL_0} ${FILENAME_0}",
                         "sudo mkdir -p ${InstallDir}",
-                        "sudo tar xvzf /tmp/${FILENAME_0} -C ${InstallDir}",
-                        "sudo mv -f ${InstallDir}/${FILENAME_WE_0}/CMake.app /tmp", 
+                        "sudo tar xvzf ${FILENAME_0} -C ${InstallDir}",
+                        "sudo mv -f ${InstallDir}/${FILENAME_WE_0}/CMake.app .", 
                         "sudo rm -rf /Applications/CMake.app",
-                        "sudo mv -f /tmp/CMake.app /Applications/",
+                        "sudo mv -f ./CMake.app /Applications/",
                         "sudo ln -sf /Applications/CMake.app/Contents/bin/cmake /usr/local/bin/cmake",
-                        "sudo rm -f /tmp/${FILENAME_0}"
+                        "sudo rm -f ${FILENAME_0}"
                     ],
                     "UninstallCommands": 
                     [
@@ -162,9 +162,9 @@
                     "InstallDir"      : "/usr/bin",
                     "InstallCommands"  : 
                     [
-                        "DOWNLOAD ${URL_0} /tmp/${FILENAME_0}",
-                        "sudo unzip -o /tmp/${FILENAME_0} -d ${InstallDir}",
-                        "rm -f /tmp/${FILENAME_0}"
+                        "DOWNLOAD ${URL_0} ${FILENAME_0}",
+                        "sudo unzip -o ${FILENAME_0} -d ${InstallDir}",
+                        "rm -f ${FILENAME_0}"
                     ],
                     "UninstallCommands": 
                     [
@@ -282,11 +282,11 @@
                     "InstallDir" : "/usr/bin",
                     "InstallCommands"  : 
                     [
-                        "DOWNLOAD ${URL_0} /tmp/llvm.sh",
+                        "DOWNLOAD ${URL_0} llvm.sh",
                         "sudo apt update",
-                        "chmod +x /tmp/llvm.sh",
-                        "sudo /tmp/llvm.sh ${VERSION-MAJOR}",
-                        "rm /tmp/llvm.sh",
+                        "chmod +x llvm.sh",
+                        "sudo llvm.sh ${VERSION-MAJOR}",
+                        "rm llvm.sh",
                         "sudo ln -sf /usr/bin/clang-${VERSION-MAJOR} /usr/bin/clang",
                         "sudo ln -sf /usr/bin/clang++-${VERSION-MAJOR} /usr/bin/clang++",
                         "sudo ln -sf /usr/bin/llvm-ar-${VERSION-MAJOR} /usr/bin/llvm-ar",
@@ -509,11 +509,11 @@
                     "InstallDir" : "/usr/bin",
                     "InstallCommands" : 
                     [
-                        "curl -sL https://aka.ms/InstallAzureCLIDeb > /tmp/az.sh",
-                        "chmod +x /tmp/az.sh",
-                        "sudo bash /tmp/az.sh",
+                        "curl -sL https://aka.ms/InstallAzureCLIDeb > az.sh",
+                        "chmod +x az.sh",
+                        "sudo bash az.sh",
                         "sudo az upgrade",
-                        "rm -rf /tmp/az.sh"
+                        "rm -rf az.sh"
                     ],
                     "UninstallCommands":
                     [
@@ -773,22 +773,21 @@
                     "Line"       : 2,
                     "Column"     : 3                },
                 "Installer" : 
-                { 
-                    "URL": 
-                    {
-                        "x64"  :  "https://dl.google.com/android/repository/android-ndk-r23b-windows.zip",
-                        "ARM64":  "https://dl.google.com/android/repository/android-ndk-r23b-windows.zip"
+                {
+                    "URL": {
+                        "x64": "https://dl.google.com/android/repository/android-ndk-r${VERSION-MAJOR}b-windows.zip",
+                        "ARM64": "https://dl.google.com/android/repository/android-ndk-r${VERSION-MAJOR}b-windows.zip"
                     },
                     "InstallDoc"      : "https://tallywiki.tallysolutions.com/display/TWP/Install+Required+Software+on+Windows+x64+Host#InstallRequiredSoftwareonWindowsx64Host-InstallAndroidNDK",
                     "InstallDir"      : "${TWHome}\\Tools\\Android\\NDK",
                     "Installcommands"    :
                     [
-                        "DOWNLOAD {URL_0} ${TEMPDIR}\\android-ndk-r23b-windows.zip",
-                        "UNZIP ${TEMPDIR}\\android-ndk-r23b-windows.zip",
-                        "DEL /F ${TEMPDIR}\\android-ndk-r23b-windows.zip",
-                        "move ${TWHome}\\Tools\\Android\\NDK\\android-ndk-r23b ${TWHome}\\Tools\\Android\\android-ndk-r23b",
+                        "DOWNLOAD ${URL_0} ${TEMPDIR}\\android-ndk-r${VERSION-MAJOR}-windows.zip",
+                        "UNZIP ${TEMPDIR}\\android-ndk-r${VERSION-MAJOR}-windows.zip",
+                        "DEL /F ${TEMPDIR}\\android-ndk-r${VERSION-MAJOR}-windows.zip",
+                        "move ${TWHome}\\Tools\\Android\\NDK\\android-ndk-r${VERSION-MAJOR} ${TWHome}\\Tools\\Android\\android-ndk-r${VERSION-MAJOR}",
                         "rmdir ${TWHome}\\Tools\\Android\\NDK",
-                        "move ${TWHome}\\Tools\\Android\\android-ndk-r23b ${TWHome}\\Tools\\Android\\NDK"
+                        "move ${TWHome}\\Tools\\Android\\android-ndk-r${VERSION-MAJOR} ${TWHome}\\Tools\\Android\\NDK"
                     ],
                     "UninstallCommands":
                     [
