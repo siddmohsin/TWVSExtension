@@ -1,5 +1,5 @@
 {
-    "Version"               :  "1.6",
+    "Version"               :  "1.7",
     "ADOArtifcatories"      :
     [
         {
@@ -582,6 +582,7 @@
                     "SearchValue": "azure-devops",
                     "VersionTag" : "version"
                 },
+                "CentrallyManaged": false,
                 "Installer" : 
                 { 
                     "InstallCommands" : 
@@ -602,6 +603,7 @@
                     "SearchValue": "azure-devops",
                     "VersionTag" : "version"
                 },
+                "CentrallyManaged": false,
                 "Installer" : 
                 { 
                     "InstallCommands" : 
