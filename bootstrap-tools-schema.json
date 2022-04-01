@@ -1,590 +1,590 @@
 {
     "definitions": {
-      "ADOArtifcatory": {
-        "type": [
-          "object",
-          "null"
-        ],
-        "properties": {
-          "Name": {
+        "ADOArtifcatory": {
             "type": [
-              "string",
-              "null"
-            ]
-          },
-          "Uri": {
-            "type": [
-              "string",
-              "null"
-            ]
-          },
-          "Feed": {
-            "type": [
-              "string",
-              "null"
-            ]
-          },
-          "Organizations": {
-            "type": [
-              "array",
-              "null"
-            ],
-            "items": {
-              "type": [
-                "string",
+                "object",
                 "null"
-              ]
-            }
-          }
-        },
-        "required": [
-          "Name",
-          "Uri",
-          "Feed",
-          "Organizations"
-        ]
-      },
-      "Artifactory": {
-        "type": [
-          "object",
-          "null"
-        ],
-        "properties": {
-          "Name": {
-            "type": [
-              "string",
-              "null"
-            ]
-          },
-          "Organization": {
-            "type": [
-              "string",
-              "null"
-            ]
-          },
-          "Feed": {
-            "type": [
-              "string",
-              "null"
-            ]
-          },
-          "Package": {
-            "type": [
-              "string",
-              "null"
-            ]
-          }
-        },
-        "required": [
-          "Name",
-          "Organization",
-          "Feed",
-          "Package"
-        ]
-      },
-      "EnvVar": {
-        "type": [
-          "object",
-          "null"
-        ],
-        "properties": {
-          "Name": {
-            "type": [
-              "string",
-              "null"
-            ]
-          },
-          "Value": {
-            "type": [
-              "string",
-              "null"
-            ]
-          }
-        },
-        "required": [
-          "Name",
-          "Value"
-        ]
-      },
-      "Installer": {
-        "type": [
-          "object",
-          "null"
-        ],
-        "properties": {
-          "URL": {
-            "$ref": "#/definitions/URL"
-          },
-          "FileName": {
-            "type": [
-              "string",
-              "null"
-            ]
-          },
-          "InstallDir": {
-            "type": [
-              "string",
-              "null"
-            ]
-          },
-          "EnvVars": {
-            "type": [
-              "array",
-              "null"
             ],
-            "items": {
-              "$ref": "#/definitions/EnvVar"
-            }
-          },
-          "UninstallCommands": {
+            "properties": {
+                "Name": {
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "Uri": {
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "Feed": {
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "Organizations": {
+                    "type": [
+                        "array",
+                        "null"
+                    ],
+                    "items": {
+                        "type": [
+                            "string",
+                            "null"
+                        ]
+                    }
+                }
+            },
+            "required": [
+                "Name",
+                "Uri",
+                "Feed",
+                "Organizations"
+            ]
+        },
+        "Artifactory": {
             "type": [
-              "array",
-              "null"
-            ],
-            "items": {
-              "type": [
-                "string",
+                "object",
                 "null"
-              ]
-            }
-          },
-          "InstallCommands": {
-            "type": [
-              "array",
-              "null"
             ],
-            "items": {
-              "type": [
-                "string",
+            "properties": {
+                "Name": {
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "Organization": {
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "Feed": {
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "Package": {
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                }
+            },
+            "required": [
+                "Name",
+                "Organization",
+                "Feed",
+                "Package"
+            ]
+        },
+        "EnvVar": {
+            "type": [
+                "object",
                 "null"
-              ]
-            }
-          },
-          "InstallDoc": {
-            "type": [
-              "string",
-              "null"
-            ]
-          },
-          "PostInstallMessage": {
-            "type": [
-              "string",
-              "null"
-            ]
-          },
-          "AlsoInstalls": {
-            "type": [
-              "string",
-              "null"
-            ]
-          }
-        },
-        "required": [
-          "InstallDir"
-        ]
-      },
-      "LanguageServiceDef": {
-        "type": [
-          "object",
-          "null"
-        ],
-        "properties": {
-          "PlistFileURL": {
-            "type": [
-              "string",
-              "null"
-            ]
-          },
-          "PlistLocalPath": {
-            "type": [
-              "string",
-              "null"
-            ]
-          }
-        },
-        "required": [
-          "PlistFileURL",
-          "PlistLocalPath"
-        ]
-      },
-      "Property": {
-        "type": [
-          "object",
-          "null"
-        ],
-        "properties": {
-          "Name": {
-            "type": [
-              "string",
-              "null"
-            ]
-          },
-          "Value": {},
-          "Install": {
-            "type": [
-              "string",
-              "null"
-            ]
-          }
-        },
-        "required": [
-          "Name",
-          "Value"
-        ]
-      },
-      "RequiredSoftware": {
-        "type": [
-          "object",
-          "null"
-        ],
-        "properties": {
-          "Name": {
-            "type": [
-              "string",
-              "null"
-            ]
-          },
-          "Windows": {
-            "$ref": "#/definitions/Software"
-          },
-          "Linux": {
-            "$ref": "#/definitions/Software"
-          },
-          "MacOS": {
-            "$ref": "#/definitions/Software"
-          }
-        },
-        "required": [
-          "Name""
-        ]
-      },
-      "Software": {
-        "type": [
-          "object",
-          "null"
-        ],
-        "properties": {
-          "VersionType": {
-            "type": [
-              "string",
-              "null"
-            ]
-          },
-          "VersionString": {
-            "type": [
-              "string",
-              "null"
-            ]
-          },
-          "Artifactory": {
-            "$ref": "#/definitions/Artifactory"
-          },
-          "Command": {
-            "type": [
-              "string",
-              "null"
-            ]
-          },
-          "VersionInfo": {
-            "$ref": "#/definitions/VersionInfo"
-          },
-          "Installer": {
-            "$ref": "#/definitions/Installer"
-          },
-          "Validations": {
-            "type": [
-              "array",
-              "null"
             ],
-            "items": {
-              "$ref": "#/definitions/SWValidation"
-            }
-          },
-          "CentrallyManaged": {
-            "type": "boolean"
-          }
+            "properties": {
+                "Name": {
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "Value": {
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                }
+            },
+            "required": [
+                "Name",
+                "Value"
+            ]
         },
-        "required": [
-          "VersionInfo",
-          "Installer"
-        ]
-      },
-      "SWValidation": {
-        "type": [
-          "object",
-          "null"
-        ],
-        "properties": {
-          "Command": {
+        "Installer": {
             "type": [
-              "string",
-              "null"
-            ]
-          },
-          "ExpectedOutput": {
-            "type": [
-              "string",
-              "null"
-            ]
-          },
-          "FixCommand": {
-            "type": [
-              "string",
-              "null"
-            ]
-          }
-        },
-        "required": [
-          "Command",
-          "ExpectedOutput"
-        ]
-      },
-      "ToolsDirectory": {
-        "type": [
-          "object",
-          "null"
-        ],
-        "properties": {
-          "Linux": {
-            "type": [
-              "string",
-              "null"
-            ]
-          },
-          "MacOS": {
-            "type": [
-              "string",
-              "null"
-            ]
-          }
-        },
-        "required": [
-          "Linux",
-          "MacOS"
-        ]
-      },
-      "TWAppIdCompiler": {
-        "type": [
-          "object",
-          "null"
-        ],
-        "properties": {
-          "LanguageService": {
-            "$ref": "#/definitions/LanguageServiceDef"
-          }
-        },
-        "required": [
-          "LanguageService"
-        ]
-      },
-      "URL": {
-        "type": [
-          "object",
-          "null"
-        ],
-        "properties": {
-          "X64": {
-            "type": [
-              "string",
-              "null"
-            ]
-          },
-          "ARM64": {
-            "type": [
-              "string",
-              "null"
-            ]
-          },
-          "Files": {
-            "type": [
-              "array",
-              "null"
-            ],
-            "items": {
-              "type": [
-                "string",
+                "object",
                 "null"
-              ]
-            }
-          }
-        },
-        "required": [
-          "X64",
-          "ARM64"
-        ]
-      },
-      "VersionInfo": {
-        "type": [
-          "object",
-          "null"
-        ],
-        "properties": {
-          "Command": {
-            "type": [
-              "string",
-              "null"
-            ]
-          },
-          "OutputType": {
-            "type": [
-              "string",
-              "null"
-            ]
-          },
-          "Line": {
-            "type": "integer"
-          },
-          "Column": {
-            "type": "integer"
-          },
-          "Prefix": {
-            "type": [
-              "string",
-              "null"
-            ]
-          },
-          "Suffix": {
-            "type": [
-              "string",
-              "null"
-            ]
-          },
-          "SearchTag": {
-            "type": [
-              "string",
-              "null"
-            ]
-          },
-          "SearchValue": {
-            "type": [
-              "string",
-              "null"
-            ]
-          },
-          "VersionTag": {
-            "type": [
-              "string",
-              "null"
-            ]
-          },
-          "EnvVars": {
-            "type": [
-              "array",
-              "null"
             ],
-            "items": {
-              "$ref": "#/definitions/EnvVar"
-            }
-          }
+            "properties": {
+                "URL": {
+                    "$ref": "#/definitions/URL"
+                },
+                "FileName": {
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "InstallDir": {
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "EnvVars": {
+                    "type": [
+                        "array",
+                        "null"
+                    ],
+                    "items": {
+                        "$ref": "#/definitions/EnvVar"
+                    }
+                },
+                "UninstallCommands": {
+                    "type": [
+                        "array",
+                        "null"
+                    ],
+                    "items": {
+                        "type": [
+                            "string",
+                            "null"
+                        ]
+                    }
+                },
+                "InstallCommands": {
+                    "type": [
+                        "array",
+                        "null"
+                    ],
+                    "items": {
+                        "type": [
+                            "string",
+                            "null"
+                        ]
+                    }
+                },
+                "InstallDoc": {
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "PostInstallMessage": {
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "AlsoInstalls": {
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                }
+            },
+            "required": [
+                "InstallDir"
+            ]
         },
-        "required": [
-          "Command",
-          "OutputType"
-        ]
-      },
-      "VisualStudioOption": {
-        "type": [
-          "object",
-          "null"
-        ],
-        "properties": {
-          "Category": {
+        "LanguageServiceDef": {
             "type": [
-              "string",
-              "null"
-            ]
-          },
-          "SubCategory": {
-            "type": [
-              "string",
-              "null"
-            ]
-          },
-          "Properties": {
-            "type": [
-              "array",
-              "null"
+                "object",
+                "null"
             ],
-            "items": {
-              "$ref": "#/definitions/Property"
-            }
-          }
+            "properties": {
+                "PlistFileURL": {
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "PlistLocalPath": {
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                }
+            },
+            "required": [
+                "PlistFileURL",
+                "PlistLocalPath"
+            ]
         },
-        "required": [
-          "Category",
-          "SubCategory",
-          "Properties"
-        ]
-      }
+        "Property": {
+            "type": [
+                "object",
+                "null"
+            ],
+            "properties": {
+                "Name": {
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "Value": {},
+                "Install": {
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                }
+            },
+            "required": [
+                "Name",
+                "Value"
+            ]
+        },
+        "RequiredSoftware": {
+            "type": [
+                "object",
+                "null"
+            ],
+            "properties": {
+                "Name": {
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "Windows": {
+                    "$ref": "#/definitions/Software"
+                },
+                "Linux": {
+                    "$ref": "#/definitions/Software"
+                },
+                "MacOS": {
+                    "$ref": "#/definitions/Software"
+                }
+            },
+            "required": [
+                "Name"
+            ]
+        },
+        "Software": {
+            "type": [
+                "object",
+                "null"
+            ],
+            "properties": {
+                "VersionType": {
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "VersionString": {
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "Artifactory": {
+                    "$ref": "#/definitions/Artifactory"
+                },
+                "Command": {
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "VersionInfo": {
+                    "$ref": "#/definitions/VersionInfo"
+                },
+                "Installer": {
+                    "$ref": "#/definitions/Installer"
+                },
+                "Validations": {
+                    "type": [
+                        "array",
+                        "null"
+                    ],
+                    "items": {
+                        "$ref": "#/definitions/SWValidation"
+                    }
+                },
+                "CentrallyManaged": {
+                    "type": "boolean"
+                }
+            },
+            "required": [
+                "VersionInfo",
+                "Installer"
+            ]
+        },
+        "SWValidation": {
+            "type": [
+                "object",
+                "null"
+            ],
+            "properties": {
+                "Command": {
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "ExpectedOutput": {
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "FixCommand": {
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                }
+            },
+            "required": [
+                "Command",
+                "ExpectedOutput"
+            ]
+        },
+        "ToolsDirectory": {
+            "type": [
+                "object",
+                "null"
+            ],
+            "properties": {
+                "Linux": {
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "MacOS": {
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                }
+            },
+            "required": [
+                "Linux",
+                "MacOS"
+            ]
+        },
+        "TWAppIdCompiler": {
+            "type": [
+                "object",
+                "null"
+            ],
+            "properties": {
+                "LanguageService": {
+                    "$ref": "#/definitions/LanguageServiceDef"
+                }
+            },
+            "required": [
+                "LanguageService"
+            ]
+        },
+        "URL": {
+            "type": [
+                "object",
+                "null"
+            ],
+            "properties": {
+                "X64": {
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "ARM64": {
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "Files": {
+                    "type": [
+                        "array",
+                        "null"
+                    ],
+                    "items": {
+                        "type": [
+                            "string",
+                            "null"
+                        ]
+                    }
+                }
+            },
+            "required": [
+                "X64",
+                "ARM64"
+            ]
+        },
+        "VersionInfo": {
+            "type": [
+                "object",
+                "null"
+            ],
+            "properties": {
+                "Command": {
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "OutputType": {
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "Line": {
+                    "type": "integer"
+                },
+                "Column": {
+                    "type": "integer"
+                },
+                "Prefix": {
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "Suffix": {
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "SearchTag": {
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "SearchValue": {
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "VersionTag": {
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "EnvVars": {
+                    "type": [
+                        "array",
+                        "null"
+                    ],
+                    "items": {
+                        "$ref": "#/definitions/EnvVar"
+                    }
+                }
+            },
+            "required": [
+                "Command",
+                "OutputType"
+            ]
+        },
+        "VisualStudioOption": {
+            "type": [
+                "object",
+                "null"
+            ],
+            "properties": {
+                "Category": {
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "SubCategory": {
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "Properties": {
+                    "type": [
+                        "array",
+                        "null"
+                    ],
+                    "items": {
+                        "$ref": "#/definitions/Property"
+                    }
+                }
+            },
+            "required": [
+                "Category",
+                "SubCategory",
+                "Properties"
+            ]
+        }
     },
     "type": "object",
     "properties": {
-      "DefaultToolsDir": {
-        "$ref": "#/definitions/ToolsDirectory"
-      },
-      "TWAppIdCompiler": {
-        "$ref": "#/definitions/TWAppIdCompiler"
-      },
-      "ADOArtifcatories": {
-        "type": [
-          "array",
-          "null"
-        ],
-        "items": {
-          "$ref": "#/definitions/ADOArtifcatory"
+        "DefaultToolsDir": {
+            "$ref": "#/definitions/ToolsDirectory"
+        },
+        "TWAppIdCompiler": {
+            "$ref": "#/definitions/TWAppIdCompiler"
+        },
+        "ADOArtifcatories": {
+            "type": [
+                "array",
+                "null"
+            ],
+            "items": {
+                "$ref": "#/definitions/ADOArtifcatory"
+            }
+        },
+        "RequiredSoftwares": {
+            "type": [
+                "array",
+                "null"
+            ],
+            "items": {
+                "$ref": "#/definitions/RequiredSoftware"
+            }
+        },
+        "ValidationCMakeFile": {
+            "type": [
+                "string",
+                "null"
+            ]
+        },
+        "VSSettingsFile": {
+            "type": [
+                "string",
+                "null"
+            ]
+        },
+        "UserConfigFileName": {
+            "type": [
+                "string",
+                "null"
+            ]
+        },
+        "VisualStudioOptions": {
+            "type": [
+                "array",
+                "null"
+            ],
+            "items": {
+                "$ref": "#/definitions/VisualStudioOption"
+            }
+        },
+        "Version": {
+            "type": [
+                "string",
+                "null"
+            ]
         }
-      },
-      "RequiredSoftwares": {
-        "type": [
-          "array",
-          "null"
-        ],
-        "items": {
-          "$ref": "#/definitions/RequiredSoftware"
-        }
-      },
-      "ValidationCMakeFile": {
-        "type": [
-          "string",
-          "null"
-        ]
-      },
-      "VSSettingsFile": {
-        "type": [
-          "string",
-          "null"
-        ]
-      },
-      "UserConfigFileName": {
-        "type": [
-          "string",
-          "null"
-        ]
-      },
-      "VisualStudioOptions": {
-        "type": [
-          "array",
-          "null"
-        ],
-        "items": {
-          "$ref": "#/definitions/VisualStudioOption"
-        }
-      },
-      "Version": {
-        "type": [
-          "string",
-          "null"
-        ]
-      }
     },
     "required": [
-      "DefaultToolsDir",
-      "TWAppIdCompiler",
-      "ADOArtifcatories",
-      "RequiredSoftwares",
-      "ValidationCMakeFile",
-      "VSSettingsFile",
-      "VisualStudioOptions",
-      "Version"
+        "DefaultToolsDir",
+        "TWAppIdCompiler",
+        "ADOArtifcatories",
+        "RequiredSoftwares",
+        "ValidationCMakeFile",
+        "VSSettingsFile",
+        "VisualStudioOptions",
+        "Version"
     ]
-  }
+}
