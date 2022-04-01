@@ -229,8 +229,7 @@
         },
         "required": [
           "Name",
-          "Value",
-          "Install"
+          "Value"
         ]
       },
       "RequiredSoftware": {
@@ -256,10 +255,7 @@
           }
         },
         "required": [
-          "Name",
-          "Windows",
-          "Linux",
-          "MacOS"
+          "Name""
         ]
       },
       "Software": {
@@ -268,12 +264,6 @@
           "null"
         ],
         "properties": {
-          "Name": {
-            "type": [
-              "string",
-              "null"
-            ]
-          },
           "VersionType": {
             "type": [
               "string",
@@ -312,18 +302,11 @@
           },
           "CentrallyManaged": {
             "type": "boolean"
-          },
-          "Version": {
-            "$ref": "#/definitions/TWVersion"
           }
         },
         "required": [
-          "Name",
-          "VersionString",
-          "Command",
           "VersionInfo",
-          "Installer",
-          "Version"
+          "Installer"
         ]
       },
       "SWValidation": {
@@ -394,34 +377,6 @@
           "LanguageService"
         ]
       },
-      "TWVersion": {
-        "type": [
-          "object",
-          "null"
-        ],
-        "properties": {
-          "VersionString": {
-            "type": [
-              "string",
-              "null"
-            ]
-          },
-          "Version": {
-            "type": [
-              "string",
-              "null"
-            ]
-          },
-          "IsSkipped": {
-            "type": "boolean"
-          }
-        },
-        "required": [
-          "VersionString",
-          "Version",
-          "IsSkipped"
-        ]
-      },
       "URL": {
         "type": [
           "object",
@@ -455,8 +410,7 @@
         },
         "required": [
           "X64",
-          "ARM64",
-          "Files"
+          "ARM64"
         ]
       },
       "VersionInfo": {
@@ -565,12 +519,6 @@
     },
     "type": "object",
     "properties": {
-      "ExpectedVersion": {
-        "type": [
-          "string",
-          "null"
-        ]
-      },
       "DefaultToolsDir": {
         "$ref": "#/definitions/ToolsDirectory"
       },
@@ -630,7 +578,6 @@
       }
     },
     "required": [
-      "ExpectedVersion",
       "DefaultToolsDir",
       "TWAppIdCompiler",
       "ADOArtifcatories",

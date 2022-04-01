@@ -62,7 +62,7 @@
                 { 
                     "URL": 
                     {
-                        "x64":   "https://github.com/Kitware/CMake/releases/download/v${VERSION}/cmake-${VERSION}-linux-x86_64.tar.gz",
+                        "X64":   "https://github.com/Kitware/CMake/releases/download/v${VERSION}/cmake-${VERSION}-linux-x86_64.tar.gz",
                         "ARM64": "https://github.com/Kitware/CMake/releases/download/v${VERSION}/cmake-${VERSION}-linux-aarch64.tar.gz"
                     },
                     "InstallDir"       : "/usr/share/${NAME}",
@@ -97,7 +97,7 @@
                 { 
                     "URL": 
                     {
-                        "x64":   "https://github.com/Kitware/CMake/releases/download/v${VERSION}/cmake-${VERSION}-macos-universal.tar.gz",
+                        "X64":   "https://github.com/Kitware/CMake/releases/download/v${VERSION}/cmake-${VERSION}-macos-universal.tar.gz",
                         "ARM64": "https://github.com/Kitware/CMake/releases/download/v${VERSION}/cmake-${VERSION}-macos-universal.tar.gz"
                     },
                     "InstallDir"      : "/Applications/CMake.app",
@@ -156,7 +156,7 @@
                 { 
                     "URL": 
                     {
-                        "x64":   "https://github.com/ninja-build/ninja/releases/download/v1.10.2/ninja-linux.zip",
+                        "X64":   "https://github.com/ninja-build/ninja/releases/download/v1.10.2/ninja-linux.zip",
                         "ARM64": "https://github.com/ninja-build/ninja/releases/download/v1.10.2/ninja-linux.zip"
                     },
                     "InstallDir"      : "/usr/bin",
@@ -243,7 +243,7 @@
                 { 
                     "URL": 
                     {
-                        "x64"  :  "https://github.com/llvm/llvm-project/releases/download/llvmorg-${VERSION}/LLVM-${VERSION}-win64.exe",
+                        "X64"  :  "https://github.com/llvm/llvm-project/releases/download/llvmorg-${VERSION}/LLVM-${VERSION}-win64.exe",
                         "ARM64":  "https://github.com/llvm/llvm-project/releases/download/llvmorg-${VERSION}/LLVM-${VERSION}-arm64.exe"
                     },
                     "InstallDir" : "${TWHome}\\Tools\\LLVM",
@@ -276,7 +276,7 @@
                 { 
                     "URL": 
                     {
-                        "x64"  :  "https://apt.llvm.org/llvm.sh",
+                        "X64"  :  "https://apt.llvm.org/llvm.sh",
                         "ARM64":  "https://apt.llvm.org/llvm.sh"
                     },
                     "InstallDir" : "/usr/bin",
@@ -320,7 +320,7 @@
                 { 
                     "URL": 
                     {
-                        "x64"  :  "https://github.com/git-for-windows/git/releases/download/v${VERSION}.windows.1/Git-${VERSION}-64-bit.exe",
+                        "X64"  :  "https://github.com/git-for-windows/git/releases/download/v${VERSION}.windows.1/Git-${VERSION}-64-bit.exe",
                         "ARM64":  "https://github.com/git-for-windows/git/releases/download/v${VERSION}.windows.1/Git-${VERSION}-64-bit.exe"
                     },
                     "InstallDir" : "C:\\Program Files\\Git",
@@ -481,7 +481,7 @@
                 { 
                     "URL": 
                     {
-                        "x64"  :  "https://aka.ms/installazurecliwindows",
+                        "X64"  :  "https://aka.ms/installazurecliwindows",
                         "ARM64":  "https://aka.ms/installazurecliwindows"
                     },
                     "InstallDir" : "C:\\Program Files (x86)\\Microsoft SDKs\\Azure\\CLI2",
@@ -562,13 +562,12 @@
                     "SearchValue": "azure-devops",
                     "VersionTag" : "version"
                 },
-                "Installer" : 
-                { 
-                    "InstallCommands" : 
-                    [
+                "Installer": {
+                    "InstallCommands": [
                         "az extension add --name azure-devops"
                     ],
-                    "InstallDoc"      : "https://tallywiki.tallysolutions.com/display/TWP/Install+Required+Software+on+Windows+x64+Host#InstallRequiredSoftwareonWindowsx64Host-InstallAzureCLIDevOpsExtension"
+                    "InstallDir": "C:\\Program Files (x86)\\Microsoft SDKs\\Azure\\CLI2",
+                    "InstallDoc": "https://tallywiki.tallysolutions.com/display/TWP/Install+Required+Software+on+Windows+x64+Host#InstallRequiredSoftwareonWindowsx64Host-InstallAzureCLIDevOpsExtension"
                 }
             },
             "Linux"     :
@@ -583,13 +582,12 @@
                     "VersionTag" : "version"
                 },
                 "CentrallyManaged": false,
-                "Installer" : 
-                { 
-                    "InstallCommands" : 
-                    [
+                "Installer": {
+                    "InstallCommands": [
                         "sudo az extension add --name azure-devops"
                     ],
-                    "InstallDoc"      : "https://tallywiki.tallysolutions.com/display/TWP/Install+Required+Software+on+Linux+x64+Host#InstallRequiredSoftwareonLinuxx64Host-InstallAzureCLIDevOpsExtension"
+                    "InstallDir": "/usr/bin",
+                    "InstallDoc": "https://tallywiki.tallysolutions.com/display/TWP/Install+Required+Software+on+Linux+x64+Host#InstallRequiredSoftwareonLinuxx64Host-InstallAzureCLIDevOpsExtension"
                 }
             },
             "MacOS"     :
@@ -604,13 +602,12 @@
                     "VersionTag" : "version"
                 },
                 "CentrallyManaged": false,
-                "Installer" : 
-                { 
-                    "InstallCommands" : 
-                    [
+                "Installer": {
+                    "InstallCommands": [
                         "sudo az extension add --name azure-devops"
                     ],
-                    "InstallDoc"      : "https://tallywiki.tallysolutions.com/display/TWP/Install+Required+Software+on+MacOS+x64+and+ARM64+Host#InstallRequiredSoftwareonMacOSx64andARM64Host-InstallAzureCLIDevOpsExtension"
+                    "InstallDir": "/usr/local/bin",
+                    "InstallDoc": "https://tallywiki.tallysolutions.com/display/TWP/Install+Required+Software+on+MacOS+x64+and+ARM64+Host#InstallRequiredSoftwareonMacOSx64andARM64Host-InstallAzureCLIDevOpsExtension"
                 }
             }
         },
@@ -735,7 +732,7 @@
                     "EnvVars"    : [{"Name" : "JAVA_HOME", "Value" : "${TWHome}\\Tools\\Java"}],
                     "URL": 
                     {
-                        "x64"  :  "https://dl.google.com/android/repository/commandlinetools-win-8092744_latest.zip",
+                        "X64"  :  "https://dl.google.com/android/repository/commandlinetools-win-8092744_latest.zip",
                         "ARM64":  "https://dl.google.com/android/repository/commandlinetools-win-8092744_latest.zip"
                     },
                     "InstallDoc"      : "https://tallywiki.tallysolutions.com/display/TWP/Install+Required+Software+on+Windows+x64+Host#InstallRequiredSoftwareonWindowsx64Host-InstallAndroidSDK",
@@ -775,7 +772,7 @@
                 "Installer" : 
                 {
                     "URL": {
-                        "x64": "https://dl.google.com/android/repository/android-ndk-r${VERSION-MAJOR}b-windows.zip",
+                        "X64": "https://dl.google.com/android/repository/android-ndk-r${VERSION-MAJOR}b-windows.zip",
                         "ARM64": "https://dl.google.com/android/repository/android-ndk-r${VERSION-MAJOR}b-windows.zip"
                     },
                     "InstallDoc"      : "https://tallywiki.tallysolutions.com/display/TWP/Install+Required+Software+on+Windows+x64+Host#InstallRequiredSoftwareonWindowsx64Host-InstallAndroidNDK",
@@ -811,7 +808,7 @@
                 { 
                     "URL": 
                     {
-                        "x64"  :  "https://github.com/lexxmark/winflexbison/releases/download/v2.5.24/win_flex_bison-2.5.24.zip",
+                        "X64"  :  "https://github.com/lexxmark/winflexbison/releases/download/v2.5.24/win_flex_bison-2.5.24.zip",
                         "ARM64":  "https://github.com/lexxmark/winflexbison/releases/download/v2.5.24/win_flex_bison-2.5.24.zip"
                     },
                     "InstallDoc"      : "https://tallywiki.tallysolutions.com/display/TWP/Install+Required+Software+on+Windows+x64+Host#InstallRequiredSoftwareonWindowsx64Host-InstallFlexandBison",
@@ -896,7 +893,7 @@
                 { 
                     "URL": 
                     {
-                        "x64"  :  "https://github.com/lexxmark/winflexbison/releases/download/v2.5.24/win_flex_bison-2.5.24.zip",
+                        "X64"  :  "https://github.com/lexxmark/winflexbison/releases/download/v2.5.24/win_flex_bison-2.5.24.zip",
                         "ARM64":  "https://github.com/lexxmark/winflexbison/releases/download/v2.5.24/win_flex_bison-2.5.24.zip"
                     },
                     "InstallDoc"      : "https://tallywiki.tallysolutions.com/display/TWP/Install+Required+Software+on+Windows+x64+Host#InstallRequiredSoftwareonWindowsx64Host-InstallFlexandBison",
@@ -1119,7 +1116,7 @@
                 { 
                     "URL": 
                     {
-                        "x64"  :  "https://github.com/TallySolutions/TWLLVMCLangFormat.Source/releases/download/12.0.0",
+                        "X64"  :  "https://github.com/TallySolutions/TWLLVMCLangFormat.Source/releases/download/12.0.0",
                         "ARM64":  "https://github.com/TallySolutions/TWLLVMCLangFormat.Source/releases/download/12.0.0",
                         "Files":  ["clang-format.exe", "_clang-format"]
                     },
