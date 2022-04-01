@@ -740,7 +740,7 @@
                     "InstallDir"      : "${TWHome}\\Tools\\Android\\SDK",
                     "Installcommands"    :
                     [
-                        "DOWNLOAD {URL_0} ${TEMPDIR}\\commandlinetools-win-8092744_latest.zip",
+                        "DOWNLOAD ${URL_0} ${TEMPDIR}\\commandlinetools-win-8092744_latest.zip",
                         "UNZIP ${TEMPDIR}\\commandlinetools-win-8092744_latest.zip",
                         "DEL /F ${TEMPDIR}\\commandlinetools-win-8092744_latest.zip",
                         "mkdir ${InstallDir}\\cmdline-tools\\latest",
