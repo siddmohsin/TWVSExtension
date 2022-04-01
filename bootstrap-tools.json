@@ -720,6 +720,11 @@
                         "${InstallDir}\\jdk-8u311-windows-x64.exe /s ADDLOCAL=ToolsFeature INSTALLDIR=${TWHome}\\Tools\\Java",
                         "del /f ${InstallDir}\\jdk-8u311-windows-x64.exe"
                     ],
+                    "UninstallCommands": 
+                    [
+                        "ASADMIN wmic product where \"name like 'Java%%'\" call uninstall",
+                        "rmdir /Q /S ${InstallDir}"
+                    ],
                     "PostInstallMessage" : "Please set JAVA_HOME System Environment Varable to ${InstallDir}"
                 }
             }
