@@ -160,6 +160,18 @@
                         ]
                     }
                 },
+                "UpdateCommands": {
+                    "type": [
+                        "array",
+                        "null"
+                    ],
+                    "items": {
+                        "type": [
+                            "string",
+                            "null"
+                        ]
+                    }
+                },
                 "InstallDoc": {
                     "type": [
                         "string",

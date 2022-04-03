@@ -492,7 +492,18 @@
                         "start /wait msiexec /i ${TEMPDIR}\\azure-cli-${VERSION}.msi /passive",
                         "DEL /F ${TEMPDIR}\\azure-cli-${VERSION}.msi"
                     ],
-                    "InstallDoc"      : "https://tallywiki.tallysolutions.com/display/TWP/Install+Required+Software+on+Windows+x64+Host#InstallRequiredSoftwareonWindowsx64Host-InstallAzureCLI"
+                    "UninstallCommands"  : 
+                    [
+                        "DOWNLOAD ${URL_0} ${TEMPDIR}\\azure-cli-${VERSION}.msi",
+                        "start /wait msiexec /x ${TEMPDIR}\\azure-cli-${VERSION}.msi /passive",
+                        "DEL /F ${TEMPDIR}\\azure-cli-${VERSION}.msi"
+                    ],
+                    "UpdateCommands"  :
+                    [
+                         "az upgrade"
+                    ],
+                    "InstallDoc"      : "https://tallywiki.tallysolutions.com/display/TWP/Install+Required+Software+on+Windows+x64+Host#InstallRequiredSoftwareonWindowsx64Host-InstallAzureCLI",
+                    "AlsoInstalls" : "AzureCLIDevOps"
                 }
             },
             "Linux"     :
@@ -520,7 +531,12 @@
                     [
                         "sudo apt purge azure-cli -y"
                     ],
-                    "InstallDoc"      : "https://tallywiki.tallysolutions.com/display/TWP/Install+Required+Software+on+Linux+x64+Host#InstallRequiredSoftwareonLinuxx64Host-InstallAzureCLI"
+                    "UpdateCommands"  :
+                    [
+                         "sudo az upgrade"
+                    ],
+                    "InstallDoc"      : "https://tallywiki.tallysolutions.com/display/TWP/Install+Required+Software+on+Linux+x64+Host#InstallRequiredSoftwareonLinuxx64Host-InstallAzureCLI",
+                    "AlsoInstalls" : "AzureCLIDevOps"
                 }
             },
             "MacOS"     :
@@ -545,10 +561,14 @@
                     [
                         "ASADMIN brew uninstall azure-cli"
                     ],
-                    "InstallDoc" : "https://tallywiki.tallysolutions.com/display/TWP/Install+Required+Software+on+MacOS+x64+and+ARM64+Host#InstallRequiredSoftwareonMacOSx64andARM64Host-InstallAzureCLI"
+                    "UpdateCommands"  :
+                    [
+                         "sudo az upgrade"
+                    ],
+                    "InstallDoc" : "https://tallywiki.tallysolutions.com/display/TWP/Install+Required+Software+on+MacOS+x64+and+ARM64+Host#InstallRequiredSoftwareonMacOSx64andARM64Host-InstallAzureCLI",
+                    "AlsoInstalls" : "AzureCLIDevOps"
                 }
-            }
-
+            }        
         },
         {
             "Name"        : "AzureCLIDevOps",
