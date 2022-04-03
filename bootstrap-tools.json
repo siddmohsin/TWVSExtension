@@ -1,6 +1,6 @@
 {
     "$schema": "https://raw.githubusercontent.com/TallySolutions/TWVSExtension/DevTrunk/bootstrap-tools-schema.json",
-    "Version"               :  "1.7",
+    "Version"               :  "1.8",
     "ADOArtifcatories"      :
     [
         {
