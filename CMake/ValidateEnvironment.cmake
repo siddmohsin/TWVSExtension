@@ -52,7 +52,15 @@ macro(check_ssh_environment)
     if(NOT EXISTS ".ssh/environment")
 
         message(SEND_ERROR "File not found: .ssh/environment (at user's home directory)")
-
+        if(CMAKE_HOST_SYSTEM_NAME STREQUAL Darwin)
+            message(NOTICE "Commands to restart ssh:")
+            message(NOTICE "   sudo launchctl unload /System/Library/LaunchDaemons/ssh.plist")
+            message(NOTICE "   sudo launchctl load -w /System/Library/LaunchDaemons/ssh.plist")
+        endif()
+        if(CMAKE_HOST_SYSTEM_NAME STREQUAL Linux)
+            message(NOTICE "Commands to restart ssh:")
+            message(NOTICE "   sudo service ssh restart")
+        endif()
     endif()
 
     execute_process(
