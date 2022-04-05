@@ -42,7 +42,7 @@ macro(check_ssh_config)
     if(NOT retCode STREQUAL 0)
        
         message(SEND_ERROR "Please set 'PermitUserEnvironment yes' in /etc/ssh/sshd_config and restart ssh.")
-
+        message(NOTICE "Please follow the document:  https://tallywiki.tallysolutions.com/display/TWP/CMakePreset#CMakePreset-AdditionalInstructionforMacOS")
     endif()
 
 endmacro()
@@ -52,10 +52,11 @@ macro(check_ssh_environment)
     if(NOT EXISTS ".ssh/environment")
 
         message(SEND_ERROR "File not found: .ssh/environment (at user's home directory)")
+        message(NOTICE "Please follow the document:  https://tallywiki.tallysolutions.com/display/TWP/CMakePreset#CMakePreset-AdditionalInstructionforMacOS")
         if(CMAKE_HOST_SYSTEM_NAME STREQUAL Darwin)
             message(NOTICE "Commands to restart ssh:")
-            message(NOTICE "   sudo launchctl unload /System/Library/LaunchDaemons/ssh.plist")
-            message(NOTICE "   sudo launchctl load -w /System/Library/LaunchDaemons/ssh.plist")
+            message(NOTICE "   sudo killall sshd")
+            message(NOTICE "Note: above command will restart ssh daemon, so you need to reconnect your existing ssh sessions.")
         endif()
         if(CMAKE_HOST_SYSTEM_NAME STREQUAL Linux)
             message(NOTICE "Commands to restart ssh:")
@@ -73,6 +74,7 @@ macro(check_ssh_environment)
     if(NOT out MATCHES "-rw-------")
        
         message(SEND_ERROR "File .ssh/environment does not have permission 600.")
+        message(NOTICE "Please follow the document:  https://tallywiki.tallysolutions.com/display/TWP/CMakePreset#CMakePreset-AdditionalInstructionforMacOS")
 
     endif()
 
