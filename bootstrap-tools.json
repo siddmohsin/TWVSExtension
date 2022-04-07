@@ -231,7 +231,7 @@
             "Name"        : "LLVM",
             "Windows"     :
             {
-                "VersionString"  : "13.0.1",
+                "VersionString"  : "14.0.0",
                 "Command"        : "${TWHome}\\Tools\\LLVM\\bin\\clang++",
                 "VersionInfo"    : 
                 {
@@ -264,7 +264,7 @@
             },
             "Linux"     :
             {
-                "VersionString"  : "13.0.1",
+                "VersionString"  : "14.0.0",
                 "Command"        : "clang++",
                 "VersionInfo"    : 
                 {
@@ -1242,7 +1242,7 @@
             },
 	    "Linux"     :
             {
-                "VersionString"  : "1.10.4",
+                "VersionString"  : "1.11.1",
                 "Artifactory" : 
                 {
                         "Name"         : "ADOService",
@@ -1273,7 +1273,7 @@
             },
 	    "MacOS"     :
             {
-                "VersionString"  : "1.10.4",
+                "VersionString"  : "1.11.1",
                 "Artifactory" : 
                 {
                         "Name"         : "ADOService",
