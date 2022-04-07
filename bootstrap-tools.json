@@ -1242,7 +1242,7 @@
             },
 	    "Linux"     :
             {
-                "VersionString"  : "1.11.1",
+                "VersionString"  : "1.11.0",
                 "Artifactory" : 
                 {
                         "Name"         : "ADOService",
@@ -1273,7 +1273,7 @@
             },
 	    "MacOS"     :
             {
-                "VersionString"  : "1.11.1",
+                "VersionString"  : "1.11.0",
                 "Artifactory" : 
                 {
                         "Name"         : "ADOService",
