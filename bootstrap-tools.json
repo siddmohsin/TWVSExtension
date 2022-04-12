@@ -70,9 +70,9 @@
                     "InstallCommands"  : 
                     [
                         "DOWNLOAD ${URL_0} ${FILENAME_0}",
-                        "tar xvzf ${FILENAME_0} -C ${InstallDir}",
+                        "sudo tar xvzf ${FILENAME_0} -C ${InstallDir}",
                         "sudo ln -sf ${InstallDir}/${FILENAME_WE_0}/bin/cmake /usr/bin/cmake",
-                        "rm -rf ${FILENAME_0}"
+                        "sudo rm -rf ${FILENAME_0}"
                     ],
                     "UninstallCommands": 
                     [
@@ -165,7 +165,7 @@
                     [
                         "DOWNLOAD ${URL_0} ${FILENAME_0}",
                         "sudo unzip -o ${FILENAME_0} -d ${InstallDir}",
-                        "rm -f ${FILENAME_0}"
+                        "sudo rm -f ${FILENAME_0}"
                     ],
                     "UninstallCommands": 
                     [
@@ -285,9 +285,9 @@
                     [
                         "DOWNLOAD ${URL_0} llvm.sh",
                         "sudo apt update",
-                        "chmod +x llvm.sh",
+                        "sudo chmod +x llvm.sh",
                         "sudo llvm.sh ${VERSION-MAJOR}",
-                        "rm llvm.sh",
+                        "sudo rm llvm.sh",
                         "sudo ln -sf /usr/bin/clang-${VERSION-MAJOR} /usr/bin/clang",
                         "sudo ln -sf /usr/bin/clang++-${VERSION-MAJOR} /usr/bin/clang++",
                         "sudo ln -sf /usr/bin/llvm-ar-${VERSION-MAJOR} /usr/bin/llvm-ar",
