@@ -299,7 +299,8 @@
                     ],
                     "UninstallCommands":
                     [
-                        "sudo apt purge llvm-${VERSION-MAJOR} clang-${VERSION-MAJOR} -y"
+                        "sudo apt purge llvm-* clang-* -y",
+                        "sudo apt autoremove -y"
                     ],
                     "InstallDoc"      : "https://tallywiki.tallysolutions.com/display/TWP/Install+Required+Software+on+Linux+x64+Host#InstallRequiredSoftwareonLinuxx64Host-InstallLLVM"
                 }
