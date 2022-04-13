@@ -555,6 +555,7 @@
                     "InstallDir" : "/usr/local/bin",
                     "InstallCommands" : 
                     [
+                        "sudo chown -R $(whoami) /opt/homebrew  /usr/local/var/homebrew /usr/local/Cellar | echo",
                         "ASADMIN brew install azure-cli",
                         "sudo az upgrade"
                     ],

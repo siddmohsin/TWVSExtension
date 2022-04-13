@@ -1,5 +1,5 @@
 {
-    "Version"                :  "1.2",
+    "Version"                :  "1.3",
     "ADORepositories"        :
     {
         "BranchPolicies" :
@@ -67,7 +67,14 @@
     ],
     "GitConfig" : 
     {
-        "CloneWaitTime"  : 300
+        "CloneWaitTime"  : 300,
+        "Configs"        :
+        [
+            {
+                "Name" : "core.ignoreCase",
+                "Value": "false"
+            }
+        ]
     },
     "RepoListConfig"   :
     {
