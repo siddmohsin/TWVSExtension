@@ -231,7 +231,7 @@
             "Name"        : "LLVM",
             "Windows"     :
             {
-                "VersionString"  : "14.0.0",
+                "VersionString"  : "14.0.1",
                 "Command"        : "${TWHome}\\Tools\\LLVM\\bin\\clang++",
                 "VersionInfo"    : 
                 {
@@ -264,7 +264,7 @@
             },
             "Linux"     :
             {
-                "VersionString"  : "14.0.0",
+                "VersionString"  : "14.0.1",
                 "Command"        : "clang++",
                 "VersionInfo"    : 
                 {
