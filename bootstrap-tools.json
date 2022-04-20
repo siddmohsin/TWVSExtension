@@ -1214,13 +1214,13 @@
             "Name"        : "GoogleTest",
             "Windows"     :
             {
-                "VersionString"  : "1.11.0",
+                "VersionString"  : "1.1.0",
                 "Artifactory" : 
                 {
                         "Name"         : "ADOService",
                         "Organization" : "TallyWorld",
                         "Feed"         : "Windows-Build-Libs",
-                        "Package"      : "googletest"
+                        "Package"      : "googletest1.11"
                 },
                 "VersionInfo"    : 
                 {
@@ -1245,13 +1245,13 @@
             },
 	    "Linux"     :
             {
-                "VersionString"  : "1.11.0",
+                "VersionString"  : "1.1.0",
                 "Artifactory" : 
                 {
                         "Name"         : "ADOService",
                         "Organization" : "TallyWorld",
                         "Feed"         : "Linux-Build-Libs",
-                        "Package"      : "googletest"
+                        "Package"      : "googletest1.11"
                 },
                 "VersionInfo"    : 
                 {	    
@@ -1277,13 +1277,13 @@
             },
 	    "MacOS"     :
             {
-                "VersionString"  : "1.11.0",
+                "VersionString"  : "1.1.0",
                 "Artifactory" : 
                 {
                         "Name"         : "ADOService",
                         "Organization" : "TallyWorld",
                         "Feed"         : "MacOS-Build-Libs",
-                        "Package"      : "googletest"
+                        "Package"      : "googletest1.11"
                 },
                 "VersionInfo"    : 
                 {
