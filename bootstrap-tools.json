@@ -1220,7 +1220,7 @@
                         "Name"         : "ADOService",
                         "Organization" : "TallyWorld",
                         "Feed"         : "Windows-Build-Libs",
-                        "Package"      : "googletest1.11"
+                        "Package"      : "googletest"
                 },
                 "VersionInfo"    : 
                 {
@@ -1251,7 +1251,7 @@
                         "Name"         : "ADOService",
                         "Organization" : "TallyWorld",
                         "Feed"         : "Linux-Build-Libs",
-                        "Package"      : "googletest1.11"
+                        "Package"      : "googletest"
                 },
                 "VersionInfo"    : 
                 {	    
@@ -1283,7 +1283,7 @@
                         "Name"         : "ADOService",
                         "Organization" : "TallyWorld",
                         "Feed"         : "MacOS-Build-Libs",
-                        "Package"      : "googletest1.11"
+                        "Package"      : "googletest"
                 },
                 "VersionInfo"    : 
                 {
