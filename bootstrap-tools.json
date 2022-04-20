@@ -1214,7 +1214,7 @@
             "Name"        : "GoogleTest",
             "Windows"     :
             {
-                "VersionString"  : "1.1.0",
+                "VersionType" : "ArtifactoryLatest",
                 "Artifactory" : 
                 {
                         "Name"         : "ADOService",
@@ -1245,7 +1245,7 @@
             },
 	    "Linux"     :
             {
-                "VersionString"  : "1.1.0",
+                "VersionType" : "ArtifactoryLatest",
                 "Artifactory" : 
                 {
                         "Name"         : "ADOService",
@@ -1277,7 +1277,7 @@
             },
 	    "MacOS"     :
             {
-                "VersionString"  : "1.1.0",
+                "VersionType" : "ArtifactoryLatest",
                 "Artifactory" : 
                 {
                         "Name"         : "ADOService",
