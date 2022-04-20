@@ -1038,7 +1038,7 @@
             "Name"        : "Qt",
             "Windows"     :
             {
-                "VersionString"  : "6.2.0",
+                "VersionType" : "ArtifactoryLatest",
                 "Artifactory" : 
                 {
                         "Name"         : "ADOService",
@@ -1047,12 +1047,12 @@
                         "Package"      : "qt6.2"
                 },
                 "VersionInfo"    : 
-                {
-                    "Command"    : "${InstallDir}\\${HOST-OS}-${HOST-ARCH}\\bin\\qmake --version",
+	        {
+                    "Command"    : "type ${InstallDir}\\qt.properties",
                     "OutputType" : "PlainText",
-                    "Line"       : 2,
-                    "Column"     : 4                
-                },
+                    "Line"       : 1,
+                    "Column"     : 3                
+	        },
                 "Installer" : 
                 { 
                     "InstallDoc"      : "https://tallywiki.tallysolutions.com/display/TWP/Install+Required+Software+on+Windows+x64+Host#InstallRequiredSoftwareonWindowsx64Host-InstallQt",
@@ -1069,7 +1069,7 @@
             },
             "Linux"     :
             {
-                "VersionString"  : "6.2.0",
+                "VersionType" : "ArtifactoryLatest",
                 "Artifactory" : 
                 {
                         "Name"         : "ADOService",
@@ -1078,12 +1078,12 @@
                         "Package"      : "qt6.2"
                 },
                 "VersionInfo"    : 
-                {
-                    "Command"    : "/usr/share/Qt/${HOST-OS}-${HOST-ARCH}/bin/qmake --version",
+                {	    
+                    "Command"    : "cat /usr/share/Qt/qt.properties",
                     "OutputType" : "PlainText",
-                    "Line"       : 2,
-                    "Column"     : 4                
-                },
+                    "Line"       : 1,
+                    "Column"     : 3                
+		},
                 "Installer" : 
                 { 
                     "InstallDoc"      : "https://tallywiki.tallysolutions.com/display/TWP/Install+Required+Software+on+Linux+x64+Host#InstallRequiredSoftwareonLinuxx64Host-InstallQt",
@@ -1106,7 +1106,7 @@
             },
             "MacOS"     :
             {
-                "VersionString"  : "6.2.0",
+                "VersionType" : "ArtifactoryLatest",
                 "Artifactory" : 
                 {
                         "Name"         : "ADOService",
@@ -1115,12 +1115,12 @@
                         "Package"      : "qt6.2"
                 },
                 "VersionInfo"    : 
-                {
-                    "Command"    : "/Users/Shared/Qt/${HOST-OS}-${HOST-ARCH}/bin/qmake --version",
+                {	    
+                    "Command"    : "cat /Users/Shared/Qt/qt.properties",
                     "OutputType" : "PlainText",
-                    "Line"       : 2,
-                    "Column"     : 4                
-                },
+                    "Line"       : 1,
+                    "Column"     : 3                
+		},
                 "Installer" : 
                 { 
                     "InstallDoc"      : "https://tallywiki.tallysolutions.com/display/TWP/Install+Required+Software+on+MacOS+x64+and+ARM64+Host#InstallRequiredSoftwareonMacOSx64andARM64Host-InstallQt",
@@ -1227,7 +1227,8 @@
                     "Command"    : "type ${InstallDir}\\googletest.properties",
                     "OutputType" : "PlainText",
                     "Line"       : 1,
-                    "Column"     : 3                },
+                    "Column"     : 3                
+		},
                 "Installer" : 
                 { 
                     "InstallDoc"      : "https://tallywiki.tallysolutions.com/display/TWP/Install+Required+Software+on+Windows+x64+Host#InstallRequiredSoftwareonWindowsx64Host-InstallGoogleTest",
@@ -1257,7 +1258,8 @@
                     "Command"    : "cat /usr/share/GoogleTest/googletest.properties",
                     "OutputType" : "PlainText",
                     "Line"       : 1,
-                    "Column"     : 3                },
+                    "Column"     : 3                
+		},
                 "Installer" : 
                 { 
                     "InstallDoc"      : "https://tallywiki.tallysolutions.com/display/TWP/Install+Required+Software+on+Linux+x64+Host#InstallRequiredSoftwareonLinuxx64Host-InstallGoogleTest",
@@ -1288,7 +1290,8 @@
                     "Command"    : "cat /Users/Shared/GoogleTest/googletest.properties",
                     "OutputType" : "PlainText",
                     "Line"       : 1,
-                    "Column"     : 3                },
+                    "Column"     : 3                
+		},
                 "Installer" : 
                 { 
                     "InstallDoc"      : "https://tallywiki.tallysolutions.com/display/TWP/Install+Required+Software+on+MacOS+x64+and+ARM64+Host#InstallRequiredSoftwareonMacOSx64andARM64Host-InstallGoogleTest",
