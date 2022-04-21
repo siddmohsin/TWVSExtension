@@ -1035,7 +1035,7 @@
             }
         },
         {
-            "Name"        : "Qt 6.2.4",
+            "Name"        : "Qt",
             "Windows"     :
             {
                 "VersionType" : "ArtifactoryLatest",
