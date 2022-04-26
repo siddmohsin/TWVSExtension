@@ -1,6 +1,6 @@
 {
     "$schema": "https://raw.githubusercontent.com/TallySolutions/TWVSExtension/DevTrunk/bootstrap-tools-schema.json",
-    "Version"               :  "1.8",
+    "Version"               :  "1.9",
     "ADOArtifcatories"      :
     [
         {
@@ -1312,7 +1312,6 @@
     ],
     "ValidationCMakeFile"  :  "${BootstrapURL}/CMake/ValidateEnvironment.cmake",
 	"VSSettingsFile"       :  "${BootstrapURL}/TallyWorld.vssettings",
-    "UserConfigFileName"   :  "TallyWorld.twvsconfig",
 	"VisualStudioOptions"  :
 	[
 		{
