@@ -819,7 +819,7 @@
                         "DOWNLOAD ${URL_0} ${TEMPDIR}\\android-ndk-r${VERSION-MAJOR}-windows.zip",
                         "UNZIP ${TEMPDIR}\\android-ndk-r${VERSION-MAJOR}-windows.zip",
                         "DEL /F ${TEMPDIR}\\android-ndk-r${VERSION-MAJOR}-windows.zip",
-                        "move ${TWHome}\\Tools\\Android\\NDK\\android-ndk-r${VERSION-MAJOR} ${TWHome}\\Tools\\Android\\android-ndk-r${VERSION-MAJOR}",
+                        "move ${TWHome}\\Tools\\Android\\NDK\\android-ndk-r${VERSION-MAJOR}b ${TWHome}\\Tools\\Android\\android-ndk-r${VERSION-MAJOR}",
                         "rmdir ${TWHome}\\Tools\\Android\\NDK",
                         "move ${TWHome}\\Tools\\Android\\android-ndk-r${VERSION-MAJOR} ${TWHome}\\Tools\\Android\\NDK"
                     ],
