@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title>VSIX Gallery</title>
   <id>5a7c2525-ddd8-4c44-b2e3-f57ba01a0d81</id>
-  <updated>2022-05-05T12.15.27Z</updated>
+  <updated>2022-05-05T12:15:27Z</updated>
   <subtitle>Add this feed to Visual Studio's extension manager from Tools -&gt; Options -&gt; Environment -&gt; Extensions and Updates</subtitle>
   <link rel="alternate" href="feed.xml" />
   <entry>
@@ -10,8 +10,8 @@
     <title type="text">TWVSBuild</title>
     <link rel="alternate" href="https://github.com/TallySolutions/TWVSExtension/releases/download/TWVSBuild-v5.3.13.7/Tally.TWVSBuild.vsix" />
     <summary type="text">TallyWorld Visual Studio Build Support</summary>
-    <published>2022-05-05T12.15.03Z</published>
-    <updated>2022-05-05T12.15.03Z</updated>
+    <published>2022-05-05T12:15:03Z</published>
+    <updated>2022-05-05T12:15:03Z</updated>
     <author>
       <name>Tally</name>
     </author>
