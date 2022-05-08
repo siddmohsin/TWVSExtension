@@ -5,10 +5,9 @@
 		<key>fileTypes</key>
 		<array>
 			<string>twappid</string>
-			<string>twappidoptions</string>
 			<string>twapp</string>
 			<string>twschema</string>
-			<string>twbuildoptions</string>
+			<string>twschemaconfig</string>
 			<string>twbuildconfig</string>
 			<string>twtoolconfig</string>
 			<string>twlayerconfig</string>
@@ -236,7 +235,7 @@
 							</dict>
 						</dict>
 						<key>match</key>
-						<string>^\s?*(TWEnum|TWMainEnum|TWSchemaMainEnum|TWAPIMainEnum|TWMetricEnum|TWResourceMetricEnum|TWSimulationEnum)\s?*(\S+)\s?*(\:)\s+(TUInt8|TUInt16|TUInt32|TUInt64)(\s?*)(\{)</string>
+						<string>^\s?*(TWEnum|TWMainEnum|TWDevSupportEnum|TWDevSupportResourceEnum)\s?*(\S+)\s?*(\:)\s+(TUInt8|TUInt16|TUInt32|TUInt64)(\s?*)(\{)</string>
 					</dict>
 				</array>
 			</dict>
@@ -260,34 +259,6 @@
 								<string>rdi.name.type</string>
 							</dict>
 							<key>4</key>
-							<dict>
-								<key>name</key>
-								<string>entity.name.type</string>
-							</dict>
-						</dict>
-					</dict>
-				</array>
-			</dict>
-			<key>twschemasubenums</key>
-			<dict>
-				<key>patterns</key>
-				<array>
-					<dict>
-						<key>begin</key>
-						<string>^\s?*(TWSchemaSubEnum)\s?*(\S+)\s?*\:\s?*(\S+)\s?*(\{)</string>
-						<key>beginCaptures</key>
-						<dict>
-							<key>1</key>
-							<dict>
-								<key>name</key>
-								<string>keyword.control.c</string>
-							</dict>
-							<key>2</key>
-							<dict>
-								<key>name</key>
-								<string>entity.name.type</string>
-							</dict>
-							<key>3</key>
 							<dict>
 								<key>name</key>
 								<string>entity.name.type</string>
@@ -320,7 +291,7 @@
 				<array>
 					<dict>
 						<key>match</key>
-						<string>(TWSchemaObject|TWAppSchema|TWSchemaField|TWSchemaReservedObject|TWDCSection|TWAppDCSchema|TWAppAPISchema)\b\s?*(\S+|\s?*)\s?*</string>
+						<string>(TWAppObjectSchema|TWAppReservedObjectSchema|TWAppDCSectionSchema|TWAppDCSchema|TWAppAPISchema)\b\s?*(\S+|\s?*)\s?*</string>
 						<key>captures</key>
 						<dict>
 							<key>1</key>
@@ -655,7 +626,7 @@
 
 					<dict>
 						<key>begin</key>
-						<string>^\s?*(TWName|TWOSList|TWIsBuildHost|TWHostOS|TWVSIntelliSenseEnviron|TWRemoteSourceDir|TWVSIntelliSenseIncludes|TWVSName|TWCMakeName|TWBuildGeneratorName|KERNEL|TWVSIntelliSenseMode|TWInactive|TWIsSimulator|TWSimulatedOS|TWSourceDir|TWTestDir|TWBaseLayer|TWCategory|NAME|TWVSIntelliSenseDefines|TWVSIntelliSenseCompilerFlags|TWRemoteOS|TWRemoteArchitecture|TWRemoteIncludes|TWWorkspaceFolderName|TWGenFolderName|TWToolsFolderName|TWBuildFolderName|TWIntFolderName|TWLibFolderName|TWBinFolderName|TWIgnoreFolders|TWLayerConfigPath|TWToolConfigPath|TWAppIDOptionsPath|TWBuildConfigPath|TWVSConfigPath|TWPublicInclude|TWPrivateInclude|TWSourceExtensions|TWAppIDExtensions|TWAppIDFilesPaths|TWAppIDAppProdExtension|TWAppIDAppTestExtension|TWCppPropValidIntelliSenseModes|TWCppPropValidIntelliSenseEnvirons|TWOSArchInvalidValues|TWCMakeEnvironVarOutFile|TWCMakeMainOutFile|TWBuildTargetsJsonFile|TWCppPropertiesOutFile|TWCMakePresetsOutFile|TWLaunchVSJsonFile|TWTaskVSJsonFile|TWSchemaGenCMakeFile|TWCMakeTopText|TWCMakeBottomText|TWCMakeEnvTopText|TWCMakeEnvBottomText|TWCMakeSchemaGenTopText|TWCMakeSchemaGenBottomText)\b\s?*</string>
+						<string>^\s?*(TWName|TWOSList|TWIsBuildHost|TWHostOS|TWRSyncCmdArgs|TWCMakePresetCacheVar|TWCMakePresetEnvVar|TWVSIntelliSenseEnviron|TWRemoteSourceDir|TWVSIntelliSenseIncludes|TWVSName|TWCMakeName|TWBuildGeneratorName|KERNEL|TWVSIntelliSenseMode|TWInactive|TWIsSimulator|TWSimulatedOS|TWSourceDir|TWTestDir|TWBaseLayer|TWCategory|NAME|TWVSIntelliSenseDefines|TWVSIntelliSenseCompilerFlags|TWRemoteOS|TWRemoteArchitecture|TWRemoteIncludes|TWWorkspaceFolderName|TWGenFolderName|TWToolsFolderName|TWBuildFolderName|TWIntFolderName|TWLibFolderName|TWBinFolderName|TWIgnoreFolders|TWLayerConfigPath|TWToolConfigPath|TWAppIDOptionsPath|TWBuildConfigPath|TWVSConfigPath|TWPublicInclude|TWPrivateInclude|TWSourceExtensions|TWAppIDExtensions|TWAppIDFilesPaths|TWAppIDAppProdExtension|TWAppIDAppTestExtension|TWCppPropValidIntelliSenseModes|TWCppPropValidIntelliSenseEnvirons|TWOSArchInvalidValues|TWCMakeEnvironVarOutFile|TWCMakeMainOutFile|TWBuildTargetsJsonFile|TWCppPropertiesOutFile|TWCMakePresetsOutFile|TWLaunchVSJsonFile|TWTaskVSJsonFile|TWSchemaGenCMakeFile|TWCMakeTopText|TWCMakeBottomText|TWCMakeEnvTopText|TWCMakeEnvBottomText|TWCMakeSchemaGenTopText|TWCMakeSchemaGenBottomText)\b\s?*</string>
 						<key>beginCaptures</key>
 						<dict>
 							<key>1</key>
