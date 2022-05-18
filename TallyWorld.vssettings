@@ -15,6 +15,7 @@
                     <PropertyValue name="AutoFormatOnPaste">false</PropertyValue>
 					<PropertyValue name="AutoFormatOnBraceCompletion">false</PropertyValue>
                     <PropertyValue name="AutoFormatOnClosingBrace">true</PropertyValue>
+					<PropertyValue name="GeneratedDocumentationType">3</PropertyValue>
                     <!--PropertyValue name="BraceCompletion">true</PropertyValue  *TODO* should we set it to false?-->
                 </ToolsOptionsSubCategory>
 	    </ToolsOptionsCategory>
