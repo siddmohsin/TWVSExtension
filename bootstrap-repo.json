@@ -73,6 +73,10 @@
             {
                 "Name" : "core.ignoreCase",
                 "Value": "false"
+            },
+            {
+                "Name" : "core.autocrlf",
+                "Value": "false"
             }
         ]
     },
