@@ -367,8 +367,8 @@
                     },
                     {
                         "Command"        : "git config --global user.name",
-                        "ExpectedOutput" : "${USERNAME}",
-                        "FixCommand"     : "git config --global user.name \"${USERNAME}\""
+                        "ExpectedOutput" : "${USERDISPLAYNAME}",
+                        "FixCommand"     : "git config --global user.name \"${USERDISPLAYNAME}\""
                     },
                     {
                         "Command"        : "git config --global user.email",
