@@ -679,41 +679,6 @@
             }
         },
         {
-            "Name"        : "TWUniversalSchema",
-            "Windows"     :
-            {
-                "VersionType" : "ArtifactoryLatest",
-                "Artifactory" : 
-                {
-                        "Name"         : "ADOService",
-                        "Organization" : "TallyWorld",
-                        "Feed"         : "Common-BuildTools",
-                        "Package"      : "twunischemadb"
-                },
-                "VersionInfo" : 
-                {
-                    "Command"    : "${TWHome}\\Tools\\TWAppGen\\TWAppGen --usdbversion=${InstallDir}\\TWUniversalSchema.TWSchemaDB",
-                    "OutputType" : "PlainText",
-                    "Prefix"     : "v",
-                    "Line"       : 1,
-                    "Column"     : 1
-                },
-                "Installer" : 
-                { 
-                    "InstallDoc"      : "https://tallywiki.tallysolutions.com/display/TWP/Install+Required+Software+on+Windows+x64+Host#InstallRequiredSoftwareonWindowsx64Host-InstallTWUniversalSchemaDB",
-                    "InstallDir"      : "${TWHome}\\Tools\\TWUniversalSchemaDB",
-                    "InstallCommands" :
-                    [
-                        "ADO_DOWNLOAD"
-                    ],
-                    "UninstallCommands":
-                    [
-                        "rmdir /S /Q ${InstallDir}"
-                    ]
-                }
-            }
-        },
-        {
             "Name"        : "Java",
             "Windows"     :
             {
