@@ -513,7 +513,7 @@
                 "VersionString"  : "2.34",
                 "VersionInfo"    : 
                 {
-                    "Command"    : "sudo az --version",
+                    "Command"    : "sudo /usr/bin/az --version",
                     "OutputType" : "PlainText",
                     "Line"       : 1,
                     "Column"     : 2
@@ -602,7 +602,7 @@
                 "VersionString"  : "0.23",
                 "VersionInfo"    : 
                 {
-                    "Command"    : "sudo az extension list",
+                    "Command"    : "sudo /usr/bin/az extension list",
                     "OutputType" : "JsonArray",
                     "SearchTag"  : "name",
                     "SearchValue": "azure-devops",
@@ -611,10 +611,10 @@
                 "CentrallyManaged": false,
                 "Installer": {
                     "InstallCommands": [
-                        "sudo az extension add --name azure-devops"
+                        "sudo /usr/bin/az extension add --name azure-devops"
                     ],
                     "UninstallCommands": [
-                        "sudo az extension remove --name azure-devops"
+                        "sudo /usr/bin/az extension remove --name azure-devops"
                     ],
                     "InstallDir": "/usr/bin",
                     "InstallDoc": "https://tallywiki.tallysolutions.com/display/TWP/Install+Required+Software+on+Linux+x64+Host#InstallRequiredSoftwareonLinuxx64Host-InstallAzureCLIDevOpsExtension"
