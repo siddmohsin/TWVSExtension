@@ -198,11 +198,14 @@ if(CMAKE_HOST_SYSTEM_NAME STREQUAL Linux)
        
         message(NOTICE "Follow this page to install required packages on Linux : https://tallywiki.tallysolutions.com/display/TWP/Install+Required+Software+on+Linux+x64+Host")
         message(NOTICE "Run following command to install missing packages:")
+        set(INSTALL_FILE $ENV{HOME}/install-missing.sh)
+        file(WRITE ${INSTALL_FILE} "#!/bin/bash\n\napt update\n")
         foreach(PKG ${failed_package_list})
            message(NOTICE "   sudo apt install ${PKG} -y")
+           file(APPEND ${INSTALL_FILE} "apt install ${PKG} -y\n")
         endforeach()
-        
-        message(SEND_ERROR "One or more packages not installed.")
+        file(CHMOD ${INSTALL_FILE} FILE_PERMISSIONS OWNER_EXECUTE GROUP_EXECUTE WORLD_EXECUTE )
+        message(SEND_ERROR "One or more packages not installed, run 'sudo ${INSTALL_FILE}' to install missing packages")
 
     endif()
 endif()
