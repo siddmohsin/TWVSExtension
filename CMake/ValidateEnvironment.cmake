@@ -204,7 +204,7 @@ if(CMAKE_HOST_SYSTEM_NAME STREQUAL Linux)
            message(NOTICE "   sudo apt install ${PKG} -y")
            file(APPEND ${INSTALL_FILE} "apt install ${PKG} -y\n")
         endforeach()
-        file(CHMOD ${INSTALL_FILE} FILE_PERMISSIONS OWNER_EXECUTE GROUP_EXECUTE WORLD_EXECUTE )
+        file(CHMOD ${INSTALL_FILE} FILE_PERMISSIONS OWNER_READ OWNER_WRITE OWNER_EXECUTE GROUP_READ GROUP_EXECUTE WORLD_READ WORLD_EXECUTE )
         message(NOTICE "(OR) run 'sudo ${INSTALL_FILE}' to install missing packages.")
         message(SEND_ERROR "One or more packages not installed.")
 
