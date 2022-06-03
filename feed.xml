@@ -49,17 +49,17 @@
   <entry>
     <id>TWVSEditor.e45c0d07-34b0-4405-b94f-ede84e4b95b5</id>
     <title type="text">TWVSEditor</title>
-    <link rel="alternate" href="https://github.com/TallySolutions/TWVSExtension/releases/download/TWVSEditor-v4.0.0.3/Tally.TWVSEditor.Signed.vsix" />
+    <link rel="alternate" href="https://github.com/TallySolutions/TWVSExtension/releases/download/TWVSEditor-v4.0.0/Tally.TWVSEditor.Signed.vsix" />
     <summary type="text">TallyWorld Visual Studio Editor Support</summary>
     <published>2022-06-03T06:22:38Z</published>
     <updated>2022-06-03T06:22:38Z</updated>
     <author>
       <name>Tally</name>
     </author>
-    <content type="application/octet-stream" src="https://github.com/TallySolutions/TWVSExtension/releases/download/TWVSEditor-v4.0.0.3/Tally.TWVSEditor.Signed.vsix" />
+    <content type="application/octet-stream" src="https://github.com/TallySolutions/TWVSExtension/releases/download/TWVSEditor-v4.0.0/Tally.TWVSEditor.Signed.vsix" />
     <Vsix xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/developer/vsx-syndication-schema/2010">
       <Id>TWVSEditor.e45c0d07-34b0-4405-b94f-ede84e4b95b5</Id>
-      <Version>4.0.0.3</Version>
+      <Version>4.0.0</Version>
       <References />
       <Rating xsi:nil="true" />
       <RatingCount xsi:nil="true" />
