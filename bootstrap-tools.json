@@ -145,7 +145,7 @@
             },
             "Linux"     :
             {
-                "VersionString"  : "1.10.2",
+                "VersionString"  : "1.10.0",
                 "Command"        : "/usr/bin/ninja",
                 "VersionInfo"    : 
                 {
@@ -156,21 +156,14 @@
                 },
                 "Installer" : 
                 { 
-                    "URL": 
-                    {
-                        "X64":   "https://github.com/ninja-build/ninja/releases/download/v1.10.2/ninja-linux.zip",
-                        "ARM64": "https://github.com/ninja-build/ninja/releases/download/v1.10.2/ninja-linux.zip"
-                    },
                     "InstallDir"      : "/usr/bin",
                     "InstallCommands"  : 
                     [
-                        "DOWNLOAD ${URL_0} ${FILENAME_0}",
-                        "sudo unzip -o ${FILENAME_0} -d ${InstallDir}",
-                        "sudo rm -f ${FILENAME_0}"
+                        "sudo apt install ninja-build -y"
                     ],
                     "UninstallCommands": 
                     [
-                        "sudo rm -f ${InstallDir}/ninja"
+                        "sudo apt purge ninja-build -y"
                     ],
                     "InstallDoc"      : "https://tallywiki.tallysolutions.com/display/TWP/Install+Required+Software+on+Linux+x64+Host#InstallRequiredSoftwareonLinuxx64Host-InstallNinja"
 
@@ -295,7 +288,7 @@
                         "sudo ln -sf /usr/bin/llvm-ranlib-${VERSION-MAJOR} /usr/bin/llvm-ranlib",
                         "sudo ln -sf /usr/bin/lld-link-${VERSION-MAJOR} /usr/bin/lld-link",
                         "sudo apt install -y gcc-aarch64-linux-gnu  libgcc-9-dev-arm64-cross libstdc++-10-dev-arm64-cross",
-                        "sudo apt install -y gcc-multilib g++-multilib",
+                        "sudo apt install -y gcc-multilib g++-multilib | echo ignoring errors...",
                         "sudo apt install -y gcc-multilib-arm-linux-gnueabi gcc-multilib-arm-linux-gnueabihf"
                     ],
                     "UninstallCommands":
@@ -668,41 +661,6 @@
                 { 
                     "InstallDoc"      : "https://tallywiki.tallysolutions.com/display/TWP/Install+Required+Software+on+Windows+x64+Host#InstallRequiredSoftwareonWindowsx64Host-InstallTWAppGen",
                     "InstallDir"      : "${TWHome}\\Tools\\TWAppGen",
-                    "InstallCommands" :
-                    [
-                        "ADO_DOWNLOAD"
-                    ],
-                    "UninstallCommands":
-                    [
-                        "rmdir /S /Q ${InstallDir}"
-                    ]
-                }
-            }
-        },
-        {
-            "Name"        : "TWUniversalSchema",
-            "Windows"     :
-            {
-                "VersionType" : "ArtifactoryLatest",
-                "Artifactory" : 
-                {
-                        "Name"         : "ADOService",
-                        "Organization" : "TallyWorld",
-                        "Feed"         : "Common-BuildTools",
-                        "Package"      : "twunischemadb"
-                },
-                "VersionInfo" : 
-                {
-                    "Command"    : "${TWHome}\\Tools\\TWAppGen\\TWAppGen --usdbversion=${InstallDir}\\TWUniversalSchema.TWSchemaDB",
-                    "OutputType" : "PlainText",
-                    "Prefix"     : "v",
-                    "Line"       : 1,
-                    "Column"     : 1
-                },
-                "Installer" : 
-                { 
-                    "InstallDoc"      : "https://tallywiki.tallysolutions.com/display/TWP/Install+Required+Software+on+Windows+x64+Host#InstallRequiredSoftwareonWindowsx64Host-InstallTWUniversalSchemaDB",
-                    "InstallDir"      : "${TWHome}\\Tools\\TWUniversalSchemaDB",
                     "InstallCommands" :
                     [
                         "ADO_DOWNLOAD"
