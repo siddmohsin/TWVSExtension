@@ -646,7 +646,7 @@
                 {
                         "Name"         : "ADOService",
                         "Organization" : "TallyWorld",
-                        "Feed"         : "Windows-x64-BuildTools",
+                        "Feed"         : "Windows-${HOST-ARCH}-BuildTools",
                         "Package"      : "twappgen"
                 },
                 "VersionInfo" : 
@@ -681,7 +681,7 @@
                 {
                         "Name"         : "ADOService",
                         "Organization" : "TallyWorld",
-                        "Feed"         : "Windows-x64-BuildTools",
+                        "Feed"         : "Windows-${HOST-ARCH}-BuildTools",
                         "Package"      : "java"
                 },
                 "VersionInfo"    : 
@@ -698,8 +698,8 @@
                     "InstallCommands"    :
                     [
                         "ADO_DOWNLOAD",
-                        "${InstallDir}\\jdk-8u311-windows-x64.exe /s ADDLOCAL=ToolsFeature INSTALLDIR=${TWHome}\\Tools\\Java",
-                        "del /f ${InstallDir}\\jdk-8u311-windows-x64.exe"
+                        "${InstallDir}\\jdk-8u311-windows-${HOST-ARCH}.exe /s ADDLOCAL=ToolsFeature INSTALLDIR=${TWHome}\\Tools\\Java",
+                        "del /f ${InstallDir}\\jdk-8u311-windows-${HOST-ARCH}.exe"
                     ],
                     "UninstallCommands": 
                     [
@@ -968,7 +968,7 @@
                 {
                         "Name"         : "ADOService",
                         "Organization" : "TallyWorld",
-                        "Feed"         : "Windows-x64-BuildTools",
+                        "Feed"         : "Windows-${HOST-ARCH}-BuildTools",
                         "Package"      : "gradle"
                 },
                 "VersionInfo"    : 
@@ -1002,7 +1002,7 @@
                 {
                         "Name"         : "ADOService",
                         "Organization" : "TallyWorld",
-                        "Feed"         : "Windows-x64-BuildTools",
+                        "Feed"         : "Windows-${HOST-ARCH}-BuildTools",
                         "Package"      : "qt6.2"
                 },
                 "VersionInfo"    : 
@@ -1033,7 +1033,7 @@
                 {
                         "Name"         : "ADOService",
                         "Organization" : "TallyWorld",
-                        "Feed"         : "Linux-x64-BuildTools",
+                        "Feed"         : "Linux-${HOST-ARCH}-BuildTools",
                         "Package"      : "qt6.2"
                 },
                 "VersionInfo"    : 
@@ -1050,7 +1050,7 @@
                     "InstallCommands" :
                     [
                         "ADO_DOWNLOAD",
-                        "sudo chmod -R 755 /usr/share/Qt/Linux-x64",
+                        "sudo chmod -R 755 /usr/share/Qt",
                         "sudo apt update",
                         "sudo apt-get install build-essential libgl1-mesa-dev -y",
                         "sudo apt-get install libdouble-conversion-dev libpcre2-16-0 -y",
@@ -1070,7 +1070,7 @@
                 {
                         "Name"         : "ADOService",
                         "Organization" : "TallyWorld",
-                        "Feed"         : "MacOS-x64-BuildTools",
+                        "Feed"         : "MacOS-${HOST-ARCH}-BuildTools",
                         "Package"      : "qt6.2"
                 },
                 "VersionInfo"    : 
@@ -1091,7 +1091,7 @@
                     ],
                     "UninstallCommands":
                     [
-                        "sudo rm -rf //Users/Shared/Qt"
+                        "sudo rm -rf /Users/Shared/Qt"
                     ]
                 }
             }
