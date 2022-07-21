@@ -1271,7 +1271,42 @@
                     ]
                 }
             }
-        }
+        },
+        {
+            "Name"        : "DoxyGen",
+            "Windows"     :
+            {
+                "VersionString"  : "1.9.4",
+                "VersionInfo" : 
+                {
+                    "Command"    : "${InstallDir}/doxygen -version",
+                    "OutputType" : "PlainText",
+                    "Prefix"     : "v",
+                    "Line"       : 1,
+                    "Column"     : 1
+                },
+                "Installer" : 
+                { 
+                    "URL": 
+                    {
+                        "X64"  :  "https://www.doxygen.nl/files/doxygen-1.9.4.windows.x64.bin.zip",
+                        "ARM64":  "https://www.doxygen.nl/files/doxygen-1.9.4.windows.x64.bin.zip"
+                    },
+                    "InstallDoc"      : "https://tallywiki.tallysolutions.com/display/TWP/Install+Required+Software+on+Windows+x64+Host#InstallRequiredSoftwareonWindowsx64Host-InstallDoxyGen",
+                    "InstallDir"      : "${TWHome}\\Tools\\DoxyGen",
+                    "Installcommands"    :
+                    [
+                        "DOWNLOAD ${URL_0} ${TEMPDIR}\\doxygen-1.9.4.windows.x64.bin.zip",
+                        "UNZIP ${TEMPDIR}\\doxygen-1.9.4.windows.x64.bin.zip",
+                        "DEL /F ${TEMPDIR}\\doxygen-1.9.4.windows.x64.bin.zip"
+                    ],
+                    "UninstallCommands":
+                    [
+                        "rmdir /S /Q ${InstallDir}"
+                    ],
+                }
+            }
+        },
 
     ],
     "ValidationCMakeFile"  :  "${BootstrapURL}/CMake/ValidateEnvironment.cmake",
