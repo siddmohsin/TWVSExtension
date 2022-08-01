@@ -1305,6 +1305,74 @@
                     ]
                 }
             }
+        },
+        {
+            "Name"        : "NodeServer",
+            "Windows"     :
+            {
+                "VersionString"  : "16.16.0",
+                "VersionInfo" : 
+                {
+                    "Command"    : "${InstallDir}/node --version",
+                    "OutputType" : "PlainText",
+                    "Line"       : 1,
+                    "Column"     : 1
+                },
+                "Installer" : 
+                { 
+                    "URL": 
+                    {
+                        "X64"  :  "https://nodejs.org/dist/v16.16.0/node-v16.16.0-win-x64.zip",
+                        "ARM64":  "https://nodejs.org/dist/v16.16.0/node-v16.16.0-win-x64.zip"
+                    },
+                    "InstallDoc"      : "https://tallywiki.tallysolutions.com/display/TWP/Install+Required+Software+on+Windows+x64+Host#InstallRequiredSoftwareonWindowsx64Host-InstallNodeServer",
+                    "InstallDir"      : "${TWHome}\\Tools\\NodeServer",
+                    "Installcommands"    :
+                    [
+                        "DOWNLOAD ${URL_0} ${TEMPDIR}\\NodeServer.zip",
+                        "UNZIP ${TEMPDIR}\\NodeServer.zip",
+                        "DEL /F ${TEMPDIR}\\NodeServer.zip"
+                    ],
+                    "UninstallCommands":
+                    [
+                        "rmdir /S /Q ${InstallDir}"
+                    ]
+                }
+            }
+        },
+        {
+            "Name"        : "nginx",
+            "Windows"     :
+            {
+                "VersionString"  : "1.22.0",
+                "VersionInfo" : 
+                {
+                    "Command"    : "${InstallDir}/nginx -version",
+                    "OutputType" : "PlainText",
+                    "Line"       : 1,
+                    "Column"     : 1
+                },
+                "Installer" : 
+                { 
+                    "URL": 
+                    {
+                        "X64"  :  "http://nginx.org/download/nginx-1.22.0.zip",
+                        "ARM64":  "http://nginx.org/download/nginx-1.22.0.zip"
+                    },
+                    "InstallDoc"      : "https://tallywiki.tallysolutions.com/display/TWP/Install+Required+Software+on+Windows+x64+Host#InstallRequiredSoftwareonWindowsx64Host-Installnginx",
+                    "InstallDir"      : "${TWHome}\\Tools\\nginx",
+                    "Installcommands"    :
+                    [
+                        "DOWNLOAD ${URL_0} ${TEMPDIR}\\nginx.zip",
+                        "UNZIP ${TEMPDIR}\\nginx.zip",
+                        "DEL /F ${TEMPDIR}\\nginx.zip"
+                    ],
+                    "UninstallCommands":
+                    [
+                        "rmdir /S /Q ${InstallDir}"
+                    ]
+                }
+            }
         }
     ],
     "ValidationCMakeFile"  :  "${BootstrapURL}/CMake/ValidateEnvironment.cmake",
