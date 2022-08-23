@@ -258,7 +258,7 @@
             },
             "Linux"     :
             {
-                "VersionString"  : "14.0.5",
+                "VersionString"  : "14.0.6",
                 "Command"        : "clang++",
                 "VersionInfo"    : 
                 {
