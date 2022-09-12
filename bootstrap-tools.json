@@ -963,7 +963,7 @@
             "Name"        : "Gradle",
             "Windows"     :
             {
-                "VersionString"  : "7.1",
+                "VersionString"  : "7.2",
                 "Artifactory" : 
                 {
                         "Name"         : "ADOService",
